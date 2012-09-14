@@ -1,0 +1,16 @@
+[user]
+	name = Jelte Fennema
+	email = jelte12345@gmail.com
+[auto]
+	color = true
+[ui]
+	color = auto
+[color]
+	ui = true
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	excludesfile = /home/jelte/.gitignore_global
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
