@@ -1,4 +1,4 @@
-ompiled source #
+#Compiled source #
 ###################
 *.com
 *.class
@@ -37,6 +37,16 @@ ompiled source #
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# Images #
+##########
+
+*.jpg
+*.jpeg
+*.gif
+*.tiff
+*.png
+*.bmp
 
 # VIM swap files #
 ##################
