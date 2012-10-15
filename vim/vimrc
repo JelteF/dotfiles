@@ -201,6 +201,13 @@ vnoremap > >gv
 "Open last alternate buffer
 noremap <leader><leader> <C-^>
 
+" Press F3 for no smart vim stuff when pasting (autoindent)
+set pastetoggle=<F3>
+
+"Move blocks of text up and down with the arrow keys
+noremap <down> :m '>+1<CR>gv=gv
+vnoremap <up> :m '<-2<CR>gv=gv
+
 "Underline/overline current line
 nnoremap <leader>== yyPv$r=jyypv$r=
 nnoremap <leader>** yyPv$r*jyypv$r*
