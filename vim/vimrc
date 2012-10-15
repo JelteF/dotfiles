@@ -2,6 +2,7 @@
 
 " Automatically reload vimrc when it's saved
 au BufWritePost .vimrc so ~/.vimrc
+au BufWritePost vimrc so ~/.vimrc
 
 " 80-char line coloring
 if exists('+colorcolumn')
