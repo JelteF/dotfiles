@@ -170,7 +170,12 @@ set shell=bash
 
 " -------- Mappings ----------
 
+"Set the mapleader
+let mapleader = ","
+
 "Toggle line numbers with leader-l
+
+set number
 
 function! NumberToggle()
   if(&relativenumber == 1)
@@ -181,10 +186,6 @@ function! NumberToggle()
 endfunc
 
 nnoremap <leader>l :call NumberToggle()<cr>
-:au FocusLost * :set number
-:au FocusGained * :set relativenumber
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
 
 " Tab configuration
 map <leader>tn :tabnew<cr>
@@ -195,9 +196,6 @@ map <leader>tm :tabmove
 " Reselect visual block after indend/outdent
 vnoremap < <gv
 vnoremap > >gv
-
-"Set the mapleader
-let mapleader = ","
 
 "Open last alternate buffer
 noremap <leader><leader> <C-^>
