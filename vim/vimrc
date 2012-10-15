@@ -57,12 +57,31 @@ if exists("+undofile")
   set undodir+=~/.vim/undo//
   set undofile
 endif
-" -------------- Global ----------
 
-colorscheme delek
+" -------------- Plugins ---------
 
 " No need to behave in a strongly vi-compatible way
 set nocompatible
+
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+"Let vundle update vundle
+Bundle 'gmarik/vundle'
+
+"Bundle all other plugins
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fugitive'
+
+" -------------- Global ----------
+
+colorscheme delek
 
 " Shows what you're typing as a command
 set showcmd
@@ -74,8 +93,7 @@ set foldnestmax=10
 set foldlevel=1
 
 " Proper syntax highlighting
-filetype on
-filetype plugin on
+filetype plugin indent on
 syntax on
 
 " Indenting
