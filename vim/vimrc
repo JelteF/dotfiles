@@ -73,17 +73,19 @@ call vundle#rc()
 "Let vundle update vundle
 Bundle 'gmarik/vundle'
 
-"Bundle all other plugins
+"Bundle other plugins
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
+"Bundle colorschemes
+"Bundle 'chriskempson/base16-vim'
 
 " -------------- Global ----------
 
-colorscheme delek
+colorscheme Tomorrow-Night-Bright
 
 " Shows what you're typing as a command
 set showcmd
@@ -209,12 +211,12 @@ noremap <down> :m '>+1<CR>gv=gv
 vnoremap <up> :m '<-2<CR>gv=gv
 
 "Underline/overline current line
-nnoremap <leader>== yyPv$r=jyypv$r=
-nnoremap <leader>** yyPv$r*jyypv$r*
-nnoremap <leader>= yypv$r=
-nnoremap <leader>- yypv$r-
-nnoremap <leader>^ yypv$r^
-nnoremap <leader>" yypv$r"
+"nnoremap <leader>== yyPv$r=jyypv$r=
+"nnoremap <leader>** yyPv$r*jyypv$r*
+"nnoremap <leader>= yypv$r=
+"nnoremap <leader>- yypv$r-
+"nnoremap <leader>^ yypv$r^
+"nnoremap <leader>" yypv$r"
 
 "Clipboard copy pasting
 vmap <F6> :!xclip -f -sel clip<CR>
