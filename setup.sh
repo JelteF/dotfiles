@@ -1,0 +1,19 @@
+#!/bin/bash
+
+BACKUP_DIR=$PWD/backup
+ORIGINAL_BASHRC=$HOME/.bashrc
+ORIGINAL_BASH_PROFILE=$HOME/.bash_profile
+ORIGINAL_GITCONFIG=$HOME/.gitconfig
+ORIGINAL_TMUXCONF=$HOME/.tmux.conf
+ORIGINAL_VIMRC=$HOME/.vimrc
+
+# Backup current dotfiles
+mkdir -p $BACKUP_DIR
+mv $ORIGINAL_BASHRC $ORIGINAL_BASH_PROFILE $ORIGINAL_GITCONFIG \
+    $ORIGINAL_TMUXCONF $ORIGINAL_VIMRC $BACKUP_DIR
+
+ln -s $PWD/git/gitconfig $ORIGINAL_GITCONFIG
+ln -s $PWD/vim/vimrc $ORIGINAL_VIMRC
+ln -s $PWD/bash/bashrc $ORIGINAL_BASHRC
+ln -s $PWD/bash/bash_profile $ORIGINAL_BASH_PROFILE
+ln -s $PWD/tmux/tmux.conf $ORIGINAL_TMUXCONF
