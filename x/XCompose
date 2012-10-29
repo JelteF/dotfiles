@@ -1,0 +1,20 @@
+include "%L"
+
+# Music
+<Multi_key> <M> <1>             : "♪" U266A # EIGHTH NOTE
+<Multi_key> <M> <2>             : "♫" U266B # BEAMED EIGHTH NOTES
+
+# Quoting brackets
+<Multi_key> <bracketleft> <bracketleft>     : "「" U300C
+<Multi_key> <bracketright> <bracketright>   : "」" U300D
+
+# Misc
+<Multi_key> <v> <v>                     : "✓" U2713
+<Multi_key> <v> <x>                     : "✗" U2717
+
+<Multi_key> <ampersand> <ampersand>     : "∧" U2227
+<Multi_key> <bar> <bar>                 : "∨" U2228
+<Multi_key> <n> <o> <t>                 : "¬" UAC # NOT SIGN
+
+<Multi_key> <p> <i>                     : "π" U3C0 # GREEK SMALL LETTER PI
+
