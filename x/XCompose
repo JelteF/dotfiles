@@ -28,17 +28,18 @@ include "%L"
 
 
 # Logic
-<Multi_key> <a> <n> <d>                 : "∧"
-<Multi_key> <o> <r>                     : "∨"
-<Multi_key> <n> <o> <t>                 : "¬" # NOT SIGN
-<Multi_key> <A> <A>                     : "∀"
-<Multi_key> <E> <E>                     : "Ǝ"
+<Multi_key> <a> <n> <d>                 : "∧" # And sign
+<Multi_key> <o> <r>                     : "∨" # Or sign
+<Multi_key> <n> <o> <t>                 : "¬" # Not sign
+<Multi_key> <A> <A>                     : "∀" # For all sign
+<Multi_key> <E> <E>                     : "Ǝ" # Exists sign
 <Multi_key> <L> <a>                     : "⇒" # Implication
 <Multi_key> <L> <R> <a>                 : "⇔" # Equivalent
 
 
 #Math
-<Multi_key> <p> <i>                     : "π" # GREEK SMALL LETTER PI
+<Multi_key> <p> <i>                     : "π" # Pi
+<Multi_key> <d> <e>                     : "∆" # Delta
 <Multi_key> <p> <m>                     : "±" # Plus Minus
 <Multi_key> <i> <n> <f>                 : "∞" # Infinite
 <Multi_key> <x> <x>                     : "×" # Times
