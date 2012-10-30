@@ -11,6 +11,8 @@ include "%L"
 # Misc
 <Multi_key> <v> <v>                     : "✓"
 <Multi_key> <v> <x>                     : "✗"
+<Multi_key> <:> <)>                     : "☺"
+<Multi_key> <:> <(>                     : "☹"
 <Multi_key> <l> <e> <f> <t> <a>         : "←"
 <Multi_key> <r> <i> <g> <h> <t> <a>     : "→"
 <Multi_key> <u> <p> <a>                 : "↑"
