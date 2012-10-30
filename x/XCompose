@@ -12,9 +12,12 @@ include "%L"
 <Multi_key> <v> <v>                     : "✓" U2713
 <Multi_key> <v> <x>                     : "✗" U2717
 
-<Multi_key> <ampersand> <ampersand>     : "∧" U2227
-<Multi_key> <bar> <bar>                 : "∨" U2228
+# Math
+<Multi_key> <a> <n> <d>     : "∧" U2227
+<Multi_key> <o> <r>                 : "∨" U2228
 <Multi_key> <n> <o> <t>                 : "¬" UAC # NOT SIGN
 
 <Multi_key> <p> <i>                     : "π" U3C0 # GREEK SMALL LETTER PI
-
+<Multi_key> <p> <m>                     : "±" # Plus Minus
+<Multi_key> <i> <n> <f>                 : "∞" # Infinite
+<Multi_key> <x> <x>                     : "×" # Times
