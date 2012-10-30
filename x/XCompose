@@ -4,19 +4,27 @@ include "%L"
 <Multi_key> <M> <1>             : "♪" # EIGHTH NOTE
 <Multi_key> <M> <2>             : "♫" # BEAMED EIGHTH NOTES
 
+
 # Quoting brackets
 <Multi_key> <bracketleft> <bracketleft>     : "「"
 <Multi_key> <bracketright> <bracketright>   : "」"
 
+
 # Misc
 <Multi_key> <v> <v>                     : "✓"
 <Multi_key> <v> <x>                     : "✗"
+
 <Multi_key> <:> <)>                     : "☺"
 <Multi_key> <:> <(>                     : "☹"
-<Multi_key> <l> <e> <f> <t> <a>         : "←"
-<Multi_key> <r> <i> <g> <h> <t> <a>     : "→"
-<Multi_key> <u> <p> <a>                 : "↑"
-<Multi_key> <d> <o> <w> <n> <a>         : "↓"
+<Multi_key> <c> <o> <m>                 : "☭"
+<Multi_key> <p> <e> <a> <c> <e>         : "☮"
+<Multi_key> <y> <i> <n>                 : "☯"
+<Multi_key> <r> <a> <d> <i> <o>         : "☢"
+
+<Multi_key> <l> <a>                     : "←"
+<Multi_key> <r> <a>                     : "→"
+<Multi_key> <u> <a>                     : "↑"
+<Multi_key> <d> <a>                     : "↓"
 
 
 # Logic
@@ -25,6 +33,9 @@ include "%L"
 <Multi_key> <n> <o> <t>                 : "¬" # NOT SIGN
 <Multi_key> <A> <A>                     : "∀"
 <Multi_key> <E> <E>                     : "Ǝ"
+<Multi_key> <L> <a>                     : "⇒" # Implication
+<Multi_key> <L> <R> <a>                 : "⇔" # Equivalent
+
 
 #Math
 <Multi_key> <p> <i>                     : "π" # GREEK SMALL LETTER PI
