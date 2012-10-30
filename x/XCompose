@@ -1,23 +1,32 @@
 include "%L"
 
 # Music
-<Multi_key> <M> <1>             : "♪" U266A # EIGHTH NOTE
-<Multi_key> <M> <2>             : "♫" U266B # BEAMED EIGHTH NOTES
+<Multi_key> <M> <1>             : "♪" # EIGHTH NOTE
+<Multi_key> <M> <2>             : "♫" # BEAMED EIGHTH NOTES
 
 # Quoting brackets
-<Multi_key> <bracketleft> <bracketleft>     : "「" U300C
-<Multi_key> <bracketright> <bracketright>   : "」" U300D
+<Multi_key> <bracketleft> <bracketleft>     : "「"
+<Multi_key> <bracketright> <bracketright>   : "」"
 
 # Misc
-<Multi_key> <v> <v>                     : "✓" U2713
-<Multi_key> <v> <x>                     : "✗" U2717
+<Multi_key> <v> <v>                     : "✓"
+<Multi_key> <v> <x>                     : "✗"
+<Multi_key> <l> <e> <f> <t> <a>         : "←"
+<Multi_key> <r> <i> <g> <h> <t> <a>     : "→"
+<Multi_key> <u> <p> <a>                 : "↑"
+<Multi_key> <d> <o> <w> <n> <a>         : "↓"
 
-# Math
-<Multi_key> <a> <n> <d>     : "∧" U2227
-<Multi_key> <o> <r>                 : "∨" U2228
-<Multi_key> <n> <o> <t>                 : "¬" UAC # NOT SIGN
 
-<Multi_key> <p> <i>                     : "π" U3C0 # GREEK SMALL LETTER PI
+# Logic
+<Multi_key> <a> <n> <d>                 : "∧"
+<Multi_key> <o> <r>                     : "∨"
+<Multi_key> <n> <o> <t>                 : "¬" # NOT SIGN
+<Multi_key> <A> <A>                     : "∀"
+<Multi_key> <E> <E>                     : "Ǝ"
+
+#Math
+<Multi_key> <p> <i>                     : "π" # GREEK SMALL LETTER PI
 <Multi_key> <p> <m>                     : "±" # Plus Minus
 <Multi_key> <i> <n> <f>                 : "∞" # Infinite
 <Multi_key> <x> <x>                     : "×" # Times
+<Multi_key> <s> <i> <n>                 : "∿" # Mini Sinus
