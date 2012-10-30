@@ -30,11 +30,16 @@ include "%L"
 # Logic
 <Multi_key> <a> <n> <d>                 : "∧" # And sign
 <Multi_key> <o> <r>                     : "∨" # Or sign
+<Multi_key> <i> <n>                     : "∈" # In collection sign
+<Multi_key> <n> <i> <n>                 : "∉" # Not in collection sign
+<Multi_key> <A> <n> <d>                 : "⋂" # Intersection
+<Multi_key> <O> <r>                     : "⋃" # Union
 <Multi_key> <n> <o> <t>                 : "¬" # Not sign
 <Multi_key> <A> <A>                     : "∀" # For all sign
 <Multi_key> <E> <E>                     : "Ǝ" # Exists sign
 <Multi_key> <L> <a>                     : "⇒" # Implication
 <Multi_key> <L> <R> <a>                 : "⇔" # Equivalent
+
 
 
 #Math
