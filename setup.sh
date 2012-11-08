@@ -15,6 +15,17 @@ mv $ORIGINAL_BASHRC $ORIGINAL_BASH_PROFILE $ORIGINAL_PROFILE \
     $ORIGINAL_GITCONFIG $ORIGINAL_TMUXCONF $ORIGINAL_VIMRC \
     $ORIGINAL_XCOMPOSE $BACKUP_DIR
 
+# Create vim folders
+mkdir ~/.vim
+mkdir ~/.vim/bundle
+mkdir ~/.vim/colors
+
+# Install vundle
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+# Install nice color scheme
+wget https://raw.github.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night-Bright.vim -o ~/.vim/colors/Tomorrow-Night-Bright.vim
+
 ln -s $PWD/bash/bashrc $ORIGINAL_BASHRC
 ln -s $PWD/bash/bash_profile $ORIGINAL_BASH_PROFILE
 ln -s $PWD/bash/profile $ORIGINAL_PROFILE
