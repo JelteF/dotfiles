@@ -1,0 +1,15 @@
+[auto]
+	color = true
+[ui]
+	color = auto
+[color]
+	ui = true
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	excludesfile = ~/dotfiles/git/gitignore_global
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[push]
+	default = current
