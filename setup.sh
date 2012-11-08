@@ -24,7 +24,7 @@ mkdir ~/.vim/colors
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 # Install nice color scheme
-wget https://raw.github.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night-Bright.vim -o ~/.vim/colors/Tomorrow-Night-Bright.vim
+wget https://raw.github.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night-Bright.vim -O ~/.vim/colors/Tomorrow-Night-Bright.vim
 
 ln -s $PWD/bash/bashrc $ORIGINAL_BASHRC
 ln -s $PWD/bash/bash_profile $ORIGINAL_BASH_PROFILE
