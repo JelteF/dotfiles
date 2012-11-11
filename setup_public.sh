@@ -2,7 +2,6 @@
 
 BACKUP_DIR=$PWD/backup
 ORIGINAL_BASHRC=$HOME/.bashrc
-ORIGINAL_BASH_PROFILE=$HOME/.bash_profile
 ORIGINAL_PROFILE=$HOME/.profile
 ORIGINAL_GITCONFIG=$HOME/.gitconfig
 ORIGINAL_TMUXCONF=$HOME/.tmux.conf
@@ -27,9 +26,8 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 wget https://raw.github.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night-Bright.vim -O ~/.vim/colors/Tomorrow-Night-Bright.vim
 
 ln -s $PWD/bash/bashrc $ORIGINAL_BASHRC
-ln -s $PWD/bash/bash_profile $ORIGINAL_BASH_PROFILE
 ln -s $PWD/bash/profile $ORIGINAL_PROFILE
 ln -s $PWD/git/gitconfig $ORIGINAL_GITCONFIG
 ln -s $PWD/tmux/tmux.conf $ORIGINAL_TMUXCONF
-ln -s $PWD/vim/vimrc $ORIGINAL_VIMRC
+ln -s $PWD/vim/vimrc_public $ORIGINAL_VIMRC
 ln -s $PWD/x/XCompose $ORIGINAL_XCOMPOSE

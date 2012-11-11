@@ -1,0 +1,9 @@
+alias ins="sudo apt-get install"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../../'
+alias rmdir='rm -rf'
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
+TERM=xterm-256color

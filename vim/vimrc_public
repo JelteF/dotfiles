@@ -1,0 +1,266 @@
+" -------------- Auto Commands -----------
+
+" Automatically reload vimrc when it's saved
+au BufWritePost .vimrc so ~/.vimrc
+au BufWritePost vimrc so ~/.vimrc
+
+" 80-char line coloring
+if exists('+colorcolumn')
+    set colorcolumn=80
+else
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
+" Remove all trailing whitespace
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
+" cd into the dir that the file is in
+"autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+set autochdir
+
+" If textfile, wrap at 80
+autocmd BufRead *.txt set tw=80
+
+" Restore cursor position when opening file
+augroup JumpCursorOnEdit
+au!
+autocmd BufReadPost *
+\ if expand("<afile>:p:h") !=? $TEMP |
+\   if line("'\"") > 1 && line("'\"") <= line("$") |
+\     let JumpCursorOnEdit_foo = line("'\"") |
+\     let b:doopenfold = 1 |
+\     if (foldlevel(JumpCursorOnEdit_foo) > foldlevel(JumpCursorOnEdit_foo - 1)) |
+\        let JumpCursorOnEdit_foo = JumpCursorOnEdit_foo - 1 |
+\        let b:doopenfold = 2 |
+\     endif |
+\     exe JumpCursorOnEdit_foo |
+\   endif |
+\ endif
+" Need to postpone using "zv" until after reading the modelines.
+autocmd BufWinEnter *
+\ if exists("b:doopenfold") |
+\   exe "normal zv" |
+\   if(b:doopenfold > 1) |
+\       exe  "+".1 |
+\   endif |
+\   unlet b:doopenfold |
+\ endif
+augroup END
+
+if exists("+undofile")
+  " undofile - This allows you to use undos after exiting and restarting
+  " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
+  " :help undo-persistence
+  " This is only present in 7.3+
+  if isdirectory($HOME . '/.vim/undo') == 0
+    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+  endif
+  set undodir=./.vim-undo//
+  set undodir+=~/.vim/undo//
+  set undofile
+endif
+
+" -------------- Plugins ---------
+
+" No need to behave in a strongly vi-compatible way
+set nocompatible
+
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+"Let vundle update vundle
+Bundle 'gmarik/vundle'
+
+"Bundle other plugins
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fugitive'
+"Bundle colorschemes
+"Bundle 'chriskempson/base16-vim'
+
+" -------------- Global ----------
+
+colorscheme Tomorrow-Night-Bright
+
+" Shows what you're typing as a command
+set showcmd
+
+" Folding
+set foldmethod=indent
+set nofoldenable
+set foldnestmax=10
+set foldlevel=1
+
+" Proper syntax highlighting
+filetype plugin indent on
+syntax on
+
+" Indenting
+set smartindent
+set autoindent
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+
+" Set english spellchecking, but only if turned on
+if version > 700
+set spl=en spell
+set nospell
+endif
+
+" Ruler rules
+set ruler
+
+" Tab completion
+set wildmenu
+set wildmode=list:longest,full
+
+" Enable mouse
+set mouse=a
+
+" Casing
+set ignorecase
+set smartcase
+
+" The smash escape
+inoremap jkl <esc>
+inoremap jlk <esc>
+inoremap kjl <esc>
+inoremap klj <esc>
+inoremap ljk <esc>
+inoremap lkj <esc>
+
+
+" hl search results
+set hlsearch
+
+" When I close a tab, remove the buffer
+set nohidden
+
+" Set of the other paren
+highlight MatchParen ctermbg=4
+
+" Set 7 lines to the curors when moving vertical
+set so=7
+
+" increased search
+set incsearch
+
+" It's a kinda
+set magic
+
+" show matching bracket
+set showmatch
+
+" word wrapping at line breaks
+set wrap
+set linebreak
+
+" Highlight current line
+set cul
+
+" Make backspace work
+set backspace=indent,eol,start
+
+" BASH
+set shell=bash
+
+" -------- Mappings ----------
+
+"Set the mapleader
+let mapleader = ","
+
+"Toggle line numbers with leader-l
+set number
+
+function! NumberToggle()
+  if(&number != 1)
+    set number
+  else
+    set nonumber
+  endif
+endfunc
+
+nnoremap <leader>l :call NumberToggle()<cr>
+
+" Tab configuration
+map <leader>tn :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+
+" Reselect visual block after indend/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+"Open last alternate buffer
+noremap <leader><leader> <C-^>
+
+" Press F3 for no smart vim stuff when pasting (autoindent)
+set pastetoggle=<F3>
+
+"Move blocks of text up and down with the arrow keys
+noremap <down> :m '>+1<CR>gv=gv
+vnoremap <up> :m '<-2<CR>gv=gv
+
+"Underline/overline current line
+"nnoremap <leader>== yyPv$r=jyypv$r=
+"nnoremap <leader>** yyPv$r*jyypv$r*
+"nnoremap <leader>= yypv$r=
+"nnoremap <leader>- yypv$r-
+"nnoremap <leader>^ yypv$r^
+"nnoremap <leader>" yypv$r"
+
+"Clipboard copy pasting
+vmap <F6> :!xclip -f -sel clip<CR>
+map <F7> mz:-1r !xclip -o -sel clip<CR>`z
+
+"Make Y work like D and C
+map Y y$
+
+" Fix indenting in entire file without moving cursor
+noremap <F1> mzgg=G`zzz
+
+" Write, pdflatex and open it up
+nnoremap <silent> <F2> :w<CR>:!pdflatex % && F=% && open ${F\%.*}.pdf<CR><CR>
+
+" Make j and k work as expected
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+
+" Toggle folds with space
+nnoremap <space> za
+
+" Swap ; and : since you use the last one way more often, so why make it
+" harder
+nnoremap ; :
+
+"Easier split window navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+nnoremap <up> <C-w>k
+nnoremap <down> <C-w>j
+nnoremap <left> <C-w>h
+nnoremap <right> <C-w>l
+
+"Turn of highlight
+noremap <silent><leader>/ :nohls<CR>
+
+"Tab for autocompletion
+function! SuperTab()
+    if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
+        return "\<Tab>"
+    else
+        return "\<C-n>"
+    endif
+endfunction
+imap <Tab> <C-R>=SuperTab()<CR>
