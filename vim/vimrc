@@ -229,7 +229,7 @@ map Y y$
 noremap <F1> mzgg=G`zzz
 
 " Write, pdflatex and open it up
-nnoremap <silent> <F2> :w<CR>:!pdflatex % && F=% && open ${F\%.*}.pdf<CR><CR>
+nnoremap <silent> <F2> :w<CR>:!pdflatex % && F=% && gnome-open ${F\%.*}.pdf<CR><CR>
 
 " Make j and k work as expected
 nnoremap <silent> j gj
