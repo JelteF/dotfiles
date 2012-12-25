@@ -33,3 +33,19 @@ ln -s $PWD/git/gitconfig $ORIGINAL_GITCONFIG
 ln -s $PWD/tmux/tmux.conf $ORIGINAL_TMUXCONF
 ln -s $PWD/vim/vimrc $ORIGINAL_VIMRC
 ln -s $PWD/x/XCompose $ORIGINAL_XCOMPOSE
+
+# Install all stuff
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo \
+    apt-key add -
+sudo "deb http://dl.google.com/linux/chrome/deb/ stable main" echo \
+    /etc/apt/sources.list.d/google.list
+sudo apt-get update
+sudo --yes --force-yes apt-get install google-chrome-stable vim ack-grep \
+    ruby-sass irssi htop ipython synapse xdotool mono-complete gnuplot
+
+sudo wget https://github.com/pfn/keepasshttp/raw/master/KeePassHttp/KeePassHttp.dll -O /usr/lib/keepass2/KeePassHttp.dll
+sudo wget https://github.com/pfn/keepasshttp/raw/master/KeePassHttp/Newtonsoft.Json.dll -O /usr/lib/keepass2/Newtonsoft.Json.dll
+
+sudo apt-get upgrade
+
+sudo apt-get install texlive-*
