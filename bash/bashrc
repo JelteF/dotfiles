@@ -1,4 +1,5 @@
 alias ins="sudo apt-get install"
+alias ack='ack-grep'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../../'
