@@ -1,2 +1,2 @@
-volumeicon &
+volumeicon & synapse -s &
 exec ck-launch-session dbus-launch --sh-syntax --exit-with-session awesome
