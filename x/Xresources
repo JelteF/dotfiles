@@ -5,4 +5,9 @@ xterm*cursorColor: lightgrey
 xterm*foreground: white
 xterm*saveLines: 2000
 xterm*scrollbar: true
-xterm*boldMode: false
+
+XTerm*vt100.translations: #override \
+    Shift <KeyPress> Up:      scroll-back(1, line) \n\
+    Shift <KeyPress> Down:    scroll-forw(1, line) \n\
+    Ctrl Shift <KeyPress> C:  select-end(PRIMARY,CLIPBOARD,CUT_BUFFER0) \n\
+    Ctrl Shift <KeyPress> V:  insert-selection(CLIPBOARD, CUT_BUFFER0, PRIMARY)
