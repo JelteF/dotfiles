@@ -5,6 +5,7 @@ xterm*cursorColor: lightgrey
 xterm*foreground: white
 xterm*saveLines: 2000
 xterm*scrollbar: true
+xterm*highlightSelection: true
 
 XTerm*vt100.translations: #override \
     Shift <KeyPress> Up:      scroll-back(1, line) \n\
