@@ -19,9 +19,9 @@ mv $ORIGINAL_BASHRC $ORIGINAL_BASH_PROFILE $ORIGINAL_PROFILE \
     $ORIGINAL_XCOMPOSE $ORIGINAL_XINITRC $ORIGINAL_XRESOURCES $BACKUP_DIR
 
 # Create vim folders
-mkdir ~/.vim
-mkdir ~/.vim/bundle
-mkdir ~/.vim/colors
+mkdir -p ~/.vim
+mkdir -p ~/.vim/bundle
+mkdir -p ~/.vim/colors
 
 # Install vundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
