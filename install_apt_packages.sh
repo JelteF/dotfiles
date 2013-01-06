@@ -6,7 +6,7 @@ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo \
     apt-key add -
 
 # Add Google to sources
-echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | tee \
+echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee \
     /etc/apt/sources.list.d/google.list > /dev/null
 
 # Update sources
