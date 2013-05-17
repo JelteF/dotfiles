@@ -2,8 +2,8 @@
 
 # Base
 VIM="vim vim-spell-nl vim-spell-en"
-GENTOO_UTILS="layman gentoolkit"
-BASH_UTILS="ack the_silver_searcher irssi htop wireless-tools pciutils"
+GENTOO_UTILS="eix layman gentoolkit"
+BASH_UTILS="ack the_silver_searcher irssi htop wireless-tools pciutils module-rebuild"
 GIT="git tig"
 
 # X
