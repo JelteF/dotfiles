@@ -3,7 +3,7 @@
 # Base
 VIM="vim vim-spell-nl vim-spell-en"
 GENTOO_UTILS="eix layman gentoolkit"
-BASH_UTILS="ack the_silver_searcher irssi htop wireless-tools pciutils module-rebuild"
+BASH_UTILS="ack the_silver_searcher irssi htop pciutils module-rebuild"
 GIT="git tig"
 
 # X
@@ -18,7 +18,7 @@ WEBDEV="flask flask-sqlalchemy sass"
 EXTRA="skype sci-visualization/gnuplot wine audacity texlive"
 LARGE="firefox libreoffice"
 
-LAPTOP="wpa_supplicant gnome-power-manager"
+LAPTOP="wpa_supplicant wireless-tools gnome-power-manager"
 
 
 
