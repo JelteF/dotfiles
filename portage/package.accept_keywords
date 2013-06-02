@@ -1,0 +1,19 @@
+# Google chrome stable
+www-client/google-chrome:stable
+
+# Vim latest version
+>=app-editors/vim-7.3.931
+>=app-editors/vim-core-7.3.931
+
+# Terminals latest versions
+>=x11-terms/gnome-terminal-3.6.2
+>=x11-terms/xterm-292
+
+# Awesome latest version
+#>=x11-wm/awesome-3.5.1
+
+
+# Working eix-remote version
+>=app-portage/eix-0.27.4
+
+
