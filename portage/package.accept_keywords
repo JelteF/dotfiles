@@ -12,8 +12,8 @@ www-client/google-chrome:stable
 # Awesome latest version
 #>=x11-wm/awesome-3.5.1
 
-
 # Working eix-remote version
 >=app-portage/eix-0.27.4
 
-
+# Always newest nvidia drivers
+>=x11-drivers/nvidia-drivers-319.17
