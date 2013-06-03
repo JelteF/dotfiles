@@ -85,6 +85,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'chriskempson/base16-vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'kien/ctrlp.vim'
 "Bundle colorschemes
 
 " -------------- Global ----------
