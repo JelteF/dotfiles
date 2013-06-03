@@ -1,0 +1,8 @@
+# Skype license
+>=net-im/skype-4.1.0.20 skype-4.0.0.7-copyright
+
+# Google Chrome license
+>=www-client/google-chrome-27.0.1453.93_p200836 google-chrome
+
+# Adobe Flash license
+>=www-plugins/adobe-flash-11.2.202.285 AdobeFlash-11.x

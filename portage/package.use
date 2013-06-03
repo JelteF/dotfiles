@@ -2,6 +2,11 @@
 # Extra LaTeX features
 app-text/texlive extra graphics humanities science
 
+# Disable watermark on ati drivers
+x11-drivers/ati-drivers disable-watermark
+
+# Enable flash and windows/wine game support on steam
+games-util/steam-client-meta flash windows-games
 
 
 #### Dispatch-conf added

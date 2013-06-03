@@ -20,6 +20,8 @@ set autochdir
 
 " If textfile, wrap at 80
 autocmd BufRead *.txt set tw=80
+autocmd BufRead *.md set tw=80
+autocmd BufRead *.tex set tw=80
 
 " Restore cursor position when opening file
 augroup JumpCursorOnEdit
@@ -82,8 +84,8 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'chriskempson/base16-vim'
 "Bundle colorschemes
-"Bundle 'chriskempson/base16-vim'
 
 " -------------- Global ----------
 
@@ -232,6 +234,13 @@ noremap <F1> mzgg=G`zzz
 
 " Write, pdflatex and open it up
 nnoremap <silent> <F2> :w<CR>:!pdflatex % && F=% && gnome-open ${F\%.*}.pdf<CR><CR>
+
+" Make and view pdf
+nnoremap <silent> <F4> :w<CR>:!make && F=% && gnome-open ${F\%.*}.pdf<CR><CR>
+
+" Make
+nnoremap <silent> <F5> :w<CR>:!make<CR><CR>
+
 
 " Make j and k work as expected
 nnoremap <silent> j gj

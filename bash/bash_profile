@@ -11,6 +11,4 @@ if [[ $- != *i* ]] ; then
         return
 fi
 
-keychain --quiet ~/.ssh/cv_rsa
-. ~/.keychain/$hostname-sh
-. ~/.keychain/$hostname-sh-gpg
+source .bashrc
