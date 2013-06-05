@@ -20,6 +20,8 @@ www-client/google-chrome:stable
 # Needed by Firefox 21.0
 >=dev-libs/nspr-4.9.6
 
+# Bitcoin miner latest version
+>=net-misc/bfgminer-3.0.0
 
 # Latest graphicscard drivers
 >=x11-drivers/nvidia-drivers-319.17
