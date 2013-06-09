@@ -26,3 +26,12 @@ www-client/google-chrome:stable
 # Latest graphicscard drivers
 >=x11-drivers/nvidia-drivers-319.17
 >=x11-drivers/ati-drivers-13.4
+
+
+# Latest Steam version
+>=games-util/steam-meta-0-r20130514
+>=games-util/steam-games-meta-0-r20130312
+>=games-util/steam-client-meta-0-r20130514
+>=app-emulation/steam-runtime-bin-20130514
+>=games-util/steam-launcher-1.0.0.39-r2
+=media-libs/libsdl-2.0.0_pre9999 **
