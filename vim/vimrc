@@ -89,6 +89,12 @@ Bundle 'majutsushi/tagbar'
 Bundle 'kien/ctrlp.vim'
 "Bundle colorschemes
 
+
+"ctrlp ignore files
+let g:ctrlp_custom_ignore = {
+  \ 'file': '\v\.(exe|so|dll|pyc|pdf|dvi|aux)$',
+  \ }
+
 " -------------- Global ----------
 
 colorscheme Tomorrow-Night-Bright
