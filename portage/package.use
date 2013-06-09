@@ -10,8 +10,8 @@ games-util/steam-client-meta flash windows-games
 # Needed by steam
 >=media-libs/libsdl-2.0.0_pre9999 abi_x86_32
 
-# Needed by SQLAlchemy
->=dev-lang/python-3.2.3-r2 sqlite
+# Needed by SQLAlchemy and Synapse
+>=dev-lang/python-2.7 sqlite
 
 
 
