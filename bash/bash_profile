@@ -11,4 +11,5 @@ if [[ $- != *i* ]] ; then
         return
 fi
 
+source /etc/profile.d/bash-completion.sh
 source .bashrc

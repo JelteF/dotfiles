@@ -13,6 +13,9 @@ games-util/steam-client-meta flash windows-games
 # Needed by SQLAlchemy and Synapse
 >=dev-lang/python-2.7 sqlite
 
+# No awesome support for powerline
+app-shells/powerline -awesome
+
 
 
 #### Dispatch-conf added

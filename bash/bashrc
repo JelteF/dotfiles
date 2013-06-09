@@ -10,3 +10,4 @@ shopt -s autocd
 export PATH=~/.local/bin:$PATH
 alias nvcc='/usr/local/cuda-5.0/bin/nvcc'
 export EDITOR="vim"
+source /usr/share/powerline/bash/powerline.sh
