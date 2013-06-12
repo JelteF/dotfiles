@@ -1,4 +1,3 @@
-#### Self added
 # Extra LaTeX features
 app-text/texlive extra graphics humanities science
 >=media-libs/gd-2.0.35-r3 truetype jpeg png fontconfig
@@ -16,6 +15,12 @@ games-util/steam-client-meta flash windows-games
 
 # No awesome support for powerline
 app-shells/powerline -awesome
+
+# Flash 32-bit to use in steam
+>=www-plugins/adobe-flash-11.2.202.285 32bit
+
+# Latex dependency
+>=media-libs/gd-2.0.35-r3 fontconfig
 
 
 

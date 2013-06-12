@@ -25,6 +25,10 @@ www-client/google-chrome:stable
 =virtual/pyparsing-2
 
 
+# Keepass
+>=app-admin/keepass-2.22
+
+
 # Add synapse
 >=gnome-extra/synapse-0.2.10
 >=dev-libs/libzeitgeist-0.3.18
@@ -41,6 +45,7 @@ www-client/google-chrome:stable
 
 # Latest graphicscard drivers
 >=x11-drivers/nvidia-drivers-319.17
+>=media-video/nvidia-settings-319.12
 >=x11-drivers/ati-drivers-13.4
 
 
