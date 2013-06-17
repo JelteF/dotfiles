@@ -39,6 +39,7 @@ www-client/google-chrome:stable
 >=dev-python/rdflib-4.0.1
 >=dev-python/python-exec-0.3
 >=dev-python/html5lib-0.95-r1
+>=dev-python/bsddb3-5.3.0-r1
 
 # Bitcoin miner latest version
 >=net-misc/bfgminer-3.0.0
@@ -89,9 +90,13 @@ www-client/google-chrome:stable
 >=dev-python/werkzeug-0.8.3-r1
 >=dev-python/flask-sqlalchemy-0.16-r1
 >=dev-python/blinker-1.2-r1
->=dev-python/flask-login-0.1.3
 >=dev-python/py-bcrypt-0.2
 >=net-libs/nodejs-0.10.10
+>=dev-python/flask-login-0.1.3
+
+# Required by Flask
+>=dev-python/itsdangerous-0.21
+>=dev-python/simplejson-3.3.0
 
 
 # Sass dependencies
