@@ -109,3 +109,5 @@ www-client/google-chrome:stable
 >=dev-ruby/listen-0.7.3
 
 
+# uWSGI
+>=www-servers/uwsgi-1.4.9
