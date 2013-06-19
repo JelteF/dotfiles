@@ -43,6 +43,7 @@ www-client/google-chrome:stable
 
 # Bitcoin miner latest version
 >=net-misc/bfgminer-3.0.0
+>=net-libs/libblkmaker-0.3.1
 
 # Latest graphicscard drivers
 >=x11-drivers/nvidia-drivers-319.17
@@ -97,6 +98,9 @@ www-client/google-chrome:stable
 # Required by Flask
 >=dev-python/itsdangerous-0.21
 >=dev-python/simplejson-3.3.0
+
+# Required by dateutil python library
+>=dev-python/six-1.2.0-r1
 
 
 # Sass dependencies
