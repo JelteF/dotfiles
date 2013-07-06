@@ -17,8 +17,12 @@ www-client/google-chrome:stable
 
 # Latest Firefox version
 >=www-client/firefox-21.0
-# Needed by Firefox 21.0
+# Needed by Firefox
 >=dev-libs/nspr-4.9.6
+>=dev-libs/nss-3.15
+
+# Latest Skype version
+>=net-im/skype-4.1.0.20
 
 
 # Needed by LaTeX
@@ -40,6 +44,8 @@ www-client/google-chrome:stable
 >=dev-python/python-exec-0.3
 >=dev-python/html5lib-0.95-r1
 >=dev-python/bsddb3-5.3.0-r1
+>=dev-libs/vala-common-0.20.1
+>=dev-lang/vala-0.20.1
 
 # Bitcoin miner latest version
 >=net-misc/bfgminer-3.0.0
