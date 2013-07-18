@@ -271,6 +271,12 @@ nnoremap <down> <C-w>j
 nnoremap <left> <C-w>h
 nnoremap <right> <C-w>l
 
+
+" Better split window opening
+set splitbelow
+set splitright
+
+
 "Turn of highlight
 noremap <silent><leader>/ :nohls<CR>
 
