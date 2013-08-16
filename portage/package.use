@@ -26,6 +26,11 @@ app-shells/powerline -awesome
 =x11-libs/libdrm-2.4.45 libkms
 =media-libs/mesa-9.1.2-r1 xa
 
+# VLC dependency
+=sys-libs/zlib-1.2.7 minizip
+
+
+
 
 
 #### Dispatch-conf added

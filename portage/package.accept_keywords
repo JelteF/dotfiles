@@ -7,6 +7,9 @@ www-client/google-chrome:stable
 
 # Terminals latest versions
 >=x11-terms/gnome-terminal-3.6.2
+>=gnome-base/dconf-0.16.1
+>=x11-libs/vte-0.34.7
+>=x11-libs/gnome-pty-helper-0.34.7
 >=x11-terms/xterm-292
 
 # Awesome latest version
@@ -20,6 +23,24 @@ www-client/google-chrome:stable
 # Needed by Firefox
 >=dev-libs/nspr-4.9.6
 >=dev-libs/nss-3.15
+
+# Latest Nautilus
+>=gnome-base/nautilus-3.8.2
+>=gnome-base/gsettings-desktop-schemas-3.8.2
+>=gnome-extra/sushi-3.8.1
+>=dev-util/gdbus-codegen-2.36.4
+>=gnome-base/gnome-desktop-3.8.3
+>=dev-libs/gobject-introspection-common-1.36.0
+>=x11-libs/gdk-pixbuf-2.28.2
+>=dev-libs/gjs-1.36.1
+>=gnome-base/gvfs-1.16.3
+
+# Latest Evince
+>=app-text/evince-3.8.3
+
+# Latest Transmission
+>=net-p2p/transmission-2.77-r1
+>=dev-libs/glib-2.36.4
 
 # Latest Skype version
 >=net-im/skype-4.1.0.20
@@ -46,6 +67,7 @@ www-client/google-chrome:stable
 >=dev-python/bsddb3-5.3.0-r1
 >=dev-libs/vala-common-0.20.1
 >=dev-lang/vala-0.20.1
+>=dev-libs/gobject-introspection-1.36.0
 
 # Bitcoin miner latest version
 >=net-misc/bfgminer-3.0.0
@@ -80,10 +102,21 @@ www-client/google-chrome:stable
 =dev-python/pypy-2.0.2
 >=dev-python/setuptools-0.6.40
 
-
+# Latest ipython version
+>=app-text/evince-3.8.3
+>=media-libs/fontconfig-2.10.92
+>=x11-libs/cairo-1.12.14-r4
 
 # Use latest gcc
 >=sys-devel/gcc-4.7.3
+
+# Use latest gtk+
+>=x11-libs/gtk+-3.8.2
+>=app-accessibility/at-spi2-core-2.8.0
+>=app-accessibility/at-spi2-atk-2.8.1
+>=dev-libs/atk-2.8.0
+>=x11-libs/pango-1.34.1
+
 
 # Insync
 =app-backup/insync-0.9.41
@@ -113,6 +146,10 @@ www-client/google-chrome:stable
 >=dev-ruby/sass-3.2.9
 >=dev-ruby/rb-inotify-0.9.0
 >=dev-ruby/listen-0.7.3
+
+# Git-flow
+>=dev-vcs/gitflow-0.4.1
+>=dev-vcs/git-flow-completion-0.4.1.0
 
 
 # uWSGI
