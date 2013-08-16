@@ -275,6 +275,8 @@ nnoremap <up> <C-w>k
 nnoremap <down> <C-w>j
 nnoremap <left> <C-w>h
 nnoremap <right> <C-w>l
+" Fix mapping of <C-j> so it doesn't get overwritten
+noremap <SID>I_won’t_ever_type_thiseuehauntauhnaeha <Plug>IMAP_JumpForward
 
 
 " Better split window opening
