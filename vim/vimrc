@@ -208,10 +208,10 @@ endfunc
 nnoremap <leader>l :call NumberToggle()<cr>
 
 " Tab configuration
-map <leader>tn :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
+noremap <leader>tn :tabnew<cr>
+noremap <leader>te :tabedit
+noremap <leader>tc :tabclose<cr>
+noremap <leader>tm :tabmove
 
 " Reselect visual block after indend/outdent
 vnoremap < <gv
@@ -236,8 +236,8 @@ vnoremap <up> :m '<-2<CR>gv=gv
 "nnoremap <leader>" yypv$r"
 
 "Clipboard copy pasting
-vmap <F6> :!xclip -f -sel clip<CR>
-map <F7> mz:-1r !xclip -o -sel clip<CR>`z
+vnoremap <F6> :!xclip -f -sel clip<CR>
+noremap <F7> mz:-1r !xclip -o -sel clip<CR>`z
 
 "Make Y work like D and C
 map Y y$
@@ -295,5 +295,5 @@ function! SuperTab()
         return "\<C-n>"
     endif
 endfunction
-imap <Tab> <C-R>=SuperTab()<CR>
+inoremap <Tab> <C-R>=SuperTab()<CR>
 
