@@ -86,7 +86,9 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'chriskempson/base16-vim'
 Bundle 'majutsushi/tagbar'
-Bundle 'kien/ctrlp.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 "Bundle colorschemes
 
 
@@ -129,6 +131,9 @@ endif
 
 " Ruler rules
 set ruler
+
+" Always show the statusbar
+set laststatus=2
 
 " Tab completion
 set wildmenu
@@ -238,16 +243,16 @@ map <F7> mz:-1r !xclip -o -sel clip<CR>`z
 map Y y$
 
 " Fix indenting in entire file without moving cursor
-noremap <F1> mzgg=G`zzz
+"noremap <silent> <F1> mzgg=G`zzz
 
 " Write, pdflatex and open it up
-nnoremap <silent> <F2> :w<CR>:!pdflatex % && F=% && gnome-open ${F\%.*}.pdf<CR><CR>
+nnoremap <silent> <F5> :w<CR>:!pdflatex % && F=% && evince ${F\%.*}.pdf<CR><CR>
 
 " Make and view pdf
-nnoremap <silent> <F4> :w<CR>:!make && F=% && gnome-open ${F\%.*}.pdf<CR><CR>
+nnoremap <silent> <F4> :w<CR>:!make && F=% && evince ${F\%.*}.pdf<CR><CR>
 
 " Make
-nnoremap <silent> <F5> :w<CR>:!make<CR><CR>
+nnoremap <silent> <F2> :w<CR>:!make<CR><CR>
 
 
 " Make j and k work as expected
