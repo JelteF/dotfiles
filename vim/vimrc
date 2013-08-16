@@ -271,6 +271,10 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+inoremap <C-h> <C-o><C-w>h
+inoremap <C-j> <C-o><C-w>j
+inoremap <C-k> <C-o><C-w>k
+inoremap <C-l> <C-o><C-w>l
 nnoremap <up> <C-w>k
 nnoremap <down> <C-w>j
 nnoremap <left> <C-w>h
