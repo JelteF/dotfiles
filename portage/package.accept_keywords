@@ -151,6 +151,11 @@ www-client/google-chrome:stable
 >=dev-vcs/gitflow-0.4.1
 >=dev-vcs/git-flow-completion-0.4.1.0
 
+# MongoDB dependencies
+>=dev-db/mongodb-2.4.4
+>=dev-libs/boost-1.52.0-r6
+>=dev-util/boost-build-1.52.0-r1
+
 
 # uWSGI
 >=www-servers/uwsgi-1.4.9
