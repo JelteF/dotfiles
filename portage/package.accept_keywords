@@ -1,9 +1,15 @@
 # Google chrome stable
 www-client/google-chrome:stable
 
+# Google Hangout plugin
+>=www-plugins/google-talkplugin-4.2.2.0
+
 # Vim latest version
 >=app-editors/vim-7.3.931
 >=app-editors/vim-core-7.3.931
+
+# Sublime Text latest version
+>=app-editors/sublime-text-2220
 
 # Terminals latest versions
 >=x11-terms/gnome-terminal-3.6.2
