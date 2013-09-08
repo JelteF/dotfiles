@@ -29,6 +29,12 @@ app-shells/powerline -awesome
 # VLC dependency
 =sys-libs/zlib-1.2.7 minizip
 
+# Scipy dependency in numpy
+dev-python/numpy lapack
+
+# Portage with python3, might be faster
+sys-apps/portage python3
+
 
 
 
