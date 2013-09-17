@@ -6,3 +6,4 @@ dev-python/python-dateutil -python_targets_python3_3
 dev-python/pycairo -python_targets_python3_3
 virtual/python-imaging -python_targets_python3_3
 dev-python/pillow -python_targets_python3_3
+dev-python/dbus-python -python_targets_python3_3

@@ -1,5 +1,6 @@
 # Google chrome stable
 www-client/google-chrome:stable
+>=x11-libs/libXScrnSaver-1.2.2-r1
 
 # Google Hangout plugin
 >=www-plugins/google-talkplugin-4.2.2.0
@@ -18,8 +19,34 @@ www-client/google-chrome:stable
 >=x11-libs/gnome-pty-helper-0.34.7
 >=x11-terms/xterm-292
 
+# Xorg latest version
+>=x11-base/xorg-server-1.14.3
+>=x11-libs/libXau-1.0.8
+>=x11-proto/randrproto-1.4.0-r1
+>=x11-libs/libXdmcp-1.1.1-r1
+>=x11-base/xorg-drivers-1.14
+>=x11-proto/videoproto-2.3.2
+>=x11-libs/libpciaccess-0.13.2
+>=x11-libs/libXtst-1.2.2
+
+# OpenRC latest version
+>=sys-apps/openrc-0.12
+>=net-misc/netifrc-0.1
+
+# Udev latest version
+>=sys-fs/udev-207
+>=sys-apps/hwids-20130915.1
+>=virtual/udev-206-r2
+
+# EXT FS support
+>=sys-libs/e2fsprogs-libs-1.42.7-r1
+
 # Awesome latest version
 >=x11-wm/awesome-3.5.1
+>=media-libs/freetype-2.4.12
+
+# Required by slim
+>=x11-libs/libXrender-0.9.8
 
 # Working eix-remote version
 >=app-portage/eix-0.27.4
@@ -29,6 +56,10 @@ www-client/google-chrome:stable
 # Needed by Firefox
 >=dev-libs/nspr-4.9.6
 >=dev-libs/nss-3.15
+
+
+# Mosh
+>=sys-libs/ncurses-5.9-r3
 
 # Latest Nautilus
 >=gnome-base/nautilus-3.8.2
@@ -40,9 +71,27 @@ www-client/google-chrome:stable
 >=x11-libs/gdk-pixbuf-2.28.2
 >=dev-libs/gjs-1.36.1
 >=gnome-base/gvfs-1.16.3
+>=dev-libs/libpthread-stubs-0.3-r1
+>=x11-libs/libXrandr-1.4.2
+>=x11-libs/libXi-1.7.2
+>=media-libs/libsndfile-1.0.25-r1
+>=x11-proto/recordproto-1.14.2-r1
+>=virtual/libusb-0-r1
+>=x11-libs/libXcomposite-0.4.4-r1
+>=x11-libs/libXft-2.3.1-r1
 
 # Latest Evince
 >=app-text/evince-3.8.3
+>=x11-libs/libICE-1.0.8-r1
+>=x11-libs/libSM-1.2.2
+>=x11-libs/libX11-1.6.2
+
+# Latest Eye of GNOME
+>=media-gfx/eog-3.8.2
+>=dev-libs/libpeas-1.8.1
+>=dev-python/pygobject-3.8.3
+>=x11-proto/xcb-proto-1.8-r3
+>=media-libs/lcms-2.5-r1
 
 # Latest Transmission
 >=net-p2p/transmission-2.77-r1
@@ -53,12 +102,24 @@ www-client/google-chrome:stable
 
 
 # Needed by LaTeX
-=virtual/pyparsing-2
+>=virtual/pyparsing-2
+>=x11-proto/kbproto-1.0.6-r1
+>=x11-proto/printproto-1.0.5-r1
+>=media-libs/libpng-1.6.6
+>=x11-libs/libXp-1.0.2
 
 
 # Keepass
 >=app-admin/keepass-2.22
 
+# Needed by Libreoffice
+>=media-libs/alsa-lib-1.0.27.2
+
+# Needed by Gimp
+>=x11-libs/libXcursor-1.1.14
+>=virtual/jpeg-0-r2
+>=media-libs/tiff-4.0.3-r5
+>=media-libs/vo-aacenc-0.1.3
 
 # Add synapse
 >=gnome-extra/synapse-0.2.10
@@ -91,7 +152,111 @@ www-client/google-chrome:stable
 >=games-util/steam-client-meta-0-r20130514
 >=app-emulation/steam-runtime-bin-20130514
 >=games-util/steam-launcher-1.0.0.39-r2
-=media-libs/libsdl-2.0.0_pre9999 **
+>=x11-proto/fixesproto-5.0-r1
+>=x11-proto/renderproto-0.11.1-r1
+=media-libs/libsdl2-2.0.0-r1 **
+>=x11-libs/libXfixes-5.0.1
+>=x11-proto/xproto-7.0.24
+>=x11-libs/libXt-1.1.4
+>=x11-libs/libXext-1.3.2
+>=x11-proto/inputproto-2.3
+>=x11-libs/libxcb-1.9.1
+>=x11-proto/xf86bigfontproto-1.2.0-r1
+>=x11-libs/libXxf86vm-1.1.3
+
+# Wine latest version
+>=app-emulation/wine-1.7.0
+>=x11-proto/xf86vidmodeproto-2.3.1-r1
+>=media-libs/libmodplug-0.8.8.4-r1
+>=media-libs/libdca-0.0.5-r3
+>=media-libs/a52dec-0.7.4-r7
+>=media-libs/audiofile-0.3.6-r1
+>=media-libs/webrtc-audio-processing-0.1-r1
+>=x11-libs/libvdpau-0.7
+>=sys-apps/attr-2.4.47-r1
+>=media-libs/libvorbis-1.3.3-r1
+>=media-video/ffmpeg-0.10.8
+>=media-libs/ladspa-sdk-1.13-r2
+>=media-libs/libmimic-1.0.4-r2
+>=media-libs/libmad-0.15.1b-r8
+>=media-libs/libmms-0.6.2-r1
+>=x11-libs/libXaw-1.0.12
+>=media-libs/faad2-2.7-r3
+>=media-libs/libiec61883-1.2.0-r1
+>=media-libs/libtheora-1.1.1-r1
+>=media-libs/libdvdcss-1.2.13-r1
+>=x11-libs/libXvMC-1.0.8
+>=sys-apps/kmod-15
+>=dev-libs/libusbx-1.0.17
+>=x11-proto/scrnsaverproto-1.2.2-r1
+>=dev-libs/elfutils-0.156
+>=dev-libs/libcdio-paranoia-0.90_p1-r1
+>=dev-libs/expat-2.1.0-r3
+>=sys-devel/llvm-3.3-r1
+>=media-libs/speex-1.2_rc1-r2
+>=media-libs/libdv-1.0.0-r3
+>=media-libs/libvisual-0.4.0-r3
+>=media-libs/libsamplerate-0.1.8-r1
+>=dev-libs/libffi-3.0.13-r1
+>=media-libs/libogg-1.3.1
+>=dev-libs/libusb-compat-0.1.5-r2
+>=x11-libs/libXmu-1.1.2
+>=media-libs/libpng-1.2.50-r1
+>=media-libs/x264-0.0.20130912
+>=app-admin/eselect-cdparanoia-0.1
+>=virtual/libusb-1-r1
+>=media-libs/libreplaygain-477-r1
+>=media-libs/libvpx-1.2.0_pre20130625
+>=app-text/libpaper-1.1.24-r2
+>=media-sound/cdparanoia-3.10.2-r6
+>=media-libs/libv4l-1.0.0
+>=media-plugins/alsaequal-0.6-r1
+>=media-libs/libjpeg-turbo-1.3.0-r2
+>=media-libs/libmpeg2-0.5.1-r2
+>=sys-libs/libraw1394-2.1.0-r1
+>=x11-libs/libXxf86dga-1.1.4
+>=media-plugins/swh-plugins-0.4.15-r3
+>=media-libs/libsidplay-2.1.1-r4
+>=media-libs/libdvdnav-4.2.0-r1
+>=media-sound/wavpack-4.60.1-r1
+>=media-sound/lame-3.99.5-r1
+>=sys-libs/gpm-1.20.7-r2
+>=x11-libs/libXv-1.0.10
+>=media-libs/faac-1.28-r4
+>=x11-proto/damageproto-1.2.1-r1
+>=media-sound/jack-audio-connection-kit-0.121.3-r1
+>=virtual/libiconv-0-r1
+>=x11-libs/libXpm-3.5.11
+>=media-libs/portaudio-19_pre20111121-r1
+>=sys-libs/libavc1394-0.5.4-r1
+>=dev-libs/libcdio-0.90-r1
+>=media-libs/libmikmod-3.2.0-r1
+>=sci-libs/fftw-3.3.3-r2
+>=media-libs/libsidplay-1.36.59-r1
+>=media-libs/flac-1.2.1-r5
+>=media-sound/gsm-1.0.13-r1
+>=dev-libs/fribidi-0.19.5-r2
+>=dev-libs/udis86-1.7-r2
+>=media-libs/tiff-3.9.7-r1
+>=dev-libs/liboil-0.3.17-r2
+>=x11-libs/libXdamage-1.1.4-r1
+>=x11-proto/xf86dgaproto-2.1-r2
+>=x11-proto/xineramaproto-1.2.1-r1
+>=media-libs/libshout-2.3.1-r1
+>=virtual/libffi-3.0.13-r1
+>=media-sound/musepack-tools-465-r1
+>=media-sound/mpg123-1.15.4-r1
+>=media-plugins/caps-plugins-0.9.15
+>=x11-proto/compositeproto-0.4.2-r1
+>=media-libs/libcuefile-477-r1
+>=media-libs/libid3tag-0.15.1b-r4
+>=media-libs/xvid-1.3.2-r1
+>=app-arch/bzip2-1.0.6-r4
+>=x11-libs/libXinerama-1.1.3
+>=media-sound/twolame-0.3.13-r1
+>=sys-libs/libieee1284-0.2.11-r3
+>=media-libs/libdvdread-4.2.0-r1
+
 
 # Add powerline supoort
 =app-shells/powerline-9999 **
@@ -100,15 +265,14 @@ www-client/google-chrome:stable
 # Latest python versions
 dev-lang/python:2.7.5
 dev-lang/python:3.3
-=sys-apps/sandbox-2.6-r1
+>=sys-apps/sandbox-2.6-r1
 
 
 # Latest pypy version
-=dev-python/pypy-2.0.2
+>=dev-python/pypy-2.0.2
 >=dev-python/setuptools-0.6.40
 
 # Latest ipython version
->=app-text/evince-3.8.3
 >=media-libs/fontconfig-2.10.92
 >=x11-libs/cairo-1.12.14-r4
 
@@ -123,6 +287,8 @@ dev-lang/python:3.3
 >=dev-python/PyQt4-4.10.1
 >=dev-python/sip-4.14.6
 >=dev-python/cython-0.19.1
+>=x11-proto/xextproto-7.2.1-r1
+>=sys-libs/zlib-1.2.8-r1
 
 # Use latest gcc
 >=sys-devel/gcc-4.7.3
@@ -136,7 +302,7 @@ dev-lang/python:3.3
 
 
 # Insync
-=app-backup/insync-0.9.41
+>=app-backup/insync-0.9.41
 
 # Webdev libs
 >=www-client/phantomjs-1.9.0
@@ -176,3 +342,20 @@ dev-lang/python:3.3
 
 # uWSGI
 >=www-servers/uwsgi-1.4.9
+
+
+# pulse audio
+>=media-sound/puvacontrol-2.0
+
+
+# Emul-linux update
+>=app-emulation/emul-linux-x86-baselibs-20130224
+>=app-emulation/emul-linux-x86-db-20130224
+>=app-emulation/emul-linux-x86-gtklibs-20130224
+>=app-emulation/emul-linux-x86-medialibs-20130224
+>=app-emulation/emul-linux-x86-opengl-20130224
+>=app-emulation/emul-linux-x86-qtlibs-20130224
+>=app-emulation/emul-linux-x86-sdl-20130224
+>=app-emulation/emul-linux-x86-soundlibs-20130224
+>=app-emulation/emul-linux-x86-xlibs-20130224
+>=app-emulation/emul-linux-x86-gstplugins-20130224
