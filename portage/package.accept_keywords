@@ -29,6 +29,18 @@ www-client/google-chrome:stable
 >=x11-libs/libpciaccess-0.13.2
 >=x11-libs/libXtst-1.2.2
 
+# Fonts latest versions
+>=media-fonts/corefonts-1-r6
+>=media-fonts/dejavu-2.34
+>=media-fonts/font-bh-ttf-1.0.3
+
+# Xorg drivers latest versions
+>=x11-drivers/xf86-input-synaptics-1.6.2
+>=x11-drivers/xf86-input-keyboard-1.6.2
+>=x11-drivers/xf86-input-mouse-1.6.2
+>=x11-drivers/xf86-input-evdev-1.6.2
+
+
 # OpenRC latest version
 >=sys-apps/openrc-0.12
 >=net-misc/netifrc-0.1
@@ -37,6 +49,12 @@ www-client/google-chrome:stable
 >=sys-fs/udev-207
 >=sys-apps/hwids-20130915.1
 >=virtual/udev-206-r2
+
+# WPA supplicant latest version
+>=net-wireless/wpa_supplicant-2.0-r2
+
+# NTP deamon newest version
+>=net-misc/openntpd-20080406-r3
 
 # EXT FS support
 >=sys-libs/e2fsprogs-libs-1.42.7-r1
@@ -79,6 +97,10 @@ www-client/google-chrome:stable
 >=virtual/libusb-0-r1
 >=x11-libs/libXcomposite-0.4.4-r1
 >=x11-libs/libXft-2.3.1-r1
+
+# System-monitor latest version
+#>=gnome-extra/gnome-system-monitor-3.8.2.1
+#>=dev-cpp/glibmm-2.36.2
 
 # Latest Evince
 >=app-text/evince-3.8.3
@@ -202,7 +224,7 @@ www-client/google-chrome:stable
 >=dev-libs/libusb-compat-0.1.5-r2
 >=x11-libs/libXmu-1.1.2
 >=media-libs/libpng-1.2.50-r1
->=media-libs/x264-0.0.20130912
+>=media-libs/x264-0.0.20130712
 >=app-admin/eselect-cdparanoia-0.1
 >=virtual/libusb-1-r1
 >=media-libs/libreplaygain-477-r1

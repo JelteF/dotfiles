@@ -39,6 +39,10 @@ dev-python/numpy lapack
 # Portage with python3, might be faster
 sys-apps/portage python3
 
+# Thread usage
+media-video/ffmpeg:0.10 -threads
+virtual/ffmpeg -threads
+
 ########################################################
 # emul-linux vs xlibs and baselibs conflict resolution
 ########################################################
