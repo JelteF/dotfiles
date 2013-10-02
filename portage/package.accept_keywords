@@ -280,6 +280,10 @@ www-client/google-chrome:stable
 >=media-libs/libdvdread-4.2.0-r1
 
 
+# Teamviewer latest version
+>=net-misc/teamviewer-8.0.20931
+
+
 # Add powerline supoort
 =app-shells/powerline-9999 **
 >=dev-lua/lgi-0.6.2-r1
