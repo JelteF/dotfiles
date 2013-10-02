@@ -9,7 +9,7 @@ GIT="git tig"
 # X
 X_BASE="awesome slim xorg-server volumeicon"
 X_UTILS="synapse nautilus keepass gparted evince eog google-chrome"
-X_FONTS="ubuntu-font-family"
+X_FONTS="ubuntu-font-family droid dejavu corefonts liberation-fonts"
 X_TERMS="xterm gnome-terminal"
 
 # Extra
