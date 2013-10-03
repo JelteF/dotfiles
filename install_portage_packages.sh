@@ -18,7 +18,7 @@ WEBDEV="flask flask-sqlalchemy sass"
 EXTRA="skype sci-visualization/gnuplot wine audacity texlive"
 LARGE="firefox libreoffice"
 
-LAPTOP="wpa_supplicant wireless-tools gnome-power-manager"
+LAPTOP="wireless-tools nm-applet gnome-power-manager"
 
 
 
