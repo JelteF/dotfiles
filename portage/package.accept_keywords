@@ -40,6 +40,9 @@ www-client/google-chrome:stable
 >=x11-drivers/xf86-input-mouse-1.6.2
 >=x11-drivers/xf86-input-evdev-1.6.2
 
+# Portage latest version
+>=sys-apps/portage-2.2.7
+
 
 # OpenRC latest version
 >=sys-apps/openrc-0.12
@@ -63,6 +66,16 @@ www-client/google-chrome:stable
 >=x11-wm/awesome-3.5.1
 >=media-libs/freetype-2.4.12
 
+# Powerarrow awesome theme dependencies
+=dev-libs/oocairo-9999 **
+>=x11-plugins/vicious-2.1.0-r1
+>=dev-python/pygtksourceview-2.10.1-r1
+
+# Xfce
+>=xfce-extra/xfce-theme-manager-0.1.20
+>=xfce-extra/tumbler-0.1.29
+>=x11-terms/xfce4-terminal-0.6.2
+
 # Required by slim
 >=x11-libs/libXrender-0.9.8
 
@@ -74,6 +87,10 @@ www-client/google-chrome:stable
 # Needed by Firefox
 >=dev-libs/nspr-4.9.6
 >=dev-libs/nss-3.15
+
+# Latest Git version
+>=dev-vcs/git-1.8.3.2
+
 
 
 # Mosh
