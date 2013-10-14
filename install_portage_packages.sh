@@ -8,10 +8,10 @@ GIT="git tig"
 
 # X
 X_BASE="awesome slim xorg-server volumeicon"
-X_UTILS="synapse nautilus keepass gparted evince eog google-chrome file-roller"
-X_UTILS="${X_UTILS} app-arch/p7zip"
+X_UTILS="synapse thunar keepass gparted evince eog google-chrome file-roller"
+X_UTILS="${X_UTILS} app-arch/p7zip scrot shutter"
 X_FONTS="ubuntu-font-family droid dejavu corefonts liberation-fonts"
-X_TERMS="xterm gnome-terminal"
+X_TERMS="xterm xfce4-terminal"
 
 # Extra
 PYTHON_UTILS="pypy dev-python/pip ipython"

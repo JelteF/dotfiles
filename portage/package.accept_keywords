@@ -80,6 +80,7 @@ sys-apps/ack
 >=xfce-extra/xfce-theme-manager-0.1.20
 >=xfce-extra/tumbler-0.1.29
 >=x11-terms/xfce4-terminal-0.6.2
+>=xfce-extra/xfce4-power-manager-1.2.0-r2
 
 # Required by slim
 >=x11-libs/libXrender-0.9.8
@@ -144,6 +145,12 @@ sys-apps/ack
 
 # Latest Skype version
 >=net-im/skype-4.1.0.20
+
+# Latest Shutter
+>=x11-misc/shutter-0.90
+
+# Latest Imagemagick
+>=media-gfx/imagemagick-6.8
 
 
 # Needed by LaTeX
@@ -401,6 +408,7 @@ dev-python/ipython
 # Git-flow
 >=dev-vcs/gitflow-0.4.1
 >=dev-vcs/git-flow-completion-0.4.1.0
+>=dev-libs/shflags-1.0.3
 
 # MongoDB dependencies
 >=dev-db/mongodb-2.4.4
@@ -427,3 +435,44 @@ dev-python/ipython
 >=app-emulation/emul-linux-x86-soundlibs-20130224
 >=app-emulation/emul-linux-x86-xlibs-20130224
 >=app-emulation/emul-linux-x86-gstplugins-20130224
+
+# Haskell
+app-admin/haskell-updater
+dev-haskell/alex
+dev-haskell/cabal
+dev-haskell/cabal-install
+dev-haskell/cgi
+dev-haskell/deepseq
+dev-haskell/fgl
+dev-haskell/gluraw
+dev-haskell/glut
+dev-haskell/haddock
+dev-haskell/happy
+dev-haskell/haskell-platform
+dev-haskell/haskell-src
+dev-haskell/hscolour
+dev-haskell/html
+dev-haskell/http
+dev-haskell/hunit
+dev-haskell/mtl
+dev-haskell/network
+dev-haskell/objectname
+dev-haskell/openglraw
+dev-haskell/opengl
+dev-haskell/parallel
+dev-haskell/parsec
+dev-haskell/quickcheck
+dev-haskell/random
+dev-haskell/regex-base
+dev-haskell/regex-compat
+dev-haskell/regex-posix
+dev-haskell/statevar
+dev-haskell/stm
+dev-haskell/syb
+dev-haskell/tensor
+dev-haskell/text
+dev-haskell/time
+dev-haskell/transformers
+dev-haskell/xhtml
+dev-haskell/zlib
+dev-lang/ghc

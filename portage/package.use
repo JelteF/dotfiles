@@ -45,6 +45,9 @@ virtual/ffmpeg -threads
 
 # ipython matplotlib
 dev-python/ipython matplotlib
+# Shutter dependency
+
+>=media-gfx/imagemagick-6.8.6.8 perl
 
 ########################################################
 # emul-linux vs xlibs and baselibs conflict resolution
