@@ -43,6 +43,9 @@ sys-apps/portage python3
 media-video/ffmpeg:0.10 -threads
 virtual/ffmpeg -threads
 
+# ipython matplotlib
+dev-python/ipython matplotlib
+
 ########################################################
 # emul-linux vs xlibs and baselibs conflict resolution
 ########################################################
