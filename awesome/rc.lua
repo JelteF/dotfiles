@@ -11,6 +11,9 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 
+package.path = package.path .. '; /usr/lib64/python2.7/site-packages/powerline/bindings/awesome/?.lua'
+require("powerline")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -41,8 +44,8 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
-editor = os.getenv("EDITOR") or "nano"
+terminal = "xfce4-terminal"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -58,14 +61,12 @@ local layouts =
     awful.layout.suit.tile,
     awful.layout.suit.tile.top,
     awful.layout.suit.max.fullscreen,
+    awful.layout.suit.magnifier,
     awful.layout.suit.floating,
-    awful.layout.suit.magnifier
 }
 -- }}}
 
--- Powerlane stuff
--- require("powerline")
--- right_layout:add(powerline_widget)
+-- Powerline stuff
 
 -- {{{ Wallpaper
 if beautiful.wallpaper then
@@ -186,7 +187,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(mytextclock)
+	right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
     -- Now bring it all together (with the tasklist in the middle)
