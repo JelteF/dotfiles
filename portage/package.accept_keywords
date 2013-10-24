@@ -100,6 +100,9 @@ sys-apps/ack
 # Mosh
 >=sys-libs/ncurses-5.9-r3
 
+# Multitail
+app-text/multitail
+
 # Latest Nautilus
 >=gnome-base/nautilus-3.8.2
 >=gnome-base/gsettings-desktop-schemas-3.8.2
@@ -411,13 +414,25 @@ dev-python/ipython
 >=dev-libs/shflags-1.0.3
 
 # MongoDB dependencies
->=dev-db/mongodb-2.4.4
+>=dev-db/mongodb-2.4.4::gentoo
 >=dev-libs/boost-1.52.0-r6
 >=dev-util/boost-build-1.52.0-r1
 
 
 # uWSGI
 >=www-servers/uwsgi-1.4.9
+
+# IP tables
+net-firewall/iptables
+
+
+# GitLab
+www-apps/gitlabhq::cvut
+dev-vcs/gitlab-shell::cvut
+virtual/ruby-ssl
+dev-ruby/charlock_holmes::cvut
+dev-ruby/bundler
+mail-mta/sendmail
 
 
 # pulse audio

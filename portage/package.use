@@ -45,9 +45,13 @@ virtual/ffmpeg -threads
 
 # ipython matplotlib
 dev-python/ipython matplotlib
-# Shutter dependency
 
+# Shutter dependency
 >=media-gfx/imagemagick-6.8.6.8 perl
+
+# Gitlab with MySQL
+www-apps/gitlabhq -postgres mysql -ruby_targets_ruby20
+dev-vcs/gitlab-shell -ruby_targets_ruby20
 
 ########################################################
 # emul-linux vs xlibs and baselibs conflict resolution
