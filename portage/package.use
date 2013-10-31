@@ -53,6 +53,9 @@ dev-python/ipython matplotlib
 www-apps/gitlabhq -postgres mysql -ruby_targets_ruby20
 dev-vcs/gitlab-shell -ruby_targets_ruby20
 
+# Whatpulse with network monitoring
+app-misc/whatpulse pcap
+
 ########################################################
 # emul-linux vs xlibs and baselibs conflict resolution
 ########################################################

@@ -167,6 +167,7 @@ app-text/multitail
 
 # Keepass
 >=app-admin/keepass-2.22
+dev-lang/mono
 
 # Needed by Libreoffice
 >=media-libs/alsa-lib-1.0.27.2
@@ -404,6 +405,8 @@ net-misc/insync
 
 # Required by dateutil python library
 >=dev-python/six-1.2.0-r1
+=dev-lang/python-exec-0.9999 **
+dev-lang/python-exec:2
 
 
 # Sass dependencies
