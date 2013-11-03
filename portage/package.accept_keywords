@@ -66,6 +66,9 @@ app-shells/fish
 >=sys-fs/e2fsprogs-1.42.7-r1
 >=sys-libs/e2fsprogs-libs-1.42.7-r1
 
+# NTFS support
+sys-fs/ntfs3g
+
 # Ag and Ack latest versions
 sys-apps/the_silver_searcher
 sys-apps/ack
@@ -160,12 +163,41 @@ app-text/multitail
 >=media-gfx/imagemagick-6.8
 
 
-# Needed by LaTeX
+# Latest LaTeX
+app-text/texlive
+app-text/texlive-core
 >=virtual/pyparsing-2
 >=x11-proto/kbproto-1.0.6-r1
 >=x11-proto/printproto-1.0.5-r1
 >=media-libs/libpng-1.6.6
 >=x11-libs/libXp-1.0.2
+
+dev-tex/bibtexu
+dev-tex/luatex
+app-text/ps2pkm
+app-text/dvipsk
+dev-libs/kpathsea
+
+dev-texlive/texlive-basic
+dev-texlive/texlive-bibtexextra
+dev-texlive/texlive-fontsextra
+dev-texlive/texlive-fontsrecommended
+dev-texlive/texlive-fontutils
+dev-texlive/texlive-formatsextra
+dev-texlive/texlive-genericextra
+dev-texlive/texlive-genericrecommended
+dev-texlive/texlive-humanities
+dev-texlive/texlive-langenglish
+dev-texlive/texlive-langeuropean
+dev-texlive/texlive-latex
+dev-texlive/texlive-latexextra
+dev-texlive/texlive-latexrecommended
+dev-texlive/texlive-mathextra
+dev-texlive/texlive-pictures
+dev-texlive/texlive-plainextra
+dev-texlive/texlive-pstricks
+dev-texlive/texlive-science
+
 
 
 # Keepass
