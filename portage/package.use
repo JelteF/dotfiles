@@ -49,6 +49,9 @@ dev-python/ipython matplotlib
 # Shutter dependency
 >=media-gfx/imagemagick-6.8.6.8 perl
 
+# Bind dependencies
+net-dns/bind caps dlz
+
 # Gitlab with MySQL
 www-apps/gitlabhq -postgres mysql -ruby_targets_ruby20
 dev-vcs/gitlab-shell -ruby_targets_ruby20
