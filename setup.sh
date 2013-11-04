@@ -3,6 +3,7 @@
 BACKUP_DIR=$PWD/backup
 ORIGINAL_BASHRC=$HOME/.bashrc
 ORIGINAL_BASH_PROFILE=$HOME/.bash_profile
+ORIGINAL_FISHCONF=$HOME/.config/fish/config.fish
 ORIGINAL_PROFILE=$HOME/.profile
 ORIGINAL_INPUTRC=$HOME/.inputrc
 ORIGINAL_GITCONFIG=$HOME/.gitconfig
@@ -18,15 +19,20 @@ mkdir -p $BACKUP_DIR
 mv $ORIGINAL_BASHRC $ORIGINAL_BASH_PROFILE $ORIGINAL_PROFILE \
     $ORIGINAL_GITCONFIG $ORIGINAL_TMUXCONF $ORIGINAL_VIMRC \
     $ORIGINAL_XCOMPOSE $ORIGINAL_XINITRC $ORIGINAL_XRESOURCES \
-    $ORIGINAL_INPUTRC $ORIGINAL_XSESSION $BACKUP_DIR
+    $ORIGINAL_INPUTRC $ORIGINAL_XSESSION $ORIGINAL_FISHCONF $BACKUP_DIR
 
 # Create vim folders
 mkdir -p ~/.vim
 mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/colors
+mkdir -p ~/.config
+mkdir -p ~/.config/fish
 
 # Install vundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+# Install oh-my-fish
+git clone git://github.com/bpinto/oh-my-fish.git ~/.oh-my-fish
 
 # Install nice color scheme
 wget https://raw.github.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night-Bright.vim -O ~/.vim/colors/Tomorrow-Night-Bright.vim
@@ -35,6 +41,7 @@ ln -s $PWD/bash/bashrc $ORIGINAL_BASHRC
 ln -s $PWD/bash/bash_profile $ORIGINAL_BASH_PROFILE
 ln -s $PWD/bash/profile $ORIGINAL_PROFILE
 ln -s $PWD/bash/inputrc $ORIGINAL_INPUTRC
+ln -s $PWD/fish/config.fish $ORIGINAL_FISHCONF
 ln -s $PWD/git/gitconfig $ORIGINAL_GITCONFIG
 ln -s $PWD/tmux/tmux.conf $ORIGINAL_TMUXCONF
 ln -s $PWD/vim/vimrc $ORIGINAL_VIMRC

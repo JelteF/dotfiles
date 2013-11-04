@@ -4,6 +4,10 @@
 au BufWritePost .vimrc so ~/.vimrc
 au BufWritePost vimrc so ~/.vimrc
 
+if &shell =~# 'fish$'
+    set shell=sh
+endif
+
 " 80-char line coloring
 if exists('+colorcolumn')
     set colorcolumn=80
@@ -89,6 +93,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
+Bundle 'dag/vim-fish'
 "Bundle colorschemes
 
 
