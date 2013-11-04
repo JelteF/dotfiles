@@ -132,4 +132,9 @@ www-servers/uwsgi debug
 
 
 
+
+#### Server flags
+sys-boot/grub -ncurses
+sys-kernel/gentoo-sources symlink
+
 #### Dispatch-conf added

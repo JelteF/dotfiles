@@ -14,7 +14,7 @@ X_FONTS="ubuntu-font-family droid dejavu corefonts liberation-fonts"
 X_TERMS="xterm xfce4-terminal"
 
 # Extra
-PYTHON_UTILS="pypy dev-python/pip ipython"
+PYTHON_UTILS="dev-python/pip ipython"
 WEBDEV="flask flask-sqlalchemy sass"
 EXTRA="skype sci-visualization/gnuplot wine audacity texlive"
 LARGE="firefox libreoffice"
@@ -24,5 +24,5 @@ LAPTOP="wireless-tools nm-applet gnome-power-manager"
 
 
 # Install all
-emerge $VIM $GENTOO_UTILS $BASH_UTILS $GIT $X_BASE $X_UTILS $X_FONTS $X_TERMS \
-$PYTHON_UTILS $WEBDEV $EXTRA $LARGE $LAPTOP -a --update --deep --newuse world
+emerge $VIM $GENTOO_UTILS $BASH_UTILS $GIT \
+$PYTHON_UTILS $WEBDEV texlive mosh -a --update --deep --newuse world
