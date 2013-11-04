@@ -59,6 +59,9 @@ dev-vcs/gitlab-shell -ruby_targets_ruby20
 # Whatpulse with network monitoring
 app-misc/whatpulse pcap
 
+# Powerline server X flag
+app-misc/powerline X
+
 ########################################################
 # emul-linux vs xlibs and baselibs conflict resolution
 ########################################################
