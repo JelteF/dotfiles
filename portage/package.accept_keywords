@@ -465,6 +465,9 @@ dev-libs/shflags
 # uWSGI
 >=www-servers/uwsgi-1.4.9
 
+# Teamspeak server
+media-sound/teamspeak-server-bin
+
 # IP tables
 net-firewall/iptables
 
