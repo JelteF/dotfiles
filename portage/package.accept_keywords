@@ -385,6 +385,10 @@ dev-lang/python:3.3
 >=dev-python/pypy-2.0.2
 >=dev-python/setuptools-0.6.40
 
+# Python character encoding autodetect lib
+dev-python/chardet
+dev-python/beautifulsoup
+
 # Latest ipython version
 dev-python/ipython
 >=media-libs/fontconfig-2.10.92
