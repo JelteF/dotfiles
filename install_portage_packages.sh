@@ -25,4 +25,4 @@ LAPTOP="wireless-tools nm-applet gnome-power-manager"
 
 # Install all
 emerge $VIM $GENTOO_UTILS $BASH_UTILS $GIT $X_BASE $X_UTILS $X_FONTS $X_TERMS \
-$PYTHON_UTILS $WEBDEV $EXTRA $LARGE $LAPTOP -a --update --deep --newuse world
+$PYTHON_UTILS $WEBDEV $EXTRA $LARGE -a --update --deep --newuse world
