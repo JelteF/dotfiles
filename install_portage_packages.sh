@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 # Base
 VIM="vim vim-spell-nl vim-spell-en"
