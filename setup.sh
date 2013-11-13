@@ -27,12 +27,16 @@ mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/colors
 mkdir -p ~/.config
 mkdir -p ~/.config/fish
+mkdir -p ~/.config/fish/completions
 
 # Install vundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 # Install oh-my-fish
 git clone git://github.com/bpinto/oh-my-fish.git ~/.oh-my-fish
+
+# Install git-flow completion
+wget https://github.com/bobthecow/git-flow-completion/raw/master/git.fish -O ~/.config/fish/completions/git.fish
 
 # Install nice color scheme
 wget https://raw.github.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night-Bright.vim -O ~/.vim/colors/Tomorrow-Night-Bright.vim
