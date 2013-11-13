@@ -148,6 +148,7 @@ app-text/multitail
 
 # Latest File Roller
 >=app-arch/file-roller-3.8.4
+app-arch/unrar
 
 # Latest Transmission
 >=net-p2p/transmission-2.77-r1
@@ -428,7 +429,7 @@ net-misc/insync
 # Webdev libs
 >=www-client/phantomjs-1.9.0
 >=dev-python/flask-0.9-r2
-<dev-python/sqlalchemy-0.8
+dev-python/sqlalchemy
 >=dev-python/markupsafe-0.18
 >=dev-python/jinja-2.7
 >=dev-python/werkzeug-0.8.3-r1
