@@ -148,6 +148,7 @@ app-text/multitail
 
 # Latest File Roller
 >=app-arch/file-roller-3.8.4
+app-arch/unrar
 
 # Latest Transmission
 >=net-p2p/transmission-2.77-r1
@@ -428,7 +429,7 @@ net-misc/insync
 # Webdev libs
 >=www-client/phantomjs-1.9.0
 >=dev-python/flask-0.9-r2
-<dev-python/sqlalchemy-0.8
+dev-python/sqlalchemy
 >=dev-python/markupsafe-0.18
 >=dev-python/jinja-2.7
 >=dev-python/werkzeug-0.8.3-r1
@@ -449,9 +450,13 @@ dev-lang/python-exec:2
 
 
 # Sass dependencies
->=dev-ruby/sass-3.2.9
->=dev-ruby/rb-inotify-0.9.0
->=dev-ruby/listen-0.7.3
+dev-ruby/sass
+dev-ruby/rb-inotify
+virtual/ruby-ffi
+dev-ruby/ffi
+dev-ruby/rake-compiler
+dev-ruby/listen
+dev-ruby/yard
 
 # Git-flow
 =dev-vcs/git-flow-0.4.1 **

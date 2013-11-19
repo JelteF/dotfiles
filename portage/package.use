@@ -18,8 +18,8 @@ games-util/steam-launcher steamruntime
 # Needed by SQLAlchemy and Synapse
 >=dev-lang/python-2.7 sqlite
 
-# No awesome support for powerline
-app-shells/powerline -awesome
+# No bash support for powerline since I'm using fish
+app-misc/powerline -bash
 
 # Flash 32-bit to use in steam
 >=www-plugins/adobe-flash-11.2.202.285 32bit

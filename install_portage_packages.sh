@@ -9,7 +9,8 @@ GIT="git tig"
 # X
 X_BASE="awesome slim xorg-server volumeicon"
 X_UTILS="synapse thunar keepass gparted evince eog google-chrome file-roller"
-X_UTILS="${X_UTILS} app-arch/p7zip xfce4-screenshooter"
+X_UTILS="${X_UTILS} app-arch/p7zip xfce4-screenshooter lxappearance"
+X_UTILS="${X_UTILS} faenza-xfce-icon-theme unrar xrandr"
 X_FONTS="ubuntu-font-family droid dejavu corefonts liberation-fonts"
 X_TERMS="xterm xfce4-terminal"
 
