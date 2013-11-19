@@ -46,6 +46,8 @@ app-shells/fish
 # Portage latest version
 >=sys-apps/portage-2.2.7
 
+# Latest unstable eselect, used by fish completions
+=app-admin/eselect-9999 **
 
 # OpenRC latest version
 >=sys-apps/openrc-0.12
