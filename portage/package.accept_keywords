@@ -46,6 +46,8 @@ app-shells/fish
 # Portage latest version
 >=sys-apps/portage-2.2.7
 
+# Latest unstable eselect, used by fish completions
+=app-admin/eselect-9999 **
 
 # OpenRC latest version
 >=sys-apps/openrc-0.12
@@ -94,6 +96,10 @@ x11-libs/xcb-util-cursor
 
 # Working eix-remote version
 >=app-portage/eix-0.27.4
+
+# Latest gentoolkit version
+app-portage/gentoolkit
+
 
 # Latest Firefox version
 >=www-client/firefox-21.0
@@ -450,9 +456,13 @@ dev-lang/python-exec:2
 
 
 # Sass dependencies
->=dev-ruby/sass-3.2.9
->=dev-ruby/rb-inotify-0.9.0
->=dev-ruby/listen-0.7.3
+dev-ruby/sass
+dev-ruby/rb-inotify
+virtual/ruby-ffi
+dev-ruby/ffi
+dev-ruby/rake-compiler
+dev-ruby/listen
+dev-ruby/yard
 
 # Git-flow
 =dev-vcs/git-flow-0.4.1 **
