@@ -53,6 +53,14 @@ dev-python/ipython matplotlib
 # Bind dependencies
 net-dns/bind caps dlz
 
+# Fortune offensive enabled
+games-misc/fortune-mod offensive
+games-misc/fortune-mod-all offensive
+games-misc/fortune-mod-kernelcookies offensive
+games-misc/fortune-mod-gentoo-forums offensive
+games-misc/fortune-mod-gentoo-dev offensive
+games-misc/fortune-mod-slackware offensive
+
 # Gitlab with MySQL
 www-apps/gitlabhq -postgres mysql -ruby_targets_ruby20
 dev-vcs/gitlab-shell -ruby_targets_ruby20

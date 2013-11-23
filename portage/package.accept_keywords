@@ -1,72 +1,72 @@
 # Google chrome stable
 www-client/google-chrome:stable
->=x11-libs/libXScrnSaver-1.2.2-r1
+x11-libs/libXScrnSaver
 
 # Google Hangout plugin
->=www-plugins/google-talkplugin-4.2.2.0
+www-plugins/google-talkplugin
 
 # Vim latest version
->=app-editors/vim-7.3.931
->=app-editors/vim-core-7.3.931
+app-editors/vim
+app-editors/vim-core
 
 # Sublime Text latest version
->=app-editors/sublime-text-2220
+app-editors/sublime-text
 
 # Fish latest version
 app-shells/fish
 
 # Terminals latest versions
->=x11-terms/gnome-terminal-3.6.2
->=gnome-base/dconf-0.16.1
->=x11-libs/vte-0.34.7
->=x11-libs/gnome-pty-helper-0.34.7
->=x11-terms/xterm-292
+x11-terms/gnome-terminal
+gnome-base/dconf
+x11-libs/vte
+x11-libs/gnome-pty-helper
+x11-terms/xterm
 
 # Xorg latest version
->=x11-base/xorg-server-1.14.3
->=x11-libs/libXau-1.0.8
->=x11-proto/randrproto-1.4.0-r1
->=x11-libs/libXdmcp-1.1.1-r1
->=x11-base/xorg-drivers-1.14
->=x11-proto/videoproto-2.3.2
->=x11-libs/libpciaccess-0.13.2
->=x11-libs/libXtst-1.2.2
+x11-base/xorg-server
+x11-libs/libXau
+x11-proto/randrproto
+x11-libs/libXdmcp
+x11-base/xorg-drivers
+x11-proto/videoproto
+x11-libs/libpciaccess
+x11-libs/libXtst
 
 # Fonts latest versions
->=media-fonts/corefonts-1-r6
->=media-fonts/dejavu-2.34
->=media-fonts/font-bh-ttf-1.0.3
+media-fonts/corefonts
+media-fonts/dejavu
+media-fonts/font-bh-ttf
 
 # Xorg drivers latest versions
->=x11-drivers/xf86-input-synaptics-1.6.2
->=x11-drivers/xf86-input-keyboard-1.6.2
->=x11-drivers/xf86-input-mouse-1.6.2
->=x11-drivers/xf86-input-evdev-1.6.2
+x11-drivers/xf86-input-synaptics
+x11-drivers/xf86-input-keyboard
+x11-drivers/xf86-input-mouse
+x11-drivers/xf86-input-evdev
 
 # Portage latest version
->=sys-apps/portage-2.2.7
+sys-apps/portage
 
 # Latest unstable eselect, used by fish completions
 =app-admin/eselect-9999 **
 
 # OpenRC latest version
->=sys-apps/openrc-0.12
->=net-misc/netifrc-0.1
+sys-apps/openrc
+net-misc/netifrc
 
 # Udev latest version
->=sys-fs/udev-207
->=sys-apps/hwids-20130915.1
->=virtual/udev-206-r2
+sys-fs/udev
+sys-apps/hwids
+virtual/udev
 
 # WPA supplicant latest version
->=net-wireless/wpa_supplicant-2.0-r2
+net-wireless/wpa_supplicant
 
 # NTP deamon newest version
->=net-misc/openntpd-20080406-r3
+net-misc/openntpd
 
 # EXT FS support
->=sys-fs/e2fsprogs-1.42.7-r1
->=sys-libs/e2fsprogs-libs-1.42.7-r1
+sys-fs/e2fsprogs
+sys-libs/e2fsprogs-libs
 
 # NTFS support
 sys-fs/ntfs3g
@@ -76,108 +76,92 @@ sys-apps/the_silver_searcher
 sys-apps/ack
 
 # Awesome latest version
->=x11-wm/awesome-3.5.1
->=media-libs/freetype-2.4.12
+x11-wm/awesome
+media-libs/freetype
 x11-libs/xcb-util-cursor
 
 # Powerarrow awesome theme dependencies
 =dev-libs/oocairo-9999 **
->=x11-plugins/vicious-2.1.0-r1
->=dev-python/pygtksourceview-2.10.1-r1
+x11-plugins/vicious
+dev-python/pygtksourceview
 
 # Xfce
->=xfce-extra/xfce-theme-manager-0.1.20
->=xfce-extra/tumbler-0.1.29
->=x11-terms/xfce4-terminal-0.6.2
->=xfce-extra/xfce4-power-manager-1.2.0-r2
+xfce-extra/xfce-theme-manager
+xfce-extra/tumbler
+x11-terms/xfce4-terminal
+xfce-extra/xfce4-power-manager
+xfce-base/thunar
+gnome-base/gvfs
+xfce-base/libxfce4util
 
 # Required by slim
->=x11-libs/libXrender-0.9.8
+x11-libs/libXrender
 
 # Working eix-remote version
->=app-portage/eix-0.27.4
+app-portage/eix
 
 # Latest gentoolkit version
 app-portage/gentoolkit
 
 
 # Latest Firefox version
->=www-client/firefox-21.0
+www-client/firefox
 # Needed by Firefox
->=dev-libs/nspr-4.9.6
->=dev-libs/nss-3.15
+dev-libs/nspr
+dev-libs/nss
 
 # Latest Git version
->=dev-vcs/git-1.8.3.2
+dev-vcs/git
 
 # Mosh
->=sys-libs/ncurses-5.9-r3
+sys-libs/ncurses
 
 # Multitail
 app-text/multitail
 
-# Latest Nautilus
->=gnome-base/nautilus-3.8.2
->=gnome-base/gsettings-desktop-schemas-3.8.2
->=gnome-extra/sushi-3.8.1
->=dev-util/gdbus-codegen-2.36.4
->=gnome-base/gnome-desktop-3.8.3
->=dev-libs/gobject-introspection-common-1.36.0
->=x11-libs/gdk-pixbuf-2.28.2
->=dev-libs/gjs-1.36.1
->=gnome-base/gvfs-1.16.3
->=dev-libs/libpthread-stubs-0.3-r1
->=x11-libs/libXrandr-1.4.2
->=x11-libs/libXi-1.7.2
->=media-libs/libsndfile-1.0.25-r1
->=x11-proto/recordproto-1.14.2-r1
->=virtual/libusb-0-r1
->=x11-libs/libXcomposite-0.4.4-r1
->=x11-libs/libXft-2.3.1-r1
-
 # System-monitor latest version
-#>=gnome-extra/gnome-system-monitor-3.8.2.1
-#>=dev-cpp/glibmm-2.36.2
+#gnome-extra/gnome-system-monitor
+#dev-cpp/glibmm
 
 # Latest Evince
->=app-text/evince-3.8.3
->=x11-libs/libICE-1.0.8-r1
->=x11-libs/libSM-1.2.2
->=x11-libs/libX11-1.6.2
+app-text/evince
+x11-libs/libICE
+x11-libs/libSM
+x11-libs/libX11
 
 # Latest Eye of GNOME
->=media-gfx/eog-3.8.2
->=dev-libs/libpeas-1.8.1
->=dev-python/pygobject-3.8.3
->=x11-proto/xcb-proto-1.8-r3
->=media-libs/lcms-2.5-r1
+media-gfx/eog
+dev-libs/libpeas
+dev-python/pygobject
+x11-proto/xcb-proto
+media-libs/lcms
 
 # Latest File Roller
->=app-arch/file-roller-3.8.4
+app-arch/file-roller
 app-arch/unrar
 
 # Latest Transmission
->=net-p2p/transmission-2.77-r1
->=dev-libs/glib-2.36.4
+net-p2p/transmission
+dev-libs/glib
 
 # Latest Skype version
->=net-im/skype-4.1.0.20
+net-im/skype
 
 # Latest Shutter
->=x11-misc/shutter-0.90
+x11-misc/shutter
 
 # Latest Imagemagick
->=media-gfx/imagemagick-6.8
+media-gfx/imagemagick
 
 
 # Latest LaTeX
 app-text/texlive
 app-text/texlive-core
->=virtual/pyparsing-2
->=x11-proto/kbproto-1.0.6-r1
->=x11-proto/printproto-1.0.5-r1
->=media-libs/libpng-1.6.6
->=x11-libs/libXp-1.0.2
+virtual/pyparsing
+x11-proto/kbproto
+x11-proto/printproto
+media-libs/libpng
+x11-libs/libXp
 
 dev-tex/bibtexu
 dev-tex/luatex
@@ -208,171 +192,266 @@ dev-texlive/texlive-science
 
 
 # Keepass
->=app-admin/keepass-2.22
+app-admin/keepass
 dev-lang/mono
 
-# Needed by Libreoffice
->=media-libs/alsa-lib-1.0.27.2
+# Latest Libreoffice
+app-office/libreoffice
+app-office/libreoffice-l10n
+media-libs/alsa-lib
 
-# Needed by Gimp
->=x11-libs/libXcursor-1.1.14
->=virtual/jpeg-0-r2
->=media-libs/tiff-4.0.3-r5
->=media-libs/vo-aacenc-0.1.3
+# Latest Gimp
+media-gfx/gimp
+x11-libs/libXcursor
+virtual/jpeg
+media-libs/tiff
+media-libs/vo-aacenc
 
 # Add synapse
->=gnome-extra/synapse-0.2.10
->=dev-libs/libzeitgeist-0.3.18
+gnome-extra/synapse
+dev-libs/libzeitgeist
 <gnome-extra/zeitgeist-9999 **
->=gnome-extra/zeitgeist-extensions-0.0.13-r1
->=dev-python/pyparsing-1.5.7
->=dev-python/isodate-0.4.9-r1
->=dev-python/rdflib-4.0.1
->=dev-python/python-exec-0.3
->=dev-python/html5lib-0.95-r1
->=dev-python/bsddb3-5.3.0-r1
->=dev-libs/vala-common-0.20.1
->=dev-lang/vala-0.20.1
->=dev-libs/gobject-introspection-1.36.0
+gnome-extra/zeitgeist-extensions
+dev-python/pyparsing
+dev-python/isodate
+dev-python/rdflib
+dev-python/python-exec
+dev-python/html5lib
+dev-python/bsddb3
+dev-libs/vala-common
+dev-lang/vala
+dev-libs/gobject-introspection
 
 # Bitcoin miner latest version
->=net-misc/bfgminer-3.0.0
->=net-libs/libblkmaker-0.3.1
+net-misc/bfgminer
+net-libs/libblkmaker
 
 # Latest graphicscard drivers
->=x11-drivers/nvidia-drivers-319.17
->=media-video/nvidia-settings-319.12
->=x11-drivers/ati-drivers-13.4
->=media-libs/glew-1.10.0-r2
->=x11-proto/dri2proto-2.8-r1
->=x11-proto/xf86driproto-2.1.1-r1
->=x11-proto/glproto-1.4.16-r1
->=virtual/glu-9.0-r1
->=media-libs/mesa-9.2.0-r1
->=media-libs/freeglut-2.8.1-r1
->=x11-libs/libdrm-2.4.46-r1
->=virtual/opengl-7.0-r1
->=media-libs/glu-9.0.0-r1
+x11-drivers/nvidia-drivers
+media-video/nvidia-settings
+x11-drivers/ati-drivers
+media-libs/glew
+x11-proto/dri2proto
+x11-proto/xf86driproto
+x11-proto/glproto
+virtual/glu
+media-libs/mesa
+media-libs/freeglut
+x11-libs/libdrm
+virtual/opengl
+media-libs/glu
 
 
 
 # Latest Steam version
->=games-util/steam-meta-0-r20130514
->=games-util/steam-games-meta-0-r20130312
->=games-util/steam-client-meta-0-r20130514
->=app-emulation/steam-runtime-bin-20130514
->=games-util/steam-launcher-1.0.0.39-r2
->=x11-proto/fixesproto-5.0-r1
->=x11-proto/renderproto-0.11.1-r1
-=media-libs/libsdl2-2.0.0-r1 **
->=x11-libs/libXfixes-5.0.1
->=x11-proto/xproto-7.0.24
->=x11-libs/libXt-1.1.4
->=x11-libs/libXext-1.3.2
->=x11-proto/inputproto-2.3
->=x11-libs/libxcb-1.9.1
->=x11-proto/xf86bigfontproto-1.2.0-r1
->=x11-libs/libXxf86vm-1.1.3
+=dev-libs/gobject-introspection-1.36.0-r101 **
+dev-libs/gobject-introspection-common
 
-# Wine latest version
->=app-emulation/wine-1.7.0
->=x11-proto/xf86vidmodeproto-2.3.1-r1
->=media-libs/libmodplug-0.8.8.4-r1
->=media-libs/libdca-0.0.5-r3
->=media-libs/a52dec-0.7.4-r7
->=media-libs/audiofile-0.3.6-r1
->=media-libs/webrtc-audio-processing-0.1-r1
->=x11-libs/libvdpau-0.7
->=sys-apps/attr-2.4.47-r1
->=media-libs/libvorbis-1.3.3-r1
->=media-video/ffmpeg-0.10.8
->=media-libs/ladspa-sdk-1.13-r2
->=media-libs/libmimic-1.0.4-r2
->=media-libs/libmad-0.15.1b-r8
->=media-libs/libmms-0.6.2-r1
->=x11-libs/libXaw-1.0.12
->=media-libs/faad2-2.7-r3
->=media-libs/libiec61883-1.2.0-r1
->=media-libs/libtheora-1.1.1-r1
->=media-libs/libdvdcss-1.2.13-r1
->=x11-libs/libXvMC-1.0.8
->=sys-apps/kmod-15
->=dev-libs/libusbx-1.0.17
->=x11-proto/scrnsaverproto-1.2.2-r1
->=dev-libs/elfutils-0.156
->=dev-libs/libcdio-paranoia-0.90_p1-r1
->=dev-libs/expat-2.1.0-r3
->=sys-devel/llvm-3.3-r1
->=media-libs/speex-1.2_rc1-r2
->=media-libs/libdv-1.0.0-r3
->=media-libs/libvisual-0.4.0-r3
->=media-libs/libsamplerate-0.1.8-r1
->=dev-libs/libffi-3.0.13-r1
->=media-libs/libogg-1.3.1
->=dev-libs/libusb-compat-0.1.5-r2
->=x11-libs/libXmu-1.1.2
->=media-libs/libpng-1.2.50-r1
->=media-libs/x264-0.0.20130712
->=app-admin/eselect-cdparanoia-0.1
->=virtual/libusb-1-r1
->=media-libs/libreplaygain-477-r1
->=media-libs/libvpx-1.2.0_pre20130625
->=app-text/libpaper-1.1.24-r2
->=media-sound/cdparanoia-3.10.2-r6
->=media-libs/libv4l-1.0.0
->=media-plugins/alsaequal-0.6-r1
->=media-libs/libjpeg-turbo-1.3.0-r2
->=media-libs/libmpeg2-0.5.1-r2
->=sys-libs/libraw1394-2.1.0-r1
->=x11-libs/libXxf86dga-1.1.4
->=media-plugins/swh-plugins-0.4.15-r3
->=media-libs/libsidplay-2.1.1-r4
->=media-libs/libdvdnav-4.2.0-r1
->=media-sound/wavpack-4.60.1-r1
->=media-sound/lame-3.99.5-r1
->=sys-libs/gpm-1.20.7-r2
->=x11-libs/libXv-1.0.10
->=media-libs/faac-1.28-r4
->=x11-proto/damageproto-1.2.1-r1
->=media-sound/jack-audio-connection-kit-0.121.3-r1
->=virtual/libiconv-0-r1
->=x11-libs/libXpm-3.5.11
->=media-libs/portaudio-19_pre20111121-r1
->=sys-libs/libavc1394-0.5.4-r1
->=dev-libs/libcdio-0.90-r1
->=media-libs/libmikmod-3.2.0-r1
->=sci-libs/fftw-3.3.3-r2
->=media-libs/libsidplay-1.36.59-r1
->=media-libs/flac-1.2.1-r5
->=media-sound/gsm-1.0.13-r1
->=dev-libs/fribidi-0.19.5-r2
->=dev-libs/udis86-1.7-r2
->=media-libs/tiff-3.9.7-r1
->=dev-libs/liboil-0.3.17-r2
->=x11-libs/libXdamage-1.1.4-r1
->=x11-proto/xf86dgaproto-2.1-r2
->=x11-proto/xineramaproto-1.2.1-r1
->=media-libs/libshout-2.3.1-r1
->=virtual/libffi-3.0.13-r1
->=media-sound/musepack-tools-465-r1
->=media-sound/mpg123-1.15.4-r1
->=media-plugins/caps-plugins-0.9.15
->=x11-proto/compositeproto-0.4.2-r1
->=media-libs/libcuefile-477-r1
->=media-libs/libid3tag-0.15.1b-r4
->=media-libs/xvid-1.3.2-r1
->=app-arch/bzip2-1.0.6-r4
->=x11-libs/libXinerama-1.1.3
->=media-sound/twolame-0.3.13-r1
->=sys-libs/libieee1284-0.2.11-r3
->=media-libs/libdvdread-4.2.0-r1
->=dev-libs/gmp-5.1.3-r1
+app-emulation/emul-linux-x86-qtlibs
+app-emulation/emul-linux-x86-baselibs
+app-emulation/emul-linux-x86-compat
+app-emulation/emul-linux-x86-db
+app-emulation/emul-linux-x86-xlibs
+app-emulation/emul-linux-x86-medialibs
+app-emulation/emul-linux-x86-soundlibs
+app-emulation/emul-linux-x86-sdl
+app-emulation/emul-linux-x86-opengl
+app-emulation/emul-linux-x86-gtklibs
+app-emulation/emul-linux-x86-gstplugins
+
+games-util/steam-launcher
+games-util/steam-meta
+games-util/steam-client-meta
+games-util/steam-games-meta
+app-emulation/steam-runtime-bin
+sys-libs/steam-runtime-libsepol
+sys-libs/steam-runtime-libselinux
+
+media-libs/jasper
+media-libs/libexif
+media-libs/openal
+
+media-libs/libsdl2 **
+
+dev-libs/libappindicator2
+dev-libs/libdbusmenu2
+dev-libs/libindicator2
+
+dev-libs/gmp
 x11-libs/pixman
 dev-libs/libpcre
 
+# Multilib
+media-libs/faac
+sci-libs/fftw
+media-libs/libtheora
+media-plugins/caps-plugins
+media-libs/faad2
+media-libs/ladspa-sdk
+media-plugins/swh-plugins
+media-libs/xvid
+media-sound/lame
+media-libs/webrtc-audio-processing
+media-libs/libmodplug
+media-libs/audiofile
+media-libs/libvpx
+media-libs/flac
+media-sound/gsm
+media-libs/alsa-lib
+media-libs/libogg
+media-libs/libvorbis
+media-libs/libmikmod
+media-plugins/alsaequal
+
+x11-proto/xineramaproto
+x11-libs/libXinerama
+x11-libs/libXScrnSaver
+x11-libs/libXau
+x11-proto/xextproto
+x11-libs/libXpm
+x11-libs/libXxf86dga
+x11-proto/xf86vidmodeproto
+x11-libs/libXft
+x11-proto/xf86bigfontproto
+x11-proto/xf86dgaproto
+x11-libs/libXtst
+x11-libs/libpciaccess
+x11-libs/libXext
+x11-libs/libX11
+x11-libs/libvdpau
+x11-libs/libXvMC
+x11-proto/renderproto
+x11-libs/libXmu
+x11-libs/libXxf86vm
+x11-proto/recordproto
+x11-libs/libxcb
+x11-proto/compositeproto
+x11-proto/xproto
+x11-proto/xcb-proto
+x11-libs/libXcomposite
+x11-libs/libXt
+x11-libs/libXp
+x11-proto/inputproto
+x11-libs/libXrandr
+x11-libs/libXv
+x11-proto/scrnsaverproto
+x11-libs/libXcursor
+x11-proto/randrproto
+x11-libs/libXaw
+media-libs/freetype
+x11-proto/printproto
+x11-libs/libXfixes
+x11-libs/libXi
+x11-proto/videoproto
+x11-libs/libXrender
+dev-libs/libpthread-stubs
+x11-libs/libICE
+x11-proto/damageproto
+x11-proto/kbproto
+x11-libs/libXdmcp
+x11-libs/libSM
+x11-libs/libXdamage
+x11-proto/fixesproto
+
+media-libs/libsamplerate
+media-libs/speex
+media-libs/libdvdnav
+media-libs/libpng
+media-sound/musepack-tools
+virtual/jpeg
+sys-libs/zlib
+media-libs/libdca
+media-libs/libv4l
+media-libs/libmad
+sys-devel/llvm
+sys-devel/clang
+media-sound/cdparanoia
+virtual/libiconv
+media-libs/libcuefile
+app-arch/bzip2
+media-libs/libsndfile
+dev-libs/libffi
+dev-libs/udis86
+virtual/libffi
+media-sound/jack-audio-connection-kit
+media-libs/libpng
+media-sound/twolame
+media-sound/wavpack
+media-libs/libreplaygain
+app-admin/eselect-cdparanoia
+media-sound/mpg123
+media-libs/portaudio
+media-libs/libdvdread
+
+media-libs/jpeg
+media-libs/libsidplay
+sys-libs/libavc1394
+media-libs/libid3tag
+media-libs/libsidplay
+media-libs/libshout
+sys-libs/libraw1394
+
+media-libs/libpng
+
+media-libs/x264
+virtual/jpeg
+media-libs/libjpeg-turbo
+media-libs/libiec61883
+
+virtual/jpeg
+dev-libs/expat
+kde-base/gwenview
+
+virtual/udev
+dev-libs/libusbx
+virtual/libusb
+sys-apps/kmod
+virtual/libusb
+dev-libs/libusb-compat
+sys-apps/hwids
+
+sys-fs/cryptsetup
+sys-apps/systemd
+app-arch/xz-utils
+
+media-libs/tiff
+media-libs/tiff
+media-libs/lcms
+media-libs/a52dec
+media-libs/libmpeg2
+media-libs/libmimic
+sys-libs/libieee1284
+sys-apps/attr
+media-libs/libmms
+app-text/libpaper
+media-libs/libvisual
+dev-libs/fribidi
+dev-libs/libcdio-paranoia
+dev-libs/libcdio
+dev-libs/liboil
+
+media-libs/vo-aacenc
+media-video/ffmpeg
+
+dev-libs/elfutils
+media-libs/libdv
+
+sys-libs/ncurses
+sys-libs/e2fsprogs-libs
+sys-libs/gpm
+media-libs/tiff
+
+media-libs/fontconfig
+
+dev-libs/glib
+dev-libs/elfutils
+
+
+# Wine latest version
+app-emulation/wine
 
 # Teamviewer latest version
->=net-misc/teamviewer-8.0.20931
+net-misc/teamviewer
 
 
 # Add powerline supoort
@@ -380,17 +459,16 @@ dev-libs/libpcre
 dev-python/pygit2
 dev-python/psutil
 dev-libs/libgit2
->=dev-lua/lgi-0.6.2-r1
+dev-lua/lgi
 
 # Latest python versions
-dev-lang/python:2.7.5
+dev-lang/python:2.7
 dev-lang/python:3.3
->=sys-apps/sandbox-2.6-r1
 
 
 # Latest pypy version
->=dev-python/pypy-2.0.2
->=dev-python/setuptools-0.6.40
+dev-python/pypy
+dev-python/setuptools
 
 # Python character encoding autodetect lib
 dev-python/chardet
@@ -398,59 +476,59 @@ dev-python/beautifulsoup
 
 # Latest ipython version
 dev-python/ipython
->=media-libs/fontconfig-2.10.92
->=x11-libs/cairo-1.12.14-r4
->=dev-python/simplegeneric-0.8.1-r1
->=dev-python/pexpect-2.4-r1
->=dev-python/pyzmq-13.1.0
->=dev-python/decorator-3.4.0-r1
+media-libs/fontconfig
+x11-libs/cairo
+dev-python/simplegeneric
+dev-python/pexpect
+dev-python/pyzmq
+dev-python/decorator
 
 # Latest libs for the course image manipulation
->=dev-python/matplotlib-1.3.0
->=sci-libs/scipy-0.12.0
->=dev-python/numpy-1.7.1
->=media-libs/opencv-2.4.6.1
->=dev-python/pytz-2013d
->=sys-libs/timezone-data-2013d
->=dev-python/PyQt4-4.10.1
->=dev-python/sip-4.14.6
->=dev-python/cython-0.19.1
->=x11-proto/xextproto-7.2.1-r1
->=sys-libs/zlib-1.2.8-r1
+dev-python/matplotlib
+sci-libs/scipy
+dev-python/numpy
+media-libs/opencv
+dev-python/pytz
+sys-libs/timezone-data
+dev-python/PyQt4
+dev-python/sip
+dev-python/cython
+x11-proto/xextproto
+sys-libs/zlib
 
 # Use latest gcc
->=sys-devel/gcc-4.7.3
+sys-devel/gcc
 
 # Use latest gtk+
->=x11-libs/gtk+-3.8.2
->=app-accessibility/at-spi2-core-2.8.0
->=app-accessibility/at-spi2-atk-2.8.1
->=dev-libs/atk-2.8.0
->=x11-libs/pango-1.34.1
+x11-libs/gtk+
+app-accessibility/at-spi2-core
+app-accessibility/at-spi2-atk
+dev-libs/atk
+x11-libs/pango
 
 
 # Insync
 net-misc/insync
 
 # Webdev libs
->=www-client/phantomjs-1.9.0
->=dev-python/flask-0.9-r2
+www-client/phantomjs
+dev-python/flask
 dev-python/sqlalchemy
->=dev-python/markupsafe-0.18
->=dev-python/jinja-2.7
->=dev-python/werkzeug-0.8.3-r1
->=dev-python/flask-sqlalchemy-0.16-r1
->=dev-python/blinker-1.2-r1
->=dev-python/py-bcrypt-0.2
->=net-libs/nodejs-0.10.10
->=dev-python/flask-login-0.1.3
+dev-python/markupsafe
+dev-python/jinja
+dev-python/werkzeug
+dev-python/flask-sqlalchemy
+dev-python/blinker
+dev-python/py-bcrypt
+net-libs/nodejs
+dev-python/flask-login
 
 # Required by Flask
->=dev-python/itsdangerous-0.21
->=dev-python/simplejson-3.3.0
+dev-python/itsdangerous
+dev-python/simplejson
 
 # Required by dateutil python library
->=dev-python/six-1.2.0-r1
+dev-python/six
 =dev-lang/python-exec-0.9999 **
 dev-lang/python-exec:2
 
@@ -461,7 +539,7 @@ dev-ruby/rb-inotify
 virtual/ruby-ffi
 dev-ruby/ffi
 dev-ruby/rake-compiler
-dev-ruby/listen
+#dev-ruby/listen
 dev-ruby/yard
 
 # Git-flow
@@ -472,13 +550,13 @@ dev-vcs/git-flow-completion
 dev-libs/shflags
 
 # MongoDB dependencies
->=dev-db/mongodb-2.4.4::gentoo
->=dev-libs/boost-1.52.0-r6
->=dev-util/boost-build-1.52.0-r1
+dev-db/mongodb::gentoo
+dev-libs/boost
+dev-util/boost-build
 
 
 # uWSGI
->=www-servers/uwsgi-1.4.9
+www-servers/uwsgi
 
 # Teamspeak server
 media-sound/teamspeak-server-bin
@@ -498,20 +576,8 @@ mail-mta/sendmail
 media-sound/alsa-utils
 
 # pulse audio
->=media-sound/puvacontrol-2.0
+media-sound/puvacontrol
 
-
-# Emul-linux update
->=app-emulation/emul-linux-x86-baselibs-20130224
->=app-emulation/emul-linux-x86-db-20130224
->=app-emulation/emul-linux-x86-gtklibs-20130224
->=app-emulation/emul-linux-x86-medialibs-20130224
->=app-emulation/emul-linux-x86-opengl-20130224
->=app-emulation/emul-linux-x86-qtlibs-20130224
->=app-emulation/emul-linux-x86-sdl-20130224
->=app-emulation/emul-linux-x86-soundlibs-20130224
->=app-emulation/emul-linux-x86-xlibs-20130224
->=app-emulation/emul-linux-x86-gstplugins-20130224
 
 # Haskell
 app-admin/haskell-updater
@@ -553,3 +619,4 @@ dev-haskell/transformers
 dev-haskell/xhtml
 dev-haskell/zlib
 dev-lang/ghc
+
