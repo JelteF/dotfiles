@@ -3,7 +3,8 @@
 # Base
 VIM="vim vim-spell-nl vim-spell-en"
 GENTOO_UTILS="eix layman gentoolkit gentoo-syntax"
-BASH_UTILS="ack the_silver_searcher irssi htop pciutils module-rebuild"
+BASH_UTILS="ack the_silver_searcher irssi htop pciutils module-rebuild \
+    logrotate"
 GIT="git tig"
 
 # X
