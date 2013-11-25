@@ -9,7 +9,8 @@ GIT="git tig"
 
 # X
 X_BASE="awesome slim xorg-server volumeicon"
-X_UTILS="synapse thunar keepass gparted evince eog google-chrome file-roller"
+X_THUNAR="thunar thunar-archive-plugin thunar-media-tags-plugin"
+X_UTILS="synapse keepass gparted evince eog google-chrome file-roller"
 X_UTILS="${X_UTILS} app-arch/p7zip xfce4-screenshooter lxappearance"
 X_UTILS="${X_UTILS} faenza-xfce-icon-theme unrar xrandr"
 X_FONTS="ubuntu-font-family droid dejavu corefonts liberation-fonts"
@@ -26,5 +27,6 @@ LAPTOP="wireless-tools nm-applet gnome-power-manager"
 
 
 # Install all
-emerge $VIM $GENTOO_UTILS $BASH_UTILS $GIT $X_BASE $X_UTILS $X_FONTS $X_TERMS \
-$PYTHON_UTILS $WEBDEV $EXTRA $LARGE -a --update --deep --newuse world
+emerge $VIM $GENTOO_UTILS $BASH_UTILS $GIT $X_BASE $X_THUNAR $X_UTILS $X_FONTS \
+$X_TERMS $PYTHON_UTILS $WEBDEV $EXTRA $LARGE \
+-a --update --deep --newuse world
