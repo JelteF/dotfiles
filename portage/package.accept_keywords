@@ -31,6 +31,10 @@ x11-base/xorg-drivers
 x11-proto/videoproto
 x11-libs/libpciaccess
 x11-libs/libXtst
+x11-libs/xtrans
+x11-proto/presentproto
+x11-proto/dri3proto
+x11-libs/libxshmfence
 
 # Fonts latest versions
 media-fonts/corefonts
@@ -221,6 +225,7 @@ dev-python/bsddb3
 dev-libs/vala-common
 dev-lang/vala
 dev-libs/gobject-introspection
+sys-apps/dbus
 
 # Bitcoin miner latest version
 net-misc/bfgminer
@@ -302,6 +307,14 @@ media-libs/libogg
 media-libs/libvorbis
 media-libs/libmikmod
 media-plugins/alsaequal
+media-plugins/alsa-plugins
+media-libs/libao
+sys-libs/gdbm
+sys-libs/libcap
+sys-apps/tcp-wrappers
+dev-libs/json-c
+media-sound/pulseaudio
+net-libs/libasyncns
 
 x11-proto/xineramaproto
 x11-libs/libXinerama
@@ -495,6 +508,8 @@ dev-python/sip
 dev-python/cython
 x11-proto/xextproto
 sys-libs/zlib
+dev-python/tempita
+x11-libs/xpyb
 
 # Use latest gcc
 sys-devel/gcc
@@ -539,7 +554,7 @@ dev-ruby/rb-inotify
 virtual/ruby-ffi
 dev-ruby/ffi
 dev-ruby/rake-compiler
-#dev-ruby/listen
+dev-ruby/listen
 dev-ruby/yard
 
 # Git-flow
