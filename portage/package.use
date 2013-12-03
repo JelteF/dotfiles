@@ -6,7 +6,7 @@ app-text/texlive extra graphics humanities science
 x11-drivers/ati-drivers disable-watermark
 
 # Enable flash
-games-util/steam-client-meta flash -steamruntime
+games-util/steam-client-meta flash trayicon -steamruntime
 games-util/steam-meta -steamruntime
 games-util/steam-games-meta -steamruntime
 games-util/steam-launcher -steamruntime
