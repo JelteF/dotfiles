@@ -5,12 +5,11 @@ app-text/texlive extra graphics humanities science
 # Disable watermark on ati drivers
 x11-drivers/ati-drivers disable-watermark
 
-# Enable flash and windows/wine game support on steam
-games-util/steam-client-meta flash windows-games
-# Needed by steam
->=media-libs/libsdl-2.0.0_pre9999 abi_x86_32
-games-util/steam-launcher steamruntime
-
+# Enable flash
+games-util/steam-client-meta flash trayicon -steamruntime
+games-util/steam-meta -steamruntime
+games-util/steam-games-meta -steamruntime
+games-util/steam-launcher -steamruntime
 
 # Wine dependency
 >=dev-libs/elfutils-0.156 static-libs
@@ -67,6 +66,12 @@ dev-vcs/gitlab-shell -ruby_targets_ruby20
 
 # Whatpulse with network monitoring
 app-misc/whatpulse pcap
+
+# Multilib
+media-plugins/alsa-plugins pulseaudio
+
+# Libreoffice
+media-libs/harfbuzz icu
 
 ########################################################
 # emul-linux vs xlibs and baselibs conflict resolution
