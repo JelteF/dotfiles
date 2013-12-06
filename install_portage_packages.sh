@@ -3,12 +3,14 @@
 # Base
 VIM="vim vim-spell-nl vim-spell-en"
 GENTOO_UTILS="eix layman gentoolkit gentoo-syntax"
-BASH_UTILS="ack the_silver_searcher irssi htop pciutils module-rebuild"
+BASH_UTILS="ack the_silver_searcher irssi htop pciutils module-rebuild \
+    logrotate"
 GIT="git tig"
 
 # X
 X_BASE="awesome slim xorg-server volumeicon"
-X_UTILS="synapse thunar keepass gparted evince eog google-chrome file-roller"
+X_THUNAR="thunar thunar-archive-plugin thunar-media-tags-plugin"
+X_UTILS="synapse keepass gparted evince eog google-chrome file-roller"
 X_UTILS="${X_UTILS} app-arch/p7zip xfce4-screenshooter lxappearance"
 X_UTILS="${X_UTILS} faenza-xfce-icon-theme unrar xrandr"
 X_FONTS="ubuntu-font-family droid dejavu corefonts liberation-fonts"
@@ -22,8 +24,7 @@ LARGE="firefox libreoffice"
 
 LAPTOP="wireless-tools nm-applet gnome-power-manager"
 
-
-
 # Install all
 emerge $VIM $GENTOO_UTILS $BASH_UTILS $GIT \
-$PYTHON_UTILS $WEBDEV texlive mosh -a --update --deep --newuse world
+$PYTHON_UTILS $WEBDEV texlive mosh \
+-a --update --deep --newuse world

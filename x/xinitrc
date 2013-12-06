@@ -1,4 +1,2 @@
-volumeicon & synapse -s & insync &
-xfce4-power-manager & dbus-launch nm-applet --sm-disable &
-exec ck-launch-session dbus-launch --sh-syntax --exit-with-session awesome &
-sleep 2 && whatpulse
+dbus-launch nm-applet --sm-disable &
+exec ck-launch-session dbus-launch --sh-syntax --exit-with-session awesome

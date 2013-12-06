@@ -431,3 +431,19 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+do
+  local cmds =
+  {
+    "volumeicon",
+    "insync",
+    "xfce4-power-manager",
+    "synapse -s",
+    "whatpulse",
+
+  }
+
+  for _,i in pairs(cmds) do
+    awful.util.spawn(i)
+  end
+end
