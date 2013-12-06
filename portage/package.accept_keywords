@@ -251,6 +251,7 @@ media-libs/glu
 # Latest Steam version
 =dev-libs/gobject-introspection-1.36.0-r101 **
 dev-libs/gobject-introspection-common
+sys-fs/steam-runtime-udev
 
 app-emulation/emul-linux-x86-qtlibs
 app-emulation/emul-linux-x86-baselibs
