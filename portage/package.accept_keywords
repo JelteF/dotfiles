@@ -465,6 +465,7 @@ dev-libs/elfutils
 
 # Wine latest version
 app-emulation/wine
+app-emulation/winetricks
 
 # Teamviewer latest version
 net-misc/teamviewer
