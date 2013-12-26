@@ -12,7 +12,7 @@ X_BASE="awesome slim xorg-server volumeicon"
 X_THUNAR="thunar thunar-archive-plugin thunar-media-tags-plugin"
 X_UTILS="synapse keepass gparted evince eog google-chrome file-roller"
 X_UTILS="${X_UTILS} app-arch/p7zip xfce4-screenshooter lxappearance"
-X_UTILS="${X_UTILS} faenza-xfce-icon-theme unrar xrandr"
+X_UTILS="${X_UTILS} faenza-icon-theme unrar xrandr"
 X_FONTS="ubuntu-font-family droid dejavu corefonts liberation-fonts"
 X_TERMS="xterm xfce4-terminal"
 
