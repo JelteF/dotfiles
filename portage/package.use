@@ -1,5 +1,6 @@
 # Extra LaTeX features
 app-text/texlive extra graphics humanities science
+app-text/texlive-core xetex
 >=media-libs/gd-2.0.35-r3 truetype jpeg png fontconfig
 
 # Disable watermark on ati drivers
