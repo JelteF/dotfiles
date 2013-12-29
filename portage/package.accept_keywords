@@ -248,6 +248,9 @@ x11-libs/libdrm
 virtual/opengl
 media-libs/glu
 
+# Nvidia tearing fix
+x11-misc/compton
+
 
 
 # Latest Steam version
@@ -553,12 +556,12 @@ dev-lang/python-exec:2
 
 
 # Sass dependencies
-dev-ruby/sass
+#dev-ruby/sass
 dev-ruby/rb-inotify
 virtual/ruby-ffi
 dev-ruby/ffi
 dev-ruby/rake-compiler
-dev-ruby/listen
+#dev-ruby/listen
 dev-ruby/yard
 
 # Git-flow
