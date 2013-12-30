@@ -45,7 +45,7 @@ media-video/ffmpeg:0.10 -threads
 virtual/ffmpeg -threads
 
 # ipython matplotlib
-dev-python/ipython matplotlib
+#dev-python/ipython matplotlib
 
 # Shutter dependency
 >=media-gfx/imagemagick-6.8.6.8 perl
