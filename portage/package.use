@@ -74,6 +74,9 @@ media-plugins/alsa-plugins pulseaudio
 # Libreoffice
 media-libs/harfbuzz icu
 
+# Imagemagick support for just about everything
+media-gfx/imagemagick jpeg jpeg2k png pdf tiff
+
 ########################################################
 # emul-linux vs xlibs and baselibs conflict resolution
 ########################################################
