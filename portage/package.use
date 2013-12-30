@@ -1,5 +1,6 @@
 # Extra LaTeX features
 app-text/texlive extra graphics humanities science
+app-text/texlive-core xetex
 >=media-libs/gd-2.0.35-r3 truetype jpeg png fontconfig
 
 # Disable watermark on ati drivers
@@ -75,6 +76,9 @@ media-plugins/alsa-plugins pulseaudio
 
 # Libreoffice
 media-libs/harfbuzz icu
+
+# Imagemagick support for just about everything
+media-gfx/imagemagick jpeg jpeg2k png pdf tiff
 
 ########################################################
 # emul-linux vs xlibs and baselibs conflict resolution
