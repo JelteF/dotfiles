@@ -1,6 +1,7 @@
 # Google chrome stable
 www-client/google-chrome:stable
 x11-libs/libXScrnSaver
+dev-libs/dbus-glib
 
 # Google Hangout plugin
 www-plugins/google-talkplugin
@@ -97,6 +98,7 @@ xfce-extra/xfce4-power-manager
 xfce-base/thunar
 gnome-base/gvfs
 xfce-base/libxfce4util
+dev-libs/libxml2
 
 # Required by slim
 x11-libs/libXrender
@@ -464,6 +466,8 @@ media-libs/fontconfig
 
 dev-libs/glib
 dev-libs/elfutils
+
+sys-libs/readline
 
 
 # Wine latest version
