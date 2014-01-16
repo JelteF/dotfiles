@@ -95,6 +95,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 Bundle 'dag/vim-fish'
 Bundle 'sjl/gundo.vim'
+Bundle 'hynek/vim-python-pep8-indent'
 "Bundle colorschemes
 
 
