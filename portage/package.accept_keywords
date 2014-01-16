@@ -468,6 +468,7 @@ dev-libs/glib
 dev-libs/elfutils
 
 sys-libs/readline
+media-gfx/nvidia-cg-toolkit
 
 
 # Wine latest version
