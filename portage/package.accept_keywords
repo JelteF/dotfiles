@@ -1,5 +1,5 @@
 # Google chrome stable
-www-client/google-chrome:stable
+www-client/google-chrome:0
 x11-libs/libXScrnSaver
 dev-libs/dbus-glib
 
