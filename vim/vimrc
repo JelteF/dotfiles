@@ -94,6 +94,8 @@ Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 Bundle 'dag/vim-fish'
+Bundle 'sjl/gundo.vim'
+Bundle 'hynek/vim-python-pep8-indent'
 "Bundle colorschemes
 
 
@@ -101,6 +103,8 @@ Bundle 'dag/vim-fish'
 let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|pyc|pdf|dvi|aux)$',
   \ }
+
+nnoremap <F12> :GundoToggle<CR>
 
 " -------------- Global ----------
 
