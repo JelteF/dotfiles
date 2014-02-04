@@ -158,6 +158,7 @@ x11-misc/shutter
 
 # Latest Imagemagick
 media-gfx/imagemagick
+media-libs/openjpeg
 
 
 # Latest LaTeX
@@ -202,6 +203,8 @@ dev-texlive/texlive-xetex
 # Keepass
 app-admin/keepass
 dev-lang/mono
+dev-dotnet/libgdiplus
+media-libs/giflib
 
 # Latest Libreoffice
 app-office/libreoffice
@@ -469,6 +472,7 @@ dev-libs/elfutils
 
 sys-libs/readline
 media-gfx/nvidia-cg-toolkit
+sys-devel/gettext
 
 
 # Wine latest version
