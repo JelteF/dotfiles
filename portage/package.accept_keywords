@@ -158,6 +158,7 @@ x11-misc/shutter
 
 # Latest Imagemagick
 media-gfx/imagemagick
+media-libs/openjpeg
 
 
 # Latest LaTeX
