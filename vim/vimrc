@@ -88,7 +88,6 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'digitaltoad/vim-jade'
-Bundle 'chriskempson/base16-vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
@@ -96,7 +95,7 @@ Bundle 'rking/ag.vim'
 Bundle 'dag/vim-fish'
 Bundle 'sjl/gundo.vim'
 Bundle 'hynek/vim-python-pep8-indent'
-"Bundle colorschemes
+Bundle 'altercation/vim-colors-solarized'
 
 
 "ctrlp ignore files
@@ -108,7 +107,8 @@ nnoremap <F12> :GundoToggle<CR>
 
 " -------------- Global ----------
 
-colorscheme Tomorrow-Night-Bright
+set background=dark
+colorscheme solarized
 
 " Shows what you're typing as a command
 set showcmd
