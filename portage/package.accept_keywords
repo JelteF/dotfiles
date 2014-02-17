@@ -5,6 +5,7 @@ dev-libs/dbus-glib
 
 # Google Hangout plugin
 www-plugins/google-talkplugin
+dev-libs/nettle
 
 # Vim latest version
 app-editors/vim
@@ -64,7 +65,7 @@ sys-apps/hwids
 virtual/udev
 
 # WPA supplicant latest version
-net-wireless/wpa_supplicant
+#net-wireless/wpa_supplicant
 
 # NTP deamon newest version
 net-misc/openntpd
@@ -99,6 +100,8 @@ xfce-base/thunar
 gnome-base/gvfs
 xfce-base/libxfce4util
 dev-libs/libxml2
+net-libs/gnutls
+dev-libs/libtasn1
 
 # Required by slim
 x11-libs/libXrender
@@ -109,6 +112,8 @@ app-portage/eix
 # Latest gentoolkit version
 app-portage/gentoolkit
 
+# Latest Dropbox
+net-misc/dropbox
 
 # Latest Firefox version
 www-client/firefox
@@ -210,6 +215,14 @@ media-libs/giflib
 app-office/libreoffice
 app-office/libreoffice-l10n
 media-libs/alsa-lib
+media-libs/libfreehand
+app-text/libabw
+app-text/libodfgen
+app-text/libebook
+dev-util/mdds
+dev-cpp/libcmis
+app-text/libetonyek
+app-text/libmwaw
 
 # Latest Gimp
 media-gfx/gimp
@@ -473,6 +486,8 @@ dev-libs/elfutils
 sys-libs/readline
 media-gfx/nvidia-cg-toolkit
 sys-devel/gettext
+virtual/libintl
+dev-libs/libgpg-error
 
 
 # Wine latest version
@@ -484,11 +499,13 @@ net-misc/teamviewer
 
 
 # Add powerline supoort
-=app-misc/powerline-9999 **
+app-misc/powerline
 dev-python/pygit2
 dev-python/psutil
 dev-libs/libgit2
 dev-lua/lgi
+media-fonts/powerline-symbols
+app-vim/powerline-python
 
 # Latest python versions
 dev-lang/python:2.7
@@ -553,6 +570,7 @@ dev-python/blinker
 dev-python/py-bcrypt
 net-libs/nodejs
 dev-python/flask-login
+dev-db/sqlite
 
 # Required by Flask
 dev-python/itsdangerous
@@ -572,6 +590,10 @@ dev-ruby/ffi
 dev-ruby/rake-compiler
 #dev-ruby/listen
 dev-ruby/yard
+
+# Compass
+dev-ruby/compass
+dev-ruby/chunky_png
 
 # Git-flow
 =dev-vcs/git-flow-0.4.1 **
