@@ -20,7 +20,7 @@ autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 " cd into the dir that the file is in
 "autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-set autochdir
+"set autochdir
 
 " If textfile, wrap at 80
 autocmd BufRead *.txt set tw=80
@@ -96,6 +96,11 @@ Bundle 'dag/vim-fish'
 Bundle 'sjl/gundo.vim'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'othree/html5.vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'mhinz/vim-startify'
 
 
 "ctrlp ignore files
@@ -107,6 +112,7 @@ nnoremap <F12> :GundoToggle<CR>
 
 " -------------- Global ----------
 
+set encoding=utf-8
 set background=dark
 colorscheme solarized
 

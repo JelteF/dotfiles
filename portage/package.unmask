@@ -1,2 +1,6 @@
 dev-vcs/git-flow::portage-rich
 dev-vcs/git-flow-completion::portage-rich
+dev-ruby/compass::graaff
+app-misc/powerline::raiagent
+media-fonts/powerline-symbols::raiagent
+app-vim/powerline-python::raiagent
