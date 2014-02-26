@@ -338,6 +338,7 @@ sys-libs/libcap
 sys-apps/tcp-wrappers
 dev-libs/json-c
 media-sound/pulseaudio
+net-wireless/bluez
 net-libs/libasyncns
 
 x11-proto/xineramaproto
@@ -571,6 +572,8 @@ dev-python/py-bcrypt
 net-libs/nodejs
 dev-python/flask-login
 dev-db/sqlite
+dev-db/mysql
+virtual/mysql
 
 # Required by Flask
 dev-python/itsdangerous
