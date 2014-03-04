@@ -112,6 +112,9 @@ app-portage/eix
 # Latest gentoolkit version
 app-portage/gentoolkit
 
+# Latest usbutils
+sys-apps/usbutils
+
 # Latest Dropbox
 net-misc/dropbox
 
