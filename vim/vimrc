@@ -102,12 +102,11 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'mhinz/vim-startify'
 
+"vim general ignores
+set wildignore+=*.so,*.swp,*.zip,*.exe,*.dll,*.pyc,*.pdf,*.dvi,*.aux
+set wildignore+=*.png,*.jpg,*.gif
 
-"ctrlp ignore files
-let g:ctrlp_custom_ignore = {
-  \ 'file': '\v\.(exe|so|dll|pyc|pdf|dvi|aux)$',
-  \ }
-
+"Set toggle for graphical undo plugin
 nnoremap <F12> :GundoToggle<CR>
 
 " -------------- Global ----------
@@ -118,6 +117,11 @@ colorscheme solarized
 
 " Shows what you're typing as a command
 set showcmd
+
+" Include custom vimrc
+if filereadable(".vim.custom")
+    so .vim.custom
+endif
 
 " Folding
 set foldmethod=indent
