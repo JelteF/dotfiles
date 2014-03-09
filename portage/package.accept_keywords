@@ -208,6 +208,11 @@ dev-texlive/texlive-science
 dev-texlive/texlive-xetex
 
 
+# Latest VLC
+media-video/vlc
+x11-libs/libva-vdpau-driver
+x11-libs/xvba-video
+x11-libs/libva
 
 # Keepass
 app-admin/keepass
