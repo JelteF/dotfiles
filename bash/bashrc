@@ -10,3 +10,8 @@ shopt -s autocd
 export PATH=~/.local/bin:$PATH
 alias nvcc='/usr/local/cuda-5.0/bin/nvcc'
 export EDITOR="vim"
+
+source /etc/bash_completion.d/git-prompt
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=false
+export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 " (%s)") \[\033[01;34m\]$\[\033[00m\] '

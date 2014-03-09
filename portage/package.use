@@ -27,9 +27,8 @@ app-misc/powerline -bash
 # Latex dependency
 >=media-libs/gd-2.0.35-r3 fontconfig
 
-# required by vmware
-=x11-libs/libdrm-2.4.45 libkms
-=media-libs/mesa-9.1.2-r1 xa
+# Fix mesa ebuild
+media-libs/mesa -llvm llvm-shared-libs
 
 # VLC dependency
 >=sys-libs/zlib-1.2.8-r1 minizip
