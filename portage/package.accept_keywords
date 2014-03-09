@@ -63,6 +63,7 @@ net-misc/netifrc
 sys-fs/udev
 sys-apps/hwids
 virtual/udev
+sys-fs/udev-init-scripts
 
 # WPA supplicant latest version
 #net-wireless/wpa_supplicant
