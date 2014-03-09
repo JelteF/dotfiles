@@ -131,6 +131,9 @@ dev-vcs/git
 # Mosh
 sys-libs/ncurses
 
+# Latest htop
+sys-process/htop
+
 # Multitail
 app-text/multitail
 
