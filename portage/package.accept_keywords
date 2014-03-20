@@ -63,6 +63,7 @@ net-misc/netifrc
 sys-fs/udev
 sys-apps/hwids
 virtual/udev
+sys-fs/udev-init-scripts
 
 # WPA supplicant latest version
 #net-wireless/wpa_supplicant
@@ -112,6 +113,9 @@ app-portage/eix
 # Latest gentoolkit version
 app-portage/gentoolkit
 
+# Latest usbutils
+sys-apps/usbutils
+
 # Latest Dropbox
 net-misc/dropbox
 
@@ -126,6 +130,9 @@ dev-vcs/git
 
 # Mosh
 sys-libs/ncurses
+
+# Latest htop
+sys-process/htop
 
 # Multitail
 app-text/multitail
@@ -204,6 +211,11 @@ dev-texlive/texlive-science
 dev-texlive/texlive-xetex
 
 
+# Latest VLC
+media-video/vlc
+x11-libs/libva-vdpau-driver
+x11-libs/xvba-video
+x11-libs/libva
 
 # Keepass
 app-admin/keepass
