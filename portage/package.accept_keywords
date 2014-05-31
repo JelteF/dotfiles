@@ -72,6 +72,8 @@ net-misc/netifrc
 sys-fs/udev
 sys-apps/hwids
 virtual/udev
+virtual/libudev
+virtual/libgudev
 sys-fs/udev-init-scripts
 
 # WPA supplicant latest version
@@ -121,6 +123,7 @@ app-portage/eix
 
 # Latest gentoolkit version
 app-portage/gentoolkit
+sys-apps/gentoo-functions
 
 # Latest usbutils
 sys-apps/usbutils
@@ -182,6 +185,11 @@ x11-misc/shutter
 media-gfx/imagemagick
 media-libs/openjpeg
 
+# MTP (android file transfers)
+dev-libs/go-fuse **
+sys-fs/go-mtpfs **
+media-sound/gmtp
+
 
 # Latest LaTeX
 app-text/texlive
@@ -226,6 +234,7 @@ media-video/vlc
 x11-libs/libva-vdpau-driver
 x11-libs/xvba-video
 x11-libs/libva
+media-libs/libsdl
 
 # Keepass
 app-admin/keepass
@@ -245,6 +254,8 @@ dev-util/mdds
 dev-cpp/libcmis
 app-text/libetonyek
 app-text/libmwaw
+media-libs/harfbuzz
+dev-libs/openssl
 
 # Latest Gimp
 media-gfx/gimp
@@ -321,6 +332,15 @@ sys-libs/steam-runtime-libselinux
 media-libs/jasper
 media-libs/libexif
 media-libs/openal
+media-libs/sdl-image
+media-libs/sdl-sound
+media-libs/sdl-gfx
+media-libs/sdl-net
+media-libs/sdl-mixer
+media-libs/sdl-ttf
+media-libs/imlib
+media-libs/smpeg
+media-libs/freealut
 
 media-libs/libsdl2 **
 
@@ -511,6 +531,21 @@ media-gfx/nvidia-cg-toolkit
 sys-devel/gettext
 virtual/libintl
 dev-libs/libgpg-error
+dev-libs/libxslt
+dev-libs/libgcrypt
+x11-libs/gdk-pixbuf
+x11-libs/pangox-compat
+sys-apps/file
+dev-libs/lzo
+media-gfx/graphite2
+dev-libs/icu
+sys-apps/acl
+virtual/acl
+sys-devel/libtool
+sys-apps/util-linux
+sys-libs/slang
+media-libs/alsa-oss
+dev-db/unixODBC
 
 
 # Wine latest version

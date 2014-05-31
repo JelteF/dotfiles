@@ -144,6 +144,7 @@ dev-libs/libpthread-stubs abi_x86_32
 x11-proto/damageproto abi_x86_32
 x11-proto/kbproto abi_x86_32
 x11-proto/fixesproto abi_x86_32
+x11-drivers/nvidia-drivers multilib
 
 www-servers/uwsgi debug
 
