@@ -523,6 +523,7 @@ app-vim/powerline-python
 # Latest python versions
 dev-lang/python:2.7
 dev-lang/python:3.3
+dev-lang/python:3.4
 
 
 # Latest pypy version
