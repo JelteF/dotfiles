@@ -1,4 +1,6 @@
 -python_targets_python3_3
+-python_targets_python3_4
 -python_single_target_python3_3
+-python_single_target_python3_4
 -abi_x86_32
 -ruby_targets_ruby20
