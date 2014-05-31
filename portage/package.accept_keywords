@@ -8,7 +8,7 @@ www-plugins/google-talkplugin
 dev-libs/nettle
 
 # Vim latest version
-app-editors/vim
+<app-editors/vim-7.4.273
 app-editors/vim-core
 
 # Neovim support
