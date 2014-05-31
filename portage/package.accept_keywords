@@ -8,7 +8,7 @@ www-plugins/google-talkplugin
 dev-libs/nettle
 
 # Vim latest version
-app-editors/vim
+<app-editors/vim-7.4.273
 app-editors/vim-core
 
 # Neovim support
@@ -114,6 +114,7 @@ xfce-base/libxfce4util
 dev-libs/libxml2
 net-libs/gnutls
 dev-libs/libtasn1
+dev-libs/libnl
 
 # Required by slim
 x11-libs/libXrender
@@ -177,6 +178,7 @@ dev-libs/glib
 
 # Latest Skype version
 net-im/skype
+dev-libs/libverto
 
 # Latest Shutter
 x11-misc/shutter
@@ -235,6 +237,7 @@ x11-libs/libva-vdpau-driver
 x11-libs/xvba-video
 x11-libs/libva
 media-libs/libsdl
+net-dns/libidn
 
 # Keepass
 app-admin/keepass
@@ -351,6 +354,8 @@ dev-libs/libindicator2
 dev-libs/gmp
 x11-libs/pixman
 dev-libs/libpcre
+sys-apps/keyutils
+x11-proto/fontsproto
 
 # Multilib
 media-libs/faac
@@ -546,6 +551,18 @@ sys-apps/util-linux
 sys-libs/slang
 media-libs/alsa-oss
 dev-db/unixODBC
+dev-util/pkgconfig
+virtual/pkgconfig
+net-print/cups
+net-nds/openldap
+sys-libs/talloc
+app-crypt/mit-krb5
+media-gfx/sane-backends
+virtual/krb5
+media-libs/libgphoto2
+sys-libs/db
+dev-libs/libev
+
 
 
 # Wine latest version
