@@ -1,3 +1,5 @@
 */*::portage-rich
 */*::raiagent
 */*::graaff
+*/*::science
+*/*::yngwin
