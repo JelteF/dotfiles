@@ -45,6 +45,7 @@ x11-libs/xtrans
 x11-proto/presentproto
 x11-proto/dri3proto
 x11-libs/libxshmfence
+x11-libs/libXfont
 
 # Fonts latest versions
 media-fonts/corefonts
@@ -192,6 +193,13 @@ dev-libs/go-fuse **
 sys-fs/go-mtpfs **
 media-sound/gmtp
 
+# Android Studio
+dev-util/android-studio
+dev-util/android-sdk-update-manager
+dev-java/icedtea-bin
+virtual/jdk
+virtual/jde
+
 
 # Latest LaTeX
 app-text/texlive
@@ -288,7 +296,7 @@ net-misc/bfgminer
 net-libs/libblkmaker
 
 # Latest graphicscard drivers
-x11-drivers/nvidia-drivers
+#x11-drivers/nvidia-drivers
 media-video/nvidia-settings
 x11-drivers/ati-drivers
 media-libs/glew
@@ -562,8 +570,16 @@ virtual/krb5
 media-libs/libgphoto2
 sys-libs/db
 dev-libs/libev
+sys-libs/cracklib
+sys-libs/pam
+media-libs/libart_lgpl
+sys-devel/flex
+net-libs/libtirpc
 
 
+
+# Crossplatform development
+sys-devel/crossdev
 
 # Wine latest version
 app-emulation/wine
@@ -620,6 +636,9 @@ sys-libs/zlib
 dev-python/tempita
 x11-libs/xpyb
 
+# Latest Libtorrent
+net-libs/rb_libtorrent
+
 # Use latest gcc
 sys-devel/gcc
 
@@ -649,6 +668,7 @@ dev-python/flask-login
 dev-db/sqlite
 dev-db/mysql
 virtual/mysql
+dev-python/virtualenv
 
 # Required by Flask
 dev-python/itsdangerous
