@@ -9,6 +9,7 @@ app-editors/nano
 app-editors/vim
 app-emulation/wine
 app-emulation/winetricks
+app-laptop/nvidiabl
 app-misc/powerline
 app-misc/screen
 app-misc/whatpulse
@@ -66,6 +67,7 @@ media-sound/audacity
 media-sound/gmtp
 media-sound/volumeicon
 media-video/guvcview
+media-video/nvidia-settings
 media-video/vlc
 net-dns/bind-tools
 net-im/skype
