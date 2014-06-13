@@ -1,3 +1,5 @@
+sys-block/thin-provisioning-tools
+dev-cpp/gtkmm
 # Google chrome stable
 www-client/google-chrome:0
 x11-libs/libXScrnSaver
@@ -45,6 +47,7 @@ x11-libs/xtrans
 x11-proto/presentproto
 x11-proto/dri3proto
 x11-libs/libxshmfence
+x11-libs/libXfont
 
 # Fonts latest versions
 media-fonts/corefonts
@@ -134,6 +137,7 @@ net-misc/dropbox
 
 # Latest Firefox version
 www-client/firefox
+www-client/firefox-bin
 # Needed by Firefox
 dev-libs/nspr
 dev-libs/nss
@@ -191,6 +195,13 @@ media-libs/openjpeg
 dev-libs/go-fuse **
 sys-fs/go-mtpfs **
 media-sound/gmtp
+
+# Android Studio
+dev-util/android-studio
+dev-util/android-sdk-update-manager
+dev-java/icedtea-bin
+virtual/jdk
+virtual/jde
 
 
 # Latest LaTeX
@@ -288,7 +299,7 @@ net-misc/bfgminer
 net-libs/libblkmaker
 
 # Latest graphicscard drivers
-x11-drivers/nvidia-drivers
+#x11-drivers/nvidia-drivers
 media-video/nvidia-settings
 x11-drivers/ati-drivers
 media-libs/glew
@@ -296,7 +307,7 @@ x11-proto/dri2proto
 x11-proto/xf86driproto
 x11-proto/glproto
 virtual/glu
-media-libs/mesa
+<media-libs/mesa-10.2.0_rc5
 media-libs/freeglut
 x11-libs/libdrm
 virtual/opengl
@@ -562,8 +573,16 @@ virtual/krb5
 media-libs/libgphoto2
 sys-libs/db
 dev-libs/libev
+sys-libs/cracklib
+sys-libs/pam
+media-libs/libart_lgpl
+sys-devel/flex
+net-libs/libtirpc
 
 
+
+# Crossplatform development
+sys-devel/crossdev
 
 # Wine latest version
 app-emulation/wine
@@ -586,6 +605,7 @@ app-vim/powerline-python
 dev-lang/python:2.7
 dev-lang/python:3.3
 dev-lang/python:3.4
+dev-python/pip
 
 
 # Latest pypy version
@@ -620,6 +640,9 @@ sys-libs/zlib
 dev-python/tempita
 x11-libs/xpyb
 
+# Latest Libtorrent
+net-libs/rb_libtorrent
+
 # Use latest gcc
 sys-devel/gcc
 
@@ -649,6 +672,7 @@ dev-python/flask-login
 dev-db/sqlite
 dev-db/mysql
 virtual/mysql
+dev-python/virtualenv
 
 # Required by Flask
 dev-python/itsdangerous
@@ -674,11 +698,8 @@ dev-ruby/compass
 dev-ruby/chunky_png
 
 # Git-flow
-=dev-vcs/git-flow-0.4.1 **
-=dev-vcs/git-flow-completion-0.4.1.0 **
 dev-vcs/git-flow
-dev-vcs/git-flow-completion
-dev-libs/shflags
+dev-util/shflags
 
 # MongoDB dependencies
 dev-db/mongodb::gentoo

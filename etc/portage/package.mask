@@ -3,3 +3,6 @@
 */*::graaff
 */*::science
 */*::yngwin
+*/*::mrpdaemon
+
+>=gnome-base/gdm-3.0.0

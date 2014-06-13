@@ -12,8 +12,11 @@ set default_user jelte
 # Set user $PATH variables
 set -U fish_user_paths $fish_user_paths ~/.gem/ruby/2.0.0/bin ~/.local/bin
 
+# Don't let cd complete home directory
+set CDPATH .
+
 # Set echangelog user
-set -x ECHANGELOG_USER "Jelte Fennema <github@jeltef.nl>"
+set -x ECHANGELOG_USER "Jelte Fennema <github-tech@jeltef.nl>"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-fish/plugins/*)
 # Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
