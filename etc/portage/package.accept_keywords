@@ -1,3 +1,5 @@
+sys-block/thin-provisioning-tools
+dev-cpp/gtkmm
 # Google chrome stable
 www-client/google-chrome:0
 x11-libs/libXScrnSaver
@@ -135,6 +137,7 @@ net-misc/dropbox
 
 # Latest Firefox version
 www-client/firefox
+www-client/firefox-bin
 # Needed by Firefox
 dev-libs/nspr
 dev-libs/nss
@@ -304,7 +307,7 @@ x11-proto/dri2proto
 x11-proto/xf86driproto
 x11-proto/glproto
 virtual/glu
-media-libs/mesa
+<media-libs/mesa-10.2.0_rc5
 media-libs/freeglut
 x11-libs/libdrm
 virtual/opengl
@@ -695,11 +698,8 @@ dev-ruby/compass
 dev-ruby/chunky_png
 
 # Git-flow
-=dev-vcs/git-flow-0.4.1 **
-=dev-vcs/git-flow-completion-0.4.1.0 **
 dev-vcs/git-flow
-dev-vcs/git-flow-completion
-dev-libs/shflags
+dev-util/shflags
 
 # MongoDB dependencies
 dev-db/mongodb::gentoo

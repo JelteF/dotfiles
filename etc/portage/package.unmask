@@ -6,3 +6,4 @@ media-fonts/powerline-symbols::raiagent
 app-vim/powerline-python::raiagent
 app-editors/neovim::science
 dev-lua/cmsgpack::science
+net-misc/insync::mrpdaemon
