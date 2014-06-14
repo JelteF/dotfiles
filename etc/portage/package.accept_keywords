@@ -144,6 +144,8 @@ dev-libs/nss
 # Latest Git version
 dev-vcs/git
 dev-vcs/hub
+# Latest Tig version
+dev-vcs/tig
 
 # Mosh
 sys-libs/ncurses

@@ -436,7 +436,7 @@ do
   local cmds =
   {
     "volumeicon",
-    "insync",
+    "insync start",
     "xfce4-power-manager",
     "synapse -s",
     "whatpulse",

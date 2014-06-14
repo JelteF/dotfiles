@@ -6,6 +6,7 @@ app-arch/file-roller
 app-arch/unrar
 app-editors/mousepad
 app-editors/nano
+app-editors/neovim
 app-editors/vim
 app-emulation/wine
 app-emulation/winetricks
@@ -98,11 +99,11 @@ sys-block/gparted
 sys-boot/grub
 sys-boot/grub:0
 sys-devel/gcc
+sys-fs/encfs
 sys-fs/extundelete
 sys-fs/go-mtpfs
-sys-fs/udev
-sys-fs/encfs
 sys-fs/ntfs3g
+sys-fs/udev
 sys-kernel/gentoo-sources
 sys-process/htop
 sys-process/htop::jelte
