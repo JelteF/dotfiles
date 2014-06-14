@@ -16,7 +16,7 @@ set -U fish_user_paths $fish_user_paths ~/.gem/ruby/2.0.0/bin ~/.local/bin
 set CDPATH .
 
 # Set echangelog user
-set -x ECHANGELOG_USER "Jelte Fennema <github-tech@jeltef.nl>"
+set -x ECHANGELOG_USER "Jelte Fennema (JelteF) <github-tech@jeltef.nl>"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-fish/plugins/*)
 # Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
