@@ -1,9 +1,8 @@
-sys-block/thin-provisioning-tools
-dev-cpp/gtkmm
 # Google chrome stable
 www-client/google-chrome:0
 x11-libs/libXScrnSaver
 dev-libs/dbus-glib
+gnome-base/gconf
 
 # Google Hangout plugin
 www-plugins/google-talkplugin
@@ -367,6 +366,8 @@ x11-libs/pixman
 dev-libs/libpcre
 sys-apps/keyutils
 x11-proto/fontsproto
+virtual/fam
+gnome-base/gnome-vfs
 
 # Multilib
 media-libs/faac
@@ -578,6 +579,12 @@ sys-libs/pam
 media-libs/libart_lgpl
 sys-devel/flex
 net-libs/libtirpc
+media-libs/libofa
+net-libs/libproxy
+media-video/mjpegtools
+net-libs/neon
+media-libs/taglib
+sys-block/thin-provisioning-tools
 
 
 
@@ -590,6 +597,12 @@ app-emulation/winetricks
 
 # Teamviewer latest version
 net-misc/teamviewer
+
+# Latest NetworkManager
+net-misc/networkmanager
+gnome-extra/nm-applet
+net-libs/libsoup
+net-libs/glib-networking
 
 
 # Add powerline supoort
@@ -652,6 +665,7 @@ app-accessibility/at-spi2-core
 app-accessibility/at-spi2-atk
 dev-libs/atk
 x11-libs/pango
+dev-cpp/gtkmm
 
 
 # Insync
