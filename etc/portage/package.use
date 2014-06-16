@@ -13,6 +13,7 @@ games-util/steam-games-meta -steamruntime mono steamgames_shatter steamgames_sou
 games-util/steam-launcher -steamruntime
 
 # Wine dependency
+app-emulation/wine pulseaudio
 >=dev-libs/elfutils-0.156 static-libs
 
 # Needed by SQLAlchemy and Synapse
