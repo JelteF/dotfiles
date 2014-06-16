@@ -333,7 +333,7 @@ app-emulation/emul-linux-x86-baselibs
 app-emulation/emul-linux-x86-compat
 app-emulation/emul-linux-x86-db
 app-emulation/emul-linux-x86-xlibs
-app-emulation/emul-linux-x86-medialibs
+<app-emulation/emul-linux-x86-medialibs-20140508-r6
 app-emulation/emul-linux-x86-soundlibs
 app-emulation/emul-linux-x86-sdl
 app-emulation/emul-linux-x86-opengl
@@ -591,6 +591,9 @@ media-video/mjpegtools
 net-libs/neon
 media-libs/taglib
 sys-block/thin-provisioning-tools
+virtual/pam
+media-libs/gstreamer
+media-libs/gst-plugins-base
 
 
 
