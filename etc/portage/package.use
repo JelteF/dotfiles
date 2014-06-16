@@ -7,7 +7,7 @@ app-text/texlive-core xetex
 x11-drivers/ati-drivers disable-watermark
 
 # Enable flash
-games-util/steam-client-meta flash trayicon -steamruntime
+games-util/steam-client-meta flash trayicon -steamruntime streaming
 games-util/steam-meta -steamruntime
 games-util/steam-games-meta -steamruntime mono steamgames_shatter steamgames_source_engine steamgames_tf2 steamgames_trine2
 games-util/steam-launcher -steamruntime
