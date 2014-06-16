@@ -121,6 +121,10 @@ dev-libs/libnl
 # Required by slim
 x11-libs/libXrender
 
+# LightDM
+x11-misc/lightdm
+x11-misc/lightdm-gtk-greeter
+
 # Working eix-remote version
 app-portage/eix
 
