@@ -657,6 +657,7 @@ dev-python/simplegeneric
 dev-python/pexpect
 dev-python/pyzmq
 dev-python/decorator
+dev-python/pygments
 
 # Latest libs for the course image manipulation
 dev-python/matplotlib
@@ -673,6 +674,7 @@ sys-libs/zlib
 dev-python/tempita
 x11-libs/xpyb
 gnome-base/libglade
+dev-python/python-dateutil
 
 # Latest Libtorrent
 net-libs/rb_libtorrent
