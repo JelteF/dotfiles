@@ -34,7 +34,6 @@ dev-python/ipython
 dev-python/matplotlib
 dev-python/pip
 dev-python/psutil
-dev-python/pyflakes
 dev-python/pygit2
 dev-python/pyinotify
 dev-python/pypy

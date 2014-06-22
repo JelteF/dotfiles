@@ -254,6 +254,12 @@ x11-libs/xvba-video
 x11-libs/libva
 media-libs/libsdl
 net-dns/libidn
+x11-libs/xcb-util
+x11-libs/xcb-util-keysyms
+x11-libs/xcb-util-image
+x11-libs/xcb-util-renderutil
+x11-libs/xcb-util-wm
+
 
 # Keepass
 app-admin/keepass
@@ -629,6 +635,11 @@ dev-lang/python:3.3
 dev-lang/python:3.4
 dev-python/pip
 
+# Flake8 support
+dev-python/flake8
+dev-python/pyflakes
+dev-python/pep8
+
 
 # Latest pypy version
 dev-python/pypy
@@ -661,6 +672,7 @@ x11-proto/xextproto
 sys-libs/zlib
 dev-python/tempita
 x11-libs/xpyb
+gnome-base/libglade
 
 # Latest Libtorrent
 net-libs/rb_libtorrent
@@ -795,3 +807,5 @@ dev-haskell/xhtml
 dev-haskell/zlib
 dev-lang/ghc
 
+# Printing at UvA
+net-print/cups-filters
