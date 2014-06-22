@@ -2,6 +2,7 @@ app-admin/eselect
 app-admin/keepass
 app-admin/logrotate
 app-admin/syslog-ng
+app-admin/system-config-printer-gnome
 app-arch/file-roller
 app-arch/unrar
 app-editors/mousepad
@@ -85,6 +86,7 @@ net-misc/mosh
 net-misc/ntp
 net-misc/teamviewer
 net-p2p/transmission
+net-print/foomatic-db
 net-wireless/aircrack-ng
 net-wireless/wireless-tools
 net-wireless/wpa_supplicant
