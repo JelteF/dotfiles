@@ -1,6 +1,7 @@
 [user]
 	name = Jelte Fennema
-	email = jelte12345@gmail.com
+	email = github-tech@jeltef.nl
+	signingkey = Jelte Fennema (JelteF) <github-tech@jeltef.nl>
 [auto]
 	color = true
 [ui]

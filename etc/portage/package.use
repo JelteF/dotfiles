@@ -7,12 +7,13 @@ app-text/texlive-core xetex
 x11-drivers/ati-drivers disable-watermark
 
 # Enable flash
-games-util/steam-client-meta flash trayicon -steamruntime
+games-util/steam-client-meta flash trayicon -steamruntime streaming
 games-util/steam-meta -steamruntime
 games-util/steam-games-meta -steamruntime mono steamgames_shatter steamgames_source_engine steamgames_tf2 steamgames_trine2
 games-util/steam-launcher -steamruntime
 
 # Wine dependency
+app-emulation/wine pulseaudio
 >=dev-libs/elfutils-0.156 static-libs
 
 # Needed by SQLAlchemy and Synapse
@@ -45,6 +46,7 @@ virtual/ffmpeg -threads
 
 # ipython matplotlib
 #dev-python/ipython matplotlib
+x11-base/xorg-server xvfb
 
 # Shutter dependency
 >=media-gfx/imagemagick-6.8.6.8 perl
@@ -147,6 +149,7 @@ dev-libs/libpthread-stubs abi_x86_32
 x11-proto/damageproto abi_x86_32
 x11-proto/kbproto abi_x86_32
 x11-proto/fixesproto abi_x86_32
+x11-drivers/nvidia-drivers multilib
 
 www-servers/uwsgi debug
 

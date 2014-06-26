@@ -2,14 +2,23 @@
 www-client/google-chrome:0
 x11-libs/libXScrnSaver
 dev-libs/dbus-glib
+gnome-base/gconf
 
 # Google Hangout plugin
 www-plugins/google-talkplugin
 dev-libs/nettle
 
 # Vim latest version
-app-editors/vim
+<app-editors/vim-7.4.273
 app-editors/vim-core
+
+# Neovim support
+=app-editors/neovim-9999 **
+dev-libs/libuv
+dev-lang/luajit
+dev-libs/msgpack
+dev-lua/luarocks
+dev-lua/cmsgpack
 
 # Sublime Text latest version
 app-editors/sublime-text
@@ -37,6 +46,7 @@ x11-libs/xtrans
 x11-proto/presentproto
 x11-proto/dri3proto
 x11-libs/libxshmfence
+x11-libs/libXfont
 
 # Fonts latest versions
 media-fonts/corefonts
@@ -51,6 +61,7 @@ x11-drivers/xf86-input-evdev
 
 # Portage latest version
 sys-apps/portage
+app-portage/repo-commit
 
 # Latest unstable eselect, used by fish completions
 =app-admin/eselect-9999 **
@@ -63,6 +74,8 @@ net-misc/netifrc
 sys-fs/udev
 sys-apps/hwids
 virtual/udev
+virtual/libudev
+virtual/libgudev
 sys-fs/udev-init-scripts
 
 # WPA supplicant latest version
@@ -103,15 +116,21 @@ xfce-base/libxfce4util
 dev-libs/libxml2
 net-libs/gnutls
 dev-libs/libtasn1
+dev-libs/libnl
 
 # Required by slim
 x11-libs/libXrender
+
+# LightDM
+x11-misc/lightdm
+x11-misc/lightdm-gtk-greeter
 
 # Working eix-remote version
 app-portage/eix
 
 # Latest gentoolkit version
 app-portage/gentoolkit
+sys-apps/gentoo-functions
 
 # Latest usbutils
 sys-apps/usbutils
@@ -121,12 +140,16 @@ net-misc/dropbox
 
 # Latest Firefox version
 www-client/firefox
+www-client/firefox-bin
 # Needed by Firefox
 dev-libs/nspr
 dev-libs/nss
 
 # Latest Git version
 dev-vcs/git
+dev-vcs/hub
+# Latest Tig version
+dev-vcs/tig
 
 # Mosh
 sys-libs/ncurses
@@ -164,6 +187,7 @@ dev-libs/glib
 
 # Latest Skype version
 net-im/skype
+dev-libs/libverto
 
 # Latest Shutter
 x11-misc/shutter
@@ -171,6 +195,18 @@ x11-misc/shutter
 # Latest Imagemagick
 media-gfx/imagemagick
 media-libs/openjpeg
+
+# MTP (android file transfers)
+dev-libs/go-fuse **
+sys-fs/go-mtpfs **
+media-sound/gmtp
+
+# Android Studio
+dev-util/android-studio
+dev-util/android-sdk-update-manager
+dev-java/icedtea-bin
+virtual/jdk
+virtual/jde
 
 
 # Latest LaTeX
@@ -216,6 +252,14 @@ media-video/vlc
 x11-libs/libva-vdpau-driver
 x11-libs/xvba-video
 x11-libs/libva
+media-libs/libsdl
+net-dns/libidn
+x11-libs/xcb-util
+x11-libs/xcb-util-keysyms
+x11-libs/xcb-util-image
+x11-libs/xcb-util-renderutil
+x11-libs/xcb-util-wm
+
 
 # Keepass
 app-admin/keepass
@@ -235,6 +279,8 @@ dev-util/mdds
 dev-cpp/libcmis
 app-text/libetonyek
 app-text/libmwaw
+media-libs/harfbuzz
+dev-libs/openssl
 
 # Latest Gimp
 media-gfx/gimp
@@ -264,7 +310,7 @@ net-misc/bfgminer
 net-libs/libblkmaker
 
 # Latest graphicscard drivers
-x11-drivers/nvidia-drivers
+#x11-drivers/nvidia-drivers
 media-video/nvidia-settings
 x11-drivers/ati-drivers
 media-libs/glew
@@ -272,7 +318,7 @@ x11-proto/dri2proto
 x11-proto/xf86driproto
 x11-proto/glproto
 virtual/glu
-media-libs/mesa
+<media-libs/mesa-10.2.0_rc5
 media-libs/freeglut
 x11-libs/libdrm
 virtual/opengl
@@ -293,7 +339,7 @@ app-emulation/emul-linux-x86-baselibs
 app-emulation/emul-linux-x86-compat
 app-emulation/emul-linux-x86-db
 app-emulation/emul-linux-x86-xlibs
-app-emulation/emul-linux-x86-medialibs
+<app-emulation/emul-linux-x86-medialibs-20140508-r6
 app-emulation/emul-linux-x86-soundlibs
 app-emulation/emul-linux-x86-sdl
 app-emulation/emul-linux-x86-opengl
@@ -311,6 +357,15 @@ sys-libs/steam-runtime-libselinux
 media-libs/jasper
 media-libs/libexif
 media-libs/openal
+media-libs/sdl-image
+media-libs/sdl-sound
+media-libs/sdl-gfx
+media-libs/sdl-net
+media-libs/sdl-mixer
+media-libs/sdl-ttf
+media-libs/imlib
+media-libs/smpeg
+media-libs/freealut
 
 media-libs/libsdl2 **
 
@@ -321,6 +376,10 @@ dev-libs/libindicator2
 dev-libs/gmp
 x11-libs/pixman
 dev-libs/libpcre
+sys-apps/keyutils
+x11-proto/fontsproto
+virtual/fam
+gnome-base/gnome-vfs
 
 # Multilib
 media-libs/faac
@@ -501,7 +560,51 @@ media-gfx/nvidia-cg-toolkit
 sys-devel/gettext
 virtual/libintl
 dev-libs/libgpg-error
+dev-libs/libxslt
+dev-libs/libgcrypt
+x11-libs/gdk-pixbuf
+x11-libs/pangox-compat
+sys-apps/file
+dev-libs/lzo
+media-gfx/graphite2
+dev-libs/icu
+sys-apps/acl
+virtual/acl
+sys-devel/libtool
+sys-apps/util-linux
+sys-libs/slang
+media-libs/alsa-oss
+dev-db/unixODBC
+dev-util/pkgconfig
+virtual/pkgconfig
+net-print/cups
+net-nds/openldap
+sys-libs/talloc
+app-crypt/mit-krb5
+media-gfx/sane-backends
+virtual/krb5
+media-libs/libgphoto2
+sys-libs/db
+dev-libs/libev
+sys-libs/cracklib
+sys-libs/pam
+media-libs/libart_lgpl
+sys-devel/flex
+net-libs/libtirpc
+media-libs/libofa
+net-libs/libproxy
+media-video/mjpegtools
+net-libs/neon
+media-libs/taglib
+sys-block/thin-provisioning-tools
+virtual/pam
+media-libs/gstreamer
+media-libs/gst-plugins-base
 
+
+
+# Crossplatform development
+sys-devel/crossdev
 
 # Wine latest version
 app-emulation/wine
@@ -509,6 +612,12 @@ app-emulation/winetricks
 
 # Teamviewer latest version
 net-misc/teamviewer
+
+# Latest NetworkManager
+net-misc/networkmanager
+gnome-extra/nm-applet
+net-libs/libsoup
+net-libs/glib-networking
 
 
 # Add powerline supoort
@@ -523,6 +632,13 @@ app-vim/powerline-python
 # Latest python versions
 dev-lang/python:2.7
 dev-lang/python:3.3
+dev-lang/python:3.4
+dev-python/pip
+
+# Flake8 support
+dev-python/flake8
+dev-python/pyflakes
+dev-python/pep8
 
 
 # Latest pypy version
@@ -541,6 +657,7 @@ dev-python/simplegeneric
 dev-python/pexpect
 dev-python/pyzmq
 dev-python/decorator
+dev-python/pygments
 
 # Latest libs for the course image manipulation
 dev-python/matplotlib
@@ -556,6 +673,11 @@ x11-proto/xextproto
 sys-libs/zlib
 dev-python/tempita
 x11-libs/xpyb
+gnome-base/libglade
+dev-python/python-dateutil
+
+# Latest Libtorrent
+net-libs/rb_libtorrent
 
 # Use latest gcc
 sys-devel/gcc
@@ -566,6 +688,7 @@ app-accessibility/at-spi2-core
 app-accessibility/at-spi2-atk
 dev-libs/atk
 x11-libs/pango
+dev-cpp/gtkmm
 
 
 # Insync
@@ -586,6 +709,7 @@ dev-python/flask-login
 dev-db/sqlite
 dev-db/mysql
 virtual/mysql
+dev-python/virtualenv
 
 # Required by Flask
 dev-python/itsdangerous
@@ -611,11 +735,8 @@ dev-ruby/compass
 dev-ruby/chunky_png
 
 # Git-flow
-=dev-vcs/git-flow-0.4.1 **
-=dev-vcs/git-flow-completion-0.4.1.0 **
 dev-vcs/git-flow
-dev-vcs/git-flow-completion
-dev-libs/shflags
+dev-util/shflags
 
 # MongoDB dependencies
 dev-db/mongodb::gentoo
@@ -688,3 +809,5 @@ dev-haskell/xhtml
 dev-haskell/zlib
 dev-lang/ghc
 
+# Printing at UvA
+net-print/cups-filters
