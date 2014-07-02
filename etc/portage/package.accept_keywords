@@ -269,6 +269,7 @@ media-libs/giflib
 
 # Latest Libreoffice
 app-office/libreoffice
+app-office/libreoffice-bin
 app-office/libreoffice-l10n
 media-libs/alsa-lib
 media-libs/libfreehand

@@ -12,7 +12,7 @@ app-emulation/wine
 app-emulation/winetricks
 app-misc/powerline
 app-misc/whatpulse
-app-office/libreoffice
+app-office/libreoffice-bin
 app-portage/eix
 app-portage/gentoolkit
 app-portage/layman
