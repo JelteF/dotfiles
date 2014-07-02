@@ -629,6 +629,8 @@ dev-libs/libgit2
 dev-lua/lgi
 media-fonts/powerline-symbols
 app-vim/powerline-python
+dev-python/pytest
+dev-python/cffi
 
 # Latest python versions
 dev-lang/python:2.7
