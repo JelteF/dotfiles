@@ -269,6 +269,7 @@ media-libs/giflib
 
 # Latest Libreoffice
 app-office/libreoffice
+app-office/libreoffice-bin
 app-office/libreoffice-l10n
 media-libs/alsa-lib
 media-libs/libfreehand
@@ -628,6 +629,8 @@ dev-libs/libgit2
 dev-lua/lgi
 media-fonts/powerline-symbols
 app-vim/powerline-python
+dev-python/pytest
+dev-python/cffi
 
 # Latest python versions
 dev-lang/python:2.7
@@ -658,6 +661,7 @@ dev-python/pexpect
 dev-python/pyzmq
 dev-python/decorator
 dev-python/pygments
+dev-python/py
 
 # Latest libs for the course image manipulation
 dev-python/matplotlib

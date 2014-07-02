@@ -18,6 +18,9 @@ set CDPATH .
 # Set echangelog user
 set -x ECHANGELOG_USER "Jelte Fennema (JelteF) <github-tech@jeltef.nl>"
 
+# Disable clipboard polution
+set FISH_CLIPBOARD_CMD "cat"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-fish/plugins/*)
 # Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
 # Example format: set fish_plugins autojump bundler

@@ -102,6 +102,8 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'mhinz/vim-startify'
 Bundle 'groenewege/vim-less'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'danro/rename.vim'
 
 "vim general ignores
 set wildignore+=*.so,*.swp,*.zip,*.exe,*.dll,*.pyc,*.pdf,*.dvi,*.aux
