@@ -658,6 +658,7 @@ dev-python/pexpect
 dev-python/pyzmq
 dev-python/decorator
 dev-python/pygments
+dev-python/py
 
 # Latest libs for the course image manipulation
 dev-python/matplotlib
