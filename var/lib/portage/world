@@ -14,7 +14,7 @@ app-emulation/winetricks
 app-laptop/nvidiabl
 app-misc/powerline
 app-misc/whatpulse
-app-office/libreoffice
+app-office/libreoffice-bin
 app-portage/eix
 app-portage/gentoolkit
 app-portage/layman
