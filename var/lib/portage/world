@@ -10,7 +10,6 @@ app-editors/neovim
 app-editors/vim
 app-emulation/wine
 app-emulation/winetricks
-app-misc/powerline
 app-misc/whatpulse
 app-office/libreoffice-bin
 app-portage/eix
@@ -59,6 +58,7 @@ media-fonts/freefont
 media-fonts/freefonts
 media-fonts/liberation-fonts
 media-fonts/mathematica-fonts
+media-fonts/powerline-symbols
 media-fonts/terminus-font
 media-fonts/ubuntu-font-family
 media-fonts/unifont
