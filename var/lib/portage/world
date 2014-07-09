@@ -117,6 +117,7 @@ x11-base/xorg-server
 x11-misc/lightdm
 x11-misc/slim
 x11-misc/xclip
+x11-misc/xdotool
 x11-plugins/vicious
 x11-terms/xfce4-terminal
 x11-terms/xterm
