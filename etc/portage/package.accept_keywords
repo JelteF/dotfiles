@@ -63,8 +63,8 @@ x11-drivers/xf86-input-evdev
 sys-apps/portage
 app-portage/repo-commit
 
-# Latest unstable eselect, used by fish completions
-=app-admin/eselect-9999 **
+# Latest eselect, used by fish completions
+app-admin/eselect
 
 # OpenRC latest version
 sys-apps/openrc
@@ -184,6 +184,7 @@ app-arch/unrar
 # Latest Transmission
 net-p2p/transmission
 dev-libs/glib
+net-misc/curl
 
 # Latest Skype version
 net-im/skype
