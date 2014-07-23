@@ -1,60 +1,58 @@
 #!/bin/fish
 
-set -l monitor beamer
+set -l monitor none none
 
-function beamer_connected
-    xrandr -q | grep "CRT1 connected" > /dev/null
+function hdmi_connected
+    xrandr -q | grep "HDMI-0 connected" > /dev/null
 end
 
-function secondary_connected
-    xrandr -q | grep "DFP11 connected" > /dev/null
+function vga_connected
+    xrandr -q | grep "VGA-0 connected" > /dev/null
 end
 
-function activate_secondary
-    set monitor secondary
-    xrandr --output DFP11 --auto --left-of DFP10
+function activate_hdmi
+    set monitor[2] hdmi
+    xrandr --output HDMI-0 --auto --left-of LVDS-0
 end
 
-function activate_beamer
-    set monitor beamer
-    xrandr --output CRT1 --auto --mode 1280x720 --above DFP10
-    /home/jelte/fun/hue/turn.py off
+function activate_vga
+    set monitor[2] vga
+    xrandr --output VGA-0 --auto --above LVDS-0
 end
 
-function deactivate_secondary
-    set monitor none
-    xrandr --output DFP11 --off
+function deactivate_hdmi
+    set monitor[1] none
+    xrandr --output HDMI-0 --off
 end
 
-function deactivate_beamer
-    set monitor none
-    xrandr --output CRT1 --off
-    /home/jelte/fun/hue/turn.py on
+function deactivate_vga
+    set monitor[2] none
+    xrandr --output VGA-0 --off
 end
 
 while true
     echo $monitor
 
-    if begin test $monitor != secondary; and secondary_connected; end
-        echo 'connecting secondary'
-        activate_secondary
+    if begin test $monitor[1] != hdmi; and hdmi_connected; end
+        echo 'connecting hdmi'
+        activate_hdmi
     end
 
-    if begin test $monitor = secondary; and not secondary_connected; end
-        echo 'disconnecting secondary'
-        deactivate_secondary
+    if begin test $monitor[1] = hdmi; and not hdmi_connected; end
+        echo 'disconnecting hdmi'
+        deactivate_hdmi
     end
 
-    if begin test $monitor != beamer; and beamer_connected; end
-        echo 'connecting beamer'
-        activate_beamer
+    if begin test $monitor[2] != vga; and vga_connected; end
+        echo 'connecting vga'
+        activate_vga
         sleep 5
         exit 0
     end
 
-    if begin test $monitor = beamer; and not beamer_connected; end
-        echo 'disconnecting beamer'
-        deactivate_beamer
+    if begin test $monitor[2] = vga; and not vga_connected; end
+        echo 'disconnecting vga'
+        deactivate_vga
     end
     sleep 1
 end
