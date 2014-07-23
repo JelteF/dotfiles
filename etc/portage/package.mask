@@ -5,4 +5,10 @@
 */*::yngwin
 */*::mrpdaemon
 
+# I don't want systemd
 >=gnome-base/gdm-3.0.0
+
+# Lennart
+sys-apps/systemd
+sys-power/upower
+sys-apps/gentoo-systemd-integration
