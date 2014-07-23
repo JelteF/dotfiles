@@ -1,0 +1,60 @@
+#!/bin/fish
+
+set -l monitor beamer
+
+function beamer_connected
+    xrandr -q | grep "CRT1 connected" > /dev/null
+end
+
+function secondary_connected
+    xrandr -q | grep "DFP11 connected" > /dev/null
+end
+
+function activate_secondary
+    set monitor secondary
+    xrandr --output DFP11 --auto --left-of DFP10
+end
+
+function activate_beamer
+    set monitor beamer
+    xrandr --output CRT1 --auto --mode 1280x720 --above DFP10
+    /home/jelte/fun/hue/turn.py off
+end
+
+function deactivate_secondary
+    set monitor none
+    xrandr --output DFP11 --off
+end
+
+function deactivate_beamer
+    set monitor none
+    xrandr --output CRT1 --off
+    /home/jelte/fun/hue/turn.py on
+end
+
+while true
+    echo $monitor
+
+    if begin test $monitor != secondary; and secondary_connected; end
+        echo 'connecting secondary'
+        activate_secondary
+    end
+
+    if begin test $monitor = secondary; and not secondary_connected; end
+        echo 'disconnecting secondary'
+        deactivate_secondary
+    end
+
+    if begin test $monitor != beamer; and beamer_connected; end
+        echo 'connecting beamer'
+        activate_beamer
+        sleep 5
+        exit 0
+    end
+
+    if begin test $monitor = beamer; and not beamer_connected; end
+        echo 'disconnecting beamer'
+        deactivate_beamer
+    end
+    sleep 1
+end

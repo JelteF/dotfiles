@@ -71,6 +71,8 @@ media-libs/freeglut
 media-libs/opencv
 media-sound/audacity
 media-sound/gmtp
+media-sound/pavucontrol
+media-sound/projectm-pulseaudio
 media-sound/volumeicon
 media-video/nvidia-settings
 media-video/vlc
@@ -111,9 +113,11 @@ sys-process/htop::jelte
 sys-process/vixie-cron
 www-client/firefox-bin
 www-client/google-chrome
+www-client/phantomjs
 www-plugins/google-talkplugin
 x11-apps/xrandr
 x11-base/xorg-server
+x11-misc/compton
 x11-misc/lightdm
 x11-misc/slim
 x11-misc/xclip

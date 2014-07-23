@@ -23,9 +23,9 @@ autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 "set autochdir
 
 " If textfile, wrap at 80
-autocmd BufRead *.txt set tw=80
-autocmd BufRead *.md set tw=80
-autocmd BufRead *.tex set tw=80
+autocmd BufRead *.txt setlocal tw=80
+autocmd BufRead *.md setlocal tw=80
+autocmd BufRead *.tex setlocal tw=80
 
 " Restore cursor position when opening file
 augroup JumpCursorOnEdit
@@ -79,7 +79,7 @@ call vundle#rc()
 "Let vundle update vundle
 Bundle 'gmarik/vundle'
 
-"Bundle other plugins
+"Bundle Plugins
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
@@ -87,26 +87,31 @@ Bundle 'tpope/vim-repeat'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
-Bundle 'digitaltoad/vim-jade'
 Bundle 'majutsushi/tagbar'
 Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
-Bundle 'dag/vim-fish'
 Bundle 'sjl/gundo.vim'
-Bundle 'hynek/vim-python-pep8-indent'
+Bundle 'danro/rename.vim'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'bling/vim-airline'
+Bundle 'chrisbra/csv.vim'
+Bundle 'dag/vim-fish'
 Bundle 'thomwiggers/vim-colors-solarized'
+
+"Bundle syntax
+Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'mhinz/vim-startify'
 Bundle 'groenewege/vim-less'
 Bundle 'plasticboy/vim-markdown'
-Bundle 'danro/rename.vim'
-Bundle 'bling/vim-airline'
-Bundle 'chrisbra/csv.vim'
-Bundle 'airblade/vim-gitgutter'
+Bundle 'syngan/vim-vimlint'
+Bundle 'ynkdir/vim-vimlparser'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'digitaltoad/vim-jade'
 
 "vim general ignores
 set wildignore+=*.so,*.swp,*.zip,*.exe,*.dll,*.pyc,*.pdf,*.dvi,*.aux
