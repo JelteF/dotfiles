@@ -113,6 +113,7 @@ www-client/phantomjs
 www-plugins/google-talkplugin
 x11-apps/xrandr
 x11-base/xorg-server
+x11-misc/compton
 x11-misc/lightdm
 x11-misc/slim
 x11-misc/xclip
