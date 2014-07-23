@@ -109,6 +109,7 @@ sys-process/htop::jelte
 sys-process/vixie-cron
 www-client/firefox-bin
 www-client/google-chrome
+www-client/phantomjs
 www-plugins/google-talkplugin
 x11-apps/xrandr
 x11-base/xorg-server
