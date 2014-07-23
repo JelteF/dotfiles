@@ -441,6 +441,6 @@ do
   }
 
   for _,i in pairs(cmds) do
-    awful.util.spawn(i)
+    awful.util.spawn('run_once ' .. i)
   end
 end
