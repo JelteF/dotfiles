@@ -11,9 +11,6 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 
-package.path = package.path .. '; /usr/lib64/python2.7/site-packages/powerline/bindings/awesome/?.lua'
-require("powerline")
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -440,10 +437,10 @@ do
     "xfce4-power-manager",
     "synapse -s",
     "whatpulse",
-
+    "detect_displays",
   }
 
   for _,i in pairs(cmds) do
-    awful.util.spawn(i)
+    awful.util.spawn('run_once ' .. i)
   end
 end

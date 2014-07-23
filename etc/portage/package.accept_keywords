@@ -315,6 +315,7 @@ net-libs/libblkmaker
 #x11-drivers/nvidia-drivers
 media-video/nvidia-settings
 x11-drivers/ati-drivers
+x11-drivers/radeon-ucode
 media-libs/glew
 x11-proto/dri2proto
 x11-proto/xf86driproto
