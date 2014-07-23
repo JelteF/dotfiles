@@ -69,6 +69,8 @@ media-libs/freeglut
 media-libs/opencv
 media-sound/audacity
 media-sound/gmtp
+media-sound/pavucontrol
+media-sound/projectm-pulseaudio
 media-sound/volumeicon
 media-video/vlc
 net-ftp/ftp
