@@ -91,6 +91,9 @@ sys-libs/e2fsprogs-libs
 # NTFS support
 sys-fs/ntfs3g
 
+# webcam support
+media-video/luvcview
+
 # Ag and Ack latest versions
 sys-apps/the_silver_searcher
 sys-apps/ack
