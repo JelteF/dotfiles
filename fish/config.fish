@@ -10,7 +10,7 @@ set theme_display_user yes
 set default_user jelte
 
 # Set user $PATH variables
-set -U fish_user_paths $fish_user_paths ~/.gem/ruby/2.0.0/bin ~/.local/bin
+set -U fish_user_paths $fish_user_paths ~/.gem/ruby/1.9.1/bin ~/.local/bin
 
 # Don't let cd complete home directory
 set CDPATH .

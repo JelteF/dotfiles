@@ -733,6 +733,17 @@ dev-python/six
 dev-lang/python-exec:2
 
 
+# Ruby
+dev-lang/ruby
+app-admin/eselect-ruby
+dev-ruby/racc
+dev-ruby/rake
+dev-ruby/json
+dev-ruby/rubygems
+dev-ruby/rdoc
+virtual/rubygems
+
+
 # Sass dependencies
 #dev-ruby/sass
 dev-ruby/rb-inotify
