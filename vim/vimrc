@@ -112,6 +112,7 @@ Bundle 'syngan/vim-vimlint'
 Bundle 'ynkdir/vim-vimlparser'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'mustache/vim-mustache-handlebars'
 
 "vim general ignores
 set wildignore+=*.so,*.swp,*.zip,*.exe,*.dll,*.pyc,*.pdf,*.dvi,*.aux
