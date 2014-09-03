@@ -63,8 +63,8 @@ x11-drivers/xf86-input-evdev
 sys-apps/portage
 app-portage/repo-commit
 
-# Latest unstable eselect, used by fish completions
-=app-admin/eselect-9999 **
+# Latest eselect, used by fish completions
+app-admin/eselect
 
 # OpenRC latest version
 sys-apps/openrc
@@ -91,6 +91,9 @@ sys-libs/e2fsprogs-libs
 # NTFS support
 sys-fs/ntfs3g
 
+# webcam support
+media-video/luvcview
+
 # Ag and Ack latest versions
 sys-apps/the_silver_searcher
 sys-apps/ack
@@ -115,6 +118,7 @@ gnome-base/gvfs
 xfce-base/libxfce4util
 dev-libs/libxml2
 net-libs/gnutls
+sys-apps/texinfo
 dev-libs/libtasn1
 dev-libs/libnl
 
@@ -184,6 +188,7 @@ app-arch/unrar
 # Latest Transmission
 net-p2p/transmission
 dev-libs/glib
+net-misc/curl
 
 # Latest Skype version
 net-im/skype
@@ -253,6 +258,7 @@ x11-libs/libva-vdpau-driver
 x11-libs/xvba-video
 x11-libs/libva
 media-libs/libsdl
+media-libs/libdvdcss
 net-dns/libidn
 x11-libs/xcb-util
 x11-libs/xcb-util-keysyms
@@ -269,6 +275,7 @@ media-libs/giflib
 
 # Latest Libreoffice
 app-office/libreoffice
+app-office/libreoffice-bin
 app-office/libreoffice-l10n
 media-libs/alsa-lib
 media-libs/libfreehand
@@ -313,6 +320,7 @@ net-libs/libblkmaker
 #x11-drivers/nvidia-drivers
 media-video/nvidia-settings
 x11-drivers/ati-drivers
+x11-drivers/radeon-ucode
 media-libs/glew
 x11-proto/dri2proto
 x11-proto/xf86driproto
@@ -628,6 +636,8 @@ dev-libs/libgit2
 dev-lua/lgi
 media-fonts/powerline-symbols
 app-vim/powerline-python
+dev-python/pytest
+dev-python/cffi
 
 # Latest python versions
 dev-lang/python:2.7
@@ -658,6 +668,7 @@ dev-python/pexpect
 dev-python/pyzmq
 dev-python/decorator
 dev-python/pygments
+dev-python/py
 
 # Latest libs for the course image manipulation
 dev-python/matplotlib
@@ -710,6 +721,7 @@ dev-db/sqlite
 dev-db/mysql
 virtual/mysql
 dev-python/virtualenv
+sys-process/procps
 
 # Required by Flask
 dev-python/itsdangerous

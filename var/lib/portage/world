@@ -10,9 +10,8 @@ app-editors/neovim
 app-editors/vim
 app-emulation/wine
 app-emulation/winetricks
-app-misc/powerline
 app-misc/whatpulse
-app-office/libreoffice
+app-office/libreoffice-bin
 app-portage/eix
 app-portage/gentoolkit
 app-portage/layman
@@ -59,6 +58,7 @@ media-fonts/freefont
 media-fonts/freefonts
 media-fonts/liberation-fonts
 media-fonts/mathematica-fonts
+media-fonts/powerline-symbols
 media-fonts/terminus-font
 media-fonts/ubuntu-font-family
 media-fonts/unifont
@@ -69,7 +69,11 @@ media-libs/freeglut
 media-libs/opencv
 media-sound/audacity
 media-sound/gmtp
+media-sound/pavucontrol
+media-sound/projectm-pulseaudio
 media-sound/volumeicon
+media-video/guvcview
+media-video/luvcview
 media-video/vlc
 net-ftp/ftp
 net-im/skype
@@ -107,12 +111,15 @@ sys-process/htop::jelte
 sys-process/vixie-cron
 www-client/firefox-bin
 www-client/google-chrome
+www-client/phantomjs
 www-plugins/google-talkplugin
 x11-apps/xrandr
 x11-base/xorg-server
+x11-misc/compton
 x11-misc/lightdm
 x11-misc/slim
 x11-misc/xclip
+x11-misc/xdotool
 x11-plugins/vicious
 x11-terms/xfce4-terminal
 x11-terms/xterm

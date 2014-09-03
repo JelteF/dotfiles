@@ -31,6 +31,9 @@ app-misc/powerline -bash
 # Fix mesa ebuild
 media-libs/mesa -llvm llvm-shared-libs
 
+# VLC webserver
+media-video/vlc httpd lua
+
 # VLC dependency
 >=sys-libs/zlib-1.2.8-r1 minizip
 
