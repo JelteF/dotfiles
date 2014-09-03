@@ -118,6 +118,7 @@ gnome-base/gvfs
 xfce-base/libxfce4util
 dev-libs/libxml2
 net-libs/gnutls
+sys-apps/texinfo
 dev-libs/libtasn1
 dev-libs/libnl
 
@@ -257,6 +258,7 @@ x11-libs/libva-vdpau-driver
 x11-libs/xvba-video
 x11-libs/libva
 media-libs/libsdl
+media-libs/libdvdcss
 net-dns/libidn
 x11-libs/xcb-util
 x11-libs/xcb-util-keysyms
@@ -719,6 +721,7 @@ dev-db/sqlite
 dev-db/mysql
 virtual/mysql
 dev-python/virtualenv
+sys-process/procps
 
 # Required by Flask
 dev-python/itsdangerous
