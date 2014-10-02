@@ -74,9 +74,9 @@ media-sound/gmtp
 media-sound/pavucontrol
 media-sound/projectm-pulseaudio
 media-sound/volumeicon
-media-video/nvidia-settings
 media-video/guvcview
 media-video/luvcview
+media-video/nvidia-settings
 media-video/vlc
 net-ftp/ftp
 net-im/skype
