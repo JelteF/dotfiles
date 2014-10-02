@@ -110,6 +110,7 @@ sys-fs/go-mtpfs
 sys-fs/ntfs3g
 sys-fs/udev
 sys-kernel/gentoo-sources
+sys-power/acpi
 sys-process/htop
 sys-process/htop::jelte
 sys-process/vixie-cron
