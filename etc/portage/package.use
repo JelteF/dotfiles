@@ -6,6 +6,8 @@ app-text/texlive-core xetex
 # Disable watermark on ati drivers
 x11-drivers/ati-drivers disable-watermark
 
+net-misc/networkmanager dhcpcd -dhclient
+
 # Enable flash
 games-util/steam-client-meta flash trayicon -steamruntime streaming
 games-util/steam-meta -steamruntime

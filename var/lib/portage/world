@@ -15,6 +15,7 @@ app-laptop/nvidiabl
 app-misc/whatpulse
 app-office/libreoffice-bin
 app-portage/eix
+app-portage/genlop
 app-portage/gentoolkit
 app-portage/layman
 app-portage/portage-utils
@@ -24,11 +25,11 @@ app-shells/fish
 app-text/evince
 app-text/texlive
 app-vim/gentoo-syntax
-app-vim/vim-latex
 app-vim/vim-spell-en
 app-vim/vim-spell-nl
 dev-db/mysql
 dev-db/postgresql-server
+dev-lang/swi-prolog
 dev-python/flake8
 dev-python/ipython
 dev-python/matplotlib
@@ -38,7 +39,6 @@ dev-python/pygit2
 dev-python/pyinotify
 dev-python/pypy
 dev-python/virtualenv
-dev-ruby/sass
 dev-tex/rubber
 dev-util/valgrind
 dev-vcs/git
