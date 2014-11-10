@@ -13,3 +13,5 @@
 # Teamviewer license
 >=net-misc/teamviewer-8.0.20931 TeamViewer
 
+# Oracle JDK
+dev-java/oracle-jdk-bin Oracle-BCLA-JavaSE

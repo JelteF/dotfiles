@@ -29,6 +29,7 @@ app-vim/vim-spell-en
 app-vim/vim-spell-nl
 dev-db/mysql
 dev-db/postgresql-server
+dev-java/oracle-jdk-bin:1.7
 dev-lang/swi-prolog
 dev-python/flake8
 dev-python/ipython
@@ -39,7 +40,10 @@ dev-python/pygit2
 dev-python/pyinotify
 dev-python/pypy
 dev-python/virtualenv
+dev-rust/cargo
 dev-tex/rubber
+dev-util/android-sdk-update-manager
+dev-util/android-studio
 dev-util/valgrind
 dev-vcs/git
 dev-vcs/git-flow
@@ -120,6 +124,7 @@ www-client/phantomjs
 www-plugins/google-talkplugin
 x11-apps/xrandr
 x11-base/xorg-server
+x11-misc/arandr
 x11-misc/compton
 x11-misc/lightdm
 x11-misc/slim

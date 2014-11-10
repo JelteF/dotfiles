@@ -15,7 +15,7 @@ games-util/steam-games-meta -steamruntime mono steamgames_shatter steamgames_sou
 games-util/steam-launcher -steamruntime
 
 # Wine dependency
-app-emulation/wine pulseaudio
+app-emulation/wine pulseaudio oss
 >=dev-libs/elfutils-0.156 static-libs
 
 # Needed by SQLAlchemy and Synapse
@@ -49,8 +49,8 @@ sys-apps/portage python3
 media-video/ffmpeg:0.10 -threads
 virtual/ffmpeg -threads
 
-# ipython matplotlib
-dev-python/ipython matplotlib
+# ipython matplotlib and notebook
+dev-python/ipython matplotlib notebook
 x11-base/xorg-server xvfb
 
 # Shutter dependency

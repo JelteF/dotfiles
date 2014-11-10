@@ -289,7 +289,7 @@ map Y y$
 "noremap <silent> <F1> mzgg=G`zzz
 
 " Write, pdflatex and open it up
-nnoremap <silent> <F4> :w<CR>:!pdflatex % && F=% && evince ${F\%.*}.pdf<CR><CR>
+nnoremap <silent> <F4> :w<CR>:!pdflatex % && F=% <CR><CR>
 
 " Make and view pdf
 " nnoremap <silent> <F4> :w<CR>:!make && F=% && evince ${F\%.*}.pdf<CR><CR>
