@@ -4,6 +4,7 @@ app-admin/logrotate
 app-admin/syslog-ng
 app-arch/file-roller
 app-arch/unrar
+app-arch/xarchiver
 app-editors/mousepad
 app-editors/nano
 app-editors/neovim
@@ -95,6 +96,7 @@ net-wireless/aircrack-ng
 net-wireless/wireless-tools
 net-wireless/wpa_supplicant
 sci-libs/scipy
+sci-mathematics/octave
 sci-visualization/gnuplot
 sys-apps/ack
 sys-apps/pciutils
@@ -104,6 +106,7 @@ sys-block/gparted
 sys-boot/grub
 sys-boot/grub:0
 sys-devel/gcc
+sys-devel/gdb
 sys-fs/encfs
 sys-fs/extundelete
 sys-fs/go-mtpfs
