@@ -113,6 +113,7 @@ Bundle 'ynkdir/vim-vimlparser'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'cespare/vim-toml'
 
 "vim general ignores
 set wildignore+=*.so,*.swp,*.zip,*.exe,*.dll,*.pyc,*.pdf,*.dvi,*.aux
@@ -290,7 +291,7 @@ map Y y$
 "noremap <silent> <F1> mzgg=G`zzz
 
 " Write, pdflatex and open it up
-nnoremap <silent> <F4> :w<CR>:!pdflatex % && F=% && evince ${F\%.*}.pdf<CR><CR>
+nnoremap <silent> <F4> :w<CR>:!pdflatex % <CR><CR>
 
 " Make and view pdf
 " nnoremap <silent> <F4> :w<CR>:!make && F=% && evince ${F\%.*}.pdf<CR><CR>
@@ -302,6 +303,10 @@ nnoremap <silent> <F2> :w<CR>:!make<CR><CR>
 " Make j and k work as expected
 nnoremap <silent> j gj
 nnoremap <silent> k gk
+nnoremap <silent> V :silent! vunmap j<cr>:silent! vunmap k<cr>V
+nnoremap <silent> v :vnoremap j gj<cr>:vnoremap k gk<cr>v
+vnoremap <silent> V <esc>:silent! vunmap j<cr>:silent! vunmap k<cr>gvV
+vnoremap <silent> v <esc>:vnoremap j gj<cr>:vnoremap k gk<cr>gvv
 
 " Toggle folds with space
 nnoremap <space> za

@@ -3,8 +3,14 @@ app-text/texlive extra graphics humanities science
 app-text/texlive-core xetex
 >=media-libs/gd-2.0.35-r3 truetype jpeg png fontconfig
 
+# GTK+ skin for QT apps
+dev-qt/qtgui gtkstyle
+app-emulation/emul-linux-x86-qtlibs gtkstyle
+
 # Disable watermark on ati drivers
 x11-drivers/ati-drivers disable-watermark
+
+net-misc/networkmanager dhcpcd -dhclient
 
 # Enable flash
 games-util/steam-client-meta flash trayicon -steamruntime streaming
@@ -13,7 +19,7 @@ games-util/steam-games-meta -steamruntime mono steamgames_shatter steamgames_sou
 games-util/steam-launcher -steamruntime
 
 # Wine dependency
-app-emulation/wine pulseaudio
+app-emulation/wine pulseaudio oss
 >=dev-libs/elfutils-0.156 static-libs
 
 # Needed by SQLAlchemy and Synapse
@@ -47,8 +53,8 @@ sys-apps/portage python3
 media-video/ffmpeg:0.10 -threads
 virtual/ffmpeg -threads
 
-# ipython matplotlib
-#dev-python/ipython matplotlib
+# ipython matplotlib and notebook
+dev-python/ipython matplotlib notebook
 x11-base/xorg-server xvfb
 
 # Shutter dependency
@@ -83,6 +89,9 @@ media-libs/harfbuzz icu
 
 # Imagemagick support for just about everything
 media-gfx/imagemagick jpeg jpeg2k png pdf tiff
+
+# Rust dep
+sys-devel/llvm multitarget
 
 ########################################################
 # emul-linux vs xlibs and baselibs conflict resolution
