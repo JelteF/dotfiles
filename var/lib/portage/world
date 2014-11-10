@@ -27,6 +27,7 @@ app-vim/vim-spell-en
 app-vim/vim-spell-nl
 dev-db/mysql
 dev-db/postgresql-server
+dev-java/oracle-jdk-bin:1.7
 dev-lang/swi-prolog
 dev-python/flake8
 dev-python/ipython
