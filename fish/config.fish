@@ -8,6 +8,7 @@ set TERM xterm-256color
 
 set theme_display_user yes
 set default_user jelte
+set -g theme_display_ruby no
 
 # Set user $PATH variables
 set -U fish_user_paths $fish_user_paths ~/.gem/ruby/2.0.0/bin ~/.local/bin
