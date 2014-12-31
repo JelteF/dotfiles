@@ -15,3 +15,10 @@ gnome-extra/nm-applet -~amd64
 # Editors should work
 app-editors/vim -~amd64
 =app-editors/neovim-9999 **
+
+dev-lang/rust:nightly **
+=dev-lang/rust-bin-999 **
+=dev-rust/cargo-9999 **
+=app-vim/rust-mode-9999 **
+
+x11-libs/fltk -~amd64
