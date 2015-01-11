@@ -118,6 +118,11 @@ Bundle 'cespare/vim-toml'
 set wildignore+=*.so,*.swp,*.zip,*.exe,*.dll,*.pyc,*.pdf,*.dvi,*.aux
 set wildignore+=*.png,*.jpg,*.gif
 
+"ctrlp ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir': 'build\|node_modules\|venv',
+  \ }
+
 "Set toggle for graphical undo plugin
 nnoremap <F12> :GundoToggle<CR>
 
