@@ -30,3 +30,5 @@ dev-lang/rust:nightly **
 =app-vim/rust-mode-9999 **
 
 x11-libs/fltk -~amd64
+
+=app-shells/fish-9999 **
