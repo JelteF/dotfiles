@@ -437,7 +437,7 @@ do
     "xfce4-power-manager",
     "synapse -s",
     "whatpulse",
-    "detect_displays",
+    --"detect_displays",
   }
 
   for _,i in pairs(cmds) do
