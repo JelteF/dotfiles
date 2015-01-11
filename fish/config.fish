@@ -10,6 +10,10 @@ set theme_display_user yes
 set default_user jelte
 set -g theme_display_ruby no
 
+# Disable venv because bob-the-fish does this already
+set VIRTUAL_ENV_DISABLE_PROMPT yes
+
+
 # Set user $PATH variables
 set -U fish_user_paths $fish_user_paths ~/.gem/ruby/2.0.0/bin ~/.local/bin
 
