@@ -12,6 +12,13 @@ net-misc/modemmanager -~amd64
 net-wireless/wpa_supplicant -~amd64
 net-misc/networkmanager -~amd64
 gnome-extra/nm-applet -~amd64
+
+# X11 was broken
+app-admin/eselect-opengl -~amd64
+=media-libs/mesa-10.3.5-r1 -~amd64
+=x11-base/xorg-server-1.16.2.901-r1 -~amd64
+=x11-proto/glproto-1.4.17-r1 -~amd64
+
 # Editors should work
 app-editors/vim -~amd64
 =app-editors/neovim-9999 **
