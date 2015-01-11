@@ -23,6 +23,7 @@ app-admin/eselect-opengl -~amd64
 app-editors/vim -~amd64
 =app-editors/neovim-9999 **
 
+=virtual/rust-999 **
 dev-lang/rust:nightly **
 =dev-lang/rust-bin-999 **
 =dev-rust/cargo-9999 **
