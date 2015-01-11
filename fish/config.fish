@@ -15,7 +15,7 @@ set VIRTUAL_ENV_DISABLE_PROMPT yes
 
 
 # Set user $PATH variables
-set -U fish_user_paths $fish_user_paths ~/.gem/ruby/2.0.0/bin ~/.local/bin
+set -U fish_user_paths $fish_user_paths /opt/bin ~/.gem/ruby/2.0.0/bin ~/.local/bin
 
 # Don't let cd complete home directory
 set CDPATH .
