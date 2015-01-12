@@ -44,16 +44,6 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-# Images #
-##########
-
-*.jpg
-*.jpeg
-*.gif
-*.tiff
-*.png
-*.bmp
-
 # VIM swap files #
 ##################
 .*.*.*.sw?
