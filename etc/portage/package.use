@@ -94,6 +94,9 @@ media-gfx/imagemagick jpeg jpeg2k png pdf tiff
 # Rust dep
 sys-devel/llvm multitarget
 
+# Nvidia interface
+x11-drivers/nvidia-drivers gtk2
+
 ########################################################
 # emul-linux vs xlibs and baselibs conflict resolution
 ########################################################

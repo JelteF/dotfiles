@@ -20,7 +20,6 @@ app-admin/eselect-opengl -~amd64
 =x11-proto/glproto-1.4.17-r1 -~amd64
 
 # Editors should work
-app-editors/vim -~amd64
 =app-editors/neovim-9999 **
 
 =virtual/rust-999 **
