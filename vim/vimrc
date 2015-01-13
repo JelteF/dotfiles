@@ -74,7 +74,7 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 "Let vundle update vundle
 Bundle 'gmarik/vundle'
@@ -113,11 +113,19 @@ Bundle 'ynkdir/vim-vimlparser'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'cespare/vim-toml'
+
+call vundle#end()            " required
 
 "vim general ignores
 set wildignore+=*.so,*.swp,*.zip,*.exe,*.dll,*.pyc,*.pdf,*.dvi,*.aux
 set wildignore+=*.png,*.jpg,*.gif
+
+"ctrlp ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir': 'build\|node_modules\|venv',
+  \ }
 
 "Set toggle for graphical undo plugin
 nnoremap <F12> :GundoToggle<CR>
@@ -148,6 +156,8 @@ set foldlevel=1
 " Proper syntax highlighting
 filetype plugin indent on
 syntax on
+
+au BufRead,BufNewFile **.htm set filetype=jinja
 
 " Indenting
 set smartindent
@@ -237,7 +247,7 @@ set updatetime=750
 " -------- Mappings ----------
 
 "Set the mapleader
-let mapleader = ","
+let g:mapleader = ","
 
 "Toggle line numbers with leader-l
 set number
@@ -309,7 +319,7 @@ vnoremap <silent> V <esc>:silent! vunmap j<cr>:silent! vunmap k<cr>gvV
 vnoremap <silent> v <esc>:vnoremap j gj<cr>:vnoremap k gk<cr>gvv
 
 " Toggle folds with space
-nnoremap <space> za
+"nnoremap <space> za
 
 " Swap ; and : since you use the last one way more often, so why make it
 " harder

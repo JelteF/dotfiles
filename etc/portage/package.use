@@ -37,6 +37,10 @@ app-misc/powerline -bash
 # Fix mesa ebuild
 media-libs/mesa -llvm llvm-shared-libs
 
+# Steam requirements
+media-libs/mesa gles2
+media-libs/libsdl2 gles
+
 # VLC webserver
 media-video/vlc httpd lua
 
@@ -92,6 +96,9 @@ media-gfx/imagemagick jpeg jpeg2k png pdf tiff
 
 # Rust dep
 sys-devel/llvm multitarget
+
+# Nvidia interface
+x11-drivers/nvidia-drivers gtk2
 
 ########################################################
 # emul-linux vs xlibs and baselibs conflict resolution
