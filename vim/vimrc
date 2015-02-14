@@ -114,6 +114,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'cespare/vim-toml'
+Bundle 'nginx.vim'
 
 call vundle#end()            " required
 
@@ -157,6 +158,8 @@ filetype plugin indent on
 syntax on
 
 au BufRead,BufNewFile **.htm set filetype=jinja
+
+au BufRead,BufNewFile /etc/nginx/** setfiletype nginx
 
 " Indenting
 set smartindent
