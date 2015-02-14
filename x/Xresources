@@ -12,3 +12,5 @@ XTerm*vt100.translations: #override \
     Shift <KeyPress> Down:    scroll-forw(1, line) \n\
     Ctrl Shift <KeyPress> C:  select-end(PRIMARY,CLIPBOARD,CUT_BUFFER0) \n\
     Ctrl Shift <KeyPress> V:  insert-selection(CLIPBOARD, CUT_BUFFER0, PRIMARY)
+
+Xcursor.size: 16
