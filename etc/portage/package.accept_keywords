@@ -19,13 +19,20 @@ app-admin/eselect-opengl -~amd64
 =x11-base/xorg-server-1.16.2.901-r1 -~amd64
 =x11-proto/glproto-1.4.17-r1 -~amd64
 
+
+# Libreoffice bin dependencies
+media-libs/glew -~amd64
+dev-libs/boost -~amd64
+>dev-util/boost-build-1.55.0-r1 -~amd64
+app-text/poppler -~amd64
+
 # Editors should work
 =app-editors/neovim-9999 **
 
 =virtual/rust-999 **
 dev-lang/rust:nightly **
 =dev-lang/rust-bin-999 **
-=dev-rust/cargo-9999 **
+~dev-rust/cargo-9999 **
 =app-vim/rust-mode-9999 **
 
 x11-libs/fltk -~amd64
