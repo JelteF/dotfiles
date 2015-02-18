@@ -7,6 +7,9 @@ app-text/texlive-core xetex
 dev-qt/qtgui gtkstyle
 app-emulation/emul-linux-x86-qtlibs gtkstyle
 
+# QT
+dev-libs/libpcre pcre16
+
 # Disable watermark on ati drivers
 x11-drivers/ati-drivers disable-watermark
 
@@ -92,10 +95,17 @@ media-libs/harfbuzz icu
 media-gfx/imagemagick jpeg jpeg2k png pdf tiff
 
 # Rust dep
+dev-lang/rust -system-llvm
 sys-devel/llvm multitarget
 
 # Nvidia interface
 x11-drivers/nvidia-drivers gtk2
+
+# Neovim
+virtual/lua luajit
+
+# Postgres needs uuid support for assignment
+dev-db/postgresql uuid
 
 ########################################################
 # emul-linux vs xlibs and baselibs conflict resolution
