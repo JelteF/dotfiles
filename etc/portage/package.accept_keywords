@@ -13,6 +13,9 @@ net-wireless/wpa_supplicant -~amd64
 net-misc/networkmanager -~amd64
 gnome-extra/nm-applet -~amd64
 
+# Trying to get vsync to work
+=x11-misc/compton-9999 **
+
 # X11 was broken
 app-admin/eselect-opengl -~amd64
 =media-libs/mesa-10.3.5-r1 -~amd64
