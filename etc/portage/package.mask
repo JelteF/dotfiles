@@ -4,6 +4,9 @@
 */*::science
 */*::yngwin
 */*::mrpdaemon
+*/*::lua
+*/*::venidera
+dev-lang/rust::gentoo
 
 # I don't want systemd
 >=gnome-base/gdm-3.0.0
