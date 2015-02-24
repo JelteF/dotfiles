@@ -99,7 +99,7 @@ net-misc/insync
 net-misc/mosh
 net-misc/ntp
 net-misc/teamviewer
-net-p2p/transmission
+net-p2p/deluge
 net-wireless/aircrack-ng
 net-wireless/wireless-tools
 net-wireless/wpa_supplicant
