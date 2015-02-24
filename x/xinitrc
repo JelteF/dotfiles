@@ -1,3 +1,2 @@
 dbus-launch nm-applet --sm-disable &
-compton --backend glx --paint-on-overlay --glx-no-stencil --vsync opengl-swc &
 exec ck-launch-session dbus-launch --sh-syntax --exit-with-session awesome
