@@ -158,7 +158,7 @@ syntax on
 
 au BufRead,BufNewFile **.htm set filetype=jinja
 au BufRead,BufNewFile **.cvc set filetype=c
-au BufRead,BufNewFile **.cvc silent SyntasticToggleMode
+"au BufRead,BufNewFile **.cvc silent SyntasticToggleMode
 
 " Indenting
 set smartindent
