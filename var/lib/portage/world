@@ -31,7 +31,6 @@ app-vim/vim-spell-en
 app-vim/vim-spell-nl
 dev-db/couchdb
 dev-db/mysql
-dev-db/neo4j-community
 dev-db/postgresql
 dev-java/oracle-jdk-bin:1.7
 dev-lang/rust-bin
@@ -100,6 +99,7 @@ net-misc/mosh
 net-misc/ntp
 net-misc/teamviewer
 net-p2p/deluge
+net-print/foomatic-db
 net-wireless/aircrack-ng
 net-wireless/wireless-tools
 net-wireless/wpa_supplicant
@@ -108,6 +108,7 @@ sci-mathematics/octave
 sci-visualization/gnuplot
 sys-apps/ack
 sys-apps/lshw
+sys-apps/moreutils
 sys-apps/pciutils
 sys-apps/the_silver_searcher
 sys-apps/usbutils
