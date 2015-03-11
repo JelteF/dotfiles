@@ -23,6 +23,7 @@ games-util/steam-launcher -steamruntime
 
 # Wine dependency
 app-emulation/wine pulseaudio oss
+=app-emulation/wine-1.7.38 staging
 >=dev-libs/elfutils-0.156 static-libs
 
 # Needed by SQLAlchemy and Synapse
@@ -49,6 +50,7 @@ media-video/vlc httpd lua
 
 # VLC dependency
 >=sys-libs/zlib-1.2.8-r1 minizip
+media-video/vlc postproc
 
 # Scipy dependency in numpy
 dev-python/numpy lapack
