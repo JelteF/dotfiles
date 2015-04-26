@@ -6,6 +6,10 @@ set fish_theme bobthefish
 
 set TERM xterm-256color
 
+# Set default editor to vim
+set EDITOR vim
+set VISUAL vim
+
 set theme_display_user yes
 set default_user jelte
 set -g theme_display_ruby no
@@ -13,9 +17,11 @@ set -g theme_display_ruby no
 # Disable venv because bob-the-fish does this already
 set VIRTUAL_ENV_DISABLE_PROMPT yes
 
+set -x GOPATH $HOME/go
+
 
 # Set user $PATH variables
-set -U fish_user_paths $fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin
+set -g fish_user_paths $fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin
 
 # Don't let cd complete home directory
 set CDPATH .

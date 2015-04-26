@@ -8,4 +8,5 @@ dev-lua/messagepack::lua
 dev-libs/msgpack::lua
 app-editors/neovim::lua
 net-misc/insync::mrpdaemon
+net-im/telegram-bin::mrpdaemon
 dev-db/neo4j-community::venidera
