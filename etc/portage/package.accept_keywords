@@ -16,7 +16,7 @@ gnome-extra/nm-applet -~amd64
 =x11-misc/compton-9999 **
 
 # X11 was broken
-app-admin/eselect-opengl -~amd64
+app-eselect/eselect-opengl -~amd64
 media-libs/mesa -~amd64
 x11-base/xorg-server -~amd64
 x11-proto/glproto -~amd64
@@ -26,7 +26,7 @@ x11-proto/glproto -~amd64
 media-libs/glew -~amd64
 dev-libs/boost -~amd64
 >dev-util/boost-build-1.55.0-r1 -~amd64
-app-text/poppler -~amd64
+# app-text/poppler -~amd64
 
 # Editors should work
 =app-editors/neovim-9999 **

@@ -35,7 +35,6 @@ dev-db/couchdb
 dev-db/mysql
 dev-db/postgresql
 dev-java/oracle-jdk-bin:1.7
-dev-lang/rust-bin
 dev-lang/swi-prolog
 dev-python/flake8
 dev-python/ipython
@@ -46,8 +45,12 @@ dev-python/pyaudio
 dev-python/pygit2
 dev-python/pyinotify
 dev-python/pypy-bin
+dev-python/pypy3-bin
+dev-python/seaborn
 dev-python/virtualenv
-dev-rust/cargo
+dev-tex/biber
+dev-tex/biblatex
+dev-tex/rubber
 dev-util/android-sdk-update-manager
 dev-util/android-studio
 dev-util/indent
@@ -90,8 +93,11 @@ media-video/guvcview
 media-video/luvcview
 media-video/nvidia-settings
 media-video/vlc
+net-analyzer/nmap
+net-ftp/filezilla
 net-ftp/ftp
 net-im/skype
+net-im/telegram-bin
 net-irc/irssi
 net-libs/iojs
 net-libs/rb_libtorrent

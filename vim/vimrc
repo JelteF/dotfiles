@@ -27,6 +27,7 @@ autocmd BufRead *.txt setlocal tw=80
 autocmd BufRead *.md setlocal tw=80
 autocmd BufRead *.tex setlocal tw=80
 
+
 " Restore cursor position when opening file
 augroup JumpCursorOnEdit
 au!
@@ -160,6 +161,9 @@ au BufRead,BufNewFile **.htm set filetype=jinja
 au BufRead,BufNewFile **.cvc set filetype=c
 "au BufRead,BufNewFile **.cvc silent SyntasticToggleMode
 
+" Vim is very slow when cursorline is set in latex
+autocmd BufRead *.tex setlocal nocursorline
+
 " Indenting
 set smartindent
 set autoindent
@@ -168,6 +172,8 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
+" Fix stupid # to start of line
+inoremap # X<BS>#
 
 " Set english spellchecking, but only if turned on
 if version > 700
@@ -302,7 +308,7 @@ map Y y$
 "noremap <silent> <F1> mzgg=G`zzz
 
 " Write, pdflatex and open it up
-nnoremap <silent> <F4> :w<CR>:!lualatex % <CR><CR>
+nnoremap <silent> <F4> :w<CR>:!latexmk --lualatex --shell-escape % <CR><CR>
 
 " Make and view pdf
 " nnoremap <silent> <F4> :w<CR>:!make && F=% && evince ${F\%.*}.pdf<CR><CR>

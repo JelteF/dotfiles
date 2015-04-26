@@ -23,7 +23,7 @@ games-util/steam-launcher -steamruntime
 
 # Wine dependency
 app-emulation/wine pulseaudio oss
-=app-emulation/wine-1.7.38 staging
+=app-emulation/wine-1.7.41 staging
 >=dev-libs/elfutils-0.156 static-libs
 
 # Needed by SQLAlchemy and Synapse
@@ -47,6 +47,7 @@ media-libs/libsdl2 gles
 
 # VLC webserver
 media-video/vlc httpd lua
+media-video/vlc postproc
 
 # VLC dependency
 >=sys-libs/zlib-1.2.8-r1 minizip
@@ -108,6 +109,17 @@ virtual/lua luajit
 
 # Postgres needs uuid support for assignment
 dev-db/postgresql uuid
+
+# Needed for the riak database
+dev-lang/erlang smp
+
+# Needed for virt-manager
+net-misc/spice-gtk -gstreamer gtk3 usbredir
+app-emulation/qemu spice usbredir
+
+# Needed for seaborn
+sci-libs/hdf5 -threads
+
 
 ########################################################
 # emul-linux vs xlibs and baselibs conflict resolution
