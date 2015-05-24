@@ -28,8 +28,10 @@ dev-libs/boost -~amd64
 >dev-util/boost-build-1.55.0-r1 -~amd64
 # app-text/poppler -~amd64
 
-# Editors should work
+# Neovim
 =app-editors/neovim-9999 **
+~x11-libs/libvterm-9999 **
+
 
 =virtual/rust-999 **
 dev-lang/rust:nightly **
