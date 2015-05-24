@@ -23,7 +23,7 @@ games-util/steam-launcher -steamruntime
 
 # Wine dependency
 app-emulation/wine pulseaudio oss
-=app-emulation/wine-1.7.41 staging
+=app-emulation/wine-1.7.43 staging
 >=dev-libs/elfutils-0.156 static-libs
 
 # Needed by SQLAlchemy and Synapse
@@ -58,6 +58,10 @@ dev-python/numpy lapack
 
 # Portage with python3, might be faster
 sys-apps/portage python3
+
+# Layman with svn
+app-portage/layman subversion sync-plugin-portage
+
 
 # Thread usage
 media-video/ffmpeg:0.10 -threads
@@ -119,6 +123,12 @@ app-emulation/qemu spice usbredir
 
 # Needed for seaborn
 sci-libs/hdf5 -threads
+dev-libs/c-blosc hdf5
+
+
+# PHP
+dev-lang/php fpm gd pdo mysql mysqli
+app-eselect/eselect-php fpm
 
 
 ########################################################

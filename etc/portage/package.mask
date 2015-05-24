@@ -5,6 +5,7 @@
 */*::yngwin
 */*::mrpdaemon
 */*::lua
+*/*::progress
 */*::venidera
 dev-lang/rust::gentoo
 
