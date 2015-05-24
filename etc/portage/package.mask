@@ -16,3 +16,8 @@ dev-lang/rust::gentoo
 sys-apps/systemd
 sys-power/upower
 sys-apps/gentoo-systemd-integration
+
+
+# Non binary pypy
+dev-python/pypy
+dev-python/pypy3
