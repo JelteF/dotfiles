@@ -27,6 +27,10 @@ media-libs/glew -~amd64
 dev-libs/boost -~amd64
 >dev-util/boost-build-1.55.0-r1 -~amd64
 app-text/poppler -~amd64
+dev-libs/icu -~amd64
+
+# Insync bin dependencies
+dev-libs/libevent -~amd64
 
 # Neovim
 =app-editors/neovim-9999 **
