@@ -23,7 +23,7 @@ games-util/steam-launcher -steamruntime
 
 # Wine dependency
 app-emulation/wine pulseaudio oss
-=app-emulation/wine-1.7.41 staging
+=app-emulation/wine-1.7.43 staging
 >=dev-libs/elfutils-0.156 static-libs
 
 # Needed by SQLAlchemy and Synapse
@@ -44,6 +44,9 @@ media-libs/mesa -llvm llvm-shared-libs
 # Steam requirements
 media-libs/mesa gles2
 media-libs/libsdl2 gles
+x11-drivers/nvidia-drivers multilib
+*/* abi_x86_32
+
 
 # VLC webserver
 media-video/vlc httpd lua
@@ -58,6 +61,12 @@ dev-python/numpy lapack
 
 # Portage with python3, might be faster
 sys-apps/portage python3
+
+# Layman with svn
+app-portage/layman subversion
+
+# Layman portage integration
+app-portage/layman sync-plugin-portage
 
 # Thread usage
 media-video/ffmpeg:0.10 -threads
@@ -119,80 +128,12 @@ app-emulation/qemu spice usbredir
 
 # Needed for seaborn
 sci-libs/hdf5 -threads
+dev-libs/c-blosc hdf5
 
 
-########################################################
-# emul-linux vs xlibs and baselibs conflict resolution
-########################################################
-app-emulation/emul-linux-x86-xlibs abi_x86_32
-app-emulation/emul-linux-x86-baselibs abi_x86_32
-media-libs/jpeg abi_x86_32
-media-libs/libjpeg-turbo abi_x86_32
-media-libs/libpng abi_x86_32
-virtual/jpeg abi_x86_32
-virtual/libffi abi_x86_32
-dev-libs/libffi abi_x86_32
-sys-devel/llvm abi_x86_32
-sys-libs/libavc1394 abi_x86_32
-dev-libs/udis86 abi_x86_32
-media-libs/libpng abi_x86_32
-sys-libs/libraw1394 abi_x86_32
-app-arch/bzip2 abi_x86_32
-sys-libs/zlib abi_x86_32
-media-libs/fontconfig abi_x86_32
-media-libs/freetype abi_x86_32
-x11-libs/libICE abi_x86_32
-x11-libs/libpciaccess abi_x86_32
-x11-libs/libSM abi_x86_32
-x11-libs/libvdpau abi_x86_32
-x11-libs/libX11 abi_x86_32
-x11-libs/libXau abi_x86_32
-x11-libs/libXaw abi_x86_32
-x11-libs/libxcb abi_x86_32
-x11-libs/libXcomposite abi_x86_32
-x11-libs/libXcursor abi_x86_32
-x11-libs/libXdamage abi_x86_32
-x11-libs/libXdmcp abi_x86_32
-x11-libs/libXext abi_x86_32
-x11-libs/libXfixes abi_x86_32
-x11-libs/libXft abi_x86_32
-x11-libs/libXi abi_x86_32
-x11-libs/libXinerama abi_x86_32
-x11-libs/libXmu abi_x86_32
-x11-libs/libXp abi_x86_32
-x11-libs/libXpm abi_x86_32
-x11-libs/libXrandr abi_x86_32
-x11-libs/libXrender abi_x86_32
-x11-libs/libXScrnSaver abi_x86_32
-x11-libs/libXt abi_x86_32
-x11-libs/libXtst abi_x86_32
-x11-libs/libXv abi_x86_32
-x11-libs/libXvMC abi_x86_32
-x11-libs/libXxf86dga abi_x86_32
-x11-libs/libXxf86vm abi_x86_32
-x11-proto/xineramaproto abi_x86_32
-x11-proto/xextproto abi_x86_32
-x11-proto/xf86vidmodeproto abi_x86_32
-x11-proto/xf86bigfontproto abi_x86_32
-x11-proto/xf86dgaproto abi_x86_32
-x11-proto/renderproto abi_x86_32
-x11-proto/recordproto abi_x86_32
-x11-proto/inputproto abi_x86_32
-x11-proto/compositeproto abi_x86_32
-x11-proto/xproto abi_x86_32
-x11-proto/xcb-proto abi_x86_32
-x11-proto/scrnsaverproto abi_x86_32
-x11-proto/randrproto abi_x86_32
-x11-proto/printproto abi_x86_32
-x11-proto/videoproto abi_x86_32
-dev-libs/libpthread-stubs abi_x86_32
-x11-proto/damageproto abi_x86_32
-x11-proto/kbproto abi_x86_32
-x11-proto/fixesproto abi_x86_32
-x11-drivers/nvidia-drivers multilib
+# PHP
+dev-lang/php fpm gd pdo mysql mysqli
+app-eselect/eselect-php fpm
+
 
 www-servers/uwsgi debug
-
-
-
-#### Dispatch-conf added

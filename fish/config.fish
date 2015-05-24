@@ -21,7 +21,7 @@ set -x GOPATH $HOME/go
 
 
 # Set user $PATH variables
-set -g fish_user_paths $fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin
+set fish_user_paths $fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin
 
 # Don't let cd complete home directory
 set CDPATH .
