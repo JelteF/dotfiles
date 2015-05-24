@@ -26,7 +26,7 @@ x11-proto/glproto -~amd64
 media-libs/glew -~amd64
 dev-libs/boost -~amd64
 >dev-util/boost-build-1.55.0-r1 -~amd64
-# app-text/poppler -~amd64
+app-text/poppler -~amd64
 
 # Neovim
 =app-editors/neovim-9999 **
