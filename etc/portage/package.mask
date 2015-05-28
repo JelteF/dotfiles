@@ -14,7 +14,7 @@ dev-lang/rust::gentoo
 
 # Lennart
 sys-apps/systemd
-sys-power/upower
+# sys-power/upower
 sys-apps/gentoo-systemd-integration
 
 
