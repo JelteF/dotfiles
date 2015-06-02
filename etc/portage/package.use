@@ -23,7 +23,7 @@ games-util/steam-launcher -steamruntime
 
 # Wine dependency
 app-emulation/wine pulseaudio oss
-=app-emulation/wine-1.7.43 staging
+=app-emulation/wine-1.7.44 staging
 >=dev-libs/elfutils-0.156 static-libs
 
 # Needed by SQLAlchemy and Synapse
@@ -137,3 +137,6 @@ app-eselect/eselect-php fpm
 
 
 www-servers/uwsgi debug
+
+# W3M with image support
+www-client/w3m imlib
