@@ -137,3 +137,6 @@ app-eselect/eselect-php fpm
 
 
 www-servers/uwsgi debug
+
+# W3M with image support
+www-client/w3m imlib
