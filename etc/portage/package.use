@@ -1,5 +1,5 @@
 # Extra LaTeX features
-app-text/texlive extra graphics humanities science luatex
+app-text/texlive extra graphics humanities science luatex xindy
 app-text/texlive-core xetex
 >=media-libs/gd-2.0.35-r3 truetype jpeg png fontconfig
 
@@ -14,6 +14,7 @@ dev-libs/libpcre pcre16
 x11-drivers/ati-drivers disable-watermark
 
 net-misc/networkmanager dhcpcd -dhclient
+app-crypt/pinentry gnome-keyring
 
 # Enable flash
 games-util/steam-client-meta flash trayicon -steamruntime streaming
@@ -23,7 +24,7 @@ games-util/steam-launcher -steamruntime
 
 # Wine dependency
 app-emulation/wine pulseaudio oss
-=app-emulation/wine-1.7.44 staging
+=app-emulation/wine-1.7.45 staging
 >=dev-libs/elfutils-0.156 static-libs
 
 # Needed by SQLAlchemy and Synapse
