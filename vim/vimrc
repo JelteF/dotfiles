@@ -1,8 +1,8 @@
 " -------------- Auto Commands -----------
 
 " Automatically reload vimrc when it's saved
-au BufWritePost .vimrc so ~/.vimrc
-au BufWritePost vimrc so ~/.vimrc
+" au BufWritePost .vimrc so ~/.vimrc
+" au BufWritePost vimrc so ~/.vimrc
 
 if &shell =~# 'fish$'
     set shell=sh
@@ -317,13 +317,29 @@ nnoremap <silent> <F4> :w<CR>:!latexmk --lualatex --shell-escape % <CR><CR>
 nnoremap <silent> <F2> :w<CR>:!make<CR><CR>
 
 
-" Make j and k work as expected
+" Make j, k and A work as expected with wrapped lines
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 nnoremap <silent> V :silent! vunmap j<cr>:silent! vunmap k<cr>V
 nnoremap <silent> v :vnoremap j gj<cr>:vnoremap k gk<cr>v
 vnoremap <silent> V <esc>:silent! vunmap j<cr>:silent! vunmap k<cr>gvV
 vnoremap <silent> v <esc>:vnoremap j gj<cr>:vnoremap k gk<cr>gvv
+nnoremap <silent> A :call BetterA()<CR>
+
+function! BetterA()
+    normal g$
+    let l:wrappos = getcurpos()
+    normal $
+    let l:fullend = getcurpos()
+    call setpos('.', l:wrappos)
+
+
+    if (l:fullend[2] == l:wrappos[2])
+        call feedkeys('a')
+    else
+        call feedkeys('i')
+    endif
+endfunction
 
 " Toggle folds with space
 "nnoremap <space> za
