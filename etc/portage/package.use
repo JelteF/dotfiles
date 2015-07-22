@@ -4,7 +4,7 @@ app-text/texlive-core xetex
 >=media-libs/gd-2.0.35-r3 truetype jpeg png fontconfig
 
 # GTK+ skin for QT apps
-dev-qt/qtgui gtkstyle
+dev-qt/qtgui:4 gtkstyle
 app-emulation/emul-linux-x86-qtlibs gtkstyle
 
 # QT
@@ -23,8 +23,7 @@ games-util/steam-games-meta -steamruntime mono steamgames_shatter steamgames_sou
 games-util/steam-launcher -steamruntime
 
 # Wine dependency
-app-emulation/wine pulseaudio oss
-=app-emulation/wine-1.7.45 staging
+app-emulation/wine pulseaudio oss -vaapi
 >=dev-libs/elfutils-0.156 static-libs
 
 # Needed by SQLAlchemy and Synapse
@@ -141,3 +140,6 @@ www-servers/uwsgi debug
 
 # W3M with image support
 www-client/w3m imlib
+
+# Octave
+x11-libs/fltk xft
