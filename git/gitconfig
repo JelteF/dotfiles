@@ -18,5 +18,9 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [push]
 	default = current
+	followTags = true
 [help]
     autocorrect = 1
+
+[alias]
+    track = "!f(){ branch=$(git name-rev --name-only HEAD); cmd=\"git branch $branch --set-upstream-to=${1:-origin}/${2:-$branch}\"; echo $cmd; $cmd; }; f"
