@@ -145,3 +145,6 @@ www-client/w3m imlib
 
 # Octave
 x11-libs/fltk xft
+
+# Android mounting
+gnome-base/gvfs mtp
