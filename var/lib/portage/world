@@ -138,6 +138,7 @@ sys-devel/gcc
 sys-devel/gdb
 sys-fs/encfs
 sys-fs/extundelete
+sys-fs/fuse-exfat
 sys-fs/go-mtpfs
 sys-fs/ntfs3g
 sys-fs/udev

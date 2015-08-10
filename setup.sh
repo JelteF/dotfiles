@@ -52,4 +52,4 @@ ln -s $PWD/vim/vimrc $ORIGINAL_VIMRC
 ln -s $PWD/x/XCompose $ORIGINAL_XCOMPOSE
 ln -s $PWD/x/Xresources $ORIGINAL_XRESOURCES
 ln -s $PWD/x/xinitrc $ORIGINAL_XINITRC
-ln -s $PWD/x/xinitrc $ORIGINAL_XSESSION
+ln -s $PWD/x/xsession $ORIGINAL_XSESSION
