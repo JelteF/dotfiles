@@ -451,6 +451,7 @@ do
     "synapse -s",
     "whatpulse",
     "detect_displays",
+    "nm-applet",
   }
 
   for _,i in pairs(cmds) do

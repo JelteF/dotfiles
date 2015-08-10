@@ -51,6 +51,8 @@ x11-drivers/nvidia-drivers multilib
 # VLC webserver
 media-video/vlc httpd lua
 media-video/vlc postproc
+# VLC youtube
+media-video/vlc gnutls
 
 # VLC dependency
 >=sys-libs/zlib-1.2.8-r1 minizip
@@ -143,3 +145,6 @@ www-client/w3m imlib
 
 # Octave
 x11-libs/fltk xft
+
+# Android mounting
+gnome-base/gvfs mtp
