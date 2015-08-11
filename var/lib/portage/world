@@ -64,6 +64,7 @@ dev-util/indent
 dev-util/valgrind
 dev-vcs/git
 dev-vcs/git-flow
+dev-vcs/git-lfs
 dev-vcs/hub
 dev-vcs/tig
 games-fps/openarena

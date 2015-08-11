@@ -1,3 +1,4 @@
+*/*::esm
 */*::portage-rich
 */*::raiagent
 */*::graaff
