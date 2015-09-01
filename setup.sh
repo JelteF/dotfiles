@@ -32,9 +32,6 @@ mkdir -p ~/.config/fish/completions
 # Install vundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
-# Install oh-my-fish
-git clone git://github.com/bpinto/oh-my-fish.git ~/.oh-my-fish
-
 # Install git-flow completion
 wget https://github.com/bobthecow/git-flow-completion/raw/master/git.fish -O ~/.config/fish/completions/git.fish
 
@@ -53,3 +50,9 @@ ln -s $PWD/x/XCompose $ORIGINAL_XCOMPOSE
 ln -s $PWD/x/Xresources $ORIGINAL_XRESOURCES
 ln -s $PWD/x/xinitrc $ORIGINAL_XINITRC
 ln -s $PWD/x/xsession $ORIGINAL_XSESSION
+
+# Install oh-my-fish
+curl -L git.io/omf > install_omf
+chmod +x install_omf
+./install_omf
+rm install_omf
