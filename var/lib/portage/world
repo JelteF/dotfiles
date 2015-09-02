@@ -36,6 +36,7 @@ app-vim/vim-spell-en
 app-vim/vim-spell-nl
 dev-db/couchdb
 dev-db/mysql
+dev-db/pgadmin3
 dev-db/postgresql
 dev-java/oracle-jdk-bin:1.8
 dev-lang/php
