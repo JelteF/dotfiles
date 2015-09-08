@@ -132,6 +132,7 @@ let g:ctrlp_custom_ignore = {
 "Set toggle for graphical undo plugin
 nnoremap <F12> :GundoToggle<CR>
 
+let g:python_highlight_all = 1
 
 " -------------- Global ----------
 
