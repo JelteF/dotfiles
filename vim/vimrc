@@ -100,6 +100,7 @@ Bundle 'bling/vim-airline'
 Bundle 'chrisbra/csv.vim'
 Bundle 'dag/vim-fish'
 Bundle 'thomwiggers/vim-colors-solarized'
+Bundle 'fidian/hexmode'
 
 "Bundle syntax
 Bundle 'hynek/vim-python-pep8-indent'
