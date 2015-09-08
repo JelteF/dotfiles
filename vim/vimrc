@@ -116,6 +116,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'cespare/vim-toml'
+Bundle 'hdima/python-syntax'
 
 call vundle#end()            " required
 
