@@ -134,7 +134,7 @@ dev-libs/c-blosc hdf5
 
 
 # PHP
-dev-lang/php fpm gd pdo mysql mysqli
+dev-lang/php fpm gd pdo mysql mysqli postgres
 app-eselect/eselect-php fpm
 
 
