@@ -157,6 +157,15 @@ set nofoldenable
 set foldnestmax=10
 set foldlevel=1
 
+" Indenting
+set smartindent
+set autoindent
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+
 " Proper syntax highlighting
 filetype plugin indent on
 syntax on
@@ -169,14 +178,9 @@ au BufRead,BufNewFile **.doku set filetype=dokuwiki
 " Vim is very slow when cursorline is set in latex
 autocmd FileType tex setlocal nocursorline
 
-" Indenting
-set smartindent
-set autoindent
-set expandtab
-set smarttab
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+" Smaller indentation for xml type files
+au FileType xml,xslt,xsd,dtd setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 " Fix stupid # to start of line
 inoremap # X<BS>#
 
