@@ -167,7 +167,7 @@ au BufRead,BufNewFile **.cvc set filetype=c
 au BufRead,BufNewFile **.doku set filetype=dokuwiki
 
 " Vim is very slow when cursorline is set in latex
-autocmd BufRead *.tex setlocal nocursorline
+autocmd FileType tex setlocal nocursorline
 
 " Indenting
 set smartindent
