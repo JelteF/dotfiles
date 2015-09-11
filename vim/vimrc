@@ -117,6 +117,7 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'cespare/vim-toml'
 Bundle 'hdima/python-syntax'
+Bundle 'vzh/vim-dokuwiki'
 
 call vundle#end()            " required
 
@@ -156,17 +157,6 @@ set nofoldenable
 set foldnestmax=10
 set foldlevel=1
 
-" Proper syntax highlighting
-filetype plugin indent on
-syntax on
-
-au BufRead,BufNewFile **.htm set filetype=jinja
-au BufRead,BufNewFile **.cvc set filetype=c
-"au BufRead,BufNewFile **.cvc silent SyntasticToggleMode
-
-" Vim is very slow when cursorline is set in latex
-autocmd BufRead *.tex setlocal nocursorline
-
 " Indenting
 set smartindent
 set autoindent
@@ -175,6 +165,22 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
+
+" Proper syntax highlighting
+filetype plugin indent on
+syntax on
+
+au BufRead,BufNewFile **.htm set filetype=jinja
+au BufRead,BufNewFile **.cvc set filetype=c
+"au BufRead,BufNewFile **.cvc silent SyntasticToggleMode
+au BufRead,BufNewFile **.doku set filetype=dokuwiki
+
+" Vim is very slow when cursorline is set in latex
+autocmd FileType tex setlocal nocursorline
+
+" Smaller indentation for xml type files
+au FileType xml,xslt,xsd,dtd setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 " Fix stupid # to start of line
 inoremap # X<BS>#
 
