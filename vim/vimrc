@@ -127,7 +127,7 @@ set wildignore+=*.png,*.jpg,*.gif
 
 "ctrlp ignores
 let g:ctrlp_custom_ignore = {
-  \ 'dir': 'build\|node_modules\|venv\|*.o',
+  \ 'dir': 'build\|node_modules\|venv\|python2_source\|*.o',
   \ }
 
 "Set toggle for graphical undo plugin
