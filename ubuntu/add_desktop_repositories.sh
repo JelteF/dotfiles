@@ -16,3 +16,9 @@ wget -qO - https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key \
 echo "deb http://apt.insynchq.com/ubuntu vivid non-free contrib" | sudo tee \
     /etc/apt/sources.list.d/insync.list > /dev/null
 
+# Awesome
+sudo add-apt-repository ppa:klaus-vormweg/awesome
+
+# Keepass and plugins
+sudo add-apt-repository ppa:jtaylor/keepass
+sudo add-apt-repository ppa:dlech/keepass2-plugins

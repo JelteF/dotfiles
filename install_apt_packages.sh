@@ -13,10 +13,6 @@ ubuntu/install_desktop_utils.sh
 echo 'Do you want to install games?'
 sudo apt-get install openarena assaultcube
 
-# Add keepass plugins
-sudo wget https://github.com/pfn/keepasshttp/raw/master/KeePassHttp.plgx -O /usr/lib/keepass2/KeePassHttp.plgx
-sudo chmod 644 /usr/lib/keepass2/KeePassHttp.plgx
-
 # Upgrade all existing packeges to newest version
 echo 'Updating all packages'
 sudo apt-get --yes --force-yes upgrade
