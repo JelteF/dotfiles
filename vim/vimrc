@@ -101,6 +101,7 @@ Bundle 'chrisbra/csv.vim'
 Bundle 'dag/vim-fish'
 Bundle 'thomwiggers/vim-colors-solarized'
 Bundle 'fidian/hexmode'
+Bundle 'edkolev/tmuxline.vim'
 
 "Bundle syntax
 Bundle 'hynek/vim-python-pep8-indent'
@@ -134,6 +135,9 @@ let g:ctrlp_custom_ignore = {
 nnoremap <F12> :GundoToggle<CR>
 
 let g:python_highlight_all = 1
+
+"No automatic setting of tmuxline stuff
+let g:airline#extensions#tmuxline#enabled = 0
 
 " -------------- Global ----------
 
