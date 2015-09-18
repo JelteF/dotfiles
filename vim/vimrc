@@ -119,6 +119,7 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'cespare/vim-toml'
 Bundle 'hdima/python-syntax'
 Bundle 'vzh/vim-dokuwiki'
+Bundle 'seveas/bind.vim'
 
 call vundle#end()            " required
 
