@@ -1,4 +1,6 @@
-set TERM xterm-256color
+if not echo $TERM | grep 256color > /dev/null
+    set TERM xterm-256color
+end
 
 # Set default editor to vim
 set EDITOR vim
