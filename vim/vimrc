@@ -101,6 +101,7 @@ Bundle 'chrisbra/csv.vim'
 Bundle 'dag/vim-fish'
 Bundle 'thomwiggers/vim-colors-solarized'
 Bundle 'fidian/hexmode'
+Bundle 'edkolev/tmuxline.vim'
 
 "Bundle syntax
 Bundle 'hynek/vim-python-pep8-indent'
@@ -118,6 +119,7 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'cespare/vim-toml'
 Bundle 'hdima/python-syntax'
 Bundle 'vzh/vim-dokuwiki'
+Bundle 'seveas/bind.vim'
 
 call vundle#end()            " required
 
@@ -127,13 +129,17 @@ set wildignore+=*.png,*.jpg,*.gif
 
 "ctrlp ignores
 let g:ctrlp_custom_ignore = {
-  \ 'dir': 'build\|node_modules\|venv\|python2_source\|*.o',
+  \ 'dir': 'build\|node_modules\|venv\|python2_source',
+  \ 'file': '\.exe\|\.o|\.dll\|\.toc\|\.log\|\.out\|\.fls\|\.bcf\|\.bbl\|\.blg\|\.fdb_latexmk'
   \ }
 
 "Set toggle for graphical undo plugin
 nnoremap <F12> :GundoToggle<CR>
 
 let g:python_highlight_all = 1
+
+"No automatic setting of tmuxline stuff
+let g:airline#extensions#tmuxline#enabled = 0
 
 " -------------- Global ----------
 
