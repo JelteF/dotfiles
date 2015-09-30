@@ -3,8 +3,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../../'
 alias rmdir='rm -rf'
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
 TERM=xterm-256color
 shopt -s autocd
 export PATH=~/.local/bin:$PATH

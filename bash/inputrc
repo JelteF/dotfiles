@@ -1,1 +1,6 @@
+$include /etc/inputrc
 set show-all-if-ambiguous On
+"\e[1;5C": forward-word   # ctrl + right
+"\e[1;5D": backward-word  # ctrl + left
+"\e[A":history-search-backward
+"\e[B":history-search-forward
