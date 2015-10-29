@@ -3,8 +3,8 @@ if not echo $TERM | grep 256color > /dev/null
 end
 
 # Set default editor to vim
-set EDITOR vim
-set VISUAL vim
+set -x EDITOR vim
+set -x VISUAL vim
 
 set theme_display_user yes
 set default_user jelte
