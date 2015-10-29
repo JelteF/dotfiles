@@ -12,7 +12,7 @@ ORIGINAL_VIMRC=$HOME/.vimrc
 ORIGINAL_XCOMPOSE=$HOME/.XCompose
 ORIGINAL_XRESOURCES=$HOME/.Xresources
 ORIGINAL_XINITRC=$HOME/.xinitrc
-ORIGINAL_XSESSION=$HOME/.xsession
+ORIGINAL_XSESSION=$HOME/.xprofile
 
 # Backup current dotfiles
 mkdir -p $BACKUP_DIR
@@ -50,6 +50,7 @@ ln -s $PWD/x/XCompose $ORIGINAL_XCOMPOSE
 ln -s $PWD/x/Xresources $ORIGINAL_XRESOURCES
 ln -s $PWD/x/xinitrc $ORIGINAL_XINITRC
 ln -s $PWD/x/xsession $ORIGINAL_XSESSION
+ln -s $PWD/x/xprofile $ORIGINAL_XSESSION
 
 # Install oh-my-fish
 curl -L git.io/omf > install_omf

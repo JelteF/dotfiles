@@ -1,0 +1,3 @@
+setxkbmap -layout 'us, us'
+setxkbmap -variant 'dvp,'
+setxkbmap -option grp:alt_shift_toggle,grp:switch,grp_led:scroll,compose:caps,terminate:ctrl_alt_bksp
