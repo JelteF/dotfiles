@@ -20,6 +20,10 @@ echo "deb http://apt.insynchq.com/ubuntu vivid non-free contrib" | sudo tee \
 echo 'Adding synapse repo'
 sudo apt-add-repository ppa:synapse-core/testing
 
+# Add Telegram repo
+echo 'Adding telegram repo'
+sudo add-apt-repository ppa:atareao/telegram
+
 # Awesome
 sudo add-apt-repository ppa:klaus-vormweg/awesome
 
