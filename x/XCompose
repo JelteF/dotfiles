@@ -51,6 +51,7 @@ include "%L"
 <Multi_key> <i> <n> <f>                 : "∞" # Infinite
 <Multi_key> <*> <*>                     : "×" # Times
 <Multi_key> <s> <i> <n>                 : "∿" # Mini Sinus
+<Multi_key> <s> <q>                     : "√" # Mini Sinus
 
 
 # GREEK
