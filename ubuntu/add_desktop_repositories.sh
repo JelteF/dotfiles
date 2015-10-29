@@ -16,6 +16,10 @@ wget -qO - https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key \
 echo "deb http://apt.insynchq.com/ubuntu vivid non-free contrib" | sudo tee \
     /etc/apt/sources.list.d/insync.list > /dev/null
 
+# Add synapse
+echo 'Adding synapse repo'
+sudo apt-add-repository ppa:synapse-core/testing
+
 # Awesome
 sudo add-apt-repository ppa:klaus-vormweg/awesome
 
