@@ -7,7 +7,7 @@ set -x EDITOR vim
 set -x VISUAL vim
 
 set theme_display_user yes
-set default_user jelte
+set default_user jfennema
 set -g theme_display_ruby no
 
 # Disable venv because bob-the-fish does this already
