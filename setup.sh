@@ -24,11 +24,8 @@ mv $ORIGINAL_BASHRC $ORIGINAL_BASH_PROFILE $ORIGINAL_PROFILE \
     $ORIGINAL_FISHCONF $BACKUP_DIR
 
 # Create vim folders
-mkdir -p ~/.vim
 mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/colors
-mkdir -p ~/.config
-mkdir -p ~/.config/fish
 mkdir -p ~/.config/fish/completions
 
 # Install vundle
