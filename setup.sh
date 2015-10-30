@@ -51,6 +51,8 @@ ln -s $PWD/x/xinitrc $ORIGINAL_XINITRC
 ln -s $PWD/x/xsession $ORIGINAL_XSESSION
 ln -s $PWD/x/xprofile $ORIGINAL_XPROFILE
 
+ln -s $PWD/config_dir/* ~/.config/
+
 # Install oh-my-fish
 curl -L git.io/omf > install_omf
 chmod +x install_omf
