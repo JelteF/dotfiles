@@ -1,8 +1,8 @@
 " -------------- Auto Commands -----------
 
 " Automatically reload vimrc when it's saved
-au BufWritePost .vimrc so ~/.vimrc
-au BufWritePost vimrc so ~/.vimrc
+" au BufWritePost .vimrc so ~/.vimrc
+" au BufWritePost vimrc so ~/.vimrc
 
 if &shell =~# 'fish$'
     set shell=sh
@@ -26,6 +26,7 @@ autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 autocmd BufRead *.txt setlocal tw=80
 autocmd BufRead *.md setlocal tw=80
 autocmd BufRead *.tex setlocal tw=80
+
 
 " Restore cursor position when opening file
 augroup JumpCursorOnEdit
@@ -66,6 +67,29 @@ if exists("+undofile")
   set undofile
 endif
 
+" Automatically set paste on Ctrl+V (https://coderwall.com/p/if9mda/)
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
+
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+endfunction
+
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
 " -------------- Plugins ---------
 
 " No need to behave in a strongly vi-compatible way
@@ -99,6 +123,8 @@ Bundle 'bling/vim-airline'
 Bundle 'chrisbra/csv.vim'
 Bundle 'dag/vim-fish'
 Bundle 'thomwiggers/vim-colors-solarized'
+Bundle 'fidian/hexmode'
+Bundle 'edkolev/tmuxline.vim'
 
 "Bundle syntax
 Bundle 'hynek/vim-python-pep8-indent'
@@ -115,6 +141,9 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'cespare/vim-toml'
 Bundle 'nginx.vim'
+Bundle 'hdima/python-syntax'
+Bundle 'vzh/vim-dokuwiki'
+Bundle 'seveas/bind.vim'
 
 call vundle#end()            " required
 
@@ -124,12 +153,17 @@ set wildignore+=*.png,*.jpg,*.gif
 
 "ctrlp ignores
 let g:ctrlp_custom_ignore = {
-  \ 'dir': 'build\|node_modules\|venv',
+  \ 'dir': 'build\|node_modules\|venv\|python2_source',
+  \ 'file': '\.exe\|\.o|\.dll\|\.toc\|\.log\|\.out\|\.fls\|\.bcf\|\.bbl\|\.blg\|\.fdb_latexmk'
   \ }
 
 "Set toggle for graphical undo plugin
 nnoremap <F12> :GundoToggle<CR>
 
+let g:python_highlight_all = 1
+
+"No automatic setting of tmuxline stuff
+let g:airline#extensions#tmuxline#enabled = 0
 
 " -------------- Global ----------
 
@@ -153,14 +187,6 @@ set nofoldenable
 set foldnestmax=10
 set foldlevel=1
 
-" Proper syntax highlighting
-filetype plugin indent on
-syntax on
-
-au BufRead,BufNewFile **.htm set filetype=jinja
-
-au BufRead,BufNewFile /etc/nginx/** setfiletype nginx
-
 " Indenting
 set smartindent
 set autoindent
@@ -169,6 +195,24 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
+
+" Proper syntax highlighting
+filetype plugin indent on
+syntax on
+
+au BufRead,BufNewFile **.htm set filetype=jinja
+au BufRead,BufNewFile **.cvc set filetype=c
+"au BufRead,BufNewFile **.cvc silent SyntasticToggleMode
+au BufRead,BufNewFile **.doku set filetype=dokuwiki
+
+" Vim is very slow when cursorline is set in latex
+autocmd FileType tex setlocal nocursorline
+
+" Smaller indentation for xml type files
+au FileType xml,xslt,xsd,dtd setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+" Fix stupid # to start of line
+inoremap # X<BS>#
 
 " Set english spellchecking, but only if turned on
 if version > 700
@@ -278,7 +322,7 @@ vnoremap > >gv
 noremap <leader><leader> <C-^>
 
 " Press F3 for no smart vim stuff when pasting (autoindent)
-set pastetoggle=<F3>
+" set pastetoggle=<F3>
 
 "Move blocks of text up and down with the arrow keys
 noremap <down> :m '>+1<CR>gv=gv
@@ -303,7 +347,7 @@ map Y y$
 "noremap <silent> <F1> mzgg=G`zzz
 
 " Write, pdflatex and open it up
-nnoremap <silent> <F4> :w<CR>:!pdflatex % <CR><CR>
+nnoremap <silent> <F4> :w<CR>:!latexmk --lualatex --shell-escape % <CR><CR>
 
 " Make and view pdf
 " nnoremap <silent> <F4> :w<CR>:!make && F=% && evince ${F\%.*}.pdf<CR><CR>
@@ -312,13 +356,29 @@ nnoremap <silent> <F4> :w<CR>:!pdflatex % <CR><CR>
 nnoremap <silent> <F2> :w<CR>:!make<CR><CR>
 
 
-" Make j and k work as expected
+" Make j, k and A work as expected with wrapped lines
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 nnoremap <silent> V :silent! vunmap j<cr>:silent! vunmap k<cr>V
 nnoremap <silent> v :vnoremap j gj<cr>:vnoremap k gk<cr>v
 vnoremap <silent> V <esc>:silent! vunmap j<cr>:silent! vunmap k<cr>gvV
 vnoremap <silent> v <esc>:vnoremap j gj<cr>:vnoremap k gk<cr>gvv
+nnoremap <silent> A :call BetterA()<CR>
+
+function! BetterA()
+    normal g$
+    let l:wrappos = getcurpos()
+    normal $
+    let l:fullend = getcurpos()
+    call setpos('.', l:wrappos)
+
+
+    if (l:fullend[2] == l:wrappos[2])
+        call feedkeys('a')
+    else
+        call feedkeys('i')
+    endif
+endfunction
 
 " Toggle folds with space
 "nnoremap <space> za

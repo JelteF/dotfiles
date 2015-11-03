@@ -15,3 +15,6 @@
 
 # Oracle JDK
 dev-java/oracle-jdk-bin Oracle-BCLA-JavaSE
+
+# Virtualbox
+app-emulation/virtualbox-bin PUEL

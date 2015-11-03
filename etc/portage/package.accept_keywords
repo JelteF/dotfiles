@@ -3,7 +3,6 @@ sys-boot/grub -~amd64
 # Running emerge should work
 sys-devel/make -~amd64
 sys-devel/cmake -~amd64
-sys-devel/automake -~amd64
 sys-libs/glibc -~amd64
 # Networking should work
 net-misc/dhcpcd -~amd64
@@ -13,19 +12,42 @@ net-wireless/wpa_supplicant -~amd64
 net-misc/networkmanager -~amd64
 gnome-extra/nm-applet -~amd64
 
-# X11 was broken
-app-admin/eselect-opengl -~amd64
-=media-libs/mesa-10.3.5-r1 -~amd64
-=x11-base/xorg-server-1.16.2.901-r1 -~amd64
-=x11-proto/glproto-1.4.17-r1 -~amd64
+# Trying to get vsync to work
+=x11-misc/compton-9999 **
 
-# Editors should work
+# X11 was broken
+app-eselect/eselect-opengl -~amd64
+media-libs/mesa -~amd64
+x11-base/xorg-server -~amd64
+x11-proto/glproto -~amd64
+
+# Trying to unbreak chrome
+x11-libs/gtk+ -~amd64
+
+
+# Libreoffice bin dependencies
+media-libs/glew -~amd64
+dev-libs/boost -~amd64
+>dev-util/boost-build-1.55.0-r1 -~amd64
+app-text/poppler -~amd64
+dev-libs/icu
+
+# Insync bin dependencies
+dev-libs/libevent -~amd64
+
+# Pypy
+>=sys-libs/ncurses-6.0 -~amd64
+>=sys-libs/ncurses-5.9-r101 -~amd64
+
+# Neovim
 =app-editors/neovim-9999 **
+~x11-libs/libvterm-9999 **
+
 
 =virtual/rust-999 **
 dev-lang/rust:nightly **
 =dev-lang/rust-bin-999 **
-=dev-rust/cargo-9999 **
+~dev-rust/cargo-9999 **
 =app-vim/rust-mode-9999 **
 
 x11-libs/fltk -~amd64

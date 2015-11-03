@@ -4,6 +4,12 @@ dev-ruby/compass::graaff
 app-misc/powerline::raiagent
 media-fonts/powerline-symbols::raiagent
 app-vim/powerline-python::raiagent
-app-editors/neovim::science
-dev-lua/cmsgpack::science
+x11-libs/libvterm::raiagent
+dev-lua/messagepack::lua
+dev-libs/msgpack::lua
+app-editors/neovim::lua
 net-misc/insync::mrpdaemon
+net-im/telegram-bin::mrpdaemon
+dev-db/neo4j-community::venidera
+dev-lang/python:3.5::progress
+dev-vcs/git-lfs::esm

@@ -1,14 +1,24 @@
+*/*::esm
 */*::portage-rich
 */*::raiagent
 */*::graaff
 */*::science
 */*::yngwin
 */*::mrpdaemon
+*/*::lua
+*/*::progress
+*/*::venidera
+dev-lang/rust::gentoo
 
 # I don't want systemd
 >=gnome-base/gdm-3.0.0
 
 # Lennart
 sys-apps/systemd
-sys-power/upower
+# sys-power/upower
 sys-apps/gentoo-systemd-integration
+
+
+# Non binary pypy
+dev-python/pypy
+dev-python/pypy3

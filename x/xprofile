@@ -1,0 +1,2 @@
+# Fix synapse
+export GTK_IM_MODULE=''

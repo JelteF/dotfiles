@@ -1,17 +1,17 @@
+if ! [[ "$TERM" == *256color ]]; then
+    TERM=xterm-256color
+fi
+
 alias ins="sudo apt-get install"
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../../'
-alias rmdir='rm -rf'
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
-TERM=xterm-256color
+alias ls="ls --color=auto"
 shopt -s autocd
 export PATH=~/.local/bin:$PATH
 alias nvcc='/usr/local/cuda-5.0/bin/nvcc'
 export EDITOR="vim"
 
-source /etc/bash_completion.d/git-prompt
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=false
-export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 " (%s)") \[\033[01;34m\]$\[\033[00m\] '
+export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[00m\] '
