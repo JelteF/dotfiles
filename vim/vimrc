@@ -67,6 +67,29 @@ if exists("+undofile")
   set undofile
 endif
 
+" Automatically set paste on Ctrl+V (https://coderwall.com/p/if9mda/)
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
+
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+endfunction
+
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
 " -------------- Plugins ---------
 
 " No need to behave in a strongly vi-compatible way
@@ -298,7 +321,7 @@ vnoremap > >gv
 noremap <leader><leader> <C-^>
 
 " Press F3 for no smart vim stuff when pasting (autoindent)
-set pastetoggle=<F3>
+" set pastetoggle=<F3>
 
 "Move blocks of text up and down with the arrow keys
 noremap <down> :m '>+1<CR>gv=gv

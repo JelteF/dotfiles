@@ -4,3 +4,7 @@ set show-all-if-ambiguous On
 "\e[1;5D": backward-word  # ctrl + left
 "\e[A":history-search-backward
 "\e[B":history-search-forward
+
+# Default Ctrl-w to stop at punctuation
+set bind-tty-special-chars off
+Control-w: unix-filename-rubout
