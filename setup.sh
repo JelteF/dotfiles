@@ -25,6 +25,7 @@ mv $ORIGINAL_BASHRC $ORIGINAL_BASH_PROFILE $ORIGINAL_PROFILE \
 
 # Create vim folders
 mkdir -p ~/.vim/bundle
+mkdir -p ~/.ptpython
 mkdir -p ~/.vim/colors
 mkdir -p ~/.config/fish/completions
 
@@ -51,6 +52,7 @@ ln -s $PWD/x/xinitrc $ORIGINAL_XINITRC
 ln -s $PWD/x/xsession $ORIGINAL_XSESSION
 ln -s $PWD/x/xprofile $ORIGINAL_XPROFILE
 
+ln -s $PWD/ptpython/* ~/.ptpython/
 ln -s $PWD/config_dir/* ~/.config/
 
 # Install oh-my-fish
