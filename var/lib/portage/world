@@ -32,6 +32,7 @@ app-portage/repo-commit
 app-shells/bash-completion
 app-shells/fish
 app-text/evince
+app-text/pandoc
 app-text/texlive
 app-vim/gentoo-syntax
 app-vim/vim-spell-en
@@ -39,6 +40,7 @@ app-vim/vim-spell-nl
 dev-db/mysql
 dev-db/pgadmin3
 dev-db/postgresql
+dev-haskell/pandoc-citeproc
 dev-java/oracle-jdk-bin:1.8
 dev-lang/php
 dev-lang/python:3.5
@@ -66,7 +68,6 @@ dev-util/indent
 dev-util/valgrind
 dev-vcs/git
 dev-vcs/git-flow
-dev-vcs/git-lfs
 dev-vcs/hub
 dev-vcs/tig
 games-fps/openarena
@@ -105,6 +106,8 @@ media-video/luvcview
 media-video/nvidia-settings
 media-video/vlc
 net-analyzer/nmap
+net-analyzer/wireshark
+net-dns/bind-tools
 net-ftp/filezilla
 net-ftp/ftp
 net-im/skype
@@ -121,9 +124,13 @@ net-misc/mosh
 net-misc/ntp
 net-misc/rabbitmq-server
 net-misc/teamviewer
+net-misc/youtube-dl
 net-p2p/deluge
 net-print/foomatic-db
 net-wireless/aircrack-ng
+net-wireless/crackle
+net-wireless/kismet-ubertooth
+net-wireless/ubertooth
 net-wireless/wireless-tools
 net-wireless/wpa_supplicant
 sci-libs/libsvm

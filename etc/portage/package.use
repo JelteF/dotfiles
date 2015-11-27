@@ -148,3 +148,6 @@ x11-libs/fltk xft
 
 # Android mounting
 gnome-base/gvfs mtp
+
+#
+dev-lang/ghc binary
