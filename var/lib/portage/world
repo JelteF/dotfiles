@@ -111,6 +111,7 @@ net-libs/iojs
 net-libs/rb_libtorrent
 net-misc/dhcpcd
 net-misc/dropbox
+net-misc/httpie
 net-misc/insync
 net-misc/iperf:2
 net-misc/mosh
