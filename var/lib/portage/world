@@ -119,6 +119,7 @@ net-misc/insync
 net-misc/iperf:2
 net-misc/mosh
 net-misc/ntp
+net-misc/rabbitmq-server
 net-misc/teamviewer
 net-p2p/deluge
 net-print/foomatic-db
