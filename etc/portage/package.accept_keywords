@@ -21,10 +21,6 @@ media-libs/mesa -~amd64
 x11-base/xorg-server -~amd64
 x11-proto/glproto -~amd64
 
-# Trying to unbreak chrome
-x11-libs/gtk+ -~amd64
-
-
 # Libreoffice bin dependencies
 media-libs/glew -~amd64
 dev-libs/boost -~amd64
