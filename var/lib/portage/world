@@ -5,6 +5,7 @@ app-admin/syslog-ng
 app-arch/file-roller
 app-arch/unrar
 app-arch/xarchiver
+app-backup/insync-bin
 app-backup/tarsnap
 app-benchmarks/wrk
 app-crypt/seahorse
@@ -18,6 +19,7 @@ app-emulation/wine
 app-emulation/winetricks
 app-misc/ranger
 app-misc/whatpulse
+app-misc/workrave
 app-office/libreoffice-bin
 app-portage/cpuinfo2cpuflags
 app-portage/eix
@@ -84,13 +86,13 @@ media-fonts/freefonts
 media-fonts/liberation-fonts
 media-fonts/mathematica-fonts
 media-fonts/powerline-symbols
+media-fonts/symbola
 media-fonts/terminus-font
 media-fonts/ubuntu-font-family
 media-fonts/unifont
 media-fonts/urw-fonts
 media-gfx/eog
 media-gfx/gimp
-media-gfx/w3mimgfb
 media-libs/freeglut
 media-libs/opencv
 media-sound/audacity
@@ -99,6 +101,7 @@ media-sound/pavucontrol
 media-sound/projectm-pulseaudio
 media-sound/sox
 media-sound/volumeicon
+media-tv/popcorntime-bin
 media-video/guvcview
 media-video/luvcview
 media-video/vlc
@@ -110,12 +113,11 @@ net-ftp/ftp
 net-im/skype
 net-im/telegram-bin
 net-irc/irssi
-net-libs/iojs
+net-libs/nodejs
 net-libs/rb_libtorrent
 net-misc/dhcpcd
 net-misc/dropbox
 net-misc/httpie
-net-misc/insync
 net-misc/iperf:2
 net-misc/mosh
 net-misc/ntp
@@ -160,7 +162,6 @@ sys-process/vixie-cron
 www-client/firefox-bin
 www-client/google-chrome
 www-client/phantomjs
-www-client/w3m
 www-plugins/google-talkplugin
 www-servers/nginx
 x11-apps/xrandr
