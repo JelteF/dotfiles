@@ -5,6 +5,7 @@ app-admin/syslog-ng
 app-arch/file-roller
 app-arch/unrar
 app-arch/xarchiver
+app-backup/insync-bin
 app-backup/tarsnap
 app-benchmarks/wrk
 app-crypt/seahorse
@@ -99,6 +100,7 @@ media-sound/pavucontrol
 media-sound/projectm-pulseaudio
 media-sound/sox
 media-sound/volumeicon
+media-tv/popcorntime-bin
 media-video/guvcview
 media-video/luvcview
 media-video/vlc
@@ -115,7 +117,6 @@ net-libs/rb_libtorrent
 net-misc/dhcpcd
 net-misc/dropbox
 net-misc/httpie
-net-misc/insync
 net-misc/iperf:2
 net-misc/mosh
 net-misc/ntp

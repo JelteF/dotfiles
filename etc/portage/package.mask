@@ -8,6 +8,8 @@
 */*::lua
 */*::progress
 */*::venidera
+*/*::devpump-gor
+*/*::luman
 dev-lang/rust::gentoo
 
 # I don't want systemd
