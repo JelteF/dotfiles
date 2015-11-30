@@ -19,6 +19,7 @@ app-emulation/wine
 app-emulation/winetricks
 app-misc/ranger
 app-misc/whatpulse
+app-misc/workrave
 app-office/libreoffice-bin
 app-portage/cpuinfo2cpuflags
 app-portage/eix
@@ -85,13 +86,13 @@ media-fonts/freefonts
 media-fonts/liberation-fonts
 media-fonts/mathematica-fonts
 media-fonts/powerline-symbols
+media-fonts/symbola
 media-fonts/terminus-font
 media-fonts/ubuntu-font-family
 media-fonts/unifont
 media-fonts/urw-fonts
 media-gfx/eog
 media-gfx/gimp
-media-gfx/w3mimgfb
 media-libs/freeglut
 media-libs/opencv
 media-sound/audacity
@@ -112,7 +113,7 @@ net-ftp/ftp
 net-im/skype
 net-im/telegram-bin
 net-irc/irssi
-net-libs/iojs
+net-libs/nodejs
 net-libs/rb_libtorrent
 net-misc/dhcpcd
 net-misc/dropbox
@@ -161,7 +162,6 @@ sys-process/vixie-cron
 www-client/firefox-bin
 www-client/google-chrome
 www-client/phantomjs
-www-client/w3m
 www-plugins/google-talkplugin
 www-servers/nginx
 x11-apps/xrandr
