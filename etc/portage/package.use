@@ -151,3 +151,6 @@ gnome-base/gvfs mtp
 
 #
 dev-lang/ghc binary
+
+# Eog dependencies
+dev-libs/libpeas -python_targets_python3_4
