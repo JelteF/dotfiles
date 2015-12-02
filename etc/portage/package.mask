@@ -8,6 +8,8 @@
 */*::lua
 */*::progress
 */*::venidera
+*/*::devpump-gor
+*/*::luman
 dev-lang/rust::gentoo
 
 # I don't want systemd
@@ -22,3 +24,6 @@ sys-apps/gentoo-systemd-integration
 # Non binary pypy
 dev-python/pypy
 dev-python/pypy3
+
+# Broken version of synapse
+=gnome-extra/synapse-0.2.99.1
