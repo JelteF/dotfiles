@@ -154,3 +154,10 @@ dev-lang/ghc binary
 
 # Eog dependencies
 dev-libs/libpeas -python_targets_python3_4
+
+#
+media-libs/gexiv2 introspection
+
+
+# Bug https://bugs.gentoo.org/show_bug.cgi?id=567944
+net-libs/rb_libtorrent -python_targets_python3_4
