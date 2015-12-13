@@ -31,10 +31,6 @@ dev-libs/icu
 # Insync bin dependencies
 dev-libs/libevent -~amd64
 
-# Pypy
->=sys-libs/ncurses-6.0 -~amd64
->=sys-libs/ncurses-5.9-r101 -~amd64
-
 # Neovim
 =app-editors/neovim-9999 **
 ~x11-libs/libvterm-9999 **
@@ -49,3 +45,6 @@ dev-lang/rust:nightly **
 x11-libs/fltk -~amd64
 
 =app-shells/fish-9999 **
+
+# Ubertooth
+>=net-analyzer/wireshark-2.0.0 -~amd64
