@@ -57,8 +57,6 @@ dev-python/psutil
 dev-python/pyaudio
 dev-python/pygit2
 dev-python/pyinotify
-dev-python/pypy-bin
-dev-python/pypy3-bin
 dev-python/seaborn
 dev-python/virtualenv
 dev-tex/biber
@@ -117,7 +115,6 @@ net-im/skype
 net-im/telegram-bin
 net-irc/irssi
 net-libs/nodejs
-net-libs/rb_libtorrent
 net-misc/dhcpcd
 net-misc/dropbox
 net-misc/httpie
