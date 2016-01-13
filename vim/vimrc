@@ -143,6 +143,7 @@ Bundle 'cespare/vim-toml'
 Bundle 'hdima/python-syntax'
 Bundle 'vzh/vim-dokuwiki'
 Bundle 'seveas/bind.vim'
+Bundle 'vim-pandoc/vim-pandoc-syntax'
 
 call vundle#end()            " required
 
@@ -204,6 +205,8 @@ au BufRead,BufNewFile **.htm set filetype=jinja
 au BufRead,BufNewFile **.cvc set filetype=c
 "au BufRead,BufNewFile **.cvc silent SyntasticToggleMode
 au BufRead,BufNewFile **.doku set filetype=dokuwiki
+au BufRead,BufNewFile **.md set filetype=markdown.pandoc
+let g:pandoc#syntax#conceal#use=0
 
 " Vim is very slow when cursorline is set in latex
 autocmd FileType tex setlocal nocursorline
