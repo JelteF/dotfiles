@@ -2,7 +2,6 @@ app-admin/eselect
 app-admin/keepass
 app-admin/logrotate
 app-admin/syslog-ng
-app-admin/system-config-printer-gnome
 app-arch/file-roller
 app-arch/unrar
 app-arch/xarchiver
@@ -105,7 +104,6 @@ media-sound/sox
 media-sound/volumeicon
 media-video/guvcview
 media-video/luvcview
-media-video/nvidia-settings
 media-video/vlc
 net-analyzer/nmap
 net-analyzer/wireshark
