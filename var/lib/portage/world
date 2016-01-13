@@ -33,13 +33,14 @@ app-shells/bash-completion
 app-shells/fish
 app-text/evince
 app-text/pandoc
+app-text/sgrep
 app-text/texlive
 app-vim/gentoo-syntax
 app-vim/vim-spell-en
 app-vim/vim-spell-nl
 dev-db/mysql
 dev-db/pgadmin3
-dev-db/postgresql
+dev-db/postgresql:9.4
 dev-haskell/pandoc-citeproc
 dev-java/oracle-jdk-bin:1.8
 dev-lang/php
@@ -62,6 +63,7 @@ dev-tex/biblatex
 dev-tex/rubber
 dev-util/android-sdk-update-manager
 dev-util/android-studio
+dev-util/debugedit
 dev-util/indent
 dev-util/valgrind
 dev-vcs/git
@@ -99,7 +101,6 @@ media-sound/pavucontrol
 media-sound/projectm-pulseaudio
 media-sound/sox
 media-sound/volumeicon
-media-tv/popcorntime-bin
 media-video/guvcview
 media-video/luvcview
 media-video/vlc
@@ -117,6 +118,7 @@ net-misc/dropbox
 net-misc/httpie
 net-misc/iperf:2
 net-misc/mosh
+net-misc/networkmanager-openconnect
 net-misc/ntp
 net-misc/teamviewer
 net-misc/youtube-dl
@@ -148,12 +150,15 @@ sys-fs/encfs
 sys-fs/extundelete
 sys-fs/fuse-exfat
 sys-fs/go-mtpfs
+sys-fs/inotify-tools
 sys-fs/ntfs3g
 sys-fs/udev
 sys-kernel/gentoo-sources
 sys-power/acpi
+sys-process/atop
 sys-process/htop
 sys-process/htop::jelte
+sys-process/lsof
 sys-process/time
 sys-process/vixie-cron
 www-client/firefox-bin
