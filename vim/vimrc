@@ -153,8 +153,8 @@ set wildignore+=*.png,*.jpg,*.gif
 
 "ctrlp ignores
 let g:ctrlp_custom_ignore = {
-  \ 'dir': 'build\|node_modules\|venv\|python2_source',
-  \ 'file': '\.exe\|\.o|\.dll\|\.toc\|\.log\|\.out\|\.fls\|\.bcf\|\.bbl\|\.blg\|\.fdb_latexmk'
+  \ 'dir': 'build\|node_modules\|venv\|python2_source\|_minted-',
+  \ 'file': '.\(exe\|o|dll\|toc\|log\|out\|fls\|bcf\|bbl\|blg\|fdb_latexmk\|gls\|glg\|alg\|acr\|run.xml\|ist\|glo\|upb\|upa\|acn\)$'
   \ }
 
 "Set toggle for graphical undo plugin
