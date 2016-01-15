@@ -143,6 +143,7 @@ Bundle 'cespare/vim-toml'
 Bundle 'hdima/python-syntax'
 Bundle 'vzh/vim-dokuwiki'
 Bundle 'seveas/bind.vim'
+Bundle 'vim-pandoc/vim-pandoc-syntax'
 
 call vundle#end()            " required
 
@@ -152,8 +153,8 @@ set wildignore+=*.png,*.jpg,*.gif
 
 "ctrlp ignores
 let g:ctrlp_custom_ignore = {
-  \ 'dir': 'build\|node_modules\|venv\|python2_source',
-  \ 'file': '\.exe\|\.o|\.dll\|\.toc\|\.log\|\.out\|\.fls\|\.bcf\|\.bbl\|\.blg\|\.fdb_latexmk'
+  \ 'dir': 'build\|node_modules\|venv\|python2_source\|_minted-',
+  \ 'file': '.\(exe\|o|dll\|toc\|log\|out\|fls\|bcf\|bbl\|blg\|fdb_latexmk\|gls\|glg\|alg\|acr\|run.xml\|ist\|glo\|upb\|upa\|acn\)$'
   \ }
 
 "Set toggle for graphical undo plugin
@@ -204,6 +205,8 @@ au BufRead,BufNewFile **.htm set filetype=jinja
 au BufRead,BufNewFile **.cvc set filetype=c
 "au BufRead,BufNewFile **.cvc silent SyntasticToggleMode
 au BufRead,BufNewFile **.doku set filetype=dokuwiki
+au BufRead,BufNewFile **.md set filetype=markdown.pandoc
+let g:pandoc#syntax#conceal#use=0
 
 " Vim is very slow when cursorline is set in latex
 autocmd FileType tex setlocal nocursorline

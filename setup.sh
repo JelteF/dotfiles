@@ -56,7 +56,7 @@ ln -s $PWD/ptpython/* ~/.ptpython/
 ln -s $PWD/config_dir/* ~/.config/
 
 # Install oh-my-fish
-curl -L git.io/omf > install_omf
+curl -L github.com/oh-my-fish/oh-my-fish/raw/master/bin/install > install_omf
 chmod +x install_omf
 ./install_omf
 rm install_omf
