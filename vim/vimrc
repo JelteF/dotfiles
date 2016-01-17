@@ -82,7 +82,7 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 filetype off
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 "Plug Plugins
 Plug 'scrooloose/nerdtree'
@@ -106,6 +106,7 @@ Plug 'thomwiggers/vim-colors-solarized'
 Plug 'fidian/hexmode'
 Plug 'edkolev/tmuxline.vim'
 Plug 'benekastah/neomake'
+Plug 'Shougo/deoplete.nvim'
 
 "Plug syntax
 Plug 'hynek/vim-python-pep8-indent'
@@ -145,6 +146,9 @@ let g:python_highlight_all = 1
 
 "No automatic setting of tmuxline stuff
 let g:airline#extensions#tmuxline#enabled = 0
+
+" Enable deoplete
+let g:deoplete#enable_at_startup = 1
 
 augroup SyntaxCheckOnFileSave
     au!
@@ -405,7 +409,7 @@ set splitright
 "Turn of highlight
 noremap <silent><leader>/ :nohls<CR>
 
-"Tab for autocompletion
+" Tab for autocompletion
 function! SuperTab()
     if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
         return "\<Tab>"
