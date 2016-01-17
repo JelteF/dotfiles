@@ -4,6 +4,7 @@ sys-boot/grub -~amd64
 sys-devel/make -~amd64
 sys-devel/cmake -~amd64
 sys-libs/glibc -~amd64
+>=dev-libs/elfutils-0.165 -~amd64
 # Networking should work
 net-misc/dhcpcd -~amd64
 >=dev-libs/libnl-3.2.25 -~amd64
