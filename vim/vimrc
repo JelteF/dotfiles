@@ -400,6 +400,10 @@ nnoremap <right> <C-w>l
 " Fix mapping of <C-j> so it doesn't get overwritten
 noremap <SID>I_won’t_ever_type_thiseuehauntauhnaeha <Plug>IMAP_JumpForward
 
+" Workaround for https://github.com/neovim/neovim/issues/2048
+if has('nvim')
+    nmap <BS> <C-W>h
+endif
 
 " Better split window opening
 set splitbelow
