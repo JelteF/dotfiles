@@ -1,8 +1,13 @@
+silent! set encoding=utf-8
+scriptencoding utf-8
 " -------------- Auto Commands -----------
 
 " Automatically reload vimrc when it's saved
-" au BufWritePost .vimrc so ~/.vimrc
-" au BufWritePost vimrc so ~/.vimrc
+augroup ReloadVimrc
+    au!
+    au BufWritePost .vimrc so ~/.vimrc
+    au BufWritePost ~/dotfiles/vim/vimrc so ~/.vimrc
+augroup end
 
 if &shell =~# 'fish$'
     set shell=sh
@@ -11,50 +16,33 @@ endif
 " 80-char line coloring
 if exists('+colorcolumn')
     set colorcolumn=80
-else
-    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
-" Remove all trailing whitespace
-autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+augroup NoTrailingWhiteSpace
+    " Remove all trailing whitespace
+    autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+augroup end
 
 " cd into the dir that the file is in
 "autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 "set autochdir
 
 " If textfile, wrap at 80
-autocmd BufRead *.txt setlocal tw=80
-autocmd BufRead *.md setlocal tw=80
-autocmd BufRead *.tex setlocal tw=80
+augroup SetWrapperForTextFiles
+    au!
+    au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt,tex} setlocal tw=80 spell
+augroup END
 
 
 " Restore cursor position when opening file
 augroup JumpCursorOnEdit
-au!
-autocmd BufReadPost *
-\ if expand("<afile>:p:h") !=? $TEMP |
-\   if line("'\"") > 1 && line("'\"") <= line("$") |
-\     let JumpCursorOnEdit_foo = line("'\"") |
-\     let b:doopenfold = 1 |
-\     if (foldlevel(JumpCursorOnEdit_foo) > foldlevel(JumpCursorOnEdit_foo - 1)) |
-\        let JumpCursorOnEdit_foo = JumpCursorOnEdit_foo - 1 |
-\        let b:doopenfold = 2 |
-\     endif |
-\     exe JumpCursorOnEdit_foo |
-\   endif |
-\ endif
-" Need to postpone using "zv" until after reading the modelines.
-autocmd BufWinEnter *
-\ if exists("b:doopenfold") |
-\   exe "normal zv" |
-\   if(b:doopenfold > 1) |
-\       exe  "+".1 |
-\   endif |
-\   unlet b:doopenfold |
-\ endif
+    au!
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |
+        \ exe "normal! g`\"" |
+    \ endif
 augroup END
 
-if exists("+undofile")
+if exists('+undofile')
   " undofile - This allows you to use undos after exiting and restarting
   " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
   " :help undo-persistence
@@ -73,10 +61,10 @@ function! WrapForTmux(s)
     return a:s
   endif
 
-  let tmux_start = "\<Esc>Ptmux;"
-  let tmux_end = "\<Esc>\\"
+  let l:tmux_start = "\<Esc>Ptmux;"
+  let l:tmux_end = "\<Esc>\\"
 
-  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+  return l:tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . l:tmux_end
 endfunction
 
 let &t_SI .= WrapForTmux("\<Esc>[?2004h")
@@ -85,19 +73,16 @@ let &t_EI .= WrapForTmux("\<Esc>[?2004l")
 function! XTermPasteBegin()
   set pastetoggle=<Esc>[201~
   set paste
-  return ""
+  return ''
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 " -------------- Plugins ---------
 
-" No need to behave in a strongly vi-compatible way
-set nocompatible
-
 filetype off
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 "Plug Plugins
 Plug 'scrooloose/nerdtree'
@@ -121,6 +106,7 @@ Plug 'thomwiggers/vim-colors-solarized'
 Plug 'fidian/hexmode'
 Plug 'edkolev/tmuxline.vim'
 Plug 'benekastah/neomake'
+Plug 'Shougo/deoplete.nvim'
 
 "Plug syntax
 Plug 'hynek/vim-python-pep8-indent'
@@ -161,10 +147,16 @@ let g:python_highlight_all = 1
 "No automatic setting of tmuxline stuff
 let g:airline#extensions#tmuxline#enabled = 0
 
-autocmd! BufWritePost * Neomake
+" Enable deoplete
+let g:deoplete#enable_at_startup = 1
+
+augroup SyntaxCheckOnFileSave
+    au!
+    autocmd BufWritePost * Neomake
+augroup end
+
 " -------------- Global ----------
 
-set encoding=utf-8
 set background=dark
 colorscheme solarized
 highlight SignColumn ctermbg=8
@@ -174,7 +166,7 @@ highlight SignColumn ctermbg=8
 set showcmd
 
 " Include custom vimrc
-if filereadable(".vim.custom")
+if filereadable('.vim.custom')
     so .vim.custom
 endif
 
@@ -198,26 +190,31 @@ set breakindent
 filetype plugin indent on
 syntax on
 
-au BufRead,BufNewFile **.htm set filetype=jinja
-au BufRead,BufNewFile **.cvc set filetype=c
-"au BufRead,BufNewFile **.cvc silent SyntasticToggleMode
-au BufRead,BufNewFile **.doku set filetype=dokuwiki
-au BufRead,BufNewFile **.md set filetype=markdown.pandoc
+augroup SetFileTypes
+    au!
+    au BufRead,BufNewFile **.htm set filetype=jinja
+    au BufRead,BufNewFile **.cvc set filetype=c
+    au BufRead,BufNewFile **.doku set filetype=dokuwiki
+    au BufRead,BufNewFile **.md set filetype=markdown.pandoc
+augroup end
+
 let g:pandoc#syntax#conceal#use=0
 
-" Vim is very slow when cursorline is set in latex
-autocmd FileType tex setlocal nocursorline
+augroup FileTypeSpecificSettings
+    " Vim is very slow when cursorline is set in latex
+    autocmd FileType tex setlocal nocursorline
 
-" Smaller indentation for xml type files
-au FileType xml,xslt,xsd,dtd setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    " Smaller indentation for xml type files
+    au FileType xml,xslt,xsd,dtd setlocal shiftwidth=2 tabstop=2 softtabstop=2
+augroup end
 
 " Fix stupid # to start of line
 inoremap # X<BS>#
 
 " Set english spellchecking, but only if turned on
-if version > 700
-set spl=en spell
-set nospell
+if v:version > 700
+    set spelllang=en spell
+    set nospell
 endif
 
 " LaTeX plugin settings
@@ -263,7 +260,7 @@ set nohidden
 highlight MatchParen ctermbg=4
 
 " Set 7 lines to the curors when moving vertical
-set so=7
+set scrolloff=7
 
 " increased search
 set incsearch
@@ -279,7 +276,7 @@ set wrap
 set linebreak
 
 " Highlight current line
-set cul
+set cursorline
 
 " Make backspace work
 set backspace=indent,eol,start
@@ -293,7 +290,7 @@ set updatetime=750
 " -------- Mappings ----------
 
 "Set the mapleader
-let g:mapleader = ","
+let g:mapleader = ','
 
 "Toggle line numbers with leader-l
 set number
@@ -412,7 +409,7 @@ set splitright
 "Turn of highlight
 noremap <silent><leader>/ :nohls<CR>
 
-"Tab for autocompletion
+" Tab for autocompletion
 function! SuperTab()
     if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
         return "\<Tab>"
@@ -421,4 +418,3 @@ function! SuperTab()
     endif
 endfunction
 inoremap <Tab> <C-R>=SuperTab()<CR>
-
