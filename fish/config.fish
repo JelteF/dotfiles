@@ -1,3 +1,6 @@
+set fisher_home ~/.fisherman
+set fisher_config ~/.config/fisherman
+source $fisher_home/config.fish
 if not echo $TERM | grep 256color > /dev/null
     set TERM xterm-256color
 end
@@ -28,16 +31,14 @@ set -x ECHANGELOG_USER "Jelte Fennema (JelteF) <github-tech@jeltef.nl>"
 # Disable clipboard polution
 set FISH_CLIPBOARD_CMD "cat"
 
-# Path to your oh-my-fish.
-set -g OMF_PATH $HOME/.local/share/omf
+function vim
+    if command -s nvim > /dev/null
+        nvim $argv
+    else
+        command vim $argv
+    end
+end
 
-# Path to your oh-my-fish configuration.
-set -g OMF_CONFIG $HOME/.config/omf
-
-### Configuration required to load oh-my-fish ###
-# Note: Only add configurations that are required to be set before oh-my-fish is loaded.
-# For common configurations, we advise you to add them to your $OMF_CONFIG/init.fish file or
-# to create a custom plugin instead.
-
-# Load oh-my-fish configuration.
-source $OMF_PATH/init.fish
+function ovim
+    command vim $argv
+end
