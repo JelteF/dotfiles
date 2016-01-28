@@ -125,6 +125,7 @@ Plug 'hdima/python-syntax'
 Plug 'vzh/vim-dokuwiki'
 Plug 'seveas/bind.vim'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'fatih/vim-go'
 
 call plug#end()            " required
 
