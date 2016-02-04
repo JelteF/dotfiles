@@ -25,6 +25,7 @@ mkdir -p ~/.config/fish/completions
 mkdir -p ~/.gem/ruby/2.2.0/bin
 mkdir -p ~/go/bin
 mkdir -p ~/.local/bin
+mkdir -p ~/.cargo/bin
 sudo mkdir -p /opt/bin
 
 # Install vim-plug
