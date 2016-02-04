@@ -11,7 +11,6 @@ ORIGINAL_TMUXCONF=$HOME/.tmux.conf
 ORIGINAL_VIMRC=$HOME/.vimrc
 ORIGINAL_XCOMPOSE=$HOME/.XCompose
 ORIGINAL_XRESOURCES=$HOME/.Xresources
-ORIGINAL_XINITRC=$HOME/.xinitrc
 ORIGINAL_XPROFILE=$HOME/.xprofile
 ORIGINAL_XSESSION=$HOME/.xsession
 
@@ -44,7 +43,6 @@ ln -sf $PWD/vim/vimrc $HOME/.vim/init.vim
 ln -sf $PWD/fish/config.fish $ORIGINAL_FISHCONF
 ln -sf $PWD/x/XCompose $ORIGINAL_XCOMPOSE
 ln -sf $PWD/x/Xresources $ORIGINAL_XRESOURCES
-ln -sf $PWD/x/xinitrc $ORIGINAL_XINITRC
 ln -sf $PWD/x/xsession $ORIGINAL_XSESSION
 ln -sf $PWD/x/xprofile $ORIGINAL_XPROFILE
 
