@@ -3,6 +3,8 @@ app-text/texlive extra graphics humanities science luatex xindy
 app-text/texlive-core xetex
 >=media-libs/gd-2.0.35-r3 truetype jpeg png fontconfig
 
+*/* -ruby_targets_ruby23
+
 # GTK+ skin for QT apps
 dev-qt/qtgui:4 gtkstyle
 app-emulation/emul-linux-x86-qtlibs gtkstyle
@@ -162,10 +164,13 @@ sys-libs/glibc debug
 media-libs/gexiv2 introspection
 
 # Bug https://bugs.gentoo.org/show_bug.cgi?id=567944
-net-libs/rb_libtorrent -python_targets_python3_4
+net-libs/rb_libtorrent -python_targets_python3_4 -python_targets_python3_5
 
 # Only one python 3 for vim
 app-editors/vim -python_targets_python3_4
 
 # Add ncat
 net-analyzer/nmap ncat ndiff
+
+# Skype
+dev-qt/qtwebkit -exceptions
