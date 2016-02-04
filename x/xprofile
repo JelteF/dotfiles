@@ -3,3 +3,4 @@ setxkbmap -variant 'dvp,'
 setxkbmap -option grp:alt_shift_toggle,grp:switch,grp_led:scroll,compose:caps,terminate:ctrl_alt_bksp
 # Fix synapse
 # export GTK_IM_MODULE=''
+xrandr --output DP1  --right-of DP2
