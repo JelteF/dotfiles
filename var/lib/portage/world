@@ -37,6 +37,7 @@ app-text/evince
 app-text/pandoc
 app-text/sgrep
 app-text/texlive
+app-text/tree
 app-vim/gentoo-syntax
 app-vim/vim-spell-en
 app-vim/vim-spell-nl
@@ -65,6 +66,7 @@ dev-tex/biblatex
 dev-tex/rubber
 dev-util/android-sdk-update-manager
 dev-util/android-studio
+dev-util/cargo
 dev-util/debugedit
 dev-util/indent
 dev-util/valgrind
