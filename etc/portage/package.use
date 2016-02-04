@@ -166,3 +166,6 @@ net-libs/rb_libtorrent -python_targets_python3_4
 
 # Only one python 3 for vim
 app-editors/vim -python_targets_python3_4
+
+# Add ncat
+net-analyzer/nmap ncat ndiff
