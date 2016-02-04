@@ -64,6 +64,7 @@ dev-tex/biblatex
 dev-tex/rubber
 dev-util/android-sdk-update-manager
 dev-util/android-studio
+dev-util/cargo
 dev-util/debugedit
 dev-util/indent
 dev-util/valgrind

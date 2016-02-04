@@ -126,6 +126,8 @@ Plug 'vzh/vim-dokuwiki'
 Plug 'seveas/bind.vim'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
+
 
 call plug#end()            " required
 
@@ -150,9 +152,12 @@ let g:airline#extensions#tmuxline#enabled = 0
 " Enable deoplete
 let g:deoplete#enable_at_startup = 1
 
+let g:neomake_rust_enabled_makers = [] " disable rustc cargo is better
+
 augroup SyntaxCheckOnFileSave
     au!
     autocmd BufWritePost * Neomake
+    autocmd BufWritePost *.rs Neomake! cargo
 augroup end
 
 " -------------- Global ----------
