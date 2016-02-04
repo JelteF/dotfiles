@@ -20,6 +20,11 @@ ln -s ~/.vim ~/.config/nvim
 mkdir -p ~/.ptpython
 mkdir -p ~/.config/fish/completions
 
+# PATH dirs
+mkdir -p ~/.gem/ruby/2.2.0/bin
+mkdir -p ~/go/bin
+mkdir -p ~/.local/bin
+
 # Install vim-plug
 wget -O ~/.config/nvim/autoload/plug.vim \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
