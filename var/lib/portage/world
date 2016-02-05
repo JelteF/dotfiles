@@ -129,8 +129,6 @@ net-p2p/deluge
 net-print/foomatic-db
 net-wireless/aircrack-ng
 net-wireless/crackle
-net-wireless/kismet-ubertooth
-net-wireless/ubertooth
 net-wireless/wireless-tools
 net-wireless/wpa_supplicant
 sci-libs/libsvm
