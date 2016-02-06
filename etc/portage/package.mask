@@ -10,6 +10,7 @@
 */*::venidera
 */*::devpump-gor
 */*::luman
+*/*::haskell
 dev-lang/rust::gentoo
 
 # I don't want systemd

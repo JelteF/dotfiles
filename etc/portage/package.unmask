@@ -14,3 +14,4 @@ dev-db/neo4j-community::venidera
 dev-lang/python:3.5::progress
 dev-vcs/git-lfs::esm
 media-tv/popcorntime-bin::devpump-gor
+app-text/pandoc::haskell
