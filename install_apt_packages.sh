@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ubuntu/add_desktop_repositories.sh
 ubuntu/add_server_repositories.sh
+ubuntu/add_desktop_repositories.sh
 
 # Update sources
 sudo apt-get update
