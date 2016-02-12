@@ -3,4 +3,4 @@
 echo 'Installing important stuff'
 sudo apt-get --yes --force-yes install vim ack-grep git python-pip\
     ruby-sass irssi htop ipython python-dev git-flow tig curl fish\
-    tmux virtualenv whois wget
+    tmux python3-virtualenv python-virtualenv whois wget
