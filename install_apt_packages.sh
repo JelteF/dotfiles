@@ -19,4 +19,4 @@ sudo apt-get --yes --force-yes upgrade
 
 # Install all the LaTeX, but ask
 echo 'Do you really want ALL the LaTeX?'
-sudo apt-get install texlive-full
+sudo apt-get install texlive-full biber
