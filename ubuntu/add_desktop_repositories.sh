@@ -18,11 +18,15 @@ echo "deb http://apt.insynchq.com/ubuntu vivid non-free contrib" | sudo tee \
 
 # Add synapse
 echo 'Adding synapse repo'
-sudo apt-add-repository ppa:synapse-core/testing
+sudo apt-add-repository ppa:synapse-core/ppa -y
+
+# Add Telegram repo
+echo 'Adding telegram repo'
+sudo add-apt-repository ppa:atareao/telegram -y
 
 # Awesome
-sudo add-apt-repository ppa:klaus-vormweg/awesome
+sudo add-apt-repository ppa:klaus-vormweg/awesome -y
 
 # Keepass and plugins
-sudo add-apt-repository ppa:jtaylor/keepass
-sudo add-apt-repository ppa:dlech/keepass2-plugins
+sudo add-apt-repository ppa:jtaylor/keepass -y
+sudo add-apt-repository ppa:dlech/keepass2-plugins -y

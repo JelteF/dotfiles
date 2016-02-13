@@ -1,3 +1,6 @@
+set fisher_home ~/.fisherman
+set fisher_config ~/.config/fisherman
+source $fisher_home/config.fish
 if not echo $TERM | grep 256color > /dev/null
     set TERM xterm-256color
 end
@@ -17,7 +20,7 @@ set -x GOPATH $HOME/go
 
 
 # Set user $PATH variables
-set fish_user_paths $fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin
+set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin
 
 # Don't let cd complete home directory
 set CDPATH .
@@ -36,16 +39,14 @@ function su
     end
 end
 
-# Path to your oh-my-fish.
-set -g OMF_PATH $HOME/.local/share/omf
+function vim
+    if command -s nvim > /dev/null
+        nvim $argv
+    else
+        command vim $argv
+    end
+end
 
-# Path to your oh-my-fish configuration.
-set -g OMF_CONFIG $HOME/.config/omf
-
-### Configuration required to load oh-my-fish ###
-# Note: Only add configurations that are required to be set before oh-my-fish is loaded.
-# For common configurations, we advise you to add them to your $OMF_CONFIG/init.fish file or
-# to create a custom plugin instead.
-
-# Load oh-my-fish configuration.
-source $OMF_PATH/init.fish
+function ovim
+    command vim $argv
+end

@@ -4,6 +4,7 @@ sys-boot/grub -~amd64
 sys-devel/make -~amd64
 sys-devel/cmake -~amd64
 sys-libs/glibc -~amd64
+>=dev-libs/elfutils-0.165 -~amd64
 # Networking should work
 net-misc/dhcpcd -~amd64
 >=dev-libs/libnl-3.2.25 -~amd64
@@ -15,41 +16,40 @@ gnome-extra/nm-applet -~amd64
 # Trying to get vsync to work
 =x11-misc/compton-9999 **
 
+media-sound/pulseaudio -~amd64
+
 # X11 was broken
 app-eselect/eselect-opengl -~amd64
 media-libs/mesa -~amd64
 x11-base/xorg-server -~amd64
+x11-base/xorg-drivers -~amd64
 x11-proto/glproto -~amd64
-
-# Trying to unbreak chrome
-x11-libs/gtk+ -~amd64
-
+x11-drivers/xf86-input-evdev -~amd64
 
 # Libreoffice bin dependencies
 media-libs/glew -~amd64
 dev-libs/boost -~amd64
->dev-util/boost-build-1.55.0-r1 -~amd64
+dev-util/boost-build -~amd64
 app-text/poppler -~amd64
-dev-libs/icu
+dev-libs/icu -~amd64
 
 # Insync bin dependencies
 dev-libs/libevent -~amd64
-
-# Pypy
->=sys-libs/ncurses-6.0 -~amd64
->=sys-libs/ncurses-5.9-r101 -~amd64
 
 # Neovim
 =app-editors/neovim-9999 **
 ~x11-libs/libvterm-9999 **
 
 
-=virtual/rust-999 **
-dev-lang/rust:nightly **
-=dev-lang/rust-bin-999 **
-~dev-rust/cargo-9999 **
-=app-vim/rust-mode-9999 **
+# =virtual/rust-999 **
+# dev-lang/rust:nightly **
+# =dev-lang/rust-bin-999 **
+# ~dev-rust/cargo-9999 **
+# =app-vim/rust-mode-9999 **
 
 x11-libs/fltk -~amd64
 
-=app-shells/fish-9999 **
+# =app-shells/fish-9999 **
+
+# Ubertooth
+>=net-analyzer/wireshark-2.0.0 -~amd64

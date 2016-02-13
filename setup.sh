@@ -15,46 +15,57 @@ ORIGINAL_XINITRC=$HOME/.xinitrc
 ORIGINAL_XPROFILE=$HOME/.xprofile
 ORIGINAL_XSESSION=$HOME/.xsession
 
-# Backup current dotfiles
-mkdir -p $BACKUP_DIR
-mv $ORIGINAL_BASHRC $ORIGINAL_BASH_PROFILE $ORIGINAL_PROFILE \
-    $ORIGINAL_GITCONFIG $ORIGINAL_TMUXCONF $ORIGINAL_VIMRC \
-    $ORIGINAL_XCOMPOSE $ORIGINAL_XINITRC $ORIGINAL_XRESOURCES \
-    $ORIGINAL_INPUTRC $ORIGINAL_XSESSION $ORIGINAL_XPROFILE \
-    $ORIGINAL_FISHCONF $BACKUP_DIR
-
 # Create vim folders
-mkdir -p ~/.vim/bundle
-mkdir -p ~/.vim/colors
+mkdir -p ~/.vim/{autoload,colors}
+ln -s ~/.vim ~/.config/nvim
+mkdir -p ~/.ptpython
 mkdir -p ~/.config/fish/completions
 
-# Install vundle
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+# PATH dirs
+mkdir -p ~/.gem/ruby/2.2.0/bin
+mkdir -p ~/go/bin
+mkdir -p ~/.local/bin
+mkdir -p ~/.cargo/bin
+sudo mkdir -p /opt/bin
+
+# Install vim-plug
+wget -O ~/.config/nvim/autoload/plug.vim \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install git-flow completion
-wget https://github.com/bobthecow/git-flow-completion/raw/master/git.fish -O ~/.config/fish/completions/git.fish
+wget https://github.com/bobthecow/git-flow-completion/raw/master/git.fish \
+    -O ~/.config/fish/completions/git.fish
 
 # Install nice color scheme
-wget https://raw.github.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night-Bright.vim -O ~/.vim/colors/Tomorrow-Night-Bright.vim
+wget https://raw.github.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night-Bright.vim \
+    -O ~/.vim/colors/Tomorrow-Night-Bright.vim
 
-ln -s $PWD/bash/bashrc $ORIGINAL_BASHRC
-ln -s $PWD/bash/bash_profile $ORIGINAL_BASH_PROFILE
-ln -s $PWD/bash/profile $ORIGINAL_PROFILE
-ln -s $PWD/bash/inputrc $ORIGINAL_INPUTRC
-ln -s $PWD/fish/config.fish $ORIGINAL_FISHCONF
-ln -s $PWD/git/gitconfig $ORIGINAL_GITCONFIG
-ln -s $PWD/tmux/tmux.conf $ORIGINAL_TMUXCONF
-ln -s $PWD/vim/vimrc $ORIGINAL_VIMRC
-ln -s $PWD/x/XCompose $ORIGINAL_XCOMPOSE
-ln -s $PWD/x/Xresources $ORIGINAL_XRESOURCES
-ln -s $PWD/x/xinitrc $ORIGINAL_XINITRC
-ln -s $PWD/x/xsession $ORIGINAL_XSESSION
-ln -s $PWD/x/xprofile $ORIGINAL_XPROFILE
+ln -sf $PWD/bash/bashrc $ORIGINAL_BASHRC
+ln -sf $PWD/bash/bash_profile $ORIGINAL_BASH_PROFILE
+ln -sf $PWD/bash/profile $ORIGINAL_PROFILE
+ln -sf $PWD/bash/inputrc $ORIGINAL_INPUTRC
+ln -sf $PWD/git/gitconfig $ORIGINAL_GITCONFIG
+ln -sf $PWD/tmux/tmux.conf $ORIGINAL_TMUXCONF
+ln -sf $PWD/vim/vimrc $ORIGINAL_VIMRC
+ln -sf $PWD/vim/vimrc $HOME/.vim/init.vim
+ln -sf $PWD/fish/config.fish $ORIGINAL_FISHCONF
+ln -sf $PWD/x/XCompose $ORIGINAL_XCOMPOSE
+ln -sf $PWD/x/Xresources $ORIGINAL_XRESOURCES
+ln -sf $PWD/x/xinitrc $ORIGINAL_XINITRC
+ln -sf $PWD/x/xsession $ORIGINAL_XSESSION
+ln -sf $PWD/x/xprofile $ORIGINAL_XPROFILE
 
-ln -s $PWD/config_dir/* ~/.config/
+ln -sf $PWD/ptpython/* ~/.ptpython/
+ln -sf $PWD/config_dir/* ~/.config/
 
-# Install oh-my-fish
-curl -L git.io/omf > install_omf
-chmod +x install_omf
-./install_omf
-rm install_omf
+# Install fisherman
+if [ ! -d ~/.fisherman ]; then
+    git clone https://github.com/fisherman/fisherman ~/.fisherman
+    cd ~/.fisherman
+    make
+    cd -
+
+    ln -sf $PWD/fish/config.fish $ORIGINAL_FISHCONF
+
+    exec fish < /dev/tty
+fi
