@@ -448,7 +448,7 @@ do
     "volumeicon",
     "insync start",
     "xfce4-power-manager",
-    "synapse -s",
+    "fixed_synapse -s",
     "whatpulse",
     "detect_displays",
     "nm-applet",
