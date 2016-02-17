@@ -15,3 +15,6 @@ dev-lang/python:3.5::progress
 dev-vcs/git-lfs::esm
 media-tv/popcorntime-bin::devpump-gor
 app-text/pandoc::haskell
+dev-haskell/pandoc-types::haskell
+dev-haskell/pandoc-citeproc::haskell
+dev-haskell/cmark::haskell
