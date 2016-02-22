@@ -1,2 +1,4 @@
 backup
 /config_dir/xfce4/xfce4-screenshooter
+/config_dir/xfce4/help.rc
+/config_dir/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
