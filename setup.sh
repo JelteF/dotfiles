@@ -54,6 +54,11 @@ ln -sf $PWD/x/xsession $ORIGINAL_XSESSION
 ln -sf $PWD/x/xprofile $ORIGINAL_XPROFILE
 
 ln -sf $PWD/ptpython/* ~/.ptpython/
+
+# Remove ~/.config directories that should be symlinked
+for dir in $PWD/config_dir/*; do
+    rm -rf ~/.config/${dir#$PWD/config_dir/};
+done
 ln -sf $PWD/config_dir/* ~/.config/
 
 # Install fisherman
