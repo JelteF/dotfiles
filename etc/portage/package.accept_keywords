@@ -32,6 +32,7 @@ dev-libs/boost -~amd64
 dev-util/boost-build -~amd64
 app-text/poppler -~amd64
 dev-libs/icu -~amd64
+>=net-libs/nodejs-5.6 -~amd64
 
 # Insync bin dependencies
 dev-libs/libevent -~amd64
