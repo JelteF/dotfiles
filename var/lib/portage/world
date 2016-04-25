@@ -1,6 +1,7 @@
 app-admin/eselect
 app-admin/keepass
 app-admin/logrotate
+app-admin/sudo
 app-admin/syslog-ng
 app-arch/file-roller
 app-arch/unrar
@@ -65,7 +66,6 @@ dev-tex/biblatex
 dev-tex/rubber
 dev-util/android-sdk-update-manager
 dev-util/android-studio
-dev-util/cargo
 dev-util/debugedit
 dev-util/indent
 dev-util/valgrind
@@ -122,6 +122,7 @@ net-misc/httpie
 net-misc/iperf:2
 net-misc/mosh
 net-misc/networkmanager-openconnect
+net-misc/networkmanager-openvpn
 net-misc/ntp
 net-misc/teamviewer
 net-misc/youtube-dl
