@@ -11,6 +11,7 @@
 */*::devpump-gor
 */*::luman
 */*::haskell
+*/*::go-overlay
 dev-lang/rust::gentoo
 
 # I don't want systemd
