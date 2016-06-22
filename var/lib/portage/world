@@ -32,6 +32,7 @@ app-portage/layman
 app-portage/pfl
 app-portage/portage-utils
 app-portage/repo-commit
+app-portage/repoman
 app-shells/bash-completion
 app-shells/fish
 app-text/evince
