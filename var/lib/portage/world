@@ -18,6 +18,7 @@ app-emulation/playonlinux
 app-emulation/virtualbox-bin
 app-emulation/wine
 app-emulation/winetricks
+app-misc/asciinema
 app-misc/pdfpc
 app-misc/ranger
 app-misc/whatpulse
@@ -31,6 +32,7 @@ app-portage/layman
 app-portage/pfl
 app-portage/portage-utils
 app-portage/repo-commit
+app-portage/repoman
 app-shells/bash-completion
 app-shells/fish
 app-text/evince
@@ -106,6 +108,7 @@ media-sound/sox
 media-sound/volumeicon
 media-video/guvcview
 media-video/luvcview
+media-video/simplescreenrecorder
 media-video/vlc
 net-analyzer/nmap
 net-analyzer/wireshark
