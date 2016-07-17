@@ -1,6 +1,7 @@
 app-admin/eselect
 app-admin/keepass
 app-admin/logrotate
+app-admin/sudo
 app-admin/syslog-ng
 app-arch/file-roller
 app-arch/unrar
@@ -18,6 +19,7 @@ app-emulation/virtualbox-bin
 app-emulation/wine
 app-emulation/winetricks
 app-laptop/nvidiabl
+app-misc/asciinema
 app-misc/pdfpc
 app-misc/ranger
 app-misc/whatpulse
@@ -31,6 +33,7 @@ app-portage/layman
 app-portage/pfl
 app-portage/portage-utils
 app-portage/repo-commit
+app-portage/repoman
 app-shells/bash-completion
 app-shells/fish
 app-text/evince
@@ -66,7 +69,6 @@ dev-tex/biblatex
 dev-tex/rubber
 dev-util/android-sdk-update-manager
 dev-util/android-studio
-dev-util/cargo
 dev-util/debugedit
 dev-util/indent
 dev-util/valgrind
@@ -107,6 +109,7 @@ media-sound/sox
 media-sound/volumeicon
 media-video/guvcview
 media-video/luvcview
+media-video/simplescreenrecorder
 media-video/vlc
 net-analyzer/nmap
 net-analyzer/wireshark
@@ -123,6 +126,7 @@ net-misc/httpie
 net-misc/iperf:2
 net-misc/mosh
 net-misc/networkmanager-openconnect
+net-misc/networkmanager-openvpn
 net-misc/ntp
 net-misc/rabbitmq-server
 net-misc/teamviewer

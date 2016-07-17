@@ -48,7 +48,7 @@ ln -sf $PWD/git/gitconfig $ORIGINAL_GITCONFIG
 ln -sf $PWD/tmux/tmux.conf $ORIGINAL_TMUXCONF
 ln -sf $PWD/vim/vimrc $ORIGINAL_VIMRC
 ln -sf $PWD/vim/vimrc $HOME/.vim/init.vim
-ln -sf $PWD/fish/config.fish $ORIGINAL_FISHCONF
+ln -sf $PWD/fish/* $HOME/.config/fish/
 ln -sf $PWD/x/XCompose $ORIGINAL_XCOMPOSE
 ln -sf $PWD/x/Xresources $ORIGINAL_XRESOURCES
 ln -sf $PWD/x/xinitrc $ORIGINAL_XINITRC
@@ -56,16 +56,12 @@ ln -sf $PWD/x/xsession $ORIGINAL_XSESSION
 ln -sf $PWD/x/xprofile $ORIGINAL_XPROFILE
 
 ln -sf $PWD/ptpython/* ~/.ptpython/
+
+# Remove ~/.config directories that should be symlinked
+for dir in $PWD/config_dir/*; do
+    rm -rf ~/.config/${dir#$PWD/config_dir/};
+done
 ln -sf $PWD/config_dir/* ~/.config/
 
 # Install fisherman
-if [ ! -d ~/.fisherman ]; then
-    git clone https://github.com/fisherman/fisherman ~/.fisherman
-    cd ~/.fisherman
-    make
-    cd -
-
-    ln -sf $PWD/fish/config.fish $ORIGINAL_FISHCONF
-
-    exec fish < /dev/tty
-fi
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher

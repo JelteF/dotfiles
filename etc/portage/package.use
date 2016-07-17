@@ -25,7 +25,7 @@ games-util/steam-games-meta -steamruntime mono steamgames_shatter steamgames_sou
 games-util/steam-launcher -steamruntime
 
 # Wine dependency
-app-emulation/wine pulseaudio oss -vaapi
+app-emulation/wine pulseaudio -vaapi
 >=dev-libs/elfutils-0.156 static-libs
 
 # Needed by SQLAlchemy and Synapse
@@ -119,6 +119,8 @@ x11-drivers/nvidia-drivers gtk2
 
 # Neovim
 virtual/lua luajit
+dev-lua/lpeg luajit
+dev-lua/mpack luajit
 
 # Postgres needs uuid support for assignment
 dev-db/postgresql uuid

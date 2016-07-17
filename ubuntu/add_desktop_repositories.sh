@@ -18,11 +18,11 @@ echo "deb http://apt.insynchq.com/ubuntu vivid non-free contrib" | sudo tee \
 
 # Add synapse
 echo 'Adding synapse repo'
-sudo apt-add-repository ppa:synapse-core/testing
+sudo apt-add-repository -y ppa:synapse-core/testing
 
 # Awesome
-sudo add-apt-repository ppa:klaus-vormweg/awesome
+sudo add-apt-repository -y ppa:klaus-vormweg/awesome
 
 # Keepass and plugins
-sudo add-apt-repository ppa:jtaylor/keepass
-sudo add-apt-repository ppa:dlech/keepass2-plugins
+sudo add-apt-repository -y ppa:jtaylor/keepass
+sudo add-apt-repository -y ppa:dlech/keepass2-plugins
