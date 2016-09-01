@@ -10,6 +10,7 @@ dev-libs/msgpack::lua
 app-editors/neovim::lua
 app-backup/insync-bin::luman
 net-im/telegram-bin::mrpdaemon
+media-video/simplescreenrecorder::mrpdaemon
 dev-db/neo4j-community::venidera
 dev-lang/python:3.5::progress
 dev-vcs/git-lfs::esm
@@ -18,3 +19,4 @@ app-text/pandoc::haskell
 dev-haskell/pandoc-types::haskell
 dev-haskell/pandoc-citeproc::haskell
 dev-haskell/cmark::haskell
+app-misc/asciinema::go-overlay

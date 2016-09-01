@@ -1,6 +1,3 @@
-set fisher_home ~/.fisherman
-set fisher_config ~/.config/fisherman
-source $fisher_home/config.fish
 if not echo $TERM | grep 256color > /dev/null
     set TERM xterm-256color
 end

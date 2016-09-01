@@ -11,6 +11,7 @@
 */*::devpump-gor
 */*::luman
 */*::haskell
+*/*::go-overlay
 dev-lang/rust::gentoo
 
 # I don't want systemd
@@ -27,4 +28,4 @@ dev-python/pypy
 dev-python/pypy3
 
 # Broken version of synapse
-=gnome-extra/synapse-0.2.99.1
+# =gnome-extra/synapse-0.2.99.1
