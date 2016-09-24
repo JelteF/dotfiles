@@ -182,6 +182,19 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    batterywidget = wibox.widget.textbox()
+    batterywidget:set_text(" | Battery | ")
+    batterywidgettimer = timer({ timeout = 5 })
+    batterywidgettimer:connect_signal("timeout",
+    function()
+        fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))
+        batterywidget:set_text(" |" .. fh:read("*l") .. " | ")
+        fh:close()
+    end
+    )
+    batterywidgettimer:start()
+    right_layout:add(batterywidget)
+
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
