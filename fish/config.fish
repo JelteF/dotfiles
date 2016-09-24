@@ -41,3 +41,11 @@ end
 function ovim
     command vim $argv
 end
+
+function git
+    if command -s hub > /dev/null
+        hub $argv
+    else
+        command git $argv
+    end
+end
