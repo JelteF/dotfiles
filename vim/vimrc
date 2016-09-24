@@ -19,8 +19,9 @@ if exists('+colorcolumn')
 endif
 
 augroup NoTrailingWhiteSpace
+    au!
     " Remove all trailing whitespace
-    autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+    " autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 augroup end
 
 " cd into the dir that the file is in
