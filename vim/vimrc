@@ -111,7 +111,7 @@ call plug#begin('~/.vim/plugged')
 
 "Plug Plugins
 Plug 'scrooloose/nerdtree'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'scrooloose/nerdcommenter'
@@ -131,10 +131,13 @@ Plug 'thomwiggers/vim-colors-solarized'
 Plug 'fidian/hexmode'
 Plug 'edkolev/tmuxline.vim'
 Plug 'benekastah/neomake'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+Plug 'davidhalter/jedi-vim'
+Plug 'editorconfig/editorconfig-vim'
 
 "Plug syntax
-Plug 'hynek/vim-python-pep8-indent'
+Plug 'JelteF/vim-python-pep8-indent', { 'branch': 'gq-fix' }
 Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
@@ -146,12 +149,15 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'digitaltoad/vim-jade'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'cespare/vim-toml'
-Plug 'hdima/python-syntax'
+Plug 'JelteF/python-syntax', { 'branch': 'multiline-names' }
 Plug 'vzh/vim-dokuwiki'
 Plug 'seveas/bind.vim'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
+Plug 'mxw/vim-jsx'
+Plug 'flowtype/vim-flow'
+Plug 'jez/vim-github-hub'
 
 
 call plug#end()            " required
@@ -163,7 +169,7 @@ set wildignore+=*.png,*.jpg,*.gif
 "ctrlp ignores
 let g:ctrlp_custom_ignore = {
   \ 'dir': 'build\|node_modules\|venv\|python2_source\|_minted-',
-  \ 'file': '.\(exe\|o|dll\|toc\|log\|out\|fls\|bcf\|bbl\|blg\|fdb_latexmk\|gls\|glg\|alg\|acr\|run.xml\|ist\|glo\|upb\|upa\|acn\)$'
+  \ 'file': '.\(exe\|o|dll\|toc\|log\|out\|fls\|bcf\|bbl\|blg\|fdb_latexmk\|gls\|glg\|alg\|acr\|run.xml\|ist\|glo\|upb\|upa\|acn\|svg\)$'
   \ }
 
 "Set toggle for graphical undo plugin
@@ -178,12 +184,22 @@ let g:airline#extensions#tmuxline#enabled = 0
 let g:deoplete#enable_at_startup = 1
 
 let g:neomake_rust_enabled_makers = [] " disable rustc cargo is better
+let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
+let g:neomake_jsx_enabled_makers = ['eslint', 'flow']
+let g:javascript_plugin_flow = 1
 
 augroup SyntaxCheckOnFileSave
     au!
     autocmd BufWritePost * Neomake
     autocmd BufWritePost *.rs Neomake! cargo
 augroup end
+
+let g:jedi#completions_enabled = 0
+autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
+
+let g:deoplete#sources#jedi#show_docstring = 1
+
+let g:flow#enable = 0
 
 " -------------- Global ----------
 
@@ -215,6 +231,10 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set breakindent
+
+" Show tabs and trailing whitespace
+set list
+set listchars=tab:>-,trail:~
 
 " Proper syntax highlighting
 filetype plugin indent on
