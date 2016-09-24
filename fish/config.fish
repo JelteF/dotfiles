@@ -16,8 +16,21 @@ set VIRTUAL_ENV_DISABLE_PROMPT yes
 set -x GOPATH $HOME/go
 
 
+
 # Set user $PATH variables
-set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin
+set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.pyenv/bin ~/.bin
+source (pyenv init - | psub)
+source (pyenv virtualenv-init - | psub)
+
+# virtualfish
+set -x WORKON_HOME = ~/.envs
+eval (python -m virtualfish compat_aliases)
+
+# Running Stream aliases
+alias stream-local="env ENVIRONMENT=development_local python manage.py"
+alias stream-remote="env ENVIRONMENT=development python manage.py"
+alias stream-testing="env ENVIRONMENT=testing python manage.py test"
+
 
 # Don't let cd complete home directory
 set CDPATH .

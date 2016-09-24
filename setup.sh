@@ -26,6 +26,7 @@ mkdir -p ~/.gem/ruby/2.2.0/bin
 mkdir -p ~/go/bin
 mkdir -p ~/.local/bin
 mkdir -p ~/.cargo/bin
+mkdir -p ~/.bin
 sudo mkdir -p /opt/bin
 
 # Install vim-plug
@@ -39,6 +40,14 @@ wget https://github.com/bobthecow/git-flow-completion/raw/master/git.fish \
 # Install nice color scheme
 wget https://raw.github.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night-Bright.vim \
     -O ~/.vim/colors/Tomorrow-Night-Bright.vim
+
+wget https://raw.githubusercontent.com/felixSchl/git-fiddle/master/git-fiddle \
+    -O ~/.bin/git-fiddle
+chmod +x ~/.bin/git-fiddle
+
+wget https://raw.githubusercontent.com/felixSchl/git-fiddle/master/_fiddle_seq_editor \
+    -O ~/.bin/_fiddle_seq_editor
+chmod +x ~/.bin/_fiddle_seq_editor
 
 ln -sf $PWD/bash/bashrc $ORIGINAL_BASHRC
 ln -sf $PWD/bash/bash_profile $ORIGINAL_BASH_PROFILE
