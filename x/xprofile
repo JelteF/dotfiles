@@ -4,3 +4,5 @@ setxkbmap -variant 'dvp,'
 setxkbmap -option grp:alt_shift_toggle,grp:switch,grp_led:scroll,terminate:ctrl_alt_bksp
 setxkbmap -option ctrl:nocaps
 setxkbmap -option compose:ralt
+
+eval $(ssh-agent -s)
