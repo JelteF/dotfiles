@@ -38,7 +38,7 @@ bindsym $mod+Escape exec myi3lock
 
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+apostrophe kill
 
 # start dmenu (a program launcher)
 bindsym $mod+r exec dmenu_run
@@ -50,17 +50,17 @@ bindsym $mod+r exec dmenu_run
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+e focus down
-bindsym $mod+j focus down
+bindsym $mod+q focus down
 bindsym $mod+u focus up
-bindsym $mod+k focus up
+bindsym $mod+j focus up
 bindsym $mod+l focus right
 
 # move focused window
 bindsym $mod+shift+h move left
 bindsym $mod+shift+e move down
-bindsym $mod+shift+j move down
+bindsym $mod+shift+q move down
 bindsym $mod+shift+u move up
-bindsym $mod+shift+k move up
+bindsym $mod+shift+j move up
 bindsym $mod+shift+l move right
 
 # split in horizontal orientation
@@ -160,9 +160,9 @@ mode "resize" {
 bindsym $mod+p mode "resize"
 
 bindsym $mod+Ctrl+h resize shrink width 10 px or 2 ppt
-bindsym $mod+Ctrl+j resize grow height 10 px or 2 ppt
+bindsym $mod+Ctrl+q resize grow height 10 px or 2 ppt
 bindsym $mod+Ctrl+e resize grow height 10 px or 2 ppt
-bindsym $mod+Ctrl+k resize shrink height 10 px or 2 ppt
+bindsym $mod+Ctrl+j resize shrink height 10 px or 2 ppt
 bindsym $mod+Ctrl+u resize shrink height 10 px or 2 ppt
 bindsym $mod+Ctrl+l resize grow width 10 px or 2 ppt
 
