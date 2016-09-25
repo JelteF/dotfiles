@@ -14,4 +14,4 @@ XTerm*vt100.translations: #override \
     Ctrl Shift <KeyPress> V:  insert-selection(CLIPBOARD, CUT_BUFFER0, PRIMARY)
 
 Xcursor.size: 16
-Xft.dpi: 160
+Xft.dpi: 120
