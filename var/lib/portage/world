@@ -14,17 +14,20 @@ app-editors/mousepad
 app-editors/nano
 app-editors/neovim
 app-editors/vim
+app-emulation/docker
 app-emulation/playonlinux
 app-emulation/virtualbox-bin
 app-emulation/wine
 app-emulation/winetricks
 app-misc/asciinema
+app-misc/jq
 app-misc/pdfpc
 app-misc/ranger
+app-misc/tmux
 app-misc/whatpulse
 app-misc/workrave
 app-office/libreoffice-bin
-app-portage/cpuinfo2cpuflags
+app-portage/cpuid2cpuflags
 app-portage/eix
 app-portage/genlop
 app-portage/gentoolkit
@@ -111,6 +114,7 @@ media-video/luvcview
 media-video/simplescreenrecorder
 media-video/vlc
 net-analyzer/nmap
+net-analyzer/traceroute
 net-analyzer/wireshark
 net-dns/bind-tools
 net-ftp/filezilla
@@ -173,6 +177,7 @@ www-plugins/google-talkplugin
 www-servers/nginx
 x11-apps/xrandr
 x11-base/xorg-server
+x11-libs/gksu
 x11-misc/arandr
 x11-misc/compton
 x11-misc/lightdm
@@ -186,6 +191,7 @@ x11-terms/xfce4-terminal
 x11-terms/xterm
 x11-themes/faenza-icon-theme
 x11-wm/awesome
+x11-wm/i3
 xfce-base/thunar
 xfce-extra/thunar-archive-plugin
 xfce-extra/thunar-media-tags-plugin

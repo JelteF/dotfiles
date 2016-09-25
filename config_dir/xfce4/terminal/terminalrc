@@ -2,8 +2,8 @@
 FontName=Ubuntu Mono 10
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
-MiscBordersDefault=FALSE
-MiscCursorBlinks=FALSE
+MiscBordersDefault=TRUE
+MiscCursorBlinks=TRUE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
 MiscDefaultGeometry=80x24
 MiscInheritGeometry=FALSE

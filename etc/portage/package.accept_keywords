@@ -38,8 +38,8 @@ app-text/poppler -~amd64
 dev-libs/libevent -~amd64
 
 # Neovim
-=app-editors/neovim-9999 **
-~x11-libs/libvterm-9999 **
+# =app-editors/neovim-9999 **
+# ~x11-libs/libvterm-9999 **
 
 
 =virtual/rust-999 **
