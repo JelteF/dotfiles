@@ -14,13 +14,14 @@ set -g theme_display_ruby no
 set VIRTUAL_ENV_DISABLE_PROMPT yes
 
 set -x GOPATH $HOME/go
+set -x NODE_PATH "$HOME/.node/lib/node_modules $NODE_MODULES"
 
 
 
 # Set user $PATH variables
-set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.pyenv/bin ~/.bin
-source (pyenv init - | psub)
-source (pyenv virtualenv-init - | psub)
+set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.pyenv/bin ~/.bin ~/.node/bin
+# source (pyenv init - | psub)
+# source (pyenv virtualenv-init - | psub)
 
 # virtualfish
 set -x WORKON_HOME = ~/.envs
