@@ -1,6 +1,6 @@
 #! /bin/sh
 
 import -window root -resize 2.5% /tmp/lockscreen.png
-gm convert -scale 4000% /tmp/lockscreen.png /tmp/lockscreen.png
+convert -scale 4000% /tmp/lockscreen.png /tmp/lockscreen.png
 sudo -u $USER i3lock -i /tmp/lockscreen.png
 rm -f /tmp/lockscreen.png
