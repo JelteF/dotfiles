@@ -38,7 +38,7 @@ bindsym $mod+Escape exec myi3lock
 
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+apostrophe kill
 
 # start dmenu (a program launcher)
 bindsym $mod+r exec dmenu_run
@@ -50,17 +50,17 @@ bindsym $mod+r exec dmenu_run
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+e focus down
-bindsym $mod+j focus down
+bindsym $mod+q focus down
 bindsym $mod+u focus up
-bindsym $mod+k focus up
+bindsym $mod+j focus up
 bindsym $mod+l focus right
 
 # move focused window
 bindsym $mod+shift+h move left
 bindsym $mod+shift+e move down
-bindsym $mod+shift+j move down
+bindsym $mod+shift+q move down
 bindsym $mod+shift+u move up
-bindsym $mod+shift+k move up
+bindsym $mod+shift+j move up
 bindsym $mod+shift+l move right
 
 # split in horizontal orientation
@@ -75,8 +75,8 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+n layout split toggle
-# bindsym $mod+n layout toggle split
+bindsym $mod+n layout toggle
+bindsym $mod+Shift+n layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -91,20 +91,20 @@ bindsym $mod+a focus parent
 bindsym $mod+o focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+ampersand workspace 1
+bindsym $mod+7 workspace 2
+bindsym $mod+5 workspace 3
+bindsym $mod+3 workspace 4
+bindsym $mod+1 workspace 5
+bindsym $mod+9 workspace 6
+bindsym $mod+0 workspace 7
+bindsym $mod+2 workspace 8
+bindsym $mod+4 workspace 9
+bindsym $mod+6 workspace 10
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left workspace prev
-bindsym $mod+Right workspace next
+bindsym $mod+Left workspace prev_on_output
+bindsym $mod+Right workspace next_on_output
 
 
 # move focused container to workspace
@@ -120,8 +120,8 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move container to workspace prev; workspace prev
-bindsym $mod+Shift+Right move container to workspace next; workspace next
+bindsym $mod+Shift+Left move container to workspace prev_on_output; workspace prev_on_output
+bindsym $mod+Shift+Right move container to workspace next_on_output; workspace next_on_output
 
 
 # reload the configuration file
@@ -160,9 +160,9 @@ mode "resize" {
 bindsym $mod+p mode "resize"
 
 bindsym $mod+Ctrl+h resize shrink width 10 px or 2 ppt
-bindsym $mod+Ctrl+j resize grow height 10 px or 2 ppt
+bindsym $mod+Ctrl+q resize grow height 10 px or 2 ppt
 bindsym $mod+Ctrl+e resize grow height 10 px or 2 ppt
-bindsym $mod+Ctrl+k resize shrink height 10 px or 2 ppt
+bindsym $mod+Ctrl+j resize shrink height 10 px or 2 ppt
 bindsym $mod+Ctrl+u resize shrink height 10 px or 2 ppt
 bindsym $mod+Ctrl+l resize grow width 10 px or 2 ppt
 

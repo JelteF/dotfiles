@@ -175,11 +175,16 @@ www-client/google-chrome
 www-client/phantomjs
 www-plugins/google-talkplugin
 www-servers/nginx
+x11-apps/xev
+x11-apps/xmodmap
 x11-apps/xrandr
 x11-base/xorg-server
 x11-libs/gksu
 x11-misc/arandr
 x11-misc/compton
+x11-misc/dmenu
+x11-misc/i3lock
+x11-misc/i3status
 x11-misc/lightdm
 x11-misc/slim
 x11-misc/xcalib
