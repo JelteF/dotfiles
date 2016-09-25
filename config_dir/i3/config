@@ -103,8 +103,8 @@ bindsym $mod+4 workspace 9
 bindsym $mod+6 workspace 10
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left workspace prev
-bindsym $mod+Right workspace next
+bindsym $mod+Left workspace prev_on_output
+bindsym $mod+Right workspace next_on_output
 
 
 # move focused container to workspace
@@ -120,8 +120,8 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move container to workspace prev; workspace prev
-bindsym $mod+Shift+Right move container to workspace next; workspace next
+bindsym $mod+Shift+Left move container to workspace prev_on_output; workspace prev_on_output
+bindsym $mod+Shift+Right move container to workspace next_on_output; workspace next_on_output
 
 
 # reload the configuration file
