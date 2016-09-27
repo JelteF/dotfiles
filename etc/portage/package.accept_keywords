@@ -10,8 +10,8 @@ net-misc/dhcpcd -~amd64
 >=dev-libs/libnl-3.2.25 -~amd64
 net-misc/modemmanager -~amd64
 net-wireless/wpa_supplicant -~amd64
-net-misc/networkmanager -~amd64
-gnome-extra/nm-applet -~amd64
+# net-misc/networkmanager -~amd64
+# gnome-extra/nm-applet -~amd64
 
 # Trying to get vsync to work
 =x11-misc/compton-9999 **
