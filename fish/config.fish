@@ -49,3 +49,5 @@ function git
         command git $argv
     end
 end
+
+abbr -a pvc peerflix --vlc \'
