@@ -54,3 +54,8 @@ x11-libs/fltk -~amd64
 
 # Ubertooth
 >=net-analyzer/wireshark-2.0.0 -~amd64
+
+# Ruby 2.3
+>=dev-lang/ruby-2.3.0 -~amd64
+
+>=dev-python/cffi-1.8.2 -~amd64
