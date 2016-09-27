@@ -28,6 +28,8 @@ set -x ECHANGELOG_USER "Jelte Fennema (JelteF) <github-tech@jeltef.nl>"
 # Disable clipboard polution
 set FISH_CLIPBOARD_CMD "cat"
 
+alias git-root="cd  (git rev-parse --show-toplevel)"
+
 function vim
     if command -s nvim > /dev/null
         nvim $argv
@@ -39,3 +41,21 @@ end
 function ovim
     command vim $argv
 end
+
+function git
+    if command -s hub > /dev/null
+        hub $argv
+    else
+        command git $argv
+    end
+end
+
+abbr -a pvc peerflix --vlc \'
+
+abbr -a gch git checkout
+abbr -a gcb git checkout -b
+abbr -a ga git add
+abbr -a gap git add -p
+abbr -a gco git commit
+abbr -a gca git commit --amend
+abbr -a gcan git commit --amend --no-edit

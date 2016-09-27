@@ -176,3 +176,13 @@ net-analyzer/nmap ncat ndiff
 
 # Skype
 dev-qt/qtwebkit -exceptions
+
+#
+net-libs/opal sipim sip
+net-libs/ptlib wav
+
+# Gimp
+media-libs/libmypaint gegl
+
+# Grub
+sys-boot/grub multislot

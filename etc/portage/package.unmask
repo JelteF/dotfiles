@@ -12,7 +12,7 @@ app-backup/insync-bin::luman
 net-im/telegram-bin::mrpdaemon
 media-video/simplescreenrecorder::mrpdaemon
 dev-db/neo4j-community::venidera
-dev-lang/python:3.5::progress
+dev-lang/python:3.6::progress
 dev-vcs/git-lfs::esm
 media-tv/popcorntime-bin::devpump-gor
 app-text/pandoc::haskell
@@ -20,3 +20,6 @@ dev-haskell/pandoc-types::haskell
 dev-haskell/pandoc-citeproc::haskell
 dev-haskell/cmark::haskell
 app-misc/asciinema::go-overlay
+dev-haskell/texmath::haskell
+dev-haskell/aeson-pretty::haskell
+dev-haskell/base-compat::haskell
