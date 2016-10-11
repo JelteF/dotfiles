@@ -112,7 +112,9 @@ call plug#begin('~/.vim/plugged')
 
 "Plug Plugins
 Plug 'scrooloose/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'scrooloose/nerdcommenter'
@@ -163,15 +165,32 @@ Plug 'jez/vim-github-hub'
 
 call plug#end()            " required
 
+let g:python_host_prog = '/sbin/python2'
+let g:python3_host_prog = '/sbin/python3'
+
+nnoremap <C-p> :FZF<cr>
+
 "vim general ignores
 set wildignore+=*.so,*.swp,*.zip,*.exe,*.dll,*.pyc,*.pdf,*.dvi,*.aux
 set wildignore+=*.png,*.jpg,*.gif
 
+let g:extesions_ignore = ['exe'
+            \'bcf', 'bbl', 'blg', 'fdb_latexmk', 'gls', 'glg', 'alg', 'acr',
+            \'run.xml', 'ist', 'glo', 'upb', 'upa', 'acn', 'svg', 'jpeg', 'jpg',
+            \'png']
+let g:ignore_dirs = ['build', 'node_modules', 'venv', 'python2_source',
+            \'_minted-', '.sass-cache', 'dist',
+            \'.git', '.svn', '.hg']
 "ctrlp ignores
 let g:ctrlp_custom_ignore = {
-  \ 'dir': 'build\|node_modules\|venv\|python2_source\|_minted-',
-  \ 'file': '.\(exe\|o|dll\|toc\|log\|out\|fls\|bcf\|bbl\|blg\|fdb_latexmk\|gls\|glg\|alg\|acr\|run.xml\|ist\|glo\|upb\|upa\|acn\|svg\)$'
+  \ 'dir': 'build\|node_modules\|venv\|python2_source\|_minted-\|\.sass-cache\|dist',
+  \ 'file': '.\(exe\|o|dll\|toc\|log\|out\|fls\|bcf\|bbl\|blg\|fdb_latexmk\|gls\|glg\|alg\|acr\|run.xml\|ist\|glo\|upb\|upa\|acn\|svg\|jpeg\|jpg\|png\)$'
   \ }
+
+let $FZF_DEFAULT_COMMAND = 'ag --hidden ' .
+            \'--ignore "*.' . join(g:extesions_ignore, '" --ignore "*.') . '" ' .
+            \'--ignore "' . join(g:ignore_dirs, '" --ignore "') . '" ' .
+            \'-g ""'
 
 "Set toggle for graphical undo plugin
 nnoremap <F12> :GundoToggle<CR>
