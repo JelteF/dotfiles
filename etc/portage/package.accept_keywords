@@ -10,8 +10,8 @@ net-misc/dhcpcd -~amd64
 >=dev-libs/libnl-3.2.25 -~amd64
 net-misc/modemmanager -~amd64
 net-wireless/wpa_supplicant -~amd64
-net-misc/networkmanager -~amd64
-gnome-extra/nm-applet -~amd64
+# net-misc/networkmanager -~amd64
+# gnome-extra/nm-applet -~amd64
 
 # Trying to get vsync to work
 =x11-misc/compton-9999 **
@@ -54,3 +54,8 @@ x11-libs/fltk -~amd64
 
 # Ubertooth
 >=net-analyzer/wireshark-2.0.0 -~amd64
+
+# Ruby 2.3
+>=dev-lang/ruby-2.3.0 -~amd64
+
+>=dev-python/cffi-1.8.2 -~amd64

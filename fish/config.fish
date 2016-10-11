@@ -49,3 +49,18 @@ function git
         command git $argv
     end
 end
+
+abbr -a pvc peerflix --vlc \'
+
+abbr -a gch git checkout
+abbr -a gc- git checkout -
+abbr -a gcb git checkout -b
+abbr -a ga git add
+abbr -a gap git add -p
+abbr -a gco git commit
+abbr -a gcm git commit -m
+abbr -a gca git commit --amend
+abbr -a gcan git commit --amend --no-edit
+abbr -a gd git diff
+abbr -a gwd git wdiff
+abbr -a gdc git diff --cached
