@@ -30,8 +30,7 @@ eval (python -m virtualfish compat_aliases)
 # Running Stream aliases
 alias stream-local="env ENVIRONMENT=development_local python manage.py"
 alias stream-remote="env ENVIRONMENT=development python manage.py"
-alias stream-testing="env ENVIRONMENT=testing python manage.py test"
-
+alias stream-testing="env ENVIRONMENT=testing python manage.py test --noinput"
 
 # Don't let cd complete home directory
 set CDPATH .
