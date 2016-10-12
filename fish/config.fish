@@ -19,7 +19,7 @@ set -x NODE_PATH "$HOME/.node/lib/node_modules $NODE_MODULES"
 
 
 # Set user $PATH variables
-set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.pyenv/bin ~/.bin ~/.node/bin
+set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.pyenv/bin ~/.bin ~/.node/bin ~/.fzf/bin
 # source (pyenv init - | psub)
 # source (pyenv virtualenv-init - | psub)
 
@@ -77,3 +77,30 @@ abbr -a gcan git commit --amend --no-edit
 abbr -a gd git diff
 abbr -a gwd git wdiff
 abbr -a gdc git diff --cached
+
+function _gen_fzf_default_opts
+  set base03 "234"
+  set base02 "235"
+  set base01 "240"
+  set base00 "241"
+  set base0 "244"
+  set base1 "245"
+  set base2 "254"
+  set base3 "230"
+  set yellow "136"
+  set orange "166"
+  set red "160"
+  set magenta "125"
+  set violet "61"
+  set blue "33"
+  set cyan "37"
+  set green "64"
+
+  # Comment and uncomment below for the light theme.
+
+  # Solarized Dark color scheme for fzf
+  echo "--color fg:-1,bg:-1,hl:$blue,fg+:$base2,bg+:$base02,hl+:$blue --color info:$yellow,prompt:$yellow,pointer:$base3,marker:$base3,spinner:$yellow"
+end
+
+set -x FZF_DEFAULT_OPTS (_gen_fzf_default_opts)
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
