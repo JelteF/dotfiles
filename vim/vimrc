@@ -443,7 +443,9 @@ nnoremap <silent> V :silent! vunmap j<cr>:silent! vunmap k<cr>V
 nnoremap <silent> v :vnoremap j gj<cr>:vnoremap k gk<cr>v
 vnoremap <silent> V <esc>:silent! vunmap j<cr>:silent! vunmap k<cr>gvV
 vnoremap <silent> v <esc>:vnoremap j gj<cr>:vnoremap k gk<cr>gvv
-nnoremap <silent> A :call BetterA()<CR>
+if has('getcurpos')
+    nnoremap <silent> A :call BetterA()<CR>
+endif
 
 function! BetterA()
     normal g$
