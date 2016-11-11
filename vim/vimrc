@@ -230,7 +230,11 @@ nnoremap <silent> [fzf]/ :<C-u>Ag<cr>
 " -------------- Global ----------
 
 set background=dark
-colorscheme solarized
+try
+    colorscheme solarized
+catch /^Vim\%((\a\+)\)\=:E185/
+    " deal with it
+endtry
 highlight SignColumn ctermbg=8
 
 
@@ -256,7 +260,9 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-set breakindent
+if has('breakindent')
+    set breakindent
+endif
 
 " Show tabs and trailing whitespace
 set list
