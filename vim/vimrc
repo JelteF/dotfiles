@@ -121,8 +121,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
-Plug 'mileszs/ack.vim'
-Plug 'rking/ag.vim'
+"Plug 'mileszs/ack.vim'
+"Plug 'rking/ag.vim'
 Plug 'sjl/gundo.vim'
 Plug 'danro/rename.vim'
 Plug 'airblade/vim-gitgutter'
@@ -133,7 +133,7 @@ Plug 'dag/vim-fish'
 Plug 'thomwiggers/vim-colors-solarized'
 Plug 'fidian/hexmode'
 Plug 'edkolev/tmuxline.vim'
-Plug 'benekastah/neomake'
+Plug 'paretje/neomake', {'branch': 'highlight'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
@@ -161,6 +161,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'mxw/vim-jsx'
 Plug 'flowtype/vim-flow'
 Plug 'jez/vim-github-hub'
+Plug 'voxpupuli/vim-puppet'
 
 
 call plug#end()            " required
@@ -177,10 +178,10 @@ set wildignore+=*.png,*.jpg,*.gif
 let g:extesions_ignore = ['exe'
             \'bcf', 'bbl', 'blg', 'fdb_latexmk', 'gls', 'glg', 'alg', 'acr',
             \'run.xml', 'ist', 'glo', 'upb', 'upa', 'acn', 'svg', 'jpeg', 'jpg',
-            \'png']
-let g:ignore_dirs = ['build', 'node_modules', 'venv', 'python2_source',
+            \'png', '.keep']
+let g:ignore_fzf = ['build', 'node_modules', 'venv', 'python2_source',
             \'_minted-', '.sass-cache', 'dist',
-            \'.git', '.svn', '.hg']
+            \'.git', '.svn', '.hg', '.keep']
 "ctrlp ignores
 let g:ctrlp_custom_ignore = {
   \ 'dir': 'build\|node_modules\|venv\|python2_source\|_minted-\|\.sass-cache\|dist',
@@ -189,7 +190,7 @@ let g:ctrlp_custom_ignore = {
 
 let $FZF_DEFAULT_COMMAND = 'ag --hidden ' .
             \'--ignore "*.' . join(g:extesions_ignore, '" --ignore "*.') . '" ' .
-            \'--ignore "' . join(g:ignore_dirs, '" --ignore "') . '" ' .
+            \'--ignore "' . join(g:ignore_fzf, '" --ignore "') . '" ' .
             \'-g ""'
 
 "Set toggle for graphical undo plugin
@@ -220,6 +221,11 @@ autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
 let g:deoplete#sources#jedi#show_docstring = 1
 
 let g:flow#enable = 0
+
+nmap <space> [fzf]
+nnoremap [fzf] <nop>
+
+nnoremap <silent> [fzf]/ :<C-u>Ag<cr>
 
 " -------------- Global ----------
 
@@ -262,7 +268,7 @@ syntax on
 
 augroup SetFileTypes
     au!
-    au BufRead,BufNewFile **.htm set filetype=jinja
+    au BufRead,BufNewFile **.htm,**.html set filetype=jinja
     au BufRead,BufNewFile **.cvc set filetype=c
     au BufRead,BufNewFile **.doku set filetype=dokuwiki
     au BufRead,BufNewFile **.md set filetype=markdown.pandoc
@@ -272,10 +278,11 @@ let g:pandoc#syntax#conceal#use=0
 
 augroup FileTypeSpecificSettings
     " Vim is very slow when cursorline is set in latex
+    au!
     autocmd FileType tex setlocal nocursorline
 
     " Smaller indentation for xml type files
-    au FileType xml,xslt,xsd,dtd setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    au FileType scss,html,xml,xslt,xsd,dtd setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup end
 
 " Fix stupid # to start of line
@@ -485,7 +492,7 @@ noremap <silent><leader>/ :nohls<CR>
 
 " Tab for autocompletion
 function! SuperTab()
-    if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
+    if (strpart(getline('.'),col('.')-2,1)=~'^\s\?$')
         return "\<Tab>"
     else
         return "\<C-n>"
