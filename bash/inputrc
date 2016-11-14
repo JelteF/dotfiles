@@ -1,10 +1,12 @@
 $include /etc/inputrc
+
+# Don't require two tabs to show al completions
 set show-all-if-ambiguous On
-"\e[1;5C": forward-word   # ctrl + right
-"\e[1;5D": backward-word  # ctrl + left
+
+# search prefixes with arrow up and down
 "\e[A":history-search-backward
 "\e[B":history-search-forward
 
-# Default Ctrl-w to stop at punctuation
+# Set Ctrl-w to stop at slashes and spaces instead of only spaces
 set bind-tty-special-chars off
 Control-w: unix-filename-rubout

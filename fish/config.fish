@@ -65,8 +65,10 @@ end
 
 abbr -a pvc peerflix --vlc \'
 
+abbr -a gc git checkout
 abbr -a gch git checkout
 abbr -a gc- git checkout -
+abbr -a gc-- git checkout --
 abbr -a gcb git checkout -b
 abbr -a ga git add
 abbr -a gap git add -p
@@ -77,6 +79,7 @@ abbr -a gcan git commit --amend --no-edit
 abbr -a gd git diff
 abbr -a gwd git wdiff
 abbr -a gdc git diff --cached
+abbr -a gs git status
 
 function _gen_fzf_default_opts
   set base03 "234"
