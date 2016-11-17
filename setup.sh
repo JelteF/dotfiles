@@ -17,6 +17,7 @@ ORIGINAL_XSESSION=$HOME/.xsession
 
 # Create vim folders
 mkdir -p ~/.vim/{autoload,colors}
+mkdir -p ~/.config
 ln -s ~/.vim ~/.config/nvim
 mkdir -p ~/.ptpython
 mkdir -p ~/.config/fish/completions
