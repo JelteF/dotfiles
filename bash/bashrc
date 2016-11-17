@@ -3,9 +3,16 @@ if ! [[ "$TERM" == *256color ]]; then
 fi
 
 # Better history storing
-HISTCONTROL=ignoredups:erasedups
+HISTCONTROL=erasedups:ignorespace:ignoredups
+HISTSIZE=1000
+HISTFILESIZE=10000
+HISTIGNORE="history *:cd *:exit:fg:bg:ls:mc:htop:clear"
+#avoid overwriting history
 shopt -s histappend
-PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
+#smart handling of multi-line commands
+shopt -s cmdhist
+# append every command to history
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 alias ins="sudo apt-get install"
 alias ...='cd ../..'
