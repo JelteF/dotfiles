@@ -133,7 +133,7 @@ Plug 'dag/vim-fish'
 Plug 'thomwiggers/vim-colors-solarized'
 Plug 'fidian/hexmode'
 Plug 'edkolev/tmuxline.vim'
-Plug 'paretje/neomake', {'branch': 'highlight'}
+Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
@@ -274,7 +274,7 @@ syntax on
 
 augroup SetFileTypes
     au!
-    au BufRead,BufNewFile **.htm,**.html set filetype=jinja
+    au BufRead,BufNewFile **.htm,**.html,**.email set filetype=jinja
     au BufRead,BufNewFile **.cvc set filetype=c
     au BufRead,BufNewFile **.doku set filetype=dokuwiki
     au BufRead,BufNewFile **.md set filetype=markdown.pandoc
@@ -335,6 +335,10 @@ inoremap nht <esc>
 
 " hl search results
 set hlsearch
+
+if has('inccommand')
+    set inccommand=nosplit
+endif
 
 " When I close a tab, remove the buffer
 set nohidden

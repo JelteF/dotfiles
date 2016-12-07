@@ -31,7 +31,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec xfce4-terminal
-bindsym $mod+Ctrl+Return exec gksu xfce4-terminal
+bindsym $mod+Ctrl+Return exec gksudo xfce4-terminal
 
 # lock screen
 bindsym $mod+Escape exec myi3lock
@@ -166,9 +166,12 @@ bindsym $mod+Ctrl+j resize shrink height 10 px or 2 ppt
 bindsym $mod+Ctrl+u resize shrink height 10 px or 2 ppt
 bindsym $mod+Ctrl+l resize grow width 10 px or 2 ppt
 
+assign [instance="^telegram-desktop$"] 10
 assign [class="^telegram-desktop$"] 10
+assign [class="^TelegramDesktop$"] 10
 assign [class="^KeePass2$"] 10
-assign [class="^Google-chrome$"] 2
+assign [class="^Slack$"] 10
+assign [class="^Google-chrome$"] 1
 
 exec fixed_synapse -s
 exec google-chrome-stable

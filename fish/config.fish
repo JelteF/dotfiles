@@ -63,12 +63,21 @@ function git
     end
 end
 
+function redis-cli
+    if command -s rlwrap > /dev/null
+        rlwrap -a -- redis-cli $argv
+    else
+        command redis-cli $argv
+    end
+end
+
 abbr -a pvc peerflix --vlc \'
 
 abbr -a gc git checkout
 abbr -a gch git checkout
 abbr -a gc- git checkout -
 abbr -a gc-- git checkout --
+abbr -a gcma git checkout master
 abbr -a gcb git checkout -b
 abbr -a ga git add
 abbr -a gap git add -p
@@ -80,6 +89,18 @@ abbr -a gd git diff
 abbr -a gwd git wdiff
 abbr -a gdc git diff --cached
 abbr -a gs git status
+abbr -a gr git rebase
+abbr -a gro git rebase origin
+abbr -a grm git rebase master
+abbr -a grh git rebase HEAD
+abbr -a grc git rebase --continue
+abbr -a gra git rebase --abort
+abbr -a gf git fetch
+abbr -a gp git pull
+abbr -a gpr git pull --rebase
+abbr -a gpf git pull --force
+abbr -a gps git push
+abbr -a gpsf git push --force
 
 function _gen_fzf_default_opts
   set base03 "234"
