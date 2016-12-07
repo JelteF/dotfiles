@@ -128,3 +128,22 @@ end
 
 set -x FZF_DEFAULT_OPTS (_gen_fzf_default_opts)
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+switch "$STARTUP_ENV"
+    case runserver
+        set -e STARTUP_ENV
+        cd work/stream
+        workon stream
+        ccm start
+        stream-local runserver_plus
+    case gulp
+        set -e STARTUP_ENV
+        cd work/stream
+        rvm use 2.2.4
+        rm dist/styles/*
+        gulp watch
+    case dev
+        set -e STARTUP_ENV
+        cd work/stream
+        workon stream
+end
