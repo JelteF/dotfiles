@@ -135,7 +135,7 @@ switch "$STARTUP_ENV"
         cd work/stream
         workon stream
         ccm start
-        stream-local runserver_plus
+        stream-local runserver
     case gulp
         set -e STARTUP_ENV
         cd work/stream
