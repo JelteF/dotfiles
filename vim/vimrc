@@ -260,7 +260,7 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-if has('breakindent')
+if exists('&breakindent')
     set breakindent
 endif
 
@@ -336,7 +336,7 @@ inoremap nht <esc>
 " hl search results
 set hlsearch
 
-if has('inccommand')
+if exists('&inccommand')
     set inccommand=nosplit
 endif
 
@@ -447,7 +447,7 @@ nnoremap <silent> V :silent! vunmap j<cr>:silent! vunmap k<cr>V
 nnoremap <silent> v :vnoremap j gj<cr>:vnoremap k gk<cr>v
 vnoremap <silent> V <esc>:silent! vunmap j<cr>:silent! vunmap k<cr>gvV
 vnoremap <silent> v <esc>:vnoremap j gj<cr>:vnoremap k gk<cr>gvv
-if has('getcurpos')
+if exists('&getcurpos')
     nnoremap <silent> A :call BetterA()<CR>
 endif
 
