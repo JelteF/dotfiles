@@ -27,4 +27,11 @@ TabActivityColor=#dc322f
 ScrollingOnOutput=FALSE
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ScrollingLines=10000
+MiscBellUrgent=FALSE
+MiscMouseWheelZoom=TRUE
+MiscMiddleClickOpensUri=TRUE
+MiscDefaultWorkingDir=
+MiscRewrapOnResize=TRUE
+ScrollingUnlimited=TRUE
+MiscUseShiftArrowsToScroll=TRUE
 
