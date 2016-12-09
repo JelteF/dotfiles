@@ -17,7 +17,7 @@ set -x GOPATH $HOME/go
 
 
 # Set user $PATH variables
-set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin
+set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.fzf/bin
 
 # Don't let cd complete home directory
 set CDPATH .
@@ -50,12 +50,68 @@ function git
     end
 end
 
+function redis-cli
+    if command -s rlwrap > /dev/null
+        rlwrap -a -- redis-cli $argv
+    else
+        command redis-cli $argv
+    end
+end
+
 abbr -a pvc peerflix --vlc \'
 
+abbr -a gc git checkout
 abbr -a gch git checkout
+abbr -a gc- git checkout -
+abbr -a gc-- git checkout --
+abbr -a gcma git checkout master
 abbr -a gcb git checkout -b
 abbr -a ga git add
 abbr -a gap git add -p
 abbr -a gco git commit
+abbr -a gcm git commit -m
 abbr -a gca git commit --amend
 abbr -a gcan git commit --amend --no-edit
+abbr -a gd git diff
+abbr -a gwd git wdiff
+abbr -a gdc git diff --cached
+abbr -a gs git status
+abbr -a gr git rebase
+abbr -a gro git rebase origin
+abbr -a grm git rebase master
+abbr -a grh git rebase HEAD
+abbr -a grc git rebase --continue
+abbr -a gra git rebase --abort
+abbr -a gf git fetch
+abbr -a gp git pull
+abbr -a gpr git pull --rebase
+abbr -a gpf git pull --force
+abbr -a gps git push
+abbr -a gpsf git push --force
+
+function _gen_fzf_default_opts
+  set base03 "234"
+  set base02 "235"
+  set base01 "240"
+  set base00 "241"
+  set base0 "244"
+  set base1 "245"
+  set base2 "254"
+  set base3 "230"
+  set yellow "136"
+  set orange "166"
+  set red "160"
+  set magenta "125"
+  set violet "61"
+  set blue "33"
+  set cyan "37"
+  set green "64"
+
+  # Comment and uncomment below for the light theme.
+
+  # Solarized Dark color scheme for fzf
+  echo "--color fg:-1,bg:-1,hl:$blue,fg+:$base2,bg+:$base02,hl+:$blue --color info:$yellow,prompt:$yellow,pointer:$base3,marker:$base3,spinner:$yellow"
+end
+
+set -x FZF_DEFAULT_OPTS (_gen_fzf_default_opts)
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'

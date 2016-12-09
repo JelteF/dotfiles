@@ -17,6 +17,7 @@ ORIGINAL_XSESSION=$HOME/.xsession
 
 # Create vim folders
 mkdir -p ~/.vim/{autoload,colors}
+mkdir -p ~/.config
 ln -s ~/.vim ~/.config/nvim
 mkdir -p ~/.ptpython
 mkdir -p ~/.config/fish/completions
@@ -65,3 +66,5 @@ ln -sf $PWD/config_dir/* ~/.config/
 
 # Install fisherman
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+
+vim +PlugInstall +qall
