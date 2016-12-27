@@ -173,7 +173,7 @@ assign [class="^KeePass2$"] 10
 assign [class="^Slack$"] 10
 assign [class="^Google-chrome$"] 1
 
-exec fixed_synapse -s
+exec GTK_IM_MODULE='' synapse -s
 exec google-chrome-stable
 exec nm-applet
 exec volumeicon
