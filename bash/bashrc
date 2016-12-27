@@ -6,7 +6,7 @@ fi
 HISTCONTROL=erasedups:ignorespace:ignoredups
 HISTSIZE=1000
 HISTFILESIZE=10000
-HISTIGNORE="history *:cd *:exit:fg:bg:ls:mc:htop:clear"
+HISTIGNORE="history *:cd:exit:fg:bg:ls:mc:htop:clear"
 #avoid overwriting history
 shopt -s histappend
 #smart handling of multi-line commands
