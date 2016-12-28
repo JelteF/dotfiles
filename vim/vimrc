@@ -262,6 +262,7 @@ set tabstop=4
 set softtabstop=4
 if exists('&breakindent')
     set breakindent
+    set breakindentopt=shift:4
 endif
 
 " Show tabs and trailing whitespace
@@ -319,6 +320,13 @@ set wildmode=list:longest,full
 
 " Enable mouse
 set mouse=a
+if !has('nvim')
+    if has("mouse_sgr")
+        set ttymouse=sgr
+    else
+        set ttymouse=xterm2
+    endif
+endif
 
 " Casing
 set ignorecase
@@ -447,7 +455,7 @@ nnoremap <silent> V :silent! vunmap j<cr>:silent! vunmap k<cr>V
 nnoremap <silent> v :vnoremap j gj<cr>:vnoremap k gk<cr>v
 vnoremap <silent> V <esc>:silent! vunmap j<cr>:silent! vunmap k<cr>gvV
 vnoremap <silent> v <esc>:vnoremap j gj<cr>:vnoremap k gk<cr>gvv
-if exists('&getcurpos')
+if exists('*getcurpos')
     nnoremap <silent> A :call BetterA()<CR>
 endif
 

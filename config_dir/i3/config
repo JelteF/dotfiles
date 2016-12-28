@@ -181,7 +181,7 @@ assign [class="^Xfce4-terminal$" title="^dev$"] 3
 assign [class="^Xfce4-terminal$" title="gulp"] 1
 assign [class="^Xfce4-terminal$" title="^runserver$"] 1
 
-exec fixed_synapse -s
+exec GTK_IM_MODULE='' synapse -s
 exec google-chrome-stable
 exec nm-applet
 exec volumeicon
