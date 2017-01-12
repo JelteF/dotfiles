@@ -15,9 +15,10 @@ set VIRTUAL_ENV_DISABLE_PROMPT yes
 
 set -x GOPATH $HOME/go
 
+set -x NPM_CONFIG_PREFIX ~/.npm-global
 
 # Set user $PATH variables
-set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.fzf/bin
+set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.fzf/bin ~/.npm-global/bin
 
 # Don't let cd complete home directory
 set CDPATH .
