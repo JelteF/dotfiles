@@ -34,4 +34,6 @@ MiscDefaultWorkingDir=
 MiscRewrapOnResize=TRUE
 ScrollingUnlimited=TRUE
 MiscUseShiftArrowsToScroll=TRUE
+MiscCopyOnSelect=FALSE
+MiscSlimTabs=TRUE
 
