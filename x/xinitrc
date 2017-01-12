@@ -1,2 +1,3 @@
-dbus-launch nm-applet --sm-disable &
-exec ck-launch-session dbus-launch --sh-syntax --exit-with-session awesome
+xrdb -merge ~/.Xresources
+bash .xprofile
+i3
