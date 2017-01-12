@@ -20,6 +20,8 @@ set -x NPM_CONFIG_PREFIX ~/.npm-global
 # Set user $PATH variables
 set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.fzf/bin ~/.npm-global/bin
 
+eval (python -m virtualfish 2> /dev/null)
+
 # Don't let cd complete home directory
 set CDPATH .
 
