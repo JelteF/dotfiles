@@ -2,7 +2,6 @@ if ! [[ "$TERM" == *256color ]]; then
     TERM=xterm-256color
 fi
 
-source /etc/bash_completion
 if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
 elif [ -f /etc/bash_completion ]; then

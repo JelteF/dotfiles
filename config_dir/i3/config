@@ -190,6 +190,7 @@ exec telegram-desktop
 exec keepass
 exec insync start
 exec xfce4-power-manager
+exec numlockx
 exec xfce4-terminal --title="gulp" --command 'bash -c "STARTUP_ENV=gulp fish"'
 exec xfce4-terminal --title="runserver" --command 'bash -c "STARTUP_ENV=runserver fish"'
 exec xfce4-terminal --title="dev" --command 'bash -c "STARTUP_ENV=dev fish"'

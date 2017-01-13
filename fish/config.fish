@@ -17,15 +17,17 @@ set -x GOPATH $HOME/go
 set -x NODE_PATH "$HOME/.node/lib/node_modules $NODE_MODULES"
 
 
+set -x NPM_CONFIG_PREFIX ~/.npm-global
 
 # Set user $PATH variables
-set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.pyenv/bin ~/.bin ~/.node/bin ~/.fzf/bin
+set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.pyenv/bin ~/.bin ~/.npm-global/bin ~/.fzf/bin
+
 # source (pyenv init - | psub)
 # source (pyenv virtualenv-init - | psub)
 
 # virtualfish
 set -x WORKON_HOME = ~/.envs
-eval (python -m virtualfish compat_aliases)
+eval (python -m virtualfish 2> /dev/null)
 
 # Running Stream aliases
 alias stream-local="env ENVIRONMENT=development_local python manage.py"

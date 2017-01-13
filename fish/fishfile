@@ -3,4 +3,6 @@ oh-my-fish/theme-bobthefish
 fisherman/pyenv
 fisherman/rvm
 fisherman/fzf
+fisherman/get
+fisherman/getopts
 fisherman/last_job_id
