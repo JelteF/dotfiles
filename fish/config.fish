@@ -9,6 +9,8 @@ set -x VISUAL vim
 set theme_display_user yes
 set default_user jelte
 set -g theme_display_ruby no
+set -g theme_nerd_fonts yes
+set -g theme_color_scheme solarized-dark
 
 # Disable venv because bob-the-fish does this already
 set VIRTUAL_ENV_DISABLE_PROMPT yes
