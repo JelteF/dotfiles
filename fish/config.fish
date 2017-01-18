@@ -9,6 +9,8 @@ set -x VISUAL vim
 set theme_display_user yes
 set default_user jelte
 set -g theme_display_ruby no
+set -g theme_nerd_fonts yes
+set -g theme_color_scheme solarized-dark
 
 # Disable venv because bob-the-fish does this already
 set VIRTUAL_ENV_DISABLE_PROMPT yes
@@ -27,7 +29,7 @@ set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbi
 
 # virtualfish
 set -x WORKON_HOME = ~/.envs
-eval (python -m virtualfish 2> /dev/null)
+eval (python -m virtualfish compat_aliases auto_activation 2> /dev/null)
 
 # Running Stream aliases
 alias stream-local="env ENVIRONMENT=development_local python manage.py"

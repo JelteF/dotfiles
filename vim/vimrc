@@ -136,6 +136,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'neomake/neomake'
 Plug 'davidhalter/jedi-vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'ryanoasis/vim-devicons'
 
 "Auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

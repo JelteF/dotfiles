@@ -194,6 +194,7 @@ exec numlockx
 exec xfce4-terminal --title="gulp" --command 'bash -c "STARTUP_ENV=gulp fish"'
 exec xfce4-terminal --title="runserver" --command 'bash -c "STARTUP_ENV=runserver fish"'
 exec xfce4-terminal --title="dev" --command 'bash -c "STARTUP_ENV=dev fish"'
+exec --no-startup-id compton -CGb --backend glx --vsync opengl --unredir-if-possible
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
