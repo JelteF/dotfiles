@@ -166,6 +166,7 @@ Plug 'mxw/vim-jsx'
 Plug 'flowtype/vim-flow'
 Plug 'jez/vim-github-hub'
 Plug 'voxpupuli/vim-puppet'
+Plug 'junegunn/vader.vim'
 
 
 call plug#end()            " required
@@ -208,7 +209,6 @@ let g:airline#extensions#tmuxline#enabled = 0
 " Enable deoplete
 let g:deoplete#enable_at_startup = 1
 
-let g:neomake_rust_enabled_makers = [] " disable rustc cargo is better
 let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
 let g:neomake_jsx_enabled_makers = ['eslint', 'flow']
 let g:javascript_plugin_flow = 1
@@ -216,7 +216,6 @@ let g:javascript_plugin_flow = 1
 augroup SyntaxCheckOnFileSave
     au!
     autocmd BufWritePost * Neomake
-    autocmd BufWritePost *.rs Neomake! cargo
 augroup end
 
 let g:jedi#completions_enabled = 0
