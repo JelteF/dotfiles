@@ -45,3 +45,5 @@ shopt -u promptvars
 PROMPT_COMMAND=update_PS1
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+shopt -s globstar
