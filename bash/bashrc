@@ -25,6 +25,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../../'
 alias ls="ls --color=auto"
+alias watchs='watch -n 0.5'
 shopt -s autocd
 export PATH=~/.local/bin:$PATH
 alias nvcc='/usr/local/cuda-5.0/bin/nvcc'
