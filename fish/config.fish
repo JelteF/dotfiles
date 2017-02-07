@@ -6,11 +6,8 @@ end
 set -x EDITOR vim
 set -x VISUAL vim
 
-set theme_display_user yes
-set default_user jelte
-set -g theme_display_ruby no
-set -g theme_nerd_fonts yes
-set -g theme_color_scheme solarized-dark
+# Don't let cd complete home directory
+set CDPATH .
 
 # Disable venv because bob-the-fish does this already
 set VIRTUAL_ENV_DISABLE_PROMPT yes
@@ -22,10 +19,17 @@ set -x NPM_CONFIG_PREFIX ~/.npm-global
 # Set user $PATH variables
 set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.fzf/bin ~/.npm-global/bin
 
+if not status --is-interactive
+    exit
+end
+
 eval (python -m virtualfish compat_aliases auto_activation 2> /dev/null)
 
-# Don't let cd complete home directory
-set CDPATH .
+set theme_display_user yes
+set default_user jelte
+# set -g theme_display_ruby no
+set -g theme_nerd_fonts yes
+set -g theme_color_scheme solarized-dark
 
 # Set echangelog user
 set -x ECHANGELOG_USER "Jelte Fennema (JelteF) <github-tech@jeltef.nl>"
@@ -69,6 +73,7 @@ abbr -a gc git checkout
 abbr -a gch git checkout
 abbr -a gc- git checkout -
 abbr -a gc-- git checkout --
+abbr -a gc--. git checkout -- .
 abbr -a gcma git checkout master
 abbr -a gcb git checkout -b
 abbr -a ga git add
