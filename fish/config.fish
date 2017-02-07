@@ -39,8 +39,8 @@ set -g theme_color_scheme solarized-dark
 # Running Stream aliases
 alias stream-local="env ENVIRONMENT=development_local python manage.py"
 alias stream-remote="env ENVIRONMENT=development python manage.py"
-alias stream-testing="env ENVIRONMENT=testing python manage.py test --noinput"
-
+alias stream-testing="env ENVIRONMENT=testing KEEP_DB=true python manage.py test --noinput"
+alias stream-testing-reuse="env ENVIRONMENT=testing REUSE_DB=true python manage.py test --noinput"
 
 # Set echangelog user
 set -x ECHANGELOG_USER "Jelte Fennema (JelteF) <github-tech@jeltef.nl>"
