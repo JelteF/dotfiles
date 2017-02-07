@@ -167,12 +167,31 @@ Plug 'flowtype/vim-flow'
 Plug 'jez/vim-github-hub'
 Plug 'voxpupuli/vim-puppet'
 Plug 'junegunn/vader.vim'
+Plug 'nginx/nginx', {'rtp': 'contrib/vim'}
+Plug 'luochen1990/rainbow'
 
 
 call plug#end()            " required
 
 let g:python_host_prog = '/sbin/python2'
 let g:python3_host_prog = '/sbin/python3'
+let g:rainbow_active = 1
+
+let g:rainbow_conf = {
+\   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+\   'ctermfgs': ['magenta', 'DarkYellow', 'DarkGreen', 'DarkBlue'],
+\   'operators': '_,_',
+\   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\   'separately': {
+\       '*': {},
+\       'vim': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+\       },
+\       'html': {
+\           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+\       },
+\    }
+\ }
 
 nnoremap <C-p> :FZF<cr>
 
@@ -212,6 +231,7 @@ let g:deoplete#enable_at_startup = 1
 let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
 let g:neomake_jsx_enabled_makers = ['eslint', 'flow']
 let g:javascript_plugin_flow = 1
+let g:neomake_autolint_sign_column_always = 1
 
 augroup SyntaxCheckOnFileSave
     au!
@@ -357,8 +377,8 @@ endif
 " When I close a tab, remove the buffer
 set nohidden
 
-" Set of the other paren
-highlight MatchParen ctermbg=4
+" Highlight matching parentheses on hover
+highlight MatchParen cterm=bold ctermbg=none ctermfg=lightblue
 
 " Set 7 lines to the curors when moving vertical
 set scrolloff=7
