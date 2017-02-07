@@ -134,6 +134,7 @@ Plug 'thomwiggers/vim-colors-solarized'
 Plug 'fidian/hexmode'
 Plug 'edkolev/tmuxline.vim'
 Plug 'JelteF/neomake', { 'branch': 'improve-cargo' }
+Plug 'dojoteef/neomake-autolint'
 Plug 'davidhalter/jedi-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons'
