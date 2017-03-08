@@ -27,7 +27,7 @@ alias .....='cd ../../../../'
 alias ls="ls --color=auto"
 alias watchs='watch -n 0.5'
 shopt -s autocd
-export PATH=~/.local/bin:$PATH
+export PATH=~/.local/bin:~/.bin:$PATH
 alias nvcc='/usr/local/cuda-5.0/bin/nvcc'
 export EDITOR="vim"
 
@@ -48,3 +48,8 @@ PROMPT_COMMAND=update_PS1
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 shopt -s globstar
+
+alias gap="git add -p"
+alias gcm="git commit -m"
+alias gcb="git checkout -b"
+alias gc="git checkout"
