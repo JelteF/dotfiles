@@ -203,7 +203,7 @@ set wildignore+=*.png,*.jpg,*.gif
 let g:extesions_ignore = ['exe'
             \'bcf', 'bbl', 'blg', 'fdb_latexmk', 'gls', 'glg', 'alg', 'acr',
             \'run.xml', 'ist', 'glo', 'upb', 'upa', 'acn', 'svg', 'jpeg', 'jpg',
-            \'png', '.keep']
+            \'png', 'pyc', '*.pyc']
 let g:ignore_fzf = ['build', 'node_modules', 'venv', 'python2_source',
             \'_minted-', '.sass-cache', 'dist',
             \'.git', '.svn', '.hg', '.keep']
