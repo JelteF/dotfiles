@@ -166,10 +166,16 @@ bindsym $mod+Ctrl+j resize shrink height 10 px or 2 ppt
 bindsym $mod+Ctrl+u resize shrink height 10 px or 2 ppt
 bindsym $mod+Ctrl+l resize grow width 10 px or 2 ppt
 
-workspace 10 output DP1-1-8
-workspace 3 output DP1-1-8
-workspace 2 output DP1-8
 workspace 1 output eDP1
+workspace 2 output DP1-8
+workspace 3 output DP1-1-8
+workspace 4 output DP1-1-8
+workspace 5 output DP1-1-8
+workspace 6 output DP1-1-8
+workspace 7 output DP1-1-8
+workspace 8 output DP1-1-8
+workspace 9 output DP1-1-8
+workspace 10 output DP1-1-8
 bindsym $mod+m move workspace to output DP1-1-8
 
 assign [instance="^telegram-desktop$"] 10
