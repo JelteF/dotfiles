@@ -130,11 +130,10 @@ Plug 'tpope/vim-unimpaired'
 Plug 'bling/vim-airline'
 Plug 'chrisbra/csv.vim'
 Plug 'dag/vim-fish'
-Plug 'thomwiggers/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
 Plug 'fidian/hexmode'
 Plug 'edkolev/tmuxline.vim'
-Plug 'JelteF/neomake', { 'branch': 'improve-cargo' }
-Plug 'dojoteef/neomake-autolint'
+Plug 'neomake/neomake'
 Plug 'davidhalter/jedi-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons'
@@ -164,12 +163,12 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'mxw/vim-jsx'
-Plug 'flowtype/vim-flow'
 Plug 'jez/vim-github-hub'
 Plug 'voxpupuli/vim-puppet'
 Plug 'junegunn/vader.vim'
 Plug 'nginx/nginx', {'rtp': 'contrib/vim'}
 Plug 'luochen1990/rainbow'
+Plug 'martinda/Jenkinsfile-vim-syntax'
 
 
 call plug#end()            " required
@@ -213,10 +212,14 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '.\(exe\|o|dll\|toc\|log\|out\|fls\|bcf\|bbl\|blg\|fdb_latexmk\|gls\|glg\|alg\|acr\|run.xml\|ist\|glo\|upb\|upa\|acn\|svg\|jpeg\|jpg\|png\)$'
   \ }
 
-let $FZF_DEFAULT_COMMAND = 'ag --hidden ' .
-            \'--ignore "*.' . join(g:extesions_ignore, '" --ignore "*.') . '" ' .
-            \'--ignore "' . join(g:ignore_fzf, '" --ignore "') . '" ' .
-            \'-g ""'
+if executable('rg')
+    let $FZF_DEFAULT_COMMAND = 'rg --hidden --ignore-file ~/.vim/fzf_ignore --files'
+else
+    let $FZF_DEFAULT_COMMAND = 'ag --hidden ' .
+                \'--ignore "*.' . join(g:extesions_ignore, '" --ignore "*.') . '" ' .
+                \'--ignore "' . join(g:ignore_fzf, '" --ignore "') . '" ' .
+                \'-g ""'
+endif
 
 "Set toggle for graphical undo plugin
 nnoremap <F12> :GundoToggle<CR>
@@ -227,10 +230,13 @@ let g:python_highlight_all = 1
 let g:airline#extensions#tmuxline#enabled = 0
 
 " Enable deoplete
-let g:deoplete#enable_at_startup = 1
+if has("nvim")
+    let g:deoplete#enable_at_startup = 1
+endif
 
 let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
 let g:neomake_jsx_enabled_makers = ['eslint', 'flow']
+let g:neomake_java_enabled_makers = []
 let g:javascript_plugin_flow = 1
 let g:neomake_autolint_sign_column_always = 1
 
@@ -254,11 +260,45 @@ nnoremap [fzf] <nop>
 
 nnoremap <silent> [fzf]/ :<C-u>Ag<cr>
 
+let g:hexmode_autodetect = 1
+
+" Use deoplete.
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
+
+"Add extra filetypes
+let g:tern#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ 'vue'
+                \ ]
+
+" Use tern_for_vim.
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+
+" Go settings
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+"let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+"let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+"let g:go_highlight_structs = 1
+"let g:go_highlight_types = 1
+
+"let g:go_auto_sameids = 1
+
+let g:go_auto_type_info = 1
+
+let g:go_fmt_command = "goimports"
+
 " -------------- Global ----------
 
 set background=dark
 try
-    colorscheme solarized
+    let base16colorspace=256
+    colorscheme base16-harmonic16-dark
 catch /^Vim\%((\a\+)\)\=:E185/
     " deal with it
 endtry
@@ -289,7 +329,7 @@ set tabstop=4
 set softtabstop=4
 if exists('&breakindent')
     set breakindent
-    set breakindentopt=shift:4
+    set breakindentopt=shift:6
 endif
 
 " Show tabs and trailing whitespace
@@ -318,6 +358,7 @@ augroup FileTypeSpecificSettings
     " Smaller indentation for xml type files
     au FileType scss,html,xml,xslt,xsd,dtd setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup end
+
 
 " Fix stupid # to start of line
 inoremap # X<BS>#

@@ -49,6 +49,7 @@ ln -sf $PWD/git/gitconfig $ORIGINAL_GITCONFIG
 ln -sf $PWD/tmux/tmux.conf $ORIGINAL_TMUXCONF
 ln -sf $PWD/vim/vimrc $ORIGINAL_VIMRC
 ln -sf $PWD/vim/vimrc $HOME/.vim/init.vim
+ln -sf $PWD/vim/fzf_ignore $HOME/.vim/fzf_ignore
 ln -sf $PWD/fish/* $HOME/.config/fish/
 ln -sf $PWD/x/XCompose $ORIGINAL_XCOMPOSE
 ln -sf $PWD/x/Xresources $ORIGINAL_XRESOURCES
