@@ -2,6 +2,11 @@ if not echo $TERM | grep 256color > /dev/null
     set TERM xterm-256color
 end
 
+# Base16 Shell
+if status --is-interactive
+    eval sh $HOME/.config/base16-shell/scripts/base16-harmonic16-dark.sh
+end
+
 # Set default editor to vim
 set -x EDITOR vim
 set -x VISUAL vim
@@ -11,6 +16,7 @@ set CDPATH .
 
 # Disable venv because bob-the-fish does this already
 set VIRTUAL_ENV_DISABLE_PROMPT yes
+set VIRTUALGO_DISABLE_PROMPT yes
 
 set -x GOPATH $HOME/go
 set -x NODE_PATH "$HOME/.node/lib/node_modules $NODE_MODULES"
