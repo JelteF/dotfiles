@@ -350,13 +350,20 @@ augroup end
 
 let g:pandoc#syntax#conceal#use=0
 
+
+nnoremap <leader>d gd
 augroup FileTypeSpecificSettings
     " Vim is very slow when cursorline is set in latex
     au!
     autocmd FileType tex setlocal nocursorline
 
     " Smaller indentation for xml type files
-    au FileType scss,html,xml,xslt,xsd,dtd setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    au FileType scss,html,xml,xslt,xsd,dtd,proto,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+    au FileType go setlocal nolist
+    au FileType go nnoremap gc :GoCoverageToggle<cr>
+    au FileType go nnoremap <leader>i :GoImports<cr>:silent! Neomake<cr>
+
 augroup end
 
 
