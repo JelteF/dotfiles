@@ -139,9 +139,15 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons'
 
 "Auto completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-Plug 'sebastianmarkow/deoplete-rust'
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
+    Plug 'sebastianmarkow/deoplete-rust'
+    Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+    Plug 'steelsojka/deoplete-flow'
+    Plug 'fishbullet/deoplete-ruby'
+    Plug 'zchee/deoplete-go', { 'do': 'make'}
+endif
 
 "Plug syntax
 Plug 'JelteF/vim-python-pep8-indent', { 'branch': 'gq-fix' }
@@ -350,13 +356,20 @@ augroup end
 
 let g:pandoc#syntax#conceal#use=0
 
+
+nnoremap <leader>d gd
 augroup FileTypeSpecificSettings
     " Vim is very slow when cursorline is set in latex
     au!
     autocmd FileType tex setlocal nocursorline
 
     " Smaller indentation for xml type files
-    au FileType scss,html,xml,xslt,xsd,dtd setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    au FileType scss,html,xml,xslt,xsd,dtd,proto,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+    au FileType go setlocal nolist
+    au FileType go nnoremap gc :GoCoverageToggle<cr>
+    au FileType go nnoremap <leader>i :GoImports<cr>:silent! Neomake<cr>
+
 augroup end
 
 

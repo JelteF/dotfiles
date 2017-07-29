@@ -162,3 +162,5 @@ switch "$STARTUP_ENV"
         cd work/stream
         workon stream
 end
+
+command -v vg >/dev/null 2>&1; and vg eval --shell fish | source
