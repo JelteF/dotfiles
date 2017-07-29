@@ -139,9 +139,15 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons'
 
 "Auto completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-Plug 'sebastianmarkow/deoplete-rust'
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
+    Plug 'sebastianmarkow/deoplete-rust'
+    Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+    Plug 'steelsojka/deoplete-flow'
+    Plug 'fishbullet/deoplete-ruby'
+    Plug 'zchee/deoplete-go', { 'do': 'make'}
+endif
 
 "Plug syntax
 Plug 'JelteF/vim-python-pep8-indent', { 'branch': 'gq-fix' }
