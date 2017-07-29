@@ -131,3 +131,5 @@ end
 
 set -x FZF_DEFAULT_OPTS (_gen_fzf_default_opts)
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+command -v vg >/dev/null 2>&1; and vg eval --shell fish | source

@@ -53,3 +53,5 @@ alias gap="git add -p"
 alias gcm="git commit -m"
 alias gcb="git checkout -b"
 alias gc="git checkout"
+
+command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell bash)"
