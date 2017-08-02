@@ -137,6 +137,10 @@ Plug 'neomake/neomake'
 Plug 'davidhalter/jedi-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
+
 
 "Auto completion
 if has('nvim')
@@ -178,6 +182,9 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 
 
 call plug#end()            " required
+
+call glaive#Install()
+Glaive codefmt plugin[mappings]
 
 let g:python_host_prog = '/sbin/python2'
 let g:python3_host_prog = '/sbin/python3'
@@ -368,7 +375,9 @@ augroup FileTypeSpecificSettings
 
     au FileType go setlocal nolist
     au FileType go nnoremap gc :GoCoverageToggle<cr>
-    au FileType go nnoremap <leader>i :GoImports<cr>:silent! Neomake<cr>
+    au FileType go nnoremap <leader>i :GoImports<cr>
+
+    au FileType proto AutoFormatBuffer clang-format
 
 augroup end
 
