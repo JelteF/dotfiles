@@ -183,8 +183,10 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 
 call plug#end()            " required
 
-call glaive#Install()
-Glaive codefmt plugin[mappings]
+if exists('*glaive#Install')
+    call glaive#Install()
+    Glaive codefmt plugin[mappings]
+endif
 
 let g:python_host_prog = '/sbin/python2'
 let g:python3_host_prog = '/sbin/python3'
