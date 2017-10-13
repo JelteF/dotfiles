@@ -229,6 +229,8 @@ let g:ctrlp_custom_ignore = {
 
 if executable('rg')
     let $FZF_DEFAULT_COMMAND = 'rg --hidden --ignore-file ~/.vim/fzf_ignore --files'
+    set grepprg=rg\ --vimgrep
+    command! -bang -nargs=* Find call fzf#vim#grep('rg -s --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 else
     let $FZF_DEFAULT_COMMAND = 'ag --hidden ' .
                 \'--ignore "*.' . join(g:extesions_ignore, '" --ignore "*.') . '" ' .
