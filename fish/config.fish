@@ -73,6 +73,11 @@ function redis-cli
     end
 end
 
+function rg
+    command rg --smart-case $argv
+end
+
+
 abbr -a pvc peerflix --vlc \'
 
 abbr -a gc git checkout
