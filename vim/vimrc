@@ -170,7 +170,9 @@ Plug 'JelteF/python-syntax'
 Plug 'vzh/vim-dokuwiki'
 Plug 'seveas/bind.vim'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'fatih/vim-go'
+if has('patch-7.4-1689')
+    Plug 'fatih/vim-go'
+endif
 Plug 'rust-lang/rust.vim'
 Plug 'mxw/vim-jsx'
 Plug 'jez/vim-github-hub'
