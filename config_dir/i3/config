@@ -178,6 +178,19 @@ workspace 9 output DP1-1-8
 workspace 10 output DP1-1-8
 bindsym $mod+m move workspace to output DP1-1-8
 
+# US settings
+# workspace 1 output HDMI2
+# workspace 2 output HDMI2
+# workspace 3 output HDMI2
+# workspace 4 output HDMI2
+# workspace 5 output HDMI2
+# workspace 6 output HDMI2
+# workspace 7 output HDMI2
+# workspace 8 output HDMI2
+# workspace 9 output HDMI2
+# workspace 10 output eDP1
+# bindsym $mod+m move workspace to output HDMI2
+
 assign [instance="^telegram-desktop$"] 10
 assign [class="^telegram-desktop$"] 10
 assign [class="^TelegramDesktop$"] 10
