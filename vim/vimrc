@@ -166,7 +166,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'digitaltoad/vim-jade'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'cespare/vim-toml'
-Plug 'JelteF/python-syntax', { 'branch': 'multiline-names' }
+Plug 'JelteF/python-syntax'
 Plug 'vzh/vim-dokuwiki'
 Plug 'seveas/bind.vim'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -315,7 +315,7 @@ let g:go_fmt_command = "goimports"
 set background=dark
 try
     let base16colorspace=256
-    colorscheme base16-harmonic16-dark
+    colorscheme base16-harmonic-dark
 catch /^Vim\%((\a\+)\)\=:E185/
     " deal with it
 endtry
