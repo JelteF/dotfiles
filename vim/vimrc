@@ -133,28 +133,35 @@ Plug 'dag/vim-fish'
 Plug 'chriskempson/base16-vim'
 Plug 'fidian/hexmode'
 Plug 'edkolev/tmuxline.vim'
-Plug 'neomake/neomake'
+"Plug 'neomake/neomake'
 Plug 'davidhalter/jedi-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
-
+Plug 'w0rp/ale'
 
 "Auto completion
 if has('nvim')
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+    \ }
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi'
     Plug 'sebastianmarkow/deoplete-rust'
-    Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-    Plug 'steelsojka/deoplete-flow'
     Plug 'fishbullet/deoplete-ruby'
     Plug 'zchee/deoplete-go', { 'do': 'make'}
+
+    "Jump to def
+    Plug 'moll/vim-node'
+    Plug 'ternjs/tern_for_vim'
+    Plug 'flowtype/vim-flow'
 endif
 
 "Plug syntax
-Plug 'JelteF/vim-python-pep8-indent', { 'branch': 'gq-fix' }
+Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
@@ -166,7 +173,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'digitaltoad/vim-jade'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'cespare/vim-toml'
-Plug 'JelteF/python-syntax'
+Plug 'anntzer/python-syntax'
 Plug 'vzh/vim-dokuwiki'
 Plug 'seveas/bind.vim'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -259,10 +266,33 @@ let g:neomake_java_enabled_makers = []
 let g:javascript_plugin_flow = 1
 let g:neomake_autolint_sign_column_always = 1
 
-augroup SyntaxCheckOnFileSave
-    au!
-    autocmd BufWritePost * Neomake
-augroup end
+
+let g:ale_sign_warning = '⚠'
+let g:ale_linters = {'go': ['gometalinter', 'gotype']}
+let g:ale_go_gometalinter_options = '--fast --disable="gotype"'
+let g:ale_echo_msg_format = '[%linter%] %s'
+
+" Fix JavaScript code with ESlint
+let g:ale_fixers = {
+            \'javascript': ['prettier', 'eslint'],
+            \'javascript.jsx': ['prettier', 'eslint'],
+            \'jsx': ['prettier', 'eslint'],
+            \'python': ['black'],
+            \}
+" let g:ale_fix_on_save = 1
+
+
+function! GoLintFull()
+    let l:old_opts = g:ale_go_gometalinter_options
+    let g:ale_go_gometalinter_options = '--disable="vet" --disable="golint" --disable="gotype" --disable="structcheck" --disable="unconvert" --disable="varcheck" --disable="aligncheck"'
+    ALELint
+    let g:ale_go_gometalinter_options = l:old_opts
+endfunction
+
+
+nnoremap <silent> gl :call GoLintFull()<cr>
+
+
 
 let g:jedi#completions_enabled = 0
 autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
@@ -270,6 +300,12 @@ autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
 let g:deoplete#sources#jedi#show_docstring = 0
 let g:deoplete#sources#rust#racer_binary='/home/jelte/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path= system('rustc --print sysroot')[:-2] . '/lib/rustlib/src/rust/src'
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['flow-language-server', '--stdio'],
+    \ 'javascript.jsx': ['flow-language-server', '--stdio'],
+    \ }
+let g:LanguageClient_diagnosticsDisplay = {}
+let g:LanguageClient_diagnosticsSignsMax = 0
 
 
 let g:flow#enable = 0
@@ -358,6 +394,7 @@ set listchars=tab:>-,trail:~
 " Proper syntax highlighting
 filetype plugin indent on
 syntax on
+:au Syntax * syntax sync fromstart
 
 augroup SetFileTypes
     au!
@@ -365,9 +402,16 @@ augroup SetFileTypes
     au BufRead,BufNewFile **.cvc set filetype=c
     au BufRead,BufNewFile **.doku set filetype=dokuwiki
     au BufRead,BufNewFile **.md set filetype=markdown.pandoc
+    au BufNewFile,BufRead *.js.flow   set syntax=javascript.jsx
 augroup end
 
 let g:pandoc#syntax#conceal#use=0
+
+function! JavascriptJumpToDef()
+    if (flow#jump_to_def())
+        TernDef
+    endif
+endfunction
 
 
 nnoremap <leader>d gd
@@ -378,6 +422,9 @@ augroup FileTypeSpecificSettings
 
     " Smaller indentation for xml type files
     au FileType scss,html,xml,xslt,xsd,dtd,proto,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+    " Use custom jump to definition function in javascript
+    au FileType javascript,javascript.jsx nnoremap <leader>d :call JavascriptJumpToDef()<cr>
 
     au FileType go setlocal nolist
     au FileType go nnoremap gc :GoCoverageToggle<cr>
@@ -429,12 +476,12 @@ set ignorecase
 set smartcase
 
 " The smash escape
-inoremap htn <esc>
-inoremap hnt <esc>
-inoremap thn <esc>
-inoremap tnh <esc>
-inoremap nth <esc>
-inoremap nht <esc>
+" inoremap htn <esc>
+" inoremap hnt <esc>
+" inoremap thn <esc>
+" inoremap tnh <esc>
+" inoremap nth <esc>
+" inoremap nht <esc>
 
 
 " hl search results
@@ -615,3 +662,4 @@ function! SuperTab()
     endif
 endfunction
 inoremap <Tab> <C-R>=SuperTab()<CR>
+nnoremap <leader>f :ALEFix<cr>

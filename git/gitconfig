@@ -27,7 +27,8 @@
     showUntrackedFiles = all
 
 [alias]
-    track = "!f(){ branch=$(git name-rev --name-only HEAD); cmd=\"git branch $branch --set-upstream-to=${1:-origin}/${2:-$branch}\"; echo $cmd; $cmd; }; f"
+    track = "!f(){ branch=$(git rev-parse --abbrev-ref HEAD); cmd=\"git branch $branch --set-upstream-to=${1:-origin}/${2:-$branch}\"; echo $cmd; $cmd; }; f"
     wdiff = diff --color-words
     get = "!git stash && git pull --rebase && git stash pop"
     pr = pull-request
+    npr = pull-request

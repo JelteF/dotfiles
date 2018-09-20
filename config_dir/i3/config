@@ -169,16 +169,17 @@ bindsym $mod+Ctrl+l resize grow width 10 px or 2 ppt
 assign [instance="^telegram-desktop$"] 10
 assign [class="^telegram-desktop$"] 10
 assign [class="^TelegramDesktop$"] 10
-assign [class="^KeePass2$"] 10
+assign [class="^keepassxc$"] 10
 assign [class="^Slack$"] 10
 assign [class="^Google-chrome$"] 1
+assign [class="^Firefox$"] 1
 
 exec GTK_IM_MODULE='' synapse -s
-exec google-chrome-stable
+exec firefox
 exec nm-applet
 exec volumeicon
 exec telegram-desktop
-exec keepass
+exec keepassxc
 exec insync start
 exec xfce4-power-manager
 exec numlockx
