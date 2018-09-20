@@ -177,7 +177,7 @@ Plug 'anntzer/python-syntax'
 Plug 'vzh/vim-dokuwiki'
 Plug 'seveas/bind.vim'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-if has('patch-7.4-1689')
+if has('patch-7.4-2009')
     Plug 'fatih/vim-go'
 endif
 Plug 'rust-lang/rust.vim'
