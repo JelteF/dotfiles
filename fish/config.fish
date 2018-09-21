@@ -8,8 +8,8 @@ if status --is-interactive
 end
 
 # Set default editor to vim
-set -x EDITOR vim
-set -x VISUAL vim
+set -x EDITOR nvim
+set -x VISUAL nvim
 
 # Don't let cd complete home directory
 set CDPATH .
@@ -19,8 +19,7 @@ set VIRTUAL_ENV_DISABLE_PROMPT yes
 set VIRTUALGO_DISABLE_PROMPT yes
 
 set -x GOPATH $HOME/go
-set -x NODE_PATH "$HOME/.node/lib/node_modules $NODE_MODULES"
-
+set -x ANDROID_HOME $HOME/Android/Sdk/
 
 set -x NPM_CONFIG_PREFIX ~/.npm-global
 

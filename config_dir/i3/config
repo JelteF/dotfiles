@@ -194,26 +194,22 @@ bindsym $mod+m move workspace to output DP1-1-8
 assign [instance="^telegram-desktop$"] 10
 assign [class="^telegram-desktop$"] 10
 assign [class="^TelegramDesktop$"] 10
-assign [class="^KeePass2$"] 10
+assign [class="^keepassxc$"] 10
 assign [class="^Slack$"] 10
 assign [class="^Google-chrome$"] 2
-assign [class="^Xfce4-terminal$" title="^dev$"] 3
-assign [class="^Xfce4-terminal$" title="gulp"] 1
-assign [class="^Xfce4-terminal$" title="^runserver$"] 1
+assign [class="^Firefox$"] 2
 
 exec GTK_IM_MODULE='' synapse -s
-exec google-chrome-stable --force-device-scale-factor=1
+exec firefox
 exec nm-applet
 exec volumeicon
 exec slack
 exec telegram-desktop
-exec keepass
+exec keepassxc
 exec insync start
 exec xfce4-power-manager
 exec numlockx
-exec xfce4-terminal --title="gulp" --command 'bash -c "STARTUP_ENV=gulp fish"'
-exec xfce4-terminal --title="runserver" --command 'bash -c "STARTUP_ENV=runserver fish"'
-exec xfce4-terminal --title="dev" --command 'bash -c "STARTUP_ENV=dev fish"'
+exec xfce4-terminal
 exec --no-startup-id compton -CGb --backend glx --vsync opengl --unredir-if-possible
 
 
