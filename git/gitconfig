@@ -13,7 +13,7 @@
 	branch = auto
 [core]
 	excludesfile = ~/dotfiles/git/gitignore_global
-	editor = vim
+	editor = nvim
 	commentChar = %
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -32,3 +32,13 @@
     get = "!git stash && git pull --rebase && git stash pop"
     pr = pull-request
     npr = pull-request
+[http]
+	cookiefile = /home/jelte/.gitcookies
+
+[alias]
+	change = codereview change
+	gofmt = codereview gofmt
+	mail = codereview mail
+	pending = codereview pending
+	submit = codereview submit
+	sync = codereview sync

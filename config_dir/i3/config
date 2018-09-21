@@ -49,18 +49,14 @@ bindsym $mod+r exec "rofi -show combi -combi-modi window,drun,run"
 
 # change focus
 bindsym $mod+h focus left
-bindsym $mod+e focus down
-bindsym $mod+q focus down
-bindsym $mod+u focus up
-bindsym $mod+j focus up
+bindsym $mod+j focus down
+bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move focused window
 bindsym $mod+shift+h move left
-bindsym $mod+shift+e move down
-bindsym $mod+shift+q move down
-bindsym $mod+shift+u move up
-bindsym $mod+shift+j move up
+bindsym $mod+shift+j move down
+bindsym $mod+shift+k move up
 bindsym $mod+shift+l move right
 
 # split in horizontal orientation
@@ -166,7 +162,7 @@ bindsym $mod+Ctrl+j resize shrink height 10 px or 2 ppt
 bindsym $mod+Ctrl+u resize shrink height 10 px or 2 ppt
 bindsym $mod+Ctrl+l resize grow width 10 px or 2 ppt
 
-workspace 1 output eDP1
+workspace 1 output DP1-1-8
 workspace 2 output DP1-8
 workspace 3 output DP1-1-8
 workspace 4 output DP1-1-8
@@ -201,12 +197,13 @@ assign [class="^Firefox$"] 2
 
 exec GTK_IM_MODULE='' synapse -s
 exec firefox
+exec slack
 exec nm-applet
 exec volumeicon
 exec slack
 exec telegram-desktop
 exec keepassxc
-exec insync start
+exec insync-headless start
 exec xfce4-power-manager
 exec numlockx
 exec xfce4-terminal

@@ -84,6 +84,10 @@ function redis-cli
     end
 end
 
+function ss
+    command ss $argv | column -t
+end
+
 function rg
     command rg --smart-case $argv
 end
