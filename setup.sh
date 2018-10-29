@@ -14,6 +14,7 @@ ORIGINAL_XRESOURCES=$HOME/.Xresources
 ORIGINAL_XINITRC=$HOME/.xinitrc
 ORIGINAL_XPROFILE=$HOME/.xprofile
 ORIGINAL_XSESSION=$HOME/.xsession
+ORIGINAL_SSHRC=$HOME/.sshrc
 
 # Create vim folders
 mkdir -p ~/.vim/{autoload,colors}
@@ -65,6 +66,7 @@ ln -sf $PWD/x/Xresources $ORIGINAL_XRESOURCES
 ln -sf $PWD/x/xinitrc $ORIGINAL_XINITRC
 ln -sf $PWD/x/xsession $ORIGINAL_XSESSION
 ln -sf $PWD/x/xprofile $ORIGINAL_XPROFILE
+ln -sf $PWD/ssh/sshrc $ORIGINAL_SSHRC
 
 ln -sf $PWD/ptpython/* ~/.ptpython/
 

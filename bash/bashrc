@@ -38,12 +38,20 @@ export EDITOR="vim"
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 
-PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[00m\]'
+if [[ $EUID -ne 0 ]]; then
+    PROMPT_COLOR='\[\033[01;32m\]'
+    PROMPT_CHAR=$
+else
+    PROMPT_COLOR='\[\033[01;31m\]'
+    PROMPT_CHAR='#'
+fi
+
+
+PS1=$PROMPT_COLOR'\u@\h\[\033[01;34m\] \w\[\033[00m\]'
 if command -v __git_ps1 >/dev/null 2>&1; then
     PS1=$PS1'$(__git_ps1)'
 fi
-PS1="$PS1 "'\[\033[01;32m\]$\[\033[00m\] '
-
+PS1="$PS1 ${PROMPT_COLOR}${PROMPT_CHAR}"'\[\033[00m\] '
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
