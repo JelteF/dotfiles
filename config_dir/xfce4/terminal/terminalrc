@@ -33,4 +33,6 @@ ScrollingUnlimited=TRUE
 MiscUseShiftArrowsToScroll=TRUE
 MiscCopyOnSelect=FALSE
 MiscSlimTabs=TRUE
+MiscShowRelaunchDialog=TRUE
+MiscNewTabAdjacent=FALSE
 

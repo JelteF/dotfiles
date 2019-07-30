@@ -32,8 +32,7 @@ end
 
 eval (python -m virtualfish compat_aliases auto_activation 2> /dev/null)
 
-set theme_display_user yes
-set default_user jelte
+set -g default_user jelte
 # set -g theme_display_ruby no
 set -g theme_nerd_fonts yes
 set -g theme_color_scheme solarized-dark
@@ -110,6 +109,8 @@ abbr -a gpr git pull --rebase
 abbr -a gpf git pull --force
 abbr -a gps git push
 abbr -a gpsf git push --force
+abbr -a ggpr git pull-request
+abbr -a gnpr git pull-request
 
 function _gen_fzf_default_opts
   set base03 "234"

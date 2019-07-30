@@ -32,3 +32,5 @@
     get = "!git stash && git pull --rebase && git stash pop"
     pr = pull-request
     npr = pull-request
+[http]
+	cookiefile = /home/jelte/.gitcookies

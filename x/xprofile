@@ -6,4 +6,13 @@ setxkbmap -option grp:alt_shift_toggle,grp:switch,grp_led:scroll,terminate:ctrl_
 setxkbmap -option ctrl:nocaps
 setxkbmap -option compose:ralt
 
+input_id() {
+    xinput -list | grep "$1" | sed 's/.*id=\([0-9]\+\).*/\1/'
+}
+model01id=$(input_id "Keyboardio Model 01 Keyboard")
+[ "$model01id" = "" ] || setxkbmap -layout 'us' -variant '' -device "$model01id"
+
+[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
 eval $(ssh-agent -s)

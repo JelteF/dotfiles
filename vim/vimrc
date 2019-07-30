@@ -148,16 +148,36 @@ if has('nvim')
         \ 'branch': 'next',
         \ 'do': 'bash install.sh',
     \ }
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi'
-    Plug 'sebastianmarkow/deoplete-rust'
-    Plug 'fishbullet/deoplete-ruby'
-    Plug 'zchee/deoplete-go', { 'do': 'make'}
+    Plug 'ncm2/ncm2'
+    Plug 'roxma/nvim-yarp'
+
+    augroup autocomplete
+        au!
+        autocmd BufEnter * call ncm2#enable_for_buffer()
+    augroup END
+    set completeopt=noinsert,menuone,noselect
+    Plug 'ncm2/ncm2-bufword'
+    Plug 'ncm2/ncm2-path'
+    "Plug 'ncm2/ncm2-github'
+    Plug 'ncm2/ncm2-cssomni'
+    Plug 'ncm2/ncm2-racer'
+    Plug 'ncm2/ncm2-jedi'
+    Plug 'ncm2/ncm2-vim'
+    "Plug 'ncm2/ncm2-go'
+    Plug 'ncm2/ncm2-markdown-subscope'
+    Plug 'ncm2/ncm2-html-subscope'
+    Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+    "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    "Plug 'zchee/deoplete-jedi'
+    "Plug 'sebastianmarkow/deoplete-rust'
+    "Plug 'fishbullet/deoplete-ruby'
+    "Plug 'zchee/deoplete-go', { 'do': 'make'}
+    "Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
     "Jump to def
     Plug 'moll/vim-node'
     Plug 'ternjs/tern_for_vim'
-    Plug 'flowtype/vim-flow'
+    "Plug 'flowtype/vim-flow'
 endif
 
 "Plug syntax
@@ -188,6 +208,7 @@ Plug 'junegunn/vader.vim'
 Plug 'nginx/nginx', {'rtp': 'contrib/vim'}
 Plug 'luochen1990/rainbow'
 Plug 'martinda/Jenkinsfile-vim-syntax'
+"Plug 'elzr/vim-json'
 
 
 call plug#end()            " required
@@ -237,7 +258,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 if executable('rg')
-    let $FZF_DEFAULT_COMMAND = 'rg --hidden --ignore-file ~/.vim/fzf_ignore --files'
+    let $FZF_DEFAULT_COMMAND = 'rg --hidden --no-ignore-dot --ignore-file ~/.vim/fzf_ignore --files'
     set grepprg=rg\ --vimgrep
     command! -bang -nargs=* Find call fzf#vim#grep('rg -s --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 else
@@ -266,17 +287,28 @@ let g:neomake_java_enabled_makers = []
 let g:javascript_plugin_flow = 1
 let g:neomake_autolint_sign_column_always = 1
 
+if has('patch-7.4-2201')
+    set signcolumn=yes
+endif
+
 
 let g:ale_sign_warning = '⚠'
-let g:ale_linters = {'go': ['gometalinter', 'gotype']}
-let g:ale_go_gometalinter_options = '--fast --disable="gotype"'
+let g:ale_linters = {'go': ['gometalinter', 'golangserver']}
+let g:ale_go_gometalinter_options = '--fast --disable="gotypex"'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
 " Fix JavaScript code with ESlint
 let g:ale_fixers = {
             \'javascript': ['prettier', 'eslint'],
             \'javascript.jsx': ['prettier', 'eslint'],
+            \'json': ['prettier', 'eslint'],
             \'jsx': ['prettier', 'eslint'],
+            \'md': ['prettier'],
+            \'css': ['stylelint'],
+            \'scss': ['stylelint'],
+            \'markdown.pandoc': ['prettier', 'eslint'],
+            \'markdown': ['prettier', 'eslint'],
+            \'sh': ['shfmt'],
             \'python': ['black'],
             \}
 " let g:ale_fix_on_save = 1
@@ -301,8 +333,7 @@ let g:deoplete#sources#jedi#show_docstring = 0
 let g:deoplete#sources#rust#racer_binary='/home/jelte/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path= system('rustc --print sysroot')[:-2] . '/lib/rustlib/src/rust/src'
 let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['flow-language-server', '--stdio'],
-    \ 'javascript.jsx': ['flow-language-server', '--stdio'],
+    \ 'go': ['~/go/bin/go-langserver', '-gocodecompletion', '-pprof', 'localhost:6061'],
     \ }
 let g:LanguageClient_diagnosticsDisplay = {}
 let g:LanguageClient_diagnosticsSignsMax = 0
@@ -346,7 +377,7 @@ let g:go_highlight_operators = 1
 
 let g:go_auto_type_info = 1
 
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = 'goimports'
 
 " -------------- Global ----------
 
@@ -403,6 +434,7 @@ augroup SetFileTypes
     au BufRead,BufNewFile **.doku set filetype=dokuwiki
     au BufRead,BufNewFile **.md set filetype=markdown.pandoc
     au BufNewFile,BufRead *.js.flow   set syntax=javascript.jsx
+    au BufNewFile,BufRead .babelrc,.prettierrc   set filetype=json
 augroup end
 
 let g:pandoc#syntax#conceal#use=0
@@ -429,6 +461,7 @@ augroup FileTypeSpecificSettings
     au FileType go setlocal nolist
     au FileType go nnoremap gc :GoCoverageToggle<cr>
     au FileType go nnoremap <leader>i :GoImports<cr>
+    au FileType go nnoremap <silent> <leader>d :ALEGoToDefinition<cr>
 
     au FileType proto AutoFormatBuffer clang-format
 
