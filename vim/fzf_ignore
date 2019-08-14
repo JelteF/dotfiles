@@ -19,6 +19,8 @@
 *.png
 *.pyc
 *.*.pyc
+*.o
+*.a
 
 build
 node_modules

@@ -119,7 +119,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
-Plug 'majutsushi/tagbar'
+"Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
 "Plug 'mileszs/ack.vim'
 "Plug 'rking/ag.vim'
@@ -209,6 +209,7 @@ Plug 'nginx/nginx', {'rtp': 'contrib/vim'}
 Plug 'luochen1990/rainbow'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 "Plug 'elzr/vim-json'
+Plug 'ludovicchabant/vim-gutentags'
 
 
 call plug#end()            " required
@@ -338,6 +339,8 @@ let g:LanguageClient_serverCommands = {
 let g:LanguageClient_diagnosticsDisplay = {}
 let g:LanguageClient_diagnosticsSignsMax = 0
 
+let g:rustfmt_autosave = 1
+" let g:rustfmt_fail_silently = 1
 
 let g:flow#enable = 0
 
@@ -465,6 +468,7 @@ augroup FileTypeSpecificSettings
 
     au FileType proto AutoFormatBuffer clang-format
 
+    au FileType c,cpp nnoremap gd g<C-]>
 augroup end
 
 
