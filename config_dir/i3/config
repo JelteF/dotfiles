@@ -183,7 +183,7 @@ exec keepassxc
 exec insync start
 exec xfce4-power-manager
 exec numlockx
-exec --no-startup-id compton -CGb --backend glx --vsync opengl --unredir-if-possible
+# exec --no-startup-id compton -CGb --backend glx --vsync opengl --unredir-if-possible
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
