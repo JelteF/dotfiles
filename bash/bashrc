@@ -65,3 +65,5 @@ alias gc="git checkout"
 command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell bash)"
 
 export NPM_CONFIG_PREFIX=$HOME/.npm-global
+
+eval $(ssh-agent -s -r)

@@ -7,6 +7,8 @@ if status --is-interactive
     eval sh $HOME/.config/base16-shell/scripts/base16-harmonic16-dark.sh
 end
 
+export DISPLAY=(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0
+
 # Set default editor to vim
 set -x EDITOR nvim
 set -x VISUAL nvim
@@ -31,6 +33,9 @@ if not status --is-interactive
 end
 
 export PGDATABASE=postgres
+
+eval (ssh-agent -S fish -r) > /dev/null
+
 
 eval (python -m virtualfish compat_aliases auto_activation 2> /dev/null)
 
