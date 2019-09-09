@@ -166,7 +166,7 @@ if has('nvim')
     "Plug 'ncm2/ncm2-go'
     Plug 'ncm2/ncm2-markdown-subscope'
     Plug 'ncm2/ncm2-html-subscope'
-    Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+    "Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
     "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     "Plug 'zchee/deoplete-jedi'
     "Plug 'sebastianmarkow/deoplete-rust'
@@ -176,8 +176,11 @@ if has('nvim')
 
     "Jump to def
     Plug 'moll/vim-node'
-    Plug 'ternjs/tern_for_vim'
+    "Plug 'ternjs/tern_for_vim'
     "Plug 'flowtype/vim-flow'
+    "Plug 'ludovicchabant/vim-gutentags'
+
+    Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 endif
 
 "Plug syntax
@@ -209,7 +212,10 @@ Plug 'nginx/nginx', {'rtp': 'contrib/vim'}
 Plug 'luochen1990/rainbow'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 "Plug 'elzr/vim-json'
-Plug 'ludovicchabant/vim-gutentags'
+
+
+
+let g:ftplugin_sql_omni_key = '<C-J>'
 
 
 call plug#end()            " required
@@ -219,8 +225,8 @@ if exists('*glaive#Install')
     Glaive codefmt plugin[mappings]
 endif
 
-let g:python_host_prog = '/sbin/python2'
-let g:python3_host_prog = '/sbin/python3'
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
 let g:rainbow_active = 1
 
 let g:rainbow_conf = {
@@ -280,6 +286,9 @@ let g:airline#extensions#tmuxline#enabled = 0
 " Enable deoplete
 if has("nvim")
     let g:deoplete#enable_at_startup = 1
+    "call deoplete#custom#option('sources', {
+    "\ '_': ['ale'],
+    "\})
 endif
 
 let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
@@ -294,12 +303,19 @@ endif
 
 
 let g:ale_sign_warning = '⚠'
-let g:ale_linters = {'go': ['gometalinter', 'golangserver']}
+let g:ale_linters = {'go': ['gometalinter', 'golangserver'], 'c': ['ccls', 'clangd'], 'cpp': ['ccls', 'clangd']}
 let g:ale_go_gometalinter_options = '--fast --disable="gotypex"'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
+let g:ale_c_uncrustify_options = '-c /usr/local/etc/citustools/citus-style.cfg'
+let g:ale_c_clang_options = '-std=c11 -Wall -Wextra -Wno-ignored-attributes -Wno-unused-parameter'
+let g:ale_c_parse_makefile = 1
+let g:ale_c_clangd_executable = 'clangd-8'
+let g:ale_cpp_clangd_executable = 'clangd-8'
+
 " Fix JavaScript code with ESlint
 let g:ale_fixers = {
+            \'c': ['uncrustify'],
             \'javascript': ['prettier', 'eslint'],
             \'javascript.jsx': ['prettier', 'eslint'],
             \'json': ['prettier', 'eslint'],
@@ -312,7 +328,8 @@ let g:ale_fixers = {
             \'sh': ['shfmt'],
             \'python': ['black'],
             \}
-" let g:ale_fix_on_save = 1
+
+"let g:ale_fix_on_save = 1
 
 
 function! GoLintFull()
@@ -325,6 +342,21 @@ endfunction
 
 nnoremap <silent> gl :call GoLintFull()<cr>
 
+" We're going to define single-letter keymaps, so don't try to define them
+" in the terminal window.  The debugger CLI should continue accepting text commands.
+function! NvimGdbNoTKeymaps()
+  tnoremap <silent> <buffer> <esc> <c-\><c-n>
+endfunction
+
+"let g:nvimgdb_config_override = {
+"  \ 'key_next': 'n',
+"  \ 'key_step': 's',
+"  \ 'key_finish': 'f',
+"  \ 'key_continue': 'c',
+"  \ 'key_until': 'u',
+"  \ 'key_breakpoint': 'b',
+"  \ 'set_tkeymaps': "NvimGdbNoTKeymaps",
+"  \ }
 
 
 let g:jedi#completions_enabled = 0
@@ -335,6 +367,8 @@ let g:deoplete#sources#rust#racer_binary='/home/jelte/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path= system('rustc --print sysroot')[:-2] . '/lib/rustlib/src/rust/src'
 let g:LanguageClient_serverCommands = {
     \ 'go': ['~/go/bin/go-langserver', '-gocodecompletion', '-pprof', 'localhost:6061'],
+    \ 'cpp': ['clangd-8', '-background-index',],
+    \ 'c': ['clangd-8'],
     \ }
 let g:LanguageClient_diagnosticsDisplay = {}
 let g:LanguageClient_diagnosticsSignsMax = 0
@@ -433,7 +467,7 @@ syntax on
 augroup SetFileTypes
     au!
     au BufRead,BufNewFile **.htm,**.html,**.email set filetype=jinja
-    au BufRead,BufNewFile **.cvc set filetype=c
+    au BufRead,BufNewFile **.cvc,*.h set filetype=c
     au BufRead,BufNewFile **.doku set filetype=dokuwiki
     au BufRead,BufNewFile **.md set filetype=markdown.pandoc
     au BufNewFile,BufRead *.js.flow   set syntax=javascript.jsx
@@ -464,11 +498,15 @@ augroup FileTypeSpecificSettings
     au FileType go setlocal nolist
     au FileType go nnoremap gc :GoCoverageToggle<cr>
     au FileType go nnoremap <leader>i :GoImports<cr>
-    au FileType go nnoremap <silent> <leader>d :ALEGoToDefinition<cr>
+    au FileType go,c,cpp nnoremap <silent> :LanguageClientStart<cr>
+    au FileType go,c,cpp nnoremap <silent> <leader>d :ALEGoToDefinition<cr>
+    au FileType go,c,cpp nnoremap <silent> <leader>i :ALEHover<cr>
+    au FileType go,c,cpp nnoremap <silent> <leader>r :ALEFindReferences<cr>
 
     au FileType proto AutoFormatBuffer clang-format
 
     au FileType c,cpp nnoremap gd g<C-]>
+    "au filetype c let b:ale_fix_on_save = 1
 augroup end
 
 
