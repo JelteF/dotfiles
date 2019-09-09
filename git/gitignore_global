@@ -49,4 +49,6 @@ Thumbs.db
 .*.*.sw?
 .*.sw?
 
-tags
+/tags
+/.ccls-cache
+/.clangd

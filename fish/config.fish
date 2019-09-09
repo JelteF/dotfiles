@@ -24,11 +24,13 @@ set -x ANDROID_HOME $HOME/Android/Sdk/
 set -x NPM_CONFIG_PREFIX ~/.npm-global
 
 # Set user $PATH variables
-set fish_user_paths /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.fzf/bin ~/.npm-global/bin
+set fish_user_paths ~/.pgenv/bin ~/.pgenv/pgsql/bin /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin ~/.bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.fzf/bin ~/.npm-global/bin
 
 if not status --is-interactive
     exit
 end
+
+export PGDATABASE=postgres
 
 eval (python -m virtualfish compat_aliases auto_activation 2> /dev/null)
 
