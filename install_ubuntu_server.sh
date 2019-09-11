@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eux
+
 ubuntu/add_server_repositories.sh
 
 # Update sources

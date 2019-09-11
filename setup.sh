@@ -7,6 +7,7 @@ ORIGINAL_FISHCONF=$HOME/.config/fish/config.fish
 ORIGINAL_PROFILE=$HOME/.profile
 ORIGINAL_INPUTRC=$HOME/.inputrc
 ORIGINAL_GITCONFIG=$HOME/.gitconfig
+ORIGINAL_TIGRC=$HOME/.tigrc
 ORIGINAL_TMUXCONF=$HOME/.tmux.conf
 ORIGINAL_VIMRC=$HOME/.vimrc
 ORIGINAL_XCOMPOSE=$HOME/.XCompose
@@ -47,6 +48,7 @@ ln -sf $PWD/bash/bash_profile $ORIGINAL_BASH_PROFILE
 ln -sf $PWD/bash/profile $ORIGINAL_PROFILE
 ln -sf $PWD/bash/inputrc $ORIGINAL_INPUTRC
 ln -sf $PWD/git/gitconfig $ORIGINAL_GITCONFIG
+ln -sf $PWD/git/tigrc $ORIGINAL_TIGRC
 ln -sf $PWD/tmux/tmux.conf $ORIGINAL_TMUXCONF
 ln -sf $PWD/vim/vimrc $ORIGINAL_VIMRC
 ln -sf $PWD/vim/vimrc $HOME/.vim/init.vim
