@@ -84,6 +84,11 @@ function rg
     command rg --smart-case $argv
 end
 
+function vgdb
+    vim -c "GdbStart gdb -p $argv"
+end
+
+tabs -4
 
 abbr -a pvc peerflix --vlc \'
 
@@ -118,6 +123,7 @@ abbr -a gps git push
 abbr -a gpsf git push --force
 abbr -a ggpr git pull-request
 abbr -a gnpr git pull-request
+abbr -a pgcore vim -c \'GdbStart gdb \'\(which postgres\)\' src/test/regress/tmp_check/master/data/core\'
 
 function _gen_fzf_default_opts
   set base03 "234"
