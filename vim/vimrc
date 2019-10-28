@@ -160,7 +160,7 @@ if has('nvim')
     Plug 'ncm2/ncm2-path'
     "Plug 'ncm2/ncm2-github'
     Plug 'ncm2/ncm2-cssomni'
-    Plug 'ncm2/ncm2-racer'
+    "Plug 'ncm2/ncm2-racer'
     Plug 'ncm2/ncm2-jedi'
     Plug 'ncm2/ncm2-vim'
     "Plug 'ncm2/ncm2-go'
@@ -330,9 +330,13 @@ let g:ale_fixers = {
             \'markdown': ['prettier', 'eslint'],
             \'sh': ['shfmt'],
             \'python': ['black'],
+            \'rust': ['rustfmt'],
             \}
 
 "let g:ale_fix_on_save = 1
+let g:ale_rust_rustfmt_executable = 'rustup'
+let g:ale_rust_rustfmt_options = 'run nightly rustfmt'
+
 
 
 function! GoLintFull()
@@ -372,11 +376,12 @@ let g:LanguageClient_serverCommands = {
     \ 'go': ['~/go/bin/go-langserver', '-gocodecompletion', '-pprof', 'localhost:6061'],
     \ 'cpp': ['clangd-8', '-background-index',],
     \ 'c': ['clangd-8'],
+    \ 'rust': ['rls'],
     \ }
 let g:LanguageClient_diagnosticsDisplay = {}
 let g:LanguageClient_diagnosticsSignsMax = 0
 
-let g:rustfmt_autosave = 1
+"let g:rustfmt_autosave = 1
 " let g:rustfmt_fail_silently = 1
 
 let g:flow#enable = 0
@@ -428,7 +433,6 @@ try
 catch /^Vim\%((\a\+)\)\=:E185/
     " deal with it
 endtry
-highlight SignColumn ctermbg=8
 
 
 " Shows what you're typing as a command
@@ -467,6 +471,9 @@ filetype plugin indent on
 syntax on
 :au Syntax * syntax sync fromstart
 
+highlight SpellBad cterm=undercurl ctermbg=0 gui=undercurl guisp=#bf8b56
+highlight SpellCap cterm=undercurl ctermbg=0 gui=undercurl guisp=#8b56bf
+highlight SignColumn ctermbg=8
 augroup SetFileTypes
     au!
     au BufRead,BufNewFile **.htm,**.html,**.email set filetype=jinja
@@ -499,10 +506,10 @@ augroup FileTypeSpecificSettings
     au FileType go setlocal nolist
     au FileType go nnoremap gc :GoCoverageToggle<cr>
     au FileType go nnoremap <leader>i :GoImports<cr>
-    au FileType go,c,cpp nnoremap <silent> :LanguageClientStart<cr>
-    au FileType go,c,cpp nnoremap <silent> <leader>d :ALEGoToDefinition<cr>
-    au FileType go,c,cpp nnoremap <silent> <leader>i :ALEHover<cr>
-    au FileType go,c,cpp nnoremap <silent> <leader>r :ALEFindReferences<cr>
+    "au FileType go,c,cpp,rust nnoremap <silent> <leader>d :ALEGoToDefinition<cr>
+    au FileType go,c,cpp,rust nnoremap <silent> <leader>i :ALEHover<cr>
+    au FileType go,c,cpp,rust nnoremap <silent> <leader>r :ALEFindReferences<cr>
+    au FileType go,c,cpp,rust LanguageClientStart
 
     au FileType proto AutoFormatBuffer clang-format
 
@@ -739,3 +746,5 @@ function! SuperTab()
 endfunction
 inoremap <Tab> <C-R>=SuperTab()<CR>
 nnoremap <leader>f :ALEFix<cr>
+
+let g:vim_markdown_fenced_languages = ['edition2018=rust', 'viml=vim', 'c++=cpp', 'bash=sh', 'ini=dosini']
