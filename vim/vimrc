@@ -180,7 +180,7 @@ if has('nvim')
     "Plug 'flowtype/vim-flow'
     "Plug 'ludovicchabant/vim-gutentags'
 
-    Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+    "Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 endif
 
 "Plug syntax
@@ -217,7 +217,7 @@ Plug 'onlined/pgspec.vim'
 
 
 let g:ftplugin_sql_omni_key = '<C-J>'
-
+let g:gitgutter_map_keys = 0
 
 call plug#end()            " required
 
@@ -506,14 +506,13 @@ augroup FileTypeSpecificSettings
     au FileType go setlocal nolist
     au FileType go nnoremap gc :GoCoverageToggle<cr>
     au FileType go nnoremap <leader>i :GoImports<cr>
-    "au FileType go,c,cpp,rust nnoremap <silent> <leader>d :ALEGoToDefinition<cr>
+    au FileType go,c,cpp,rust nnoremap <silent> gd :ALEGoToDefinition<cr>
     au FileType go,c,cpp,rust nnoremap <silent> <leader>i :ALEHover<cr>
     au FileType go,c,cpp,rust nnoremap <silent> <leader>r :ALEFindReferences<cr>
     au FileType go,c,cpp,rust LanguageClientStart
 
     au FileType proto AutoFormatBuffer clang-format
 
-    au FileType c,cpp nnoremap gd g<C-]>
     "au filetype c let b:ale_fix_on_save = 1
 augroup end
 
@@ -723,6 +722,24 @@ nnoremap <right> <C-w>l
 " Fix mapping of <C-j> so it doesn't get overwritten
 noremap <SID>I_won’t_ever_type_thiseuehauntauhnaeha <Plug>IMAP_JumpForward
 
+tnoremap <Esc> <C-\><C-n>
+
+tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
+inoremap <A-h> <C-\><C-N><C-w>h
+inoremap <A-j> <C-\><C-N><C-w>j
+inoremap <A-k> <C-\><C-N><C-w>k
+inoremap <A-l> <C-\><C-N><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+
 " Workaround for https://github.com/neovim/neovim/issues/2048
 if has('nvim')
     nmap <BS> <C-W>h
@@ -748,3 +765,57 @@ inoremap <Tab> <C-R>=SuperTab()<CR>
 nnoremap <leader>f :ALEFix<cr>
 
 let g:vim_markdown_fenced_languages = ['edition2018=rust', 'viml=vim', 'c++=cpp', 'bash=sh', 'ini=dosini']
+
+let g:termdebug_wide = 163
+packadd termdebug
+highlight debugPC ctermbg=237
+highlight debugBreakpoint ctermbg=124
+nnoremap <leader>e :Evaluate<CR>
+vnoremap <leader>e :Evaluate<CR>gv
+nnoremap <leader>n :Over<CR>
+nnoremap <leader>c :Continue<CR>
+nnoremap <leader>s :Step<CR>
+nnoremap <leader>b :Break<CR>
+nnoremap <leader>m :Clear<CR>
+nnoremap <leader>j :call TermDebugSendCommand('info locals')<CR>
+nnoremap <leader>g :call TermDebugSendCommand('up 1')<CR>
+nnoremap <leader>h :call TermDebugSendCommand('down 1')<CR>
+nnoremap <leader>u :call TermDebugSendCommand('up 1')<CR>
+nnoremap <leader>d :call TermDebugSendCommand('down 1')<CR>
+nnoremap <leader>x :call TermDebugSendCommand('up 0')<CR>
+nnoremap <leader>r :call TermDebugSendCommand('b elog.c:251')<CR>
+nnoremap <space> :Over<CR>
+
+command! -nargs=1 Pgdb call s:pgdb('coordinator', <f-args>)
+command! -nargs=1 Pgdbw call s:pgdb('worker0', <f-args>)
+command! -nargs=0 Pgcore call s:pgcore('master')
+command! -nargs=0 Pgcorew call s:pgcore('worker.57637')
+fun! s:pgdb(logfile, pid)
+    let l:oldWin = win_getid()
+    Termdebug postgres
+    call TermDebugSendCommand('attach '. a:pid)
+    Continue
+    Program
+    execute 'terminal tail -n 0 -F ~/work/tools/citus_dev/' . a:logfile . '_logfile'
+    normal! G
+    Gdb
+    normal! G
+    wincmd r
+    wincmd =
+    call win_gotoid(l:oldWin)
+endfun
+
+fun! s:pgcore(node)
+    let l:oldWin = win_getid()
+    Termdebug postgres
+    call TermDebugSendCommand('core src/test/regress/tmp_check/' . a:node . '/data/core')
+    Program
+    q
+    Gdb
+    normal! G
+    wincmd r
+    wincmd =
+    call win_gotoid(l:oldWin)
+    call TermDebugSendCommand('frame 3')
+endfun
+autocmd FileType help setlocal nospell
