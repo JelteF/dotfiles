@@ -32,6 +32,8 @@ if not status --is-interactive
     exit
 end
 
+# export PGUSER=postgres
+export PGHOST=localhost
 export PGDATABASE=postgres
 
 eval (ssh-agent -S fish -r) > /dev/null
@@ -105,6 +107,7 @@ abbr -a gco git commit
 abbr -a gcm git commit -m
 abbr -a gca git commit --amend
 abbr -a gcan git commit --amend --no-edit
+abbr -a gcf git commit --fixup HEAD^
 abbr -a gd git diff
 abbr -a gwd git wdiff
 abbr -a gdc git diff --cached
@@ -123,7 +126,7 @@ abbr -a gps git push
 abbr -a gpsf git push --force
 abbr -a ggpr git pull-request
 abbr -a gnpr git pull-request
-abbr -a pgcore vim -c \'GdbStart gdb \'\(which postgres\)\' src/test/regress/tmp_check/master/data/core\'
+abbr -a diffs vim src/test/regress/regression.diffs
 
 function _gen_fzf_default_opts
   set base03 "234"
