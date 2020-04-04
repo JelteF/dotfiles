@@ -293,7 +293,7 @@ endif
 
 
 let g:ale_sign_warning = '⚠'
-let g:ale_linters = {'go': ['gometalinter', 'golangserver'], 'c': ['ccls'], 'cpp': ['ccls'], 'python': ['pyls', 'flake8', 'mypy']}
+let g:ale_linters = {'go': ['gometalinter', 'golangserver'], 'c': ['ccls'], 'cpp': ['ccls'], 'rust': ['rls'], 'python': ['pyls', 'flake8', 'mypy']}
 let g:ale_go_gometalinter_options = '--fast --disable="gotypex"'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
@@ -302,6 +302,15 @@ let g:ale_c_clang_options = '-std=c11 -Wall -Wextra -Wno-ignored-attributes -Wno
 let g:ale_c_parse_makefile = 1
 let g:ale_c_clangd_executable = 'clangd-8'
 let g:ale_cpp_clangd_executable = 'clangd-8'
+let g:ale_rust_rls_executable = 'rust-analyzer'
+let g:ale_rust_rls_toolchain = ''
+let g:ale_rust_rls_config = {
+    \ 'rust': {
+        \ 'all_targets': 1,
+        \ 'build_on_save': 1,
+        \ 'clippy_preference': 'on'
+    \ }
+    \ }
 
 " Fix JavaScript code with ESlint
 let g:ale_fixers = {
@@ -323,6 +332,8 @@ let g:ale_fixers = {
 "let g:ale_fix_on_save = 1
 let g:ale_rust_rustfmt_executable = 'rustup'
 let g:ale_rust_rustfmt_options = 'run nightly rustfmt'
+"let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
+"let g:ale_rust_cargo_check_all_targets = 1
 
 
 
@@ -480,6 +491,7 @@ augroup FileTypeSpecificSettings
     " Vim is very slow when cursorline is set in latex
     au!
     autocmd FileType tex setlocal nocursorline
+    autocmd FileType help setlocal nospell
 
     " Smaller indentation for xml type files
     au FileType scss,html,xml,xslt,xsd,dtd,proto,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -750,7 +762,7 @@ endfunction
 inoremap <Tab> <C-R>=SuperTab()<CR>
 nnoremap <leader>f :ALEFix<cr>
 
-let g:vim_markdown_fenced_languages = ['edition2018=rust', 'viml=vim', 'c++=cpp', 'bash=sh', 'ini=dosini']
+let g:vim_markdown_fenced_languages = ['edition2018=rust', 'compile_fail=rust', 'viml=vim', 'c++=cpp', 'bash=sh', 'ini=dosini']
 
 let g:termdebug_wide = 163
 packadd termdebug
@@ -804,4 +816,3 @@ fun! s:pgcore(node)
     call win_gotoid(l:oldWin)
     call TermDebugSendCommand('frame 3')
 endfun
-autocmd FileType help setlocal nospell
