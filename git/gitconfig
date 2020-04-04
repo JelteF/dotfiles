@@ -35,3 +35,5 @@
     npr = pull-request
 [http]
 	cookiefile = /home/jelte/.gitcookies
+[rebase]
+	autosquash = true
