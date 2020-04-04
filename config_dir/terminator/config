@@ -1,0 +1,113 @@
+[global_config]
+  focus = mouse
+  title_font = DejaVu Sans 9
+  title_hide_sizetext = True
+  title_use_system_font = False
+[keybindings]
+  cycle_next = <Primary><Shift>bar
+  cycle_prev = <Primary><Shift>asciicircum
+  layout_launcher = <Alt>F1
+  next_tab = <Primary>Tab
+  prev_tab = <Primary><Shift>Tab
+  reset = None
+  split_horiz = <Primary>at
+  split_vert = <Primary>backslash
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+  [[tripple]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 2560:23
+      size = 2560, 1377
+      title = ~/w/enterprise
+      type = Window
+    [[[child1]]]
+      active_page = 2
+      labels = None, None, None
+      last_active_term = c22c2cf3-0701-4d7f-8630-89c742bf4b29, 0b310936-8984-40ec-8e67-b790f8d25838, cf6eee36-fc9b-4885-9ce2-c39f7607d02d
+      order = 0
+      parent = child0
+      type = Notebook
+    [[[child4]]]
+      order = 2
+      parent = child1
+      position = 667
+      ratio = 0.500375093773
+      type = VPaned
+    [[[child6]]]
+      order = 1
+      parent = child4
+      position = 861
+      ratio = 0.337250293772
+      type = HPaned
+    [[[child8]]]
+      order = 1
+      parent = child6
+      position = 841
+      ratio = 0.49733885275
+      type = HPaned
+    [[[terminal10]]]
+      order = 1
+      parent = child8
+      profile = default
+      type = Terminal
+      uuid = 010c28a6-3a5e-4b10-a35d-335969c87d3b
+    [[[terminal2]]]
+      order = 0
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = c22c2cf3-0701-4d7f-8630-89c742bf4b29
+    [[[terminal3]]]
+      order = 1
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = 0b310936-8984-40ec-8e67-b790f8d25838
+    [[[terminal5]]]
+      order = 0
+      parent = child4
+      profile = default
+      type = Terminal
+      uuid = 5a257f49-72b0-4a82-a7cc-147737795a74
+    [[[terminal7]]]
+      order = 0
+      parent = child6
+      profile = default
+      type = Terminal
+      uuid = cf6eee36-fc9b-4885-9ce2-c39f7607d02d
+    [[[terminal9]]]
+      order = 0
+      parent = child8
+      profile = default
+      type = Terminal
+      uuid = e9502b89-8051-40e3-aede-8f5ab5d2d569
+[plugins]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    font = UbuntuMono Nerd Font 9
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    use_system_font = False
+  [[presentation]]
+    background_color = "#ffffff"
+    cursor_color = "#aaaaaa"
+    font = UbuntuMono Nerd Font 35
+    foreground_color = "#000000"
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    scroll_on_keystroke = False
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    use_system_font = False
