@@ -360,6 +360,7 @@ let g:LanguageClient_serverCommands = {
     \ 'cpp': ['clangd-8', '-background-index',],
     \ 'c': ['clangd-8'],
     \ 'rust': ['rls'],
+    \ 'python': ['pyls']
     \ }
 let g:LanguageClient_diagnosticsDisplay = {}
 let g:LanguageClient_diagnosticsSignsMax = 0
