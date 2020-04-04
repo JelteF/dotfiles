@@ -127,6 +127,7 @@ abbr -a gpsf git push --force
 abbr -a ggpr git pull-request
 abbr -a gnpr git pull-request
 abbr -a diffs vim src/test/regress/regression.diffs
+abbr -a dockerb docker build --network=host
 
 function _gen_fzf_default_opts
   set base03 "234"
