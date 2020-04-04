@@ -167,11 +167,6 @@ if has('nvim')
     Plug 'ncm2/ncm2-markdown-subscope'
     Plug 'ncm2/ncm2-html-subscope'
     "Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
-    "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    "Plug 'zchee/deoplete-jedi'
-    "Plug 'sebastianmarkow/deoplete-rust'
-    "Plug 'fishbullet/deoplete-ruby'
-    "Plug 'zchee/deoplete-go', { 'do': 'make'}
     "Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
     " Use ALE
 
@@ -287,14 +282,6 @@ let g:python_highlight_all = 1
 "No automatic setting of tmuxline stuff
 let g:airline#extensions#tmuxline#enabled = 0
 
-" Enable deoplete
-if has("nvim")
-    let g:deoplete#enable_at_startup = 1
-    "call deoplete#custom#option('sources', {
-    "\ '_': ['ale'],
-    "\})
-endif
-
 let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
 let g:neomake_jsx_enabled_makers = ['eslint', 'flow']
 let g:neomake_java_enabled_makers = []
@@ -307,7 +294,7 @@ endif
 
 
 let g:ale_sign_warning = '⚠'
-let g:ale_linters = {'go': ['gometalinter', 'golangserver'], 'c': ['ccls'], 'cpp': ['ccls']}
+let g:ale_linters = {'go': ['gometalinter', 'golangserver'], 'c': ['ccls'], 'cpp': ['ccls'], 'python': ['pyls', 'flake8', 'mypy']}
 let g:ale_go_gometalinter_options = '--fast --disable="gotypex"'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
@@ -367,12 +354,8 @@ endfunction
 "  \ }
 
 
-let g:jedi#completions_enabled = 0
 autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
 
-let g:deoplete#sources#jedi#show_docstring = 0
-let g:deoplete#sources#rust#racer_binary='/home/jelte/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path= system('rustc --print sysroot')[:-2] . '/lib/rustlib/src/rust/src'
 let g:LanguageClient_serverCommands = {
     \ 'go': ['~/go/bin/go-langserver', '-gocodecompletion', '-pprof', 'localhost:6061'],
     \ 'cpp': ['clangd-8', '-background-index',],
@@ -507,10 +490,12 @@ augroup FileTypeSpecificSettings
     au FileType go setlocal nolist
     au FileType go nnoremap gc :GoCoverageToggle<cr>
     au FileType go nnoremap <leader>i :GoImports<cr>
-    au FileType go,c,cpp,rust nnoremap <silent> gd :ALEGoToDefinition<cr>
-    au FileType go,c,cpp,rust nnoremap <silent> <leader>i :ALEHover<cr>
-    au FileType go,c,cpp,rust nnoremap <silent> <leader>r :ALEFindReferences<cr>
-    au FileType go,c,cpp,rust LanguageClientStart
+    au FileType go,c,cpp,rust,python nnoremap <silent> gd :ALEGoToDefinition<cr>
+    au FileType go,c,cpp,rust,python nnoremap <silent> <leader>i :ALEHover<cr>
+    au FileType go,c,cpp,rust,python nnoremap <silent> <leader>r :ALEFindReferences<cr>
+    if has("nvim")
+        au FileType go,c,cpp,rust,python LanguageClientStart
+    endif
 
     au FileType proto AutoFormatBuffer clang-format
 
