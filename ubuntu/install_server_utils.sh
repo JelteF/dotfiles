@@ -6,7 +6,7 @@ echo 'Installing important stuff'
 sudo apt-get --yes --force-yes install vim git python-pip python3-pip\
     htop python-dev python3-dev tig curl fish silversearcher-ag build-essential\
     tmux whois wget neovim cmake clang-tools-8 zlib1g-dev libncurses-dev gdb\
-    shellcheck
+    shellcheck openssl libssl-dev pkg-config
 
 curl_deb() {
     curl --location --output curlpackage.deb "$1"
