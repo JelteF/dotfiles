@@ -121,9 +121,8 @@ abbr -a gra git rebase --abort
 abbr -a gf git fetch
 abbr -a gp git pull
 abbr -a gpr git pull --rebase
-abbr -a gpf git pull --force
 abbr -a gps git push
-abbr -a gpsf git push --force
+abbr -a gpf git push --force-with-lease
 abbr -a ggpr git pull-request
 abbr -a gnpr git pull-request
 abbr -a diffs vim src/test/regress/regression.diffs

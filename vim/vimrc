@@ -294,7 +294,7 @@ endif
 
 
 let g:ale_sign_warning = '⚠'
-let g:ale_linters = {'go': ['gometalinter', 'golangserver'], 'c': ['ccls'], 'cpp': ['ccls'], 'python': ['pyls', 'flake8', 'mypy']}
+let g:ale_linters = {'go': ['gometalinter', 'golangserver'], 'c': ['ccls'], 'cpp': ['ccls'], 'python': ['pyls', 'flake8', 'mypy'], 'ruby': ['solargraph', 'standardrb', 'ruby']}
 let g:ale_go_gometalinter_options = '--fast --disable="gotypex"'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
@@ -307,6 +307,7 @@ let g:ale_cpp_clangd_executable = 'clangd-8'
 " Fix JavaScript code with ESlint
 let g:ale_fixers = {
             \'c': ['uncrustify'],
+            \'go': ['gofmt'],
             \'javascript': ['prettier', 'eslint'],
             \'javascript.jsx': ['prettier', 'eslint'],
             \'json': ['prettier', 'eslint'],
@@ -318,6 +319,7 @@ let g:ale_fixers = {
             \'markdown': ['prettier', 'eslint'],
             \'sh': ['shfmt'],
             \'python': ['black'],
+            \'ruby': ['standardrb'],
             \'rust': ['rustfmt'],
             \}
 
@@ -361,6 +363,7 @@ let g:LanguageClient_serverCommands = {
     \ 'cpp': ['clangd-8', '-background-index',],
     \ 'c': ['clangd-8'],
     \ 'rust': ['rls'],
+    \ 'ruby': [ 'solargraph',  'stdio' ]
     \ }
 let g:LanguageClient_diagnosticsDisplay = {}
 let g:LanguageClient_diagnosticsSignsMax = 0
@@ -490,11 +493,11 @@ augroup FileTypeSpecificSettings
     au FileType go setlocal nolist
     au FileType go nnoremap gc :GoCoverageToggle<cr>
     au FileType go nnoremap <leader>i :GoImports<cr>
-    au FileType go,c,cpp,rust,python nnoremap <silent> gd :ALEGoToDefinition<cr>
-    au FileType go,c,cpp,rust,python nnoremap <silent> <leader>i :ALEHover<cr>
-    au FileType go,c,cpp,rust,python nnoremap <silent> <leader>r :ALEFindReferences<cr>
+    au FileType go,c,cpp,rust,python,ruby nnoremap <silent> gd :ALEGoToDefinition<cr>
+    au FileType go,c,cpp,rust,python,ruby nnoremap <silent> <leader>i :ALEHover<cr>
+    au FileType go,c,cpp,rust,python,ruby nnoremap <silent> <leader>r :ALEFindReferences<cr>
     if has("nvim")
-        au FileType go,c,cpp,rust,python LanguageClientStart
+        au FileType go,c,cpp,rust,python,ruby LanguageClientStart
     endif
 
     au FileType proto AutoFormatBuffer clang-format
