@@ -168,6 +168,7 @@ if has('nvim')
     Plug 'ncm2/ncm2-html-subscope'
     "Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
     "Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+    " Use ALE
 
     "Jump to def
     Plug 'moll/vim-node'
@@ -293,7 +294,14 @@ endif
 
 
 let g:ale_sign_warning = '⚠'
-let g:ale_linters = {'go': ['gometalinter', 'golangserver'], 'c': ['ccls'], 'cpp': ['ccls'], 'rust': ['rls'], 'python': ['pyls', 'flake8', 'mypy']}
+let g:ale_linters = {
+    \ 'go': ['gometalinter', 'golangserver'],
+    \ 'c': ['ccls'],
+    \ 'cpp': ['ccls'],
+    \ 'python': ['pyls', 'flake8', 'mypy'],
+    \ 'ruby': ['solargraph', 'standardrb', 'ruby'],
+    \ 'rust': ['rls']
+    \}
 let g:ale_go_gometalinter_options = '--fast --disable="gotypex"'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
@@ -315,6 +323,7 @@ let g:ale_rust_rls_config = {
 " Fix JavaScript code with ESlint
 let g:ale_fixers = {
             \'c': ['uncrustify'],
+            \'go': ['gofmt'],
             \'javascript': ['prettier', 'eslint'],
             \'javascript.jsx': ['prettier', 'eslint'],
             \'json': ['prettier', 'eslint'],
@@ -326,6 +335,7 @@ let g:ale_fixers = {
             \'markdown': ['prettier', 'eslint'],
             \'sh': ['shfmt'],
             \'python': ['black'],
+            \'ruby': ['standardrb'],
             \'rust': ['rustfmt'],
             \}
 
@@ -370,8 +380,9 @@ let g:LanguageClient_serverCommands = {
     \ 'go': ['~/go/bin/go-langserver', '-gocodecompletion', '-pprof', 'localhost:6061'],
     \ 'cpp': ['clangd-8', '-background-index',],
     \ 'c': ['clangd-8'],
+    \ 'python': ['pyls'],
     \ 'rust': ['rls'],
-    \ 'python': ['pyls']
+    \ 'ruby': [ 'solargraph',  'stdio' ]
     \ }
 let g:LanguageClient_diagnosticsDisplay = {}
 let g:LanguageClient_diagnosticsSignsMax = 0
@@ -502,11 +513,11 @@ augroup FileTypeSpecificSettings
     au FileType go setlocal nolist
     au FileType go nnoremap gc :GoCoverageToggle<cr>
     au FileType go nnoremap <leader>i :GoImports<cr>
-    au FileType go,c,cpp,rust,python nnoremap <silent> gd :ALEGoToDefinition<cr>
-    au FileType go,c,cpp,rust,python nnoremap <silent> <leader>i :ALEHover<cr>
-    au FileType go,c,cpp,rust,python nnoremap <silent> <leader>r :ALEFindReferences<cr>
+    au FileType go,c,cpp,rust,python,ruby nnoremap <silent> gd :ALEGoToDefinition<cr>
+    au FileType go,c,cpp,rust,python,ruby nnoremap <silent> <leader>i :ALEHover<cr>
+    au FileType go,c,cpp,rust,python,ruby nnoremap <silent> <leader>r :ALEFindReferences<cr>
     if has("nvim")
-        au FileType go,c,cpp,rust,python LanguageClientStart
+        au FileType go,c,cpp,rust,python,ruby LanguageClientStart
     endif
 
     au FileType proto AutoFormatBuffer clang-format

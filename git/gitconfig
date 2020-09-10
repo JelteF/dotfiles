@@ -14,8 +14,7 @@
 [core]
 	excludesfile = ~/dotfiles/git/gitignore_global
 	editor = vim
-	commentChar = %
-	pager = less -x1,5
+    pager = delta
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [push]
@@ -24,8 +23,22 @@
 [help]
     autocorrect = 1
 
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = decorations
+    whitespace-error-style = 22 reverse
+	side-by-side = false
+    syntax-theme = base16
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+
 [status]
-    showUntrackedFiles = all
+    showUntrackedFiles = normal
 
 [alias]
     track = "!f(){ branch=$(git rev-parse --abbrev-ref HEAD); cmd=\"git branch $branch --set-upstream-to=${1:-origin}/${2:-$branch}\"; echo $cmd; $cmd; }; f"
@@ -35,5 +48,24 @@
     npr = pull-request
 [http]
 	cookiefile = /home/jelte/.gitcookies
+[color "diff-highlight"]
+	oldNormal = red
+	oldHighlight = red 52
+	newNormal = green
+	newHighlight = green 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow
+	old = red
+	new = green
+	whitespace = red reverse
 [rebase]
 	autosquash = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[rerere]
+	enabled = true
