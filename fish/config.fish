@@ -24,7 +24,7 @@ set -x ANDROID_HOME $HOME/Android/Sdk/
 set -x NPM_CONFIG_PREFIX ~/.npm-global
 
 # Set user $PATH variables
-set fish_user_paths ~/.pgenv/bin ~/.pgenv/pgsql/bin /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin ~/.bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.fzf/bin ~/.npm-global/bin
+set fish_user_paths ~/.rbenv/plugins/ruby-build/bin ~/.rbenv/bin ~/.rbenv/shims ~/.pgenv/bin ~/.pgenv/pgsql/bin /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin ~/.bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.fzf/bin ~/.npm-global/bin
 
 if not status --is-interactive
     exit
@@ -36,8 +36,10 @@ export PGDATABASE=postgres
 
 eval (python -m virtualfish compat_aliases auto_activation 2> /dev/null)
 
+rbenv rehash 2>/dev/null
+
 set -g default_user jelte
-# set -g theme_display_ruby no
+set -g theme_display_ruby yes
 set -g theme_nerd_fonts yes
 set -g theme_color_scheme solarized-dark
 

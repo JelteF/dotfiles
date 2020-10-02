@@ -487,6 +487,7 @@ augroup SetFileTypes
     au BufRead,BufNewFile **.doku set filetype=dokuwiki
     au BufNewFile,BufRead *.js.flow   set syntax=javascript.jsx
     au BufNewFile,BufRead .babelrc,.prettierrc   set filetype=json
+    au BufNewFile,BufRead .env.*   set filetype=sh
 augroup end
 
 
