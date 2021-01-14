@@ -75,4 +75,6 @@ ln -sf "$PWD/config_dir/"* ~/.config/
 # Install fisherman
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 
-vim +PlugInstall +qall
+if [ "$1" != 'noplug' ]; then
+    vim +PlugInstall +qall
+fi
