@@ -108,6 +108,12 @@ augroup END
 
 filetype off
 
+" disable parallel installs when ruby is available on regular vim. It's likely
+" completely broken.
+if !has('nvim') && has('ruby')
+    let g:plug_threads = 1
+endif
+
 call plug#begin('~/.vim/plugged')
 
 "Plug Plugins
