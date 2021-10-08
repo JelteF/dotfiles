@@ -26,9 +26,10 @@ set -x GOBIN $GOPATH/bin
 set -x ANDROID_HOME $HOME/Android/Sdk/
 
 set -x NPM_CONFIG_PREFIX ~/.npm-global
+set -x PYENV_ROOT $HOME/.pyenv
 
 # Set user $PATH variables
-set fish_user_paths ~/.rbenv/plugins/ruby-build/bin ~/.rbenv/bin ~/.rbenv/shims ~/.pgenv/bin ~/.pgenv/pgsql/bin /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin ~/.bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.fzf/bin ~/.npm-global/bin /usr/local/go/bin ~/.dotnet/tools
+set fish_user_paths ~/.rbenv/plugins/ruby-build/bin ~/.rbenv/bin ~/.rbenv/shims ~/.pgenv/bin ~/.pgenv/pgsql/bin /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin ~/.bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.fzf/bin ~/.npm-global/bin /usr/local/go/bin ~/.dotnet/tools ~/.pyenv/bin
 
 if not status --is-interactive
     exit
