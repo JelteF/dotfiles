@@ -1,8 +1,8 @@
 #!/bin/sh
-for c in tmux bc; do
+for c in tmux; do
     command -v $c >/dev/null 2>&1 || { sudo apt-get install -y $c; };
 done
 command -v ag >/dev/null 2>&1 || { sudo apt-get install -y silversearcher-ag; };
 
-tmux new 'git clone https://github.com/JelteF/dotfiles && cd dotfiles && ./setup.sh'
+tmux new 'git clone https://github.com/JelteF/dotfiles && cd dotfiles && ./setup.sh noplug'
 tmux new -A -s main

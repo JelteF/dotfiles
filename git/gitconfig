@@ -13,7 +13,7 @@
 	branch = auto
 [core]
 	excludesfile = ~/dotfiles/git/gitignore_global
-	editor = vim
+	editor = nvim
     pager = delta
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -46,6 +46,9 @@
     get = "!git stash && git pull --rebase && git stash pop"
     pr = pull-request
     npr = pull-request
+    reset-origin = "!git reset origin/$(git rev-parse --abbrev-ref HEAD) --hard"
+	tags = tag --format='%(creatordate:short)%09%(objectname:short)%09%(refname:strip=2)%09%(contents:subject)' --sort=creatordate
+    checkout-default = "!git checkout $(git rev-parse --abbrev-ref origin/HEAD | sed 's@^origin/@@')"
 [http]
 	cookiefile = /home/jelte/.gitcookies
 [color "diff-highlight"]

@@ -24,4 +24,4 @@ fi
 export GTK_IM_MODULE=xim
 export QT_IM_MODULE=xim
 
-export PATH="$HOME/.cargo/bin:$PATH"
+source "$HOME/.cargo/env"

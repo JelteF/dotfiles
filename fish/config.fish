@@ -7,7 +7,8 @@ if status --is-interactive
     eval sh $HOME/.config/base16-shell/scripts/base16-harmonic16-dark.sh
 end
 
-export DISPLAY=(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0
+#export DISPLAY=(ip route list default | awk '{print $3}'):0
+#export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
 # Set default editor to vim
 set -x EDITOR nvim
@@ -21,12 +22,13 @@ set VIRTUAL_ENV_DISABLE_PROMPT yes
 set VIRTUALGO_DISABLE_PROMPT yes
 
 set -x GOPATH $HOME/go
+set -x GOBIN $GOPATH/bin
 set -x ANDROID_HOME $HOME/Android/Sdk/
 
 set -x NPM_CONFIG_PREFIX ~/.npm-global
 
 # Set user $PATH variables
-set fish_user_paths ~/.rbenv/plugins/ruby-build/bin ~/.rbenv/bin ~/.rbenv/shims ~/.pgenv/bin ~/.pgenv/pgsql/bin /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin ~/.bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.fzf/bin ~/.npm-global/bin
+set fish_user_paths ~/.rbenv/plugins/ruby-build/bin ~/.rbenv/bin ~/.rbenv/shims ~/.pgenv/bin ~/.pgenv/pgsql/bin /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin ~/.bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.fzf/bin ~/.npm-global/bin /usr/local/go/bin ~/.dotnet/tools
 
 if not status --is-interactive
     exit
@@ -101,7 +103,8 @@ abbr -a gch git checkout
 abbr -a gc- git checkout -
 abbr -a gc-- git checkout --
 abbr -a gc--. git checkout -- .
-abbr -a gcma git checkout master
+abbr -a gcma git checkout-default
+abbr -a gcd git checkout-default
 abbr -a gcb git checkout -b
 abbr -a ga git add
 abbr -a gap git add -p

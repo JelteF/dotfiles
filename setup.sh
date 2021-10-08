@@ -73,6 +73,6 @@ done
 ln -sf "$PWD/config_dir/"* ~/.config/
 
 # Install fisherman
-curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
 vim +PlugInstall +qall

@@ -67,3 +67,6 @@ command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell bash)"
 export NPM_CONFIG_PREFIX=$HOME/.npm-global
 
 eval $(ssh-agent -s -r)
+source "$HOME/.cargo/env"
+
+export PROMPT_COMMAND='printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")"'

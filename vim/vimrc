@@ -1,32 +1,11 @@
 silent! set encoding=utf-8
 scriptencoding utf-8
 " -------------- Auto Commands -----------
-
-" Automatically reload vimrc when it's saved
-augroup ReloadVimrc
-    au!
-    au BufWritePost .vimrc so ~/.vimrc
-    au BufWritePost ~/dotfiles/vim/vimrc so ~/.vimrc
-augroup end
-
-if &shell =~# 'fish$'
-    set shell=sh
-endif
-
+"
 " 80-char line coloring
 if exists('+colorcolumn')
     set colorcolumn=80
 endif
-
-augroup NoTrailingWhiteSpace
-    au!
-    " Remove all trailing whitespace
-    " autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
-augroup end
-
-" cd into the dir that the file is in
-"autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-"set autochdir
 
 " If textfile, wrap at 80
 augroup SetWrapperForTextFiles
@@ -104,127 +83,96 @@ augroup checktime
     endif
 augroup END
 
-" -------------- Plugins ---------
-
-filetype off
-
 call plug#begin('~/.vim/plugged')
 
-"Plug Plugins
-Plug 'scrooloose/nerdtree'
 "Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
-"Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
-"Plug 'mileszs/ack.vim'
-"Plug 'rking/ag.vim'
+Plug 'preservim/nerdcommenter'
 Plug 'sjl/gundo.vim'
-Plug 'danro/rename.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-unimpaired'
 Plug 'bling/vim-airline'
-Plug 'chrisbra/csv.vim'
-Plug 'dag/vim-fish'
 Plug 'chriskempson/base16-vim'
 Plug 'fidian/hexmode'
 Plug 'edkolev/tmuxline.vim'
 "Plug 'neomake/neomake'
-Plug 'davidhalter/jedi-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'google/vim-maktaba'
-Plug 'google/vim-codefmt'
-Plug 'google/vim-glaive'
 Plug 'w0rp/ale'
 
 "Auto completion
 if has('nvim')
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-    \ }
-    Plug 'ncm2/ncm2'
-    Plug 'roxma/nvim-yarp'
+    "Plug 'autozimu/LanguageClient-neovim', {
+    "    \ 'branch': 'next',
+    "    \ 'do': 'bash install.sh',
+    "\ }
+    "Plug 'ncm2/ncm2'
+    "Plug 'roxma/nvim-yarp'
 
-    augroup autocomplete
-        au!
-        autocmd BufEnter * call ncm2#enable_for_buffer()
-    augroup END
-    set completeopt=noinsert,menuone,noselect
-    Plug 'ncm2/ncm2-bufword'
-    Plug 'ncm2/ncm2-path'
-    "Plug 'ncm2/ncm2-github'
-    Plug 'ncm2/ncm2-cssomni'
-    "Plug 'ncm2/ncm2-racer'
-    Plug 'ncm2/ncm2-jedi'
-    Plug 'ncm2/ncm2-vim'
-    "Plug 'ncm2/ncm2-go'
-    Plug 'ncm2/ncm2-markdown-subscope'
-    Plug 'ncm2/ncm2-html-subscope'
+    "augroup autocomplete
+    "    au!
+    "    autocmd BufEnter * call ncm2#enable_for_buffer()
+    "augroup END
+    "set completeopt=noinsert,menuone,noselect
+    "Plug 'ncm2/ncm2-bufword'
+    "Plug 'ncm2/ncm2-path'
+    ""Plug 'ncm2/ncm2-github'
+    "Plug 'ncm2/ncm2-cssomni'
+    ""Plug 'ncm2/ncm2-racer'
+    "Plug 'ncm2/ncm2-jedi'
+    "Plug 'ncm2/ncm2-vim'
+    ""Plug 'ncm2/ncm2-go'
+    "Plug 'ncm2/ncm2-markdown-subscope'
+    "Plug 'ncm2/ncm2-html-subscope'
     "Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
     "Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
     " Use ALE
 
     "Jump to def
-    Plug 'moll/vim-node'
+    "Plug 'moll/vim-node'
     "Plug 'ternjs/tern_for_vim'
     "Plug 'flowtype/vim-flow'
     "Plug 'ludovicchabant/vim-gutentags'
 
     "Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+   "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    " NeoVim
+    Plug 'nvim-lua/plenary.nvim'
+
+    " LSP
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/completion-nvim'
+    Plug 'nvim-lua/lsp-status.nvim'
+    Plug 'steelsojka/completion-buffers'
+
+    " Treesitter
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+
+    " Fuzzy searching
+    "Plug 'nvim-lua/popup.nvim'
+    "Plug 'nvim-telescope/telescope.nvim'
+    "Plug 'nvim-telescope/telescope-fzy-native.nvim'
+    "
+    Plug 'luochen1990/rainbow'
 endif
 
-"Plug syntax
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'othree/html5.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'groenewege/vim-less'
-Plug 'syngan/vim-vimlint'
-Plug 'ynkdir/vim-vimlparser'
-Plug 'kchmck/vim-coffee-script'
-Plug 'digitaltoad/vim-jade'
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'cespare/vim-toml'
-Plug 'anntzer/python-syntax'
-Plug 'vzh/vim-dokuwiki'
-Plug 'seveas/bind.vim'
-Plug 'plasticboy/vim-markdown'
-if has('patch-7.4-2009')
-    Plug 'fatih/vim-go'
-endif
-Plug 'rust-lang/rust.vim'
-Plug 'mxw/vim-jsx'
 Plug 'jez/vim-github-hub'
-Plug 'voxpupuli/vim-puppet'
-Plug 'junegunn/vader.vim'
-Plug 'nginx/nginx', {'rtp': 'contrib/vim'}
-Plug 'luochen1990/rainbow'
-Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'onlined/pgspec.vim'
-"Plug 'elzr/vim-json'
-
+Plug 'junegunn/vader.vim'
+filetype plugin indent on
+syntax on
+augroup SyntaxSettings
+    au Syntax * syntax sync fromstart
+augroup end
 
 
 let g:ftplugin_sql_omni_key = '<C-J>'
 let g:gitgutter_map_keys = 0
 
 call plug#end()            " required
-
-if exists('*glaive#Install')
-    call glaive#Install()
-    Glaive codefmt plugin[mappings]
-endif
-
-let g:python_host_prog = '/usr/bin/python2'
-let g:python3_host_prog = '/usr/bin/python3'
-let g:rainbow_active = 1
 
 let g:rainbow_conf = {
 \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
@@ -292,105 +240,7 @@ if has('patch-7.4-2201')
     set signcolumn=yes
 endif
 
-
-let g:ale_sign_warning = '⚠'
-let g:ale_linters = {
-    \ 'go': ['gometalinter', 'golangserver'],
-    \ 'c': ['ccls'],
-    \ 'cpp': ['ccls'],
-    \ 'python': ['pyls', 'flake8', 'mypy'],
-    \ 'ruby': ['solargraph', 'standardrb', 'ruby'],
-    \ 'rust': ['rls']
-    \}
-let g:ale_go_gometalinter_options = '--fast --disable="gotypex"'
-let g:ale_echo_msg_format = '[%linter%] %s'
-
-let g:ale_c_uncrustify_options = '-c /usr/local/etc/citustools/citus-style.cfg'
-let g:ale_c_clang_options = '-std=c11 -Wall -Wextra -Wno-ignored-attributes -Wno-unused-parameter'
-let g:ale_c_parse_makefile = 1
-let g:ale_c_clangd_executable = 'clangd-8'
-let g:ale_cpp_clangd_executable = 'clangd-8'
-let g:ale_rust_rls_executable = 'rust-analyzer'
-let g:ale_rust_rls_toolchain = ''
-let g:ale_rust_rls_config = {
-    \ 'rust': {
-        \ 'all_targets': 1,
-        \ 'build_on_save': 1,
-        \ 'clippy_preference': 'on'
-    \ }
-    \ }
-
-" Fix JavaScript code with ESlint
-let g:ale_fixers = {
-            \'c': ['uncrustify'],
-            \'go': ['gofmt'],
-            \'javascript': ['prettier', 'eslint'],
-            \'javascript.jsx': ['prettier', 'eslint'],
-            \'json': ['prettier', 'eslint'],
-            \'jsx': ['prettier', 'eslint'],
-            \'md': ['prettier'],
-            \'css': ['stylelint'],
-            \'scss': ['stylelint'],
-            \'markdown.pandoc': ['prettier', 'eslint'],
-            \'markdown': ['prettier', 'eslint'],
-            \'sh': ['shfmt'],
-            \'python': ['black'],
-            \'ruby': ['standardrb'],
-            \'rust': ['rustfmt'],
-            \}
-
-"let g:ale_fix_on_save = 1
-let g:ale_rust_rustfmt_executable = 'rustup'
-let g:ale_rust_rustfmt_options = 'run nightly rustfmt'
-"let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
-"let g:ale_rust_cargo_check_all_targets = 1
-
-
-
-function! GoLintFull()
-    let l:old_opts = g:ale_go_gometalinter_options
-    let g:ale_go_gometalinter_options = '--disable="vet" --disable="golint" --disable="gotype" --disable="structcheck" --disable="unconvert" --disable="varcheck" --disable="aligncheck"'
-    ALELint
-    let g:ale_go_gometalinter_options = l:old_opts
-endfunction
-
-
-nnoremap <silent> gl :call GoLintFull()<cr>
-
-" We're going to define single-letter keymaps, so don't try to define them
-" in the terminal window.  The debugger CLI should continue accepting text commands.
-function! NvimGdbNoTKeymaps()
-  tnoremap <silent> <buffer> <esc> <c-\><c-n>
-endfunction
-
-"let g:nvimgdb_config_override = {
-"  \ 'key_next': 'n',
-"  \ 'key_step': 's',
-"  \ 'key_finish': 'f',
-"  \ 'key_continue': 'c',
-"  \ 'key_until': 'u',
-"  \ 'key_breakpoint': 'b',
-"  \ 'set_tkeymaps': "NvimGdbNoTKeymaps",
-"  \ }
-
-
 autocmd BufWinEnter '__doc__' setlocal bufhidden=delete
-
-let g:LanguageClient_serverCommands = {
-    \ 'go': ['~/go/bin/go-langserver', '-gocodecompletion', '-pprof', 'localhost:6061'],
-    \ 'cpp': ['clangd-8', '-background-index',],
-    \ 'c': ['clangd-8'],
-    \ 'python': ['pyls'],
-    \ 'rust': ['rls'],
-    \ 'ruby': [ 'solargraph',  'stdio' ]
-    \ }
-let g:LanguageClient_diagnosticsDisplay = {}
-let g:LanguageClient_diagnosticsSignsMax = 0
-
-"let g:rustfmt_autosave = 1
-" let g:rustfmt_fail_silently = 1
-
-let g:flow#enable = 0
 
 nmap <space> [fzf]
 nnoremap [fzf] <nop>
@@ -398,37 +248,6 @@ nnoremap [fzf] <nop>
 nnoremap <silent> [fzf]/ :<C-u>Ag<cr>
 
 let g:hexmode_autodetect = 1
-
-" Use deoplete.
-let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
-
-"Add extra filetypes
-let g:tern#filetypes = [
-                \ 'jsx',
-                \ 'javascript.jsx',
-                \ 'vue'
-                \ ]
-
-" Use tern_for_vim.
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
-
-" Go settings
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-"let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-"let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-"let g:go_highlight_structs = 1
-"let g:go_highlight_types = 1
-
-"let g:go_auto_sameids = 1
-
-let g:go_auto_type_info = 1
-
-let g:go_fmt_command = 'goimports'
 
 " -------------- Global ----------
 
@@ -443,17 +262,6 @@ endtry
 
 " Shows what you're typing as a command
 set showcmd
-
-" Include custom vimrc
-if filereadable('.vim.custom')
-    so .vim.custom
-endif
-
-" Folding
-set foldmethod=indent
-set nofoldenable
-set foldnestmax=10
-set foldlevel=1
 
 " Indenting
 set smartindent
@@ -472,11 +280,6 @@ endif
 set list
 set listchars=tab:>-,trail:~
 
-" Proper syntax highlighting
-filetype plugin indent on
-syntax on
-:au Syntax * syntax sync fromstart
-
 highlight SpellBad cterm=undercurl ctermbg=0 gui=undercurl guisp=#bf8b56
 highlight SpellCap cterm=undercurl ctermbg=0 gui=undercurl guisp=#8b56bf
 highlight SignColumn ctermbg=8
@@ -488,6 +291,7 @@ augroup SetFileTypes
     au BufNewFile,BufRead *.js.flow   set syntax=javascript.jsx
     au BufNewFile,BufRead .babelrc,.prettierrc   set filetype=json
     au BufNewFile,BufRead .env.*   set filetype=sh
+    au BufNewFile,BufRead **.gql,**.graphql   set filetype=graphql
 augroup end
 
 
@@ -498,12 +302,13 @@ function! JavascriptJumpToDef()
 endfunction
 
 
-nnoremap <leader>d gd
+"nnoremap <leader>d gd
 augroup FileTypeSpecificSettings
     " Vim is very slow when cursorline is set in latex
     au!
     autocmd FileType tex setlocal nocursorline
     autocmd FileType help setlocal nospell
+    autocmd FileType gitcommit setlocal spell
 
     " Smaller indentation for xml type files
     au FileType scss,html,xml,xslt,xsd,dtd,proto,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -514,17 +319,55 @@ augroup FileTypeSpecificSettings
     au FileType go setlocal nolist
     au FileType go nnoremap gc :GoCoverageToggle<cr>
     au FileType go nnoremap <leader>i :GoImports<cr>
-    au FileType go,c,cpp,rust,python,ruby nnoremap <silent> gd :ALEGoToDefinition<cr>
-    au FileType go,c,cpp,rust,python,ruby nnoremap <silent> <leader>i :ALEHover<cr>
-    au FileType go,c,cpp,rust,python,ruby nnoremap <silent> <leader>r :ALEFindReferences<cr>
+    "au FileType go,c,cpp,rust,python,ruby nnoremap <silent> gd :ALEGoToDefinition<cr>
+    "au FileType go,c,cpp,rust,python,ruby nnoremap <silent> <leader>i :ALEHover<cr>
+    "au FileType go,c,cpp,rust,python,ruby nnoremap <silent> <leader>r :ALEFindReferences<cr>
     if has("nvim")
-        au FileType go,c,cpp,rust,python,ruby LanguageClientStart
+        "au FileType go,c,cpp,rust,python,ruby LanguageClientStart
     endif
 
     au FileType proto AutoFormatBuffer clang-format
 
     "au filetype c let b:ale_fix_on_save = 1
 augroup end
+
+let g:ale_sign_warning = '⚠'
+let g:ale_c_uncrustify_options = '-c /usr/local/etc/citustools/citus-style.cfg'
+
+let g:ale_linters = {
+    \ 'go': [],
+    \ 'c': [],
+    \ 'cpp': [],
+    \ 'python': [],
+    \ 'ruby': ['rubocop'],
+    \ 'rust': []
+    \}
+
+" Fix JavaScript code with ESlint
+let g:ale_fixers = {
+            \'c': ['uncrustify'],
+            \'cs': ['dotnet-format'],
+            \'go': ['gofmt'],
+            \'javascript': ['prettier', 'eslint'],
+            \'javascript.jsx': ['prettier', 'eslint'],
+            \'json': ['prettier', 'eslint'],
+            \'jsx': ['prettier', 'eslint'],
+            \'md': ['prettier'],
+            \'css': ['stylelint'],
+            \'scss': ['stylelint'],
+            \'markdown.pandoc': ['prettier', 'eslint'],
+            \'markdown': ['prettier', 'eslint'],
+            \'python': ['black'],
+            \'ruby': ['rubocop'],
+            \'sh': ['shfmt'],
+            \'rust': ['rustfmt'],
+            \}
+
+"let g:ale_fix_on_save = 1
+let g:ale_rust_rustfmt_executable = 'rustup'
+let g:ale_rust_rustfmt_options = 'run nightly rustfmt'
+"let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
+"let g:ale_rust_cargo_check_all_targets = 1
 
 
 " Fix stupid # to start of line
@@ -586,6 +429,9 @@ endif
 " When I close a tab, remove the buffer
 set nohidden
 
+" Don't put double spaces after a . when using gq
+set nojoinspaces
+
 " Highlight matching parentheses on hover
 highlight MatchParen cterm=bold ctermbg=none ctermfg=lightblue
 
@@ -621,6 +467,8 @@ set updatetime=750
 
 "Set the mapleader
 let g:mapleader = ','
+
+nnoremap <leader>f :ALEFix<cr>
 
 "Toggle line numbers with leader-l
 set number
@@ -664,8 +512,20 @@ vnoremap <up> :m '<-2<CR>gv=gv
 "nnoremap <leader>" yypv$r"
 
 "Clipboard copy pasting
-vnoremap <F6> :!xclip -f -sel clip<CR>
+vnoremap <F6> "*y<CR>
 noremap <F7> mz:-1r !xclip -o -sel clip<CR>`z
+
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+let g:clipboard = {
+          \   'name': 'clipwsl',
+          \   'copy': {
+          \      '*': 'clip.exe',
+          \    },
+          \   'paste': {
+          \      '*': 'echo',
+          \    },
+          \   'cache_enabled': 0,
+          \ }
 
 "Make Y work like D and C
 map Y y$
@@ -749,6 +609,9 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
+"Make Ctrl+C actually be the same as escape
+vnoremap <C-c> <esc>
+inoremap <C-c> <esc>
 
 " Workaround for https://github.com/neovim/neovim/issues/2048
 if has('nvim')
@@ -759,20 +622,8 @@ endif
 set splitbelow
 set splitright
 
-
 "Turn of highlight
 noremap <silent><leader>/ :nohls<CR>
-
-" Tab for autocompletion
-function! SuperTab()
-    if (strpart(getline('.'),col('.')-2,1)=~'^\s\?$')
-        return "\<Tab>"
-    else
-        return "\<C-n>"
-    endif
-endfunction
-inoremap <Tab> <C-R>=SuperTab()<CR>
-nnoremap <leader>f :ALEFix<cr>
 
 let g:vim_markdown_fenced_languages = ['edition2018=rust', 'compile_fail=rust', 'viml=vim', 'c++=cpp', 'bash=sh', 'ini=dosini']
 
@@ -794,12 +645,15 @@ nnoremap <leader>u :call TermDebugSendCommand('up 1')<CR>
 nnoremap <leader>d :call TermDebugSendCommand('down 1')<CR>
 nnoremap <leader>x :call TermDebugSendCommand('up 0')<CR>
 nnoremap <leader>r :call TermDebugSendCommand('b elog.c:251')<CR>
-nnoremap <space> :Over<CR>
+nnoremap <F10> :Over<CR>
 
 command! -nargs=1 Pgdb call s:pgdb('coordinator', <f-args>)
 command! -nargs=1 Pgdbw call s:pgdb('worker0', <f-args>)
+command! -nargs=1 Pgdbe call s:pgdbe('coordinator', <f-args>)
+command! -nargs=1 Pgdbew call s:pgdbe('worker0', <f-args>)
 command! -nargs=0 Pgcore call s:pgcore('master')
 command! -nargs=0 Pgcorew call s:pgcore('worker.57637')
+command! -nargs=1 Pgcorel call s:pgcorel(<f-args>)
 fun! s:pgdb(logfile, pid)
     let l:oldWin = win_getid()
     Termdebug postgres
@@ -815,10 +669,30 @@ fun! s:pgdb(logfile, pid)
     call win_gotoid(l:oldWin)
 endfun
 
-fun! s:pgcore(node)
+fun! s:pgdbe(logfile, pid)
     let l:oldWin = win_getid()
     Termdebug postgres
-    call TermDebugSendCommand('core src/test/regress/tmp_check/' . a:node . '/data/core')
+    call TermDebugSendCommand('attach '. a:pid)
+    call TermDebugSendCommand('b elog.c:248')
+    Continue
+    Program
+    execute 'terminal tail -n 0 -F ~/work/tools/citus_dev/' . a:logfile . '_logfile'
+    normal! G
+    Gdb
+    normal! G
+    wincmd r
+    wincmd =
+    call win_gotoid(l:oldWin)
+endfun
+
+fun! s:pgcore(node)
+    call s:pgcorel('/mnt/wslg/dumps/core.postgres')
+endfun
+
+fun! s:pgcorel(location)
+    let l:oldWin = win_getid()
+    Termdebug postgres
+    call TermDebugSendCommand('core ' . a:location)
     Program
     q
     Gdb
