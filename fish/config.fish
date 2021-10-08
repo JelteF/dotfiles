@@ -39,8 +39,13 @@ end
 export PGHOST=localhost
 export PGDATABASE=postgres
 
-eval (ssh-agent -S fish -r) > /dev/null
+export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
 
+ss -a | grep -q $SSH_AUTH_SOCK
+if [ $status -ne 0 ]
+    rm -f $SSH_AUTH_SOCK
+    bash -c '(setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"$HOME/npiperelay/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1'
+end
 
 eval (python -m virtualfish compat_aliases auto_activation 2> /dev/null)
 

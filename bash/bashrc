@@ -66,7 +66,13 @@ command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell bash)"
 
 export NPM_CONFIG_PREFIX=$HOME/.npm-global
 
-eval $(ssh-agent -s -r)
-source "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
 
 export PROMPT_COMMAND='printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")"'
+export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+
+ss -a | grep -q $SSH_AUTH_SOCK
+if [ $? -ne 0 ]; then
+    rm -f $SSH_AUTH_SOCK
+    (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"$HOME/npiperelay/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
+fi
