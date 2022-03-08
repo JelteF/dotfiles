@@ -3,7 +3,7 @@
 set -eux
 
 # Add appt-add-repository
-sudo apt-get install software-properties-common
+sudo apt-get install -y software-properties-common
 
 echo 'Neovim repo'
 sudo add-apt-repository -y ppa:neovim-ppa/unstable

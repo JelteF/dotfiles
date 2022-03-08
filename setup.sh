@@ -44,35 +44,45 @@ wget -O ~/.config/nvim/autoload/plug.vim \
 wget https://raw.github.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night-Bright.vim \
     -O ~/.vim/colors/Tomorrow-Night-Bright.vim
 
-ln -sf "$PWD/bash/bashrc" "$ORIGINAL_BASHRC"
-ln -sf "$PWD/bash/bash_profile" "$ORIGINAL_BASH_PROFILE"
-ln -sf "$PWD/bash/profile" "$ORIGINAL_PROFILE"
-ln -sf "$PWD/bash/inputrc" "$ORIGINAL_INPUTRC"
-ln -sf "$PWD/git/gitconfig" "$ORIGINAL_GITCONFIG"
-ln -sf "$PWD/git/tigrc" "$ORIGINAL_TIGRC"
-ln -sf "$PWD/gdb/gdbinit" "$ORIGINAL_GDBINIT"
-ln -sf "$PWD/postgres/psqlrc" "$HOME/.psqlrc"
-ln -sf "$PWD/tmux/tmux.conf" "$ORIGINAL_TMUXCONF"
-ln -sf "$PWD/vim/vimrc" "$ORIGINAL_VIMRC"
-ln -sf "$PWD/vim/vimrc" "$HOME/.vim/init.vim"
-ln -sf "$PWD/vim/fzf_ignore" "$HOME/.vim/fzf_ignore"
-ln -sf "$PWD/fish/"* "$HOME/.config/fish/"
-ln -sf "$PWD/x/XCompose" "$ORIGINAL_XCOMPOSE"
-ln -sf "$PWD/x/Xresources" "$ORIGINAL_XRESOURCES"
-ln -sf "$PWD/x/xinitrc" "$ORIGINAL_XINITRC"
-ln -sf "$PWD/x/xsession" "$ORIGINAL_XSESSION"
-ln -sf "$PWD/x/xprofile" "$ORIGINAL_XPROFILE"
-ln -sf "$PWD/ssh/sshrc" "$ORIGINAL_SSHRC"
+ln -snf "$PWD/bash/bashrc" "$ORIGINAL_BASHRC"
+ln -snf "$PWD/bash/bash_profile" "$ORIGINAL_BASH_PROFILE"
+ln -snf "$PWD/bash/profile" "$ORIGINAL_PROFILE"
+ln -snf "$PWD/bash/inputrc" "$ORIGINAL_INPUTRC"
+ln -snf "$PWD/git/gitconfig" "$ORIGINAL_GITCONFIG"
+ln -snf "$PWD/git/tigrc" "$ORIGINAL_TIGRC"
+ln -snf "$PWD/gdb/gdbinit" "$ORIGINAL_GDBINIT"
+ln -snf "$PWD/postgres/psqlrc" "$HOME/.psqlrc"
+ln -snf "$PWD/tmux/tmux.conf" "$ORIGINAL_TMUXCONF"
+ln -snf "$PWD/vim/vimrc" "$ORIGINAL_VIMRC"
+ln -snf "$PWD/vim/vimrc" "$HOME/.vim/init.vim"
+ln -snf "$PWD/vim/fzf_ignore" "$HOME/.vim/fzf_ignore"
+ln -snf "$PWD/fish/"* "$HOME/.config/fish/"
+ln -snf "$PWD/vim/plugin/" "$HOME/.config/nvim/plugin"
+ln -snf "$PWD/x/XCompose" "$ORIGINAL_XCOMPOSE"
+ln -snf "$PWD/x/Xresources" "$ORIGINAL_XRESOURCES"
+ln -snf "$PWD/x/xinitrc" "$ORIGINAL_XINITRC"
+ln -snf "$PWD/x/xsession" "$ORIGINAL_XSESSION"
+ln -snf "$PWD/x/xprofile" "$ORIGINAL_XPROFILE"
+ln -snf "$PWD/ssh/sshrc" "$ORIGINAL_SSHRC"
 
-ln -sf "$PWD/ptpython/"* ~/.ptpython/
+ln -snf "$PWD/ptpython/"* ~/.ptpython/
 
 # Remove ~/.config directories that should be symlinked
-for dir in $PWD/config_dir/*; do
+for dir in "$PWD/config_dir/"*; do
     rm -rf ~"/.config/${dir#$PWD/config_dir/}";
 done
 ln -sf "$PWD/config_dir/"* ~/.config/
 
-# Install fisherman
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+mkdir -p "$HOME/.ssh"
+chmod 0700 "$HOME/.ssh"
 
-vim +PlugInstall +qall
+# Install fisherman
+if command -v fish; then
+  fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && fisher update'
+fi
+
+if command -v nvim; then
+    nvim +PlugInstall +qall
+else
+    vim +PlugInstall +qall
+fi

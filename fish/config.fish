@@ -49,7 +49,7 @@ end
 
 eval (python -m virtualfish compat_aliases auto_activation 2> /dev/null)
 
-rbenv rehash 2>/dev/null
+command -v rbenv >/dev/null && rbenv rehash 2>/dev/null
 
 set -g default_user jelte
 set -g theme_display_ruby yes
