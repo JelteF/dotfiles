@@ -10,3 +10,21 @@ set show-all-if-ambiguous On
 # Set Ctrl-w to stop at slashes and spaces instead of only spaces
 set bind-tty-special-chars off
 Control-w: unix-filename-rubout
+
+# Taken from Ubuntu /etc/inputrc
+$if mode=emacs
+# mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word
+
+$if term=rxvt
+"\e[7~": beginning-of-line
+"\e[8~": end-of-line
+"\eOc": forward-word
+"\eOd": backward-word
+$endif
+$endif
