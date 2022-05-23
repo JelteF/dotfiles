@@ -6,7 +6,7 @@
 \pset null '[NULL]'
 
 -- http://www.postgresql.org/docs/9.3/static/app-psql.html#APP-PSQL-PROMPTING
-\set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# \n'
+\set PROMPT1 '%[%033[1m%]%M %n@%/:%>-%p%R%[%033[0m%]%# '
 -- PROMPT2 is printed when the prompt expects more input, like when you type
 -- SELECT * FROM<enter>. %R shows what type of input it expects.
 \set PROMPT2 '[more] %R > '
@@ -21,7 +21,7 @@
 \set HISTCONTROL ignoredups
 \set COMP_KEYWORD_CASE upper
 \pset linestyle unicode 
-\pset border 2
+-- \pset border 2
 -- \setenv PAGER 'pspg --no-mouse -s 16 -X --ignore-case --no-topbar --no-commandbar'
 \unset QUIET
 
