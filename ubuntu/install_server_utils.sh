@@ -16,9 +16,9 @@ curl_deb() {
 
 curl_deb https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
 curl_deb https://github.com/sharkdp/fd/releases/download/v8.2.1/fd_8.2.1_amd64.deb
-curl_deb https://github.com/dandavison/delta/releases/download/0.8.3/git-delta_0.8.3_amd64.deb
+curl_deb https://github.com/dandavison/delta/releases/download/0.12.1/git-delta-musl_0.12.1_amd64.deb
 curl_deb https://github.com/sharkdp/bat/releases/download/v0.18.3/bat_0.18.3_amd64.deb
-curl_deb https://github.com/cli/cli/releases/download/v2.5.2/gh_2.5.2_linux_amd64.deb
+curl_deb https://github.com/cli/cli/releases/download/v2.9.0/gh_2.9.0_linux_amd64.deb
 
 wget https://github.com/jstarks/npiperelay/releases/latest/download/npiperelay_windows_amd64.zip
 unzip -o npiperelay_windows_amd64.zip -d ~/npiperelay
