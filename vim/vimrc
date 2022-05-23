@@ -654,6 +654,7 @@ command! -nargs=1 Pgdbew call s:pgdbe('worker0', <f-args>)
 command! -nargs=0 Pgcore call s:pgcore('master')
 command! -nargs=0 Pgcorew call s:pgcore('worker.57637')
 command! -nargs=1 Pgcorel call s:pgcorel(<f-args>)
+command! -nargs=0 Bouncercore call s:bouncercore()
 fun! s:pgdb(logfile, pid)
     let l:oldWin = win_getid()
     Termdebug postgres
@@ -701,4 +702,22 @@ fun! s:pgcorel(location)
     wincmd =
     call win_gotoid(l:oldWin)
     call TermDebugSendCommand('frame 3')
+endfun
+
+fun! s:bouncercore()
+    call s:bouncercorel('/mnt/wslg/dumps/core.pgbouncer')
+endfun
+
+fun! s:bouncercorel(location)
+    let l:oldWin = win_getid()
+    Termdebug /home/jelte/opensource/pgbouncer/pgbouncer
+    call TermDebugSendCommand('core ' . a:location)
+    Program
+    q
+    Gdb
+    normal! G
+    wincmd r
+    wincmd =
+    call win_gotoid(l:oldWin)
+    call TermDebugSendCommand('frame 0')
 endfun
