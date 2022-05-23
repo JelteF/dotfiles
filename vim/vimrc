@@ -149,7 +149,7 @@ if has('nvim')
     Plug 'steelsojka/completion-buffers'
 
     " Treesitter
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'commit': 'bc25a6a5c4fd659bbf78ba0a2442ecf14eb00398'}
 
     " Fuzzy searching
     "Plug 'nvim-lua/popup.nvim'
