@@ -39,7 +39,7 @@ end
 export PGHOST=localhost
 export PGDATABASE=postgres
 
-export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+export SSH_AUTH_SOCK=$HOME/.ssh/agent-npiperelay.sock
 
 ss -a | grep -q $SSH_AUTH_SOCK
 if [ $status -ne 0 ]
@@ -164,6 +164,14 @@ function _gen_fzf_default_opts
 end
 
 set -x FZF_DEFAULT_OPTS (_gen_fzf_default_opts)
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='fd --type f'
 
-command -v vg >/dev/null 2>&1; and vg eval --shell fish | source
+starship init fish | source
+
+functions --copy fish_prompt fish_prompt_starship
+
+function fish_prompt
+    printf "\e]9;9;%s\e\\" $PWD
+    fish_prompt_starship
+end
+
