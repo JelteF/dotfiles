@@ -1,2 +1,3 @@
 set tab-size = 4
 set mouse = yes
+set wrap-lines = yes
