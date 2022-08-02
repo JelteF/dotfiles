@@ -16,10 +16,10 @@ curl_deb() {
 }
 
 curl_deb https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
-curl_deb https://github.com/sharkdp/fd/releases/download/v8.2.1/fd_8.2.1_amd64.deb
-curl_deb https://github.com/dandavison/delta/releases/download/0.12.1/git-delta-musl_0.12.1_amd64.deb
-curl_deb https://github.com/sharkdp/bat/releases/download/v0.18.3/bat_0.18.3_amd64.deb
-curl_deb https://github.com/cli/cli/releases/download/v2.9.0/gh_2.9.0_linux_amd64.deb
+curl_deb https://github.com/sharkdp/fd/releases/download/v8.4.0/fd_8.4.0_amd64.deb
+curl_deb https://github.com/dandavison/delta/releases/download/0.13.0/git-delta-musl_0.13.0_amd64.deb
+curl_deb https://github.com/sharkdp/bat/releases/download/v0.21.0/bat_0.21.0_amd64.deb
+curl_deb https://github.com/cli/cli/releases/download/v2.14.3/gh_2.14.3_linux_amd64.deb
 
 mkdir -p ~/.bin
 curl --location https://github.com/starship/starship/releases/download/v1.8.0/starship-x86_64-unknown-linux-musl.tar.gz | tar xz --directory ~/.bin starship
