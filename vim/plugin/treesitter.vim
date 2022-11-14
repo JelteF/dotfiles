@@ -1,4 +1,4 @@
-
+if has('nvim')
 
 lua << EOF
 
@@ -12,3 +12,4 @@ require'nvim-treesitter.configs'.setup {
 }
 
 EOF
+endif

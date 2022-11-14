@@ -1,4 +1,4 @@
-
+if has('nvim')
 
 
 " Use <S-Tab> to navigate through autocompletion popup menu
@@ -118,3 +118,4 @@ nvim_lsp.omnisharp.setup{
 }
 
 EOF
+endif
