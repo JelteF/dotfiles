@@ -12,3 +12,4 @@ if [[ $- != *i* ]] ; then
 fi
 
 source ~/.bashrc
+. "$HOME/.cargo/env"

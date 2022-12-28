@@ -117,5 +117,10 @@ nvim_lsp.omnisharp.setup{
     on_attach = on_attach
 }
 
+nvim_lsp.rust_analyzer.setup{
+    cmd = { "rustup", "run", "stable", "rust-analyzer" };
+    on_attach = on_attach
+}
+
 EOF
 endif
