@@ -110,6 +110,15 @@ for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup { on_attach = on_attach }
 end
 
+nvim_lsp.ccls.setup {
+    init_options = {
+        cache = {
+            directory = '/home/jelte/.ccls-cache'
+        };
+    };
+    on_attach = on_attach
+}
+
 local pid = vim.fn.getpid()
 local omnisharp_bin = "/home/jelte/.omnisharp/run"
 nvim_lsp.omnisharp.setup{

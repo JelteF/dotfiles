@@ -91,7 +91,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 Plug 'preservim/nerdcommenter'
-Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
@@ -149,7 +149,7 @@ if has('nvim')
     Plug 'steelsojka/completion-buffers'
 
     " Treesitter
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'commit': 'bc25a6a5c4fd659bbf78ba0a2442ecf14eb00398'}
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
     " Fuzzy searching
     "Plug 'nvim-lua/popup.nvim'
@@ -338,6 +338,7 @@ let g:ale_linters = {
     \ 'go': [],
     \ 'c': [],
     \ 'cpp': [],
+    \ 'markdown': [],
     \ 'python': [],
     \ 'ruby': ['rubocop'],
     \ 'rust': []
@@ -359,7 +360,7 @@ let g:ale_fixers = {
             \'scss': ['stylelint'],
             \'markdown.pandoc': ['prettier', 'eslint'],
             \'markdown': ['prettier', 'eslint'],
-            \'python': ['black'],
+            \'python': ['black', 'isort'],
             \'ruby': ['rubocop'],
             \'sh': ['shfmt'],
             \'rust': ['rustfmt'],
@@ -392,7 +393,11 @@ let g:airline_powerline_fonts = 1
 set ruler
 
 " Always show the statusbar
-set laststatus=2
+if !has('nvim')
+    set laststatus=2
+else
+    set laststatus=3
+endif
 
 " Tab completion
 set wildmenu
@@ -657,6 +662,7 @@ command! -nargs=0 Pgcore call s:pgcore('master')
 command! -nargs=0 Pgcorew call s:pgcore('worker.57637')
 command! -nargs=1 Pgcorel call s:pgcorel(<f-args>)
 command! -nargs=0 Bouncercore call s:bouncercore()
+command! -nargs=1 Bouncergdb call s:bouncergdb(<f-args>)
 fun! s:pgdb(logfile, pid)
     let l:oldWin = win_getid()
     Termdebug postgres
@@ -722,4 +728,18 @@ fun! s:bouncercorel(location)
     wincmd =
     call win_gotoid(l:oldWin)
     call TermDebugSendCommand('frame 0')
+endfun
+
+fun! s:bouncergdb(pid)
+    let l:oldWin = win_getid()
+    Termdebug /home/jelte/opensource/pgbouncer/pgbouncer
+    call TermDebugSendCommand('attach '. a:pid)
+    Continue
+    Program
+    q
+    Gdb
+    normal! G
+    wincmd r
+    wincmd =
+    call win_gotoid(l:oldWin)
 endfun

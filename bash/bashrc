@@ -31,7 +31,7 @@ alias .....='cd ../../../../'
 alias ls="ls --color=auto"
 alias watchs='watch -n 0.5'
 shopt -s autocd
-export PATH=~/.local/bin:~/.bin:$PATH
+export PATH=~/.local/bin:~/.bin:~/.pgenv/bin:~/.pgenv/pgsql/bin:$PATH
 alias nvcc='/usr/local/cuda-5.0/bin/nvcc'
 export EDITOR="vim"
 

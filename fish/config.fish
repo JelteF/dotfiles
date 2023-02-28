@@ -171,7 +171,7 @@ starship init fish | source
 functions --copy fish_prompt fish_prompt_starship
 
 function fish_prompt
-    printf "\e]9;9;%s\e\\" $PWD
     fish_prompt_starship
+    printf "\e]9;9;%s\e\\" $PWD
 end
 

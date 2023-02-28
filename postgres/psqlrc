@@ -24,5 +24,3 @@
 -- \pset border 2
 -- \setenv PAGER 'pspg --no-mouse -s 16 -X --ignore-case --no-topbar --no-commandbar'
 \unset QUIET
-
-select pg_backend_pid();
