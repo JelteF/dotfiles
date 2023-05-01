@@ -22,7 +22,7 @@ curl_deb https://github.com/sharkdp/bat/releases/download/v0.22.1/bat_0.22.1_amd
 curl_deb https://github.com/cli/cli/releases/download/v2.24.3/gh_2.24.3_linux_amd64.deb
 
 mkdir -p ~/.bin
-curl --location https://github.com/starship/starship/releases/download/v1.13.1/starship-x86_64-unknown-linux-musl.tar.gz | tar xz --directory ~/.bin starship
+curl --location https://github.com/starship/starship/releases/download/v1.14.2/starship-x86_64-unknown-linux-musl.tar.gz | tar xz --directory ~/.bin starship
 
 wget https://github.com/jstarks/npiperelay/releases/latest/download/npiperelay_windows_amd64.zip
 unzip -o npiperelay_windows_amd64.zip -d ~/npiperelay
