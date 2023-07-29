@@ -80,3 +80,7 @@
 # 	gpgsign = true
 # [tag]
 # 	gpgsign = true
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
