@@ -166,6 +166,7 @@ end
 set -x FZF_DEFAULT_OPTS (_gen_fzf_default_opts)
 export FZF_DEFAULT_COMMAND='fd --type f'
 
+zoxide init fish | source
 starship init fish | source
 
 functions --copy fish_prompt fish_prompt_starship
