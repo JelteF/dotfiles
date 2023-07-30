@@ -29,6 +29,15 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
+  -- Allow importing LSP settings from vscode files
+  { 
+    "folke/neoconf.nvim", 
+    cmd = "Neoconf",
+    dependencies = {
+      'neovim/nvim-lspconfig',
+    },
+  },
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -82,14 +91,28 @@ require('lazy').setup({
       end,
     },
   },
-  {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+  -- {
+  --   -- Theme inspired by Atom
+  --   'navarasu/onedark.nvim',
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'onedark'
+  --   end,
+  -- },
+  -- {
+  --   'chriskempson/base16-vim',
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'base16-harmonic-dark'
+  --   end,
+  -- },
+  { "catppuccin/nvim", 
+    name = "catppuccin", 
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      vim.cmd.colorscheme 'catppuccin-mocha'
     end,
-  },
+},
 
   {
     -- Set lualine as statusline
