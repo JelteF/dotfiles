@@ -28,7 +28,7 @@ if exists('+undofile')
   " :help undo-persistence
   " This is only present in 7.3+
   if isdirectory($HOME . '/.vim/undo') == 0
-    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+    ":silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
   endif
   set undodir=./.vim-undo//
   set undodir+=~/.vim/undo//
@@ -203,18 +203,18 @@ nnoremap <C-p> :FZF<cr>
 set wildignore+=*.so,*.swp,*.zip,*.exe,*.dll,*.pyc,*.pdf,*.dvi,*.aux
 set wildignore+=*.png,*.jpg,*.gif
 
-let g:extesions_ignore = ['exe'
-            \'bcf', 'bbl', 'blg', 'fdb_latexmk', 'gls', 'glg', 'alg', 'acr',
-            \'run.xml', 'ist', 'glo', 'upb', 'upa', 'acn', 'svg', 'jpeg', 'jpg',
-            \'png', 'pyc', '*.pyc']
-let g:ignore_fzf = ['build', 'node_modules', 'venv', 'python2_source',
-            \'_minted-', '.sass-cache', 'dist',
-            \'.git', '.svn', '.hg', '.keep']
-"ctrlp ignores
-let g:ctrlp_custom_ignore = {
-  \ 'dir': 'build\|node_modules\|venv\|python2_source\|_minted-\|\.sass-cache\|dist',
-  \ 'file': '.\(exe\|o|dll\|toc\|log\|out\|fls\|bcf\|bbl\|blg\|fdb_latexmk\|gls\|glg\|alg\|acr\|run.xml\|ist\|glo\|upb\|upa\|acn\|svg\|jpeg\|jpg\|png\)$'
-  \ }
+"let g:extesions_ignore = ['exe'
+"            \'bcf', 'bbl', 'blg', 'fdb_latexmk', 'gls', 'glg', 'alg', 'acr',
+"            \'run.xml', 'ist', 'glo', 'upb', 'upa', 'acn', 'svg', 'jpeg', 'jpg',
+"            \'png', 'pyc', '*.pyc']
+"let g:ignore_fzf = ['build', 'node_modules', 'venv', 'python2_source',
+"            \'_minted-', '.sass-cache', 'dist',
+"            \'.git', '.svn', '.hg', '.keep']
+""ctrlp ignores
+"let g:ctrlp_custom_ignore = {
+"  \ 'dir': 'build\|node_modules\|venv\|python2_source\|_minted-\|\.sass-cache\|dist',
+"  \ 'file': '.\(exe\|o|dll\|toc\|log\|out\|fls\|bcf\|bbl\|blg\|fdb_latexmk\|gls\|glg\|alg\|acr\|run.xml\|ist\|glo\|upb\|upa\|acn\|svg\|jpeg\|jpg\|png\)$'
+"  \ }
 
 if executable('rg')
     let $FZF_DEFAULT_COMMAND = 'rg --hidden --no-ignore-dot --ignore-file ~/.vim/fzf_ignore --files'
