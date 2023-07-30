@@ -84,3 +84,5 @@
 	helper = store
 [init]
 	defaultBranch = main
+[tig "color"]
+cursor = black green
