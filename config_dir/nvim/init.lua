@@ -224,6 +224,7 @@ vim.o.mouse = 'a'
 -- vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
+vim.o.linebreak = true
 vim.o.breakindent = true
 vim.o.breakindentopt = 'shift:6'
 
@@ -269,6 +270,23 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set('v', 'k', "mode() ==# 'v' && v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('v', 'j', "mode() ==# 'v' && v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- This is a hack to make `A` work better when wrap and linebreak are true
+BETTER_A = function()
+  vim.cmd.normal('g$')
+  local wrappos = vim.fn.getcurpos()
+  vim.cmd.normal('$')
+  local fullend = vim.fn.getcurpos()
+  vim.fn.setpos('.', wrappos)
+  if wrappos[3] == fullend[3] then
+    vim.fn.feedkeys 'a'
+  else
+    vim.fn.feedkeys 'i'
+  end
+end
+
+vim.keymap.set('n', 'A', ':call v:lua.BETTER_A()<CR>', { silent = true })
+
 
 -- Easier split navigation
 vim.keymap.set({ 'n', 'i' }, '<C-h>', '<C-w>h')
