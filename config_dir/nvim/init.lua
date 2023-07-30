@@ -185,7 +185,6 @@ require('lazy').setup({
 -- Don't highlight after search
 -- vim.o.hlsearch = false
 
-
 -- Make line numbers default
 vim.wo.number = true
 
@@ -229,7 +228,11 @@ vim.o.splitright = true
 vim.o.list = true
 vim.o.listchars = 'tab:>-,trail:~'
 
+-- Always show numbers
 vim.o.number = true;
+
+-- Always show the a few lines below the cursor unless at the end of the file
+vim.o.scrolloff = 7
 
 -- Make space leader work
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -237,6 +240,8 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set('v', 'k', "mode() == 'v' && v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('v', 'j', "mode() == 'v' && v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Easier split navigation
 vim.keymap.set({ 'n', 'i' }, '<C-h>', '<C-w>h')
@@ -249,8 +254,40 @@ vim.keymap.set({ 'i', 'v' }, '<C-c>', '<esc>')
 
 vim.keymap.set({ 'n', 'v' }, ',,', '<C-^>')
 
-
+-- Allow copy pasting in WSL
 vim.keymap.set({ 'v' }, '<F6>', '"*y<CR>')
+vim.g.clipboard = {
+  name = 'clipwsl',
+  copy = {
+    ["*"] = "clip.exe",
+  },
+  paste = {
+    ["*"] = "echo",
+  },
+  cache_enabled = false,
+}
+
+-- Make Y work like D and C
+vim.keymap.set('n', 'Y', 'y$')
+
+-- Make ; the same as :
+vim.keymap.set('n', ';', ':')
+
+-- Add toggle for highlight
+vim.keymap.set('n', ',/', ':nohls<CR>', { silent = true })
+
+-- Add toggle for numbers
+local toggle_numbers = function()
+  if vim.o.number then
+    vim.o.number = false
+  else
+    vim.o.number = true
+  end
+end
+
+vim.keymap.set('n', ',l', toggle_numbers)
+
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -303,7 +340,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'javascript', 'vimdoc', 'vim' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
@@ -427,10 +464,12 @@ end
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
+  ccls = {},
+  gopls = {},
+  pyright = {},
+  rust_analyzer = {},
+  tsserver = {},
+  volar = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
@@ -489,11 +528,9 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
     ['<C-Space>'] = cmp.mapping.complete {},
-    -- Disable select with enter
-    -- ['<CR>'] = cmp.mapping.confirm {
-    --   behavior = cmp.ConfirmBehavior.Replace,
-    --   select = true,
-    -- },
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+    },
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
