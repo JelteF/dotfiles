@@ -267,8 +267,8 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-vim.keymap.set('v', 'k', "mode() == 'v' && v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('v', 'j', "mode() == 'v' && v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set('v', 'k', "mode() ==# 'v' && v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('v', 'j', "mode() ==# 'v' && v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Easier split navigation
 vim.keymap.set({ 'n', 'i' }, '<C-h>', '<C-w>h')
