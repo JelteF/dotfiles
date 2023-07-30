@@ -10,9 +10,12 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
--- This is where you actually apply your config choices
-
--- For example, changing the color scheme:
+config.font = wezterm.font 'UbuntuMono NF'
+config.font_size = 15
+-- config.font = wezterm.font 'JetBrains Mono'
+-- config.font_size = 12
+-- disable ligatures
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.color_scheme = "Catppuccin Mocha"
 
 config.default_domain = 'WSL:Ubuntu-22.04'
