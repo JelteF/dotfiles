@@ -470,7 +470,7 @@ local servers = {
   rust_analyzer = {},
   tsserver = {},
   volar = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
     Lua = {
