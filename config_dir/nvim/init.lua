@@ -179,8 +179,27 @@ require('lazy').setup({
   },
 
   -- rainbow braces
-  { 'HiPhish/rainbow-delimiters.nvim' }
+  { 'HiPhish/rainbow-delimiters.nvim' },
+
+  -- official copilot
+  -- { 'github/copilot.vim' },
+  -- lua copilot
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    opts = {
+      suggestion = {
+        auto_trigger = true,
+      }
+    },
+    dependencies = {
+      "zbirenbaum/copilot-cmp",
+    }
+  },
 })
+
+-- require("copilot").setup({})
 
 -- Don't highlight after search
 -- vim.o.hlsearch = false
@@ -275,6 +294,8 @@ vim.keymap.set('n', ';', ':')
 
 -- Add toggle for highlight
 vim.keymap.set('n', ',/', ':nohls<CR>', { silent = true })
+
+vim.keymap.set('i', '<C-f>', require("copilot.suggestion").accept)
 
 -- Add toggle for numbers
 local toggle_numbers = function()
@@ -512,6 +533,12 @@ local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
+local has_words_before = function()
+  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
+end
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -524,16 +551,16 @@ cmp.setup {
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
     ['<C-Space>'] = cmp.mapping.complete {},
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
     },
     ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
+      if cmp.visible() and has_words_before() then
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       else
@@ -551,8 +578,9 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
+    { name = "copilot", group_index = 2 },
+    { name = 'nvim_lsp', group_index = 2 },
+    { name = 'luasnip', group_index = 2 },
   },
 }
 
