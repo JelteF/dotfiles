@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -u
+set -ux
 
 ORIGINAL_BASHRC=$HOME/.bashrc
 ORIGINAL_BASH_PROFILE=$HOME/.bash_profile
@@ -21,7 +21,6 @@ ORIGINAL_SSHRC=$HOME/.sshrc
 # Create vim folders
 mkdir -p ~/.vim/{autoload,colors}
 mkdir -p ~/.config
-ln -s ~/.vim ~/.config/nvim
 mkdir -p ~/.ptpython
 mkdir -p ~/.config/fish/completions
 
@@ -30,19 +29,6 @@ mkdir -p ~/.gem/ruby/2.2.0/bin
 mkdir -p ~/go/bin
 mkdir -p ~/.local/bin
 mkdir -p ~/.cargo/bin
-sudo mkdir -p /opt/bin
-
-# Install vim-plug
-wget -O ~/.config/nvim/autoload/plug.vim \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# # Install git-flow completion
-# wget https://github.com/bobthecow/git-flow-completion/raw/master/git.fish \
-#     -O ~/.config/fish/completions/git.fish
-
-# Install nice color scheme
-wget https://raw.github.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night-Bright.vim \
-    -O ~/.vim/colors/Tomorrow-Night-Bright.vim
 
 ln -snf "$PWD/bash/bashrc" "$ORIGINAL_BASHRC"
 ln -snf "$PWD/bash/bash_profile" "$ORIGINAL_BASH_PROFILE"
@@ -57,7 +43,6 @@ ln -snf "$PWD/vim/vimrc" "$ORIGINAL_VIMRC"
 ln -snf "$PWD/vim/vimrc" "$HOME/.vim/init.vim"
 ln -snf "$PWD/vim/fzf_ignore" "$HOME/.vim/fzf_ignore"
 ln -snf "$PWD/fish/"* "$HOME/.config/fish/"
-ln -snf "$PWD/vim/plugin/" "$HOME/.config/nvim/plugin"
 ln -snf "$PWD/x/XCompose" "$ORIGINAL_XCOMPOSE"
 ln -snf "$PWD/x/Xresources" "$ORIGINAL_XRESOURCES"
 ln -snf "$PWD/x/xinitrc" "$ORIGINAL_XINITRC"
@@ -69,7 +54,7 @@ ln -snf "$PWD/ptpython/"* ~/.ptpython/
 
 # Remove ~/.config directories that should be symlinked
 for dir in "$PWD/config_dir/"*; do
-    rm -rf ~"/.config/${dir#$PWD/config_dir/}";
+    rm -rf "$HOME/.config/${dir#$PWD/config_dir/}";
 done
 ln -sf "$PWD/config_dir/"* ~/.config/
 
