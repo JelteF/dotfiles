@@ -30,8 +30,8 @@ require('lazy').setup({
   'tpope/vim-sleuth',
 
   -- Allow importing LSP settings from vscode files
-  { 
-    "folke/neoconf.nvim", 
+  {
+    "folke/neoconf.nvim",
     cmd = "Neoconf",
     dependencies = {
       'neovim/nvim-lspconfig',
@@ -106,8 +106,8 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'base16-harmonic-dark'
   --   end,
   -- },
-  { "catppuccin/nvim", 
-    name = "catppuccin", 
+  { "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
     config = function()
       vim.cmd.colorscheme 'catppuccin-mocha'
@@ -140,7 +140,13 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
     -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'debugloop/telescope-undo.nvim',
+    }
+  },
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
   -- requirements installed.
@@ -168,11 +174,13 @@ require('lazy').setup({
     keys = { '<leader>m', '<leader>j', '<leader>s' },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
   },
+
+  -- rainbow braces
+  { 'HiPhish/rainbow-delimiters.nvim' }
 })
 
 -- Don't highlight after search
 -- vim.o.hlsearch = false
-
 
 
 -- Make line numbers default
@@ -210,6 +218,16 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- Better split window opening
+vim.o.splitbelow = true
+vim.o.splitright = true
+
+-- Show tabs and trailing white space
+vim.o.list = true
+vim.o.listchars = 'tab:>-,trail:~'
+
+vim.o.number = true;
+
 -- Make space leader work
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
@@ -217,6 +235,19 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Easier split navigation
+vim.keymap.set({ 'n', 'i' }, '<C-h>', '<C-w>h')
+vim.keymap.set({ 'n', 'i' }, '<C-j>', '<C-w>j')
+vim.keymap.set({ 'n', 'i' }, '<C-k>', '<C-w>k')
+vim.keymap.set({ 'n', 'i' }, '<C-l>', '<C-w>l')
+
+-- Make Ctrl+C actually the same as escape
+vim.keymap.set({ 'i', 'v' }, '<C-c>', '<esc>')
+
+vim.keymap.set({ 'n', 'v' }, ',,', '<C-^>')
+
+
+vim.keymap.set({ 'v' },  '<F6>', '"*y<CR>')
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -236,6 +267,8 @@ require('telescope').setup {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
+        ['<C-j>'] = require('telescope.actions').move_selection_next,
+        ['<C-k>'] = require('telescope.actions').move_selection_previous,
       },
     },
   },
@@ -255,6 +288,7 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
+vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
@@ -360,6 +394,7 @@ local on_attach = function(_, bufnr)
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+  nmap(',f', vim.lsp.buf.format, '[F]ormat code')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -441,16 +476,21 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
+
+  preselect = require('cmp').PreselectMode.None,
+
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+
     ['<C-Space>'] = cmp.mapping.complete {},
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
+    -- Disable select with enter
+    -- ['<CR>'] = cmp.mapping.confirm {
+    --   behavior = cmp.ConfirmBehavior.Replace,
+    --   select = true,
+    -- },
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -476,5 +516,25 @@ cmp.setup {
   },
 }
 
+-- Restore cursor position
+vim.api.nvim_create_autocmd('BufRead', {
+  callback = function(opts)
+    vim.api.nvim_create_autocmd('BufWinEnter', {
+      once = true,
+      buffer = opts.buf,
+      callback = function()
+        local ft = vim.bo[opts.buf].filetype
+        local last_known_line = vim.api.nvim_buf_get_mark(opts.buf, '"')[1]
+        if
+          not (ft:match('commit') and ft:match('rebase'))
+          and last_known_line > 1
+          and last_known_line <= vim.api.nvim_buf_line_count(opts.buf)
+        then
+          vim.api.nvim_feedkeys([[g`"]], 'nx', false)
+        end
+      end,
+    })
+  end,
+})
 
-
+-- require 'rainbow-delimiters'.setup{}
