@@ -258,7 +258,7 @@ vim.o.smartcase = true
 vim.wo.signcolumn = 'yes'
 
 -- Decrease update time
-vim.o.updatetime = 250
+vim.o.updatetime = 50
 vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
@@ -280,6 +280,8 @@ vim.o.number = true;
 
 -- Always show the a few lines below the cursor unless at the end of the file
 vim.o.scrolloff = 7
+
+vim.o.colorcolumn = '80'
 
 -- Make space leader work
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -522,7 +524,7 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
-local tsj = require('treesj').setup {}
+require('treesj').setup {}
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
