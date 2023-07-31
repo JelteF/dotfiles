@@ -1,0 +1,10 @@
+[Unit]
+Description=Rust analyzer multiplex server
+
+[Service]
+Type=simple
+ExecStart=/home/jelte/.cargo/bin/ra-multiplex-server
+Environment=PATH=/home/jelte/.local/share/nvim/mason/bin:$PATH
+
+[Install]
+WantedBy=default.target
