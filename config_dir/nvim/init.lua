@@ -56,6 +56,9 @@ require('lazy').setup({
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
+
+      -- linters/formatters pretending to be LSPs
+      'jose-elias-alvarez/null-ls.nvim',
     },
   },
 
@@ -527,6 +530,16 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+local format_lsp = function(bufnr)
+  vim.lsp.buf.format({
+    filter = function(client)
+      -- let uncrusify format c files
+      return client.name ~= 'clangd' and client.name ~= 'ccls'
+    end,
+
+    bufnr = bufnr
+  })
+end
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
@@ -553,7 +566,7 @@ local on_attach = function(_, bufnr)
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
   nmap('<leader>vds', require('telescope.builtin').lsp_document_symbols, '[V]iew [D]ocument [S]ymbols')
   nmap('<leader>vws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[V]iew [W]orkspace [S]ymbols')
-  nmap(',f', vim.lsp.buf.format, '[F]ormat code')
+  nmap(',f', format_lsp, '[F]ormat code')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -568,10 +581,17 @@ local on_attach = function(_, bufnr)
   end, '[W]orkspace [L]ist Folders')
 
   -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
-  end, { desc = 'Format current buffer with LSP' })
+  vim.api.nvim_buf_create_user_command(bufnr, 'Format', format_lsp, { desc = 'Format current buffer with LSP' })
 end
+
+local null_ls = require("null-ls")
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.uncrustify.with({
+      extra_args = { '-c', '/usr/local/etc/citustools/citus-style.cfg' },
+    }),
+  },
+})
 
 local lsp = require('lsp-zero').preset({})
 
@@ -600,7 +620,7 @@ require('mason-lspconfig').setup({
       require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
     end,
     rust_analyzer = function()
-      require('lspconfig').rust_analyzer.setup{
+      require('lspconfig').rust_analyzer.setup {
         cmd = { "ra-multiplex" },
       }
     end,
