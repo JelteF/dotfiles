@@ -17,12 +17,12 @@ curl_deb() {
 
 curl_deb https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
 curl_deb https://github.com/sharkdp/fd/releases/download/v8.7.0/fd_8.7.0_amd64.deb
-curl_deb https://github.com/dandavison/delta/releases/download/0.15.1/git-delta-musl_0.15.1_amd64.deb
-curl_deb https://github.com/sharkdp/bat/releases/download/v0.22.1/bat_0.22.1_amd64.deb
-curl_deb https://github.com/cli/cli/releases/download/v2.24.3/gh_2.24.3_linux_amd64.deb
+curl_deb https://github.com/dandavison/delta/releases/download/0.16.5/git-delta-musl_0.16.5_amd64.deb
+curl_deb https://github.com/sharkdp/bat/releases/download/v0.23.0/bat_0.23.0_amd64.deb
+curl_deb https://github.com/cli/cli/releases/download/v2.32.1/gh_2.32.1_linux_amd64.deb
 
 mkdir -p ~/.bin
-curl --location https://github.com/starship/starship/releases/download/v1.14.2/starship-x86_64-unknown-linux-musl.tar.gz | tar xz --directory ~/.bin starship
+curl --location https://github.com/starship/starship/releases/download/v1.16.0/starship-x86_64-unknown-linux-musl.tar.gz | tar xz --directory ~/.bin starship
 
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
