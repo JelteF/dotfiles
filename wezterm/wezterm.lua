@@ -11,9 +11,9 @@ if wezterm.config_builder then
 end
 
 config.font = wezterm.font 'UbuntuMono NF'
-config.font_size = 12
+config.font_size = 10.7
 -- config.font = wezterm.font 'JetBrains Mono'
--- config.font_size = 12
+-- config.font_size = 9.0
 -- disable ligatures
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.color_scheme = "Catppuccin Mocha"
