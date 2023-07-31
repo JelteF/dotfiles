@@ -65,9 +65,3 @@ chmod 0700 "$HOME/.ssh"
 if command -v fish; then
   fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && fisher update'
 fi
-
-if command -v nvim; then
-    nvim +PlugInstall +qall
-else
-    vim +PlugInstall +qall
-fi
