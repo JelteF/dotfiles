@@ -38,6 +38,8 @@ require('lazy').setup({
     },
   },
 
+  { 'VonHeikemen/lsp-zero.nvim', branch = 'dev-v3' },
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -56,6 +58,7 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
+
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -71,7 +74,9 @@ require('lazy').setup({
       'rafamadriz/friendly-snippets',
     },
   },
-  { 'folke/which-key.nvim',  opts = {} },
+
+  { 'folke/which-key.nvim',      opts = {} },
+
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -88,10 +93,11 @@ require('lazy').setup({
         vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk,
           { buffer = bufnr, desc = '[G]o to [P]revious Hunk' })
         vim.keymap.set('n', '<leader>gn', require('gitsigns').next_hunk, { buffer = bufnr, desc = '[G]o to [N]ext Hunk' })
-        vim.keymap.set('n', '<leader>ph', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[P]review [H]unk' })
+        vim.keymap.set('n', '<leader>vh', require('gitsigns').preview_hunk, { buffer = bufnr, desc = 'Pre[V]iew [H]unk' })
       end,
     },
   },
+
   -- {
   --   -- Theme inspired by Atom
   --   'navarasu/onedark.nvim',
@@ -137,6 +143,7 @@ require('lazy').setup({
       },
     },
   },
+
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
@@ -147,8 +154,10 @@ require('lazy').setup({
       show_trailing_blankline_indent = false,
     },
   },
+
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',          opts = {} },
+
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
@@ -158,6 +167,7 @@ require('lazy').setup({
       'debugloop/telescope-undo.nvim',
     }
   },
+
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
   -- requirements installed.
@@ -228,6 +238,12 @@ vim.o.linebreak = true
 vim.o.breakindent = true
 vim.o.breakindentopt = 'shift:6'
 
+-- Tabs and Indents that do the right thing by default
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.smartindent = true
+
 -- Save undo history
 vim.o.undofile = true
 
@@ -272,7 +288,7 @@ vim.keymap.set('v', 'k', "mode() ==# 'v' && v:count == 0 ? 'gk' : 'k'", { expr =
 vim.keymap.set('v', 'j', "mode() ==# 'v' && v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- This is a hack to make `A` work better when wrap and linebreak are true
-BETTER_A = function()
+BetterA = function()
   vim.cmd.normal('g$')
   local wrappos = vim.fn.getcurpos()
   vim.cmd.normal('$')
@@ -285,7 +301,7 @@ BETTER_A = function()
   end
 end
 
-vim.keymap.set('n', 'A', ':call v:lua.BETTER_A()<CR>', { silent = true })
+vim.keymap.set('n', 'A', ':call v:lua.BetterA()<CR>', { silent = true })
 
 
 -- Easier split navigation
@@ -334,6 +350,56 @@ end
 
 vim.keymap.set('n', ',l', toggle_numbers)
 
+-- paste but don't replace paste buffer
+vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+
+-- Stay in the middle of the screen
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- Don't show this weird menu thing
+vim.keymap.set("n", "Q", "<nop>")
+
+-- Move lines up and down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- search and replace word under cursor
+vim.keymap.set("n", ",s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("v", ",s", [[y:%s/<C-r>0/<C-r>0/gI<Left><Left><Left>]])
+
+-- make current file executable
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+-- Neovim swapfile reload fix https://github.com/neovim/neovim/issues/2127#issuecomment-150954047
+vim.cmd([[
+augroup AutoSwap
+    autocmd!
+    autocmd SwapExists *  call AS_HandleSwapfile(expand('<afile>:p'), v:swapname)
+augroup END
+
+function! AS_HandleSwapfile (filename, swapname)
+    " if swapfile is older than file itself, just get rid of it
+    if getftime(v:swapname) < getftime(a:filename)
+            call delete(v:swapname)
+            let v:swapchoice = 'e'
+    endif
+endfunction
+autocmd CursorHold,BufWritePost,BufReadPost,BufLeave *
+  \ if isdirectory(expand("<amatch>:h")) | let &swapfile = &modified | endif
+
+augroup checktime
+    au!
+    if !has("gui_running")
+        "silent! necessary otherwise throws errors when using command
+        "line window.
+        autocmd BufEnter,CursorHold,CursorHoldI,CursorMoved,CursorMovedI,FocusGained,BufEnter,FocusLost,WinLeave * checktime
+    endif
+augroup END
+]])
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -479,8 +545,8 @@ local on_attach = function(_, bufnr)
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+  nmap('<leader>vds', require('telescope.builtin').lsp_document_symbols, '[V]iew [D]ocument [S]ymbols')
+  nmap('<leader>vws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[V]iew [W]orkspace [S]ymbols')
   nmap(',f', vim.lsp.buf.format, '[F]ormat code')
 
   -- See `:help K` for why this keymap
@@ -501,31 +567,13 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
---
---  If you want to override the default filetypes that your language server will attach to you can
---  define the property 'filetypes' to the map in question.
-local servers = {
-  clangd = {},
-  -- ccls = {}, -- not supported by mason
-  gopls = {},
-  pyright = {},
-  rust_analyzer = {},
-  tsserver = {},
-  volar = {},
-  html = { filetypes = { 'html', 'twig', 'hbs' } },
+local lsp = require('lsp-zero').preset({})
 
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
-}
+lsp.on_attach(function(client, bufnr)
+  on_attach(client, bufnr)
+end)
+
+lsp.extend_cmp()
 
 -- Setup neovim lua configuration
 require('neodev').setup()
@@ -534,23 +582,19 @@ require('neodev').setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
-
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end
-}
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  -- Replace the language servers listed here
+  -- with the ones you want to install
+  ensure_installed = { 'clangd', 'gopls', 'pyright', 'volar', 'html', 'tsserver', 'rust_analyzer', 'lua_ls' },
+  handlers = {
+    lsp.default_setup,
+    lua_ls = function()
+      -- (Optional) Configure lua language server for neovim
+      require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+    end,
+  },
+})
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
@@ -586,7 +630,7 @@ cmp.setup {
     },
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() and has_words_before() then
-        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        cmp.select_next_item()
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       else
