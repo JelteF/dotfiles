@@ -305,10 +305,14 @@ vim.keymap.set('n', 'A', ':call v:lua.BetterA()<CR>', { silent = true })
 
 
 -- Easier split navigation
-vim.keymap.set({ 'n', 'i' }, '<C-h>', '<C-w>h')
-vim.keymap.set({ 'n', 'i' }, '<C-j>', '<C-w>j')
-vim.keymap.set({ 'n', 'i' }, '<C-k>', '<C-w>k')
-vim.keymap.set({ 'n', 'i' }, '<C-l>', '<C-w>l')
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('n', '<C-l>', '<C-w>l')
+vim.keymap.set('i', '<C-h>', '<C-o><C-w>h')
+vim.keymap.set('i', '<C-j>', '<C-o><C-w>j')
+vim.keymap.set('i', '<C-k>', '<C-o><C-w>k')
+vim.keymap.set('i', '<C-l>', '<C-o><C-w>l')
 
 -- Make Ctrl+C actually the same as escape
 vim.keymap.set({ 'i', 'v' }, '<C-c>', '<esc>')

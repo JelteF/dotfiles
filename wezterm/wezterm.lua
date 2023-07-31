@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 config.font = wezterm.font 'UbuntuMono NF'
-config.font_size = 15
+config.font_size = 12
 -- config.font = wezterm.font 'JetBrains Mono'
 -- config.font_size = 12
 -- disable ligatures
@@ -23,17 +23,41 @@ config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 -- config.enable_scroll_bar = true
 config.scrollback_lines = 30000
 
+config.pane_focus_follows_mouse = true
+
+local act = wezterm.action
+
 config.keys = {
   {
     key = '\\',
     mods = 'CTRL',
-    action = wezterm.action.SplitHorizontal,
+    action = act.SplitHorizontal,
   },
   {
     key = '/',
     mods = 'CTRL',
-    action = wezterm.action.SplitVertical,
+    action = act.SplitVertical,
   },
+  {
+    key = 'LeftArrow',
+    mods = 'ALT|SHIFT',
+    action = act.AdjustPaneSize { 'Left', 5 },
+  },
+  {
+    key = 'RightArrow',
+    mods = 'ALT|SHIFT',
+    action = act.AdjustPaneSize { 'Right', 5 },
+  },
+  {
+    key = 'UpArrow',
+    mods = 'ALT|SHIFT',
+    action = act.AdjustPaneSize { 'Up', 3 },
+  },
+  {
+    key = 'DownArrow',
+    mods = 'ALT|SHIFT',
+    action = act.AdjustPaneSize { 'Down', 3 },
+  }
 }
 
 -- and finally, return the configuration to wezterm
