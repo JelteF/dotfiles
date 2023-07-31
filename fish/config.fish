@@ -49,8 +49,6 @@ if [ $status -ne 0 ]
     bash -c '(setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"$HOME/npiperelay/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1'
 end
 
-eval (python -m virtualfish compat_aliases auto_activation 2> /dev/null)
-
 command -v rbenv >/dev/null && rbenv rehash 2>/dev/null
 
 set -g default_user jelte
