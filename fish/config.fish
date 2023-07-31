@@ -35,6 +35,8 @@ if not status --is-interactive
     exit
 end
 
+set PATH (for p in $PATH; string match -v '/mnt/c/*' $p; end)
+
 # export PGUSER=postgres
 export PGHOST=localhost
 export PGDATABASE=postgres
@@ -138,6 +140,8 @@ abbr -a ggpr git pull-request
 abbr -a gnpr git pull-request
 abbr -a diffs vim src/test/regress/regression.diffs
 abbr -a dockerb docker build --network=host
+
+abbr -a explorer /mnt/c/WINDOWS/explorer.exe
 
 function _gen_fzf_default_opts
   set base03 "234"
