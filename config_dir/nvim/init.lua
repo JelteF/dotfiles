@@ -116,6 +116,9 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'base16-harmonic-dark'
   --   end,
   -- },
+  -- {
+  --   'echasnovski/mini.base16',
+  -- },
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -189,7 +192,22 @@ require('lazy').setup({
     dependencies = {
       'nvim-lua/plenary.nvim',
       'debugloop/telescope-undo.nvim',
-    }
+    },
+    config = function()
+      require("telescope").setup({
+        extensions = {
+          undo = {
+            mappings = {
+              i = {
+                ["<cr>"] = require("telescope-undo.actions").restore,
+              }
+            }
+          },
+        },
+      })
+      require("telescope").load_extension("undo")
+      vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
+    end,
   },
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -242,6 +260,32 @@ require('lazy').setup({
   },
 })
 
+
+-- require('mini.base16').setup({
+--   palette = {
+--     base00 = '#112641',
+--     base01 = '#3a475e',
+--     base02 = '#606b81',
+--     base03 = '#8691a7',
+--     base04 = '#d5dc81',
+--     base05 = '#e2e98f',
+--     base06 = '#eff69c',
+--     base07 = '#fcffaa',
+--     base08 = '#ffcfa0',
+--     base09 = '#cc7e46',
+--     base0A = '#46a436',
+--     base0B = '#9ff895',
+--     base0C = '#ca6ecf',
+--     base0D = '#42f7ff',
+--     base0E = '#ffc4ff',
+--     base0F = '#00a5c5',
+--   },
+--   use_cterm = true,
+--   plugins = {
+--     default = false,
+--     ['echasnovski/mini.nvim'] = true,
+--   },
+-- })
 -- require("copilot").setup({})
 
 -- Don't highlight after search
@@ -347,6 +391,9 @@ vim.keymap.set('i', '<C-l>', '<C-o><C-w>l')
 
 -- Make Ctrl+C actually the same as escape
 vim.keymap.set({ 'i', 'v' }, '<C-c>', '<esc>')
+-- Unmap default Ctrl+C usage in sql files...
+-- https://stackoverflow.com/questions/24931088/disable-omnicomplete-or-ftplugin-or-something-in-vim
+vim.g.omni_sql_no_default_maps = 1
 
 vim.keymap.set({ 'n', 'v' }, ',,', '<C-^>')
 
@@ -368,7 +415,7 @@ vim.keymap.set({ 'v' }, '<F6>', '"*y<CR>')
 vim.g.clipboard = {
   name = 'clipwsl',
   copy = {
-    ["*"] = "clip.exe",
+    ["*"] = "/mnt/c/WINDOWS/system32/clip.exe",
   },
   paste = {
     ["*"] = "echo",
@@ -489,7 +536,8 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+vim.keymap.set('n', '<C-p>', function() require('telescope.builtin').git_files({ show_untracked = true }) end,
+  { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
@@ -629,6 +677,7 @@ end
 local null_ls = require("null-ls")
 null_ls.setup({
   sources = {
+    null_ls.builtins.formatting.sqlfmt,
     null_ls.builtins.formatting.uncrustify.with({
       extra_args = { '-c', '/usr/local/etc/citustools/citus-style.cfg' },
     }),
@@ -661,11 +710,11 @@ require('mason-lspconfig').setup({
       -- (Optional) Configure lua language server for neovim
       require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
     end,
-    rust_analyzer = function()
-      require('lspconfig').rust_analyzer.setup {
-        cmd = { "ra-multiplex" },
-      }
-    end,
+    -- rust_analyzer = function()
+    --   require('lspconfig').rust_analyzer.setup {
+    --     cmd = { "ra-multiplex" },
+    --   }
+    -- end,
   },
 })
 
