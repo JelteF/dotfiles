@@ -136,11 +136,32 @@ require('lazy').setup({
         component_separators = '|',
         section_separators = '',
       },
+      inactive_sections = {
+        lualine_c = {
+          {
+            'filename',
+            path = 1,
+          },
+        },
+      },
       sections = {
         lualine_c = {
           {
             'filename',
             path = 1,
+          },
+        },
+        lualine_z = {
+          { 'location' },
+          {
+            function()
+              for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+                if vim.api.nvim_buf_get_option(buf, 'modified') then
+                  return '[+]' -- any message or icon
+                end
+              end
+              return ''
+            end,
           },
         },
       },
@@ -282,7 +303,11 @@ vim.o.number = true;
 -- Always show the a few lines below the cursor unless at the end of the file
 vim.o.scrolloff = 7
 
+-- Add a line at 80 characters
 vim.o.colorcolumn = '80'
+
+-- Show shared status line
+vim.o.laststatus = 3
 
 -- Make space leader work
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -324,6 +349,19 @@ vim.keymap.set('i', '<C-l>', '<C-o><C-w>l')
 vim.keymap.set({ 'i', 'v' }, '<C-c>', '<esc>')
 
 vim.keymap.set({ 'n', 'v' }, ',,', '<C-^>')
+
+-- Make Ctrl+S save
+vim.keymap.set('n', '<C-s>', ':w<CR>')
+vim.keymap.set('v', '<C-s>', '<C-S>:w<CR>')
+vim.keymap.set('i', '<C-s>', '<C-O>:w<CR>')
+
+-- Make Ctrl+Shift+S save all
+vim.keymap.set('n', '<CS-s>', ':wa<CR>')
+vim.keymap.set('v', '<CS-s>', '<C-S>:wa<CR>')
+vim.keymap.set('i', '<CS-s>', '<C-O>:wa<CR>')
+
+-- Make leader + h save all files
+vim.keymap.set('n', '<leader>h', ':wa<CR>')
 
 -- Allow copy pasting in WSL
 vim.keymap.set({ 'v' }, '<F6>', '"*y<CR>')
