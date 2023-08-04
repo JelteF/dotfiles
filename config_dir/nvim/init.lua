@@ -462,6 +462,10 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Reselect visual block after indend/outdent
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+
 -- search and replace word under cursor
 vim.keymap.set("n", ",s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("v", ",s", [[y:%s/<C-r>0/<C-r>0/gI<Left><Left><Left>]])
