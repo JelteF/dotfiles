@@ -62,6 +62,9 @@ require('lazy').setup({
     },
   },
 
+  { 'rcarriga/nvim-dap-ui',      dependencies = { 'mfussenegger/nvim-dap' } },
+  'jay-babu/mason-nvim-dap.nvim',
+
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -78,7 +81,7 @@ require('lazy').setup({
     },
   },
 
-  { 'folke/which-key.nvim',      opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
 
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
@@ -183,7 +186,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',          opts = {} },
+  { 'numToStr/Comment.nvim', opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -206,7 +209,7 @@ require('lazy').setup({
         },
       })
       require("telescope").load_extension("undo")
-      vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
+      vim.keymap.set("n", "<leader>U", "<cmd>Telescope undo<cr>")
     end,
   },
 
@@ -258,6 +261,8 @@ require('lazy').setup({
       "zbirenbaum/copilot-cmp",
     }
   },
+
+  'stevearc/dressing.nvim',
 })
 
 
@@ -473,6 +478,19 @@ vim.keymap.set("v", ",s", [[y:%s/<C-r>0/<C-r>0/gI<Left><Left><Left>]])
 -- make current file executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
+vim.keymap.set("n", '<F5>', "<Cmd>lua require'dap'.continue()<CR>")
+vim.keymap.set("n", '<F10>', "<Cmd>lua require'dap'.step_over()<CR>")
+vim.keymap.set("n", '<F11>', "<Cmd>lua require'dap'.step_into()<CR>")
+vim.keymap.set("n", '<F12>', "<Cmd>lua require'dap'.step_out()<CR>")
+vim.keymap.set("n", '<Leader>b', "<Cmd>lua require'dap'.toggle_breakpoint()<CR>")
+vim.keymap.set("n", '<Leader>B', "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
+vim.keymap.set("n", '<Leader>lp', "<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
+-- vim.keymap.set("n", '<Leader>dr', "<Cmd>lua require'dap'.repl.open()<CR>")
+-- vim.keymap.set("n", '<Leader>dl', "<Cmd>lua require'dap'.run_last()<CR>")
+vim.keymap.set("n", "<leader>u",  function() require('dap').up() end, { desc = 'Debugger frame up' })
+vim.keymap.set("n", "<leader><Up>",  function() require('dap').up() end, { desc = 'Debugger frame up' })
+vim.keymap.set("n", "<leader><Down>",  function() require('dap').down() end, { desc = 'Debugger frame down' })
+
 -- Neovim swapfile reload fix https://github.com/neovim/neovim/issues/2127#issuecomment-150954047
 vim.cmd([[
 augroup AutoSwap
@@ -621,6 +639,7 @@ require('treesitter-context').setup {}
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<leader>d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
@@ -635,6 +654,10 @@ local format_lsp = function(bufnr)
   })
 end
 -- [[ Configure LSP ]]
+
+require("neoconf").setup({
+  -- override any of the default settings here
+})
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
@@ -682,8 +705,10 @@ local null_ls = require("null-ls")
 null_ls.setup({
   sources = {
     null_ls.builtins.formatting.sqlfmt,
+    null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.uncrustify.with({
-      extra_args = { '-c', '/usr/local/etc/citustools/citus-style.cfg' },
+      command = './uncrustify',
+      extra_args = { '-c', 'uncrustify.cfg' },
     }),
   },
 })
@@ -696,8 +721,75 @@ end)
 
 lsp.extend_cmp()
 
+local dap = require('dap')
+dap.adapters.lldb = {
+  type = 'executable',
+  command = '/usr/bin/lldb-vscode-14', -- adjust as needed, must be absolute path
+  name = 'lldb'
+}
+dap.configurations.cpp = {
+  {
+    -- If you get an "Operation not permitted" error using this, try disabling YAMA:
+    --  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+    name = "Attach to process",
+    type = 'lldb',  -- Adjust this to match your adapter name (`dap.adapters.<name>`)
+    request = 'attach',
+    pid = require('dap.utils').pick_process,
+    args = {},
+  },
+  -- {
+  --   name = 'Launch',
+  --   type = 'lldb',
+  --   request = 'launch',
+  --   program = function()
+  --     return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+  --   end,
+  --   cwd = '${workspaceFolder}',
+  --   stopOnEntry = false,
+  --   args = {},
+
+  --   -- 💀
+  --   -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+  --   --
+  --   --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+  --   --
+  --   -- Otherwise you might get the following error:
+  --   --
+  --   --    Error on launch: Failed to attach to the target process
+  --   --
+  --   -- But you should be aware of the implications:
+  --   -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+  --   -- runInTerminal = false,
+  -- },
+}
+
+-- If you want to use this for Rust and C, add something like this:
+
+dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp
+
+local dapui = require("dapui")
+dapui.setup({
+  element_mappings = {
+    stacks = {
+      open = { "<CR>", "<2-LeftMouse>" },
+    }
+  },
+})
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
+
 -- Setup neovim lua configuration
-require('neodev').setup()
+require("neodev").setup({
+  library = { plugins = { "nvim-dap-ui" }, types = true },
+})
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
