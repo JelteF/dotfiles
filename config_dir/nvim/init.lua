@@ -64,6 +64,7 @@ require('lazy').setup({
 
   { 'rcarriga/nvim-dap-ui',      dependencies = { 'mfussenegger/nvim-dap' } },
   'jay-babu/mason-nvim-dap.nvim',
+  'theHamsta/nvim-dap-virtual-text',
 
   {
     -- Autocompletion
@@ -785,6 +786,8 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+
+require("nvim-dap-virtual-text").setup()
 
 -- Setup neovim lua configuration
 require("neodev").setup({
