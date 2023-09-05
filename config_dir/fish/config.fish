@@ -28,9 +28,6 @@ set -x ANDROID_HOME $HOME/Android/Sdk/
 set -x NPM_CONFIG_PREFIX ~/.npm-global
 set -x PYENV_ROOT $HOME/.pyenv
 
-# Set user $PATH variables
-set fish_user_paths ~/.rbenv/plugins/ruby-build/bin ~/.rbenv/bin ~/.rbenv/shims ~/.pgenv/bin ~/.pgenv/pgsql/bin /opt/bin ~/.gem/ruby/2.2.0/bin ~/.local/bin ~/.bin $GOPATH/bin /sbin /usr/sbin ~/.cargo/bin ~/.fzf/bin ~/.npm-global/bin /usr/local/go/bin ~/.dotnet/tools ~/.pyenv/bin
-
 if not status --is-interactive
     exit
 end
@@ -178,3 +175,14 @@ function fish_prompt
     printf "\e]9;9;%s\e\\" $PWD
 end
 
+function add_latency
+    set port $argv[1]
+    set delay $argv[2]
+    sudo tc qdisc add dev lo root handle 1: prio bands 2 priomap 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    sudo tc qdisc add dev lo parent 1:2 handle 20: netem delay {$delay}ms
+    sudo tc filter add dev lo parent 1:0 protocol ip prio $port u32 match ip dport $port 0xffff flowid 1:2
+end
+
+function remove_latency
+    sudo tc qdisc del dev lo root
+end
