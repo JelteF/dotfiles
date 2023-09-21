@@ -186,3 +186,5 @@ end
 function remove_latency
     sudo tc qdisc del dev lo root
 end
+
+ulimit -c unlimited
