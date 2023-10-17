@@ -77,6 +77,9 @@ require('lazy').setup({
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
 
+      -- Adds completions from buffer
+      'hrsh7th/cmp-buffer',
+
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
     },
@@ -871,6 +874,7 @@ cmp.setup {
   sources = {
     { name = "copilot",  group_index = 2 },
     { name = 'nvim_lsp', group_index = 2 },
+    { name = 'buffer' },
     { name = 'luasnip',  group_index = 2 },
   },
 }
