@@ -68,7 +68,7 @@ export NPM_CONFIG_PREFIX=$HOME/.npm-global
 
 . "$HOME/.cargo/env"
 
-export PROMPT_COMMAND='printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")"'
+# export PROMPT_COMMAND='printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")"'
 export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
 
 ss -a | grep -q $SSH_AUTH_SOCK

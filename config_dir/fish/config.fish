@@ -33,18 +33,19 @@ if not status --is-interactive
 end
 
 set PATH (for p in $PATH; string match -v '/mnt/c/*' $p; end)
+set PATH /usr/lib/go-1.21/bin/ $PATH
 
 # export PGUSER=postgres
 export PGHOST=localhost
 export PGDATABASE=postgres
 
-export SSH_AUTH_SOCK=$HOME/.ssh/agent-npiperelay.sock
+# export SSH_AUTH_SOCK=$HOME/.ssh/agent-npiperelay.sock
 
-ss -a | grep -q $SSH_AUTH_SOCK
-if [ $status -ne 0 ]
-    rm -f $SSH_AUTH_SOCK
-    bash -c '(setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"$HOME/npiperelay/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1'
-end
+# ss -a | grep -q $SSH_AUTH_SOCK
+# if [ $status -ne 0 ]
+#     rm -f $SSH_AUTH_SOCK
+#     bash -c '(setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"$HOME/npiperelay/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1'
+# end
 
 command -v rbenv >/dev/null && rbenv rehash 2>/dev/null
 

@@ -10,7 +10,7 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
-config.font = wezterm.font 'UbuntuMono NF'
+config.font = wezterm.font 'UbuntuMono'
 config.font_size = 10.7
 -- config.font = wezterm.font 'JetBrains Mono'
 -- config.font_size = 9.0
@@ -18,7 +18,7 @@ config.font_size = 10.7
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.color_scheme = "Catppuccin Mocha"
 
-config.default_domain = 'WSL:Ubuntu-22.04'
+-- config.default_domain = 'WSL:Ubuntu-22.04'
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 -- config.enable_scroll_bar = true
 config.scrollback_lines = 30000

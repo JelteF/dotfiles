@@ -418,17 +418,7 @@ vim.keymap.set('i', '<CS-s>', '<C-O>:wa<CR>')
 vim.keymap.set('n', '<leader>h', ':wa<CR>')
 
 -- Allow copy pasting in WSL
-vim.keymap.set({ 'v' }, '<F6>', '"*y<CR>')
-vim.g.clipboard = {
-  name = 'clipwsl',
-  copy = {
-    ["*"] = "/mnt/c/WINDOWS/system32/clip.exe",
-  },
-  paste = {
-    ["*"] = "echo",
-  },
-  cache_enabled = false,
-}
+vim.keymap.set({ 'v' }, '<F6>', '"+y<CR>')
 
 -- Make Y work like D and C
 vim.keymap.set('n', 'Y', 'y$')

@@ -7,7 +7,7 @@ sudo apt-get --yes install vim git python3-pip\
     htop python3-dev tig curl fish silversearcher-ag build-essential\
     tmux whois wget neovim cmake zlib1g-dev libncurses-dev gdb\
     shellcheck openssl libssl-dev pkg-config socat unzip python-is-python3 \
-    libtool nodejs
+    libtool nodejs golang-1.21-go
 
 curl_deb() {
     curl --location --output curlpackage.deb "$1"

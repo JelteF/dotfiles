@@ -1,10 +1,13 @@
 #!/bin/bash
-sudo apt-get --yes --force-yes install keepass2 keepass2-plugin-keepasshttp\
-    keepass2-plugin-keeagent synapse xdotool mono-complete gnuplot \
-    google-chrome-stable gparted insync curl awesome xfce4-terminal telegram \
-    pavucontrol arandr thunar python-pygments xclip wireshark
+set -euxo pipefail
+sudo snap remove firefox
+sudo apt-get --yes --force-yes install firefox keepassxc insync wl-clipboard
+sudo snap install telegram-desktop
 
-wget https://github.com/jgm/pandoc/releases/download/1.16.0.2/pandoc-1.16.0.2-1-amd64.deb
-sudo dpkg -i pandoc-*.deb
-rm pandoc-*.deb
+curl_deb() {
+    curl --location --output curlpackage.deb "$1"
+    sudo dpkg --install curlpackage.deb
+    rm curlpackage.deb
+}
 
+curl_deb https://github.com/wez/wezterm/releases/download/20230712-072601-f4abf8fd/wezterm-20230712-072601-f4abf8fd.Ubuntu22.04.deb

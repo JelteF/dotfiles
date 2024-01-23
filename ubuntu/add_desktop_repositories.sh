@@ -1,28 +1,21 @@
 #!/bin/bash
-# Sign Google certificate
-echo 'Setting up Google Chrome stuff'
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo \
-    apt-key add -
+set -euxo pipefail
 
-# Add Google to sources
-echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee \
-    /etc/apt/sources.list.d/google.list > /dev/null
+# Set up firefox deb repo
+sudo install -d -m 0755 /etc/apt/keyrings
+wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
+gpg -n -q --import --import-options import-show /etc/apt/keyrings/packages.mozilla.org.asc | awk '/pub/{getline; gsub(/^ +| +$/,""); print "\n"$0"\n"}'
+echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
+echo '
+Package: *
+Pin: origin packages.mozilla.org
+Pin-Priority: 1000
+' | sudo tee /etc/apt/preferences.d/mozilla
+
+# Add keepassxc
+sudo add-apt-repository ppa:phoerious/keepassxc -y
 
 # Add insync stuff
-echo 'Setting up insync stuff'
-wget -qO - https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key \
-    | sudo apt-key add -
-
-echo "deb http://apt.insynchq.com/ubuntu vivid non-free contrib" | sudo tee \
-    /etc/apt/sources.list.d/insync.list > /dev/null
-
-# Add synapse
-echo 'Adding synapse repo'
-sudo apt-add-repository -y ppa:synapse-core/testing
-
-# Awesome
-sudo add-apt-repository -y ppa:klaus-vormweg/awesome
-
-# Keepass and plugins
-sudo add-apt-repository -y ppa:jtaylor/keepass
-sudo add-apt-repository -y ppa:dlech/keepass2-plugins
+sudo wget -O /etc/apt/trusted.gpg.d/insynchq.asc "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xAEEB94E9C5A3B54ECFA4A66AA684470CACCAF35C"
+echo "deb http://apt.insync.io/ubuntu $(lsb_release -cs) non-free contrib" | sudo tee \
+     /etc/apt/sources.list.d/insync.list > /dev/null
