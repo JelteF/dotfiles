@@ -48,6 +48,7 @@
     get = "!git stash && git pull --rebase && git stash pop"
     pr = pull-request
     npr = pull-request
+    reset-remote = "!git reset $(git rev-parse --abbrev-ref --symbolic-full-name @{u}) --hard"
     reset-origin = "!git reset origin/$(git rev-parse --abbrev-ref HEAD) --hard"
 	tags = tag --format='%(creatordate:short)%09%(objectname:short)%09%(refname:strip=2)%09%(contents:subject)' --sort=creatordate
     checkout-default = "!git checkout $(git rev-parse --abbrev-ref origin/HEAD | sed 's@^origin/@@')"
