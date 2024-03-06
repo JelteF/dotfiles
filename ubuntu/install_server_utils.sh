@@ -13,7 +13,7 @@ sudo apt-get --yes install vim git python3-pip\
     libsystemd-dev pandoc libcurl4-gnutls-dev libicu-dev uuid-dev \
     libkrb5-dev liblz4-dev libpam0g-dev libreadline-dev libselinux1-dev \
     libssl-dev libxslt1-dev libzstd-dev libipc-run-perl valgrind \
-    xsltproc libxml2-utils docbook-xsl gettext
+    xsltproc libxml2-utils docbook-xsl gettext bear
 
 
 curl_deb() {
