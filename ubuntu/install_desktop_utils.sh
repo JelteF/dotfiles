@@ -10,4 +10,6 @@ curl_deb() {
     rm curlpackage.deb
 }
 
-curl_deb https://github.com/wez/wezterm/releases/download/20230712-072601-f4abf8fd/wezterm-20230712-072601-f4abf8fd.Ubuntu22.04.deb
+wezterm_version=20240203-110809-5046fc22
+
+curl_deb https://github.com/wez/wezterm/releases/download/$wezterm_version/wezterm-$wezterm_version.Ubuntu22.04.deb

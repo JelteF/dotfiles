@@ -188,4 +188,10 @@ function remove_latency
     sudo tc qdisc del dev lo root
 end
 
+function curl_deb
+    curl --location --output curlpackage.deb "$argv[1]"
+    sudo dpkg --install curlpackage.deb
+    rm curlpackage.deb
+end
+
 ulimit -c unlimited
