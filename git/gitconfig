@@ -90,3 +90,7 @@
 cursor = black green
 title-focus = black blue
 title-blur = black blue
+[maintenance]
+	repo = /home/jelte/opensource/pgbouncer
+	repo = /home/jelte/opensource/postgres
+	repo = /home/jelte/work/citus
