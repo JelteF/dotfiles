@@ -55,3 +55,6 @@ Thumbs.db
 /.clangd
 .cache/
 compile_commands.json
+/uncrustify.cfg
+/uncrustify
+.venv
