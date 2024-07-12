@@ -30,6 +30,7 @@ curl_deb https://github.com/cli/cli/releases/download/v2.32.1/gh_2.32.1_linux_am
 
 mkdir -p ~/.bin
 curl --location https://github.com/starship/starship/releases/download/v1.16.0/starship-x86_64-unknown-linux-musl.tar.gz | tar xz --directory ~/.bin starship
+curl --location https://github.com/mozilla/sccache/releases/download/v0.7.4/sccache-v0.7.4-x86_64-unknown-linux-musl.tar.gz | tar xz --directory ~/.bin sccache-v0.7.4-x86_64-unknown-linux-musl/sccache --strip-components 1
 
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 

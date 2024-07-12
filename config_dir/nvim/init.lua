@@ -62,7 +62,7 @@ require('lazy').setup({
     },
   },
 
-  { 'rcarriga/nvim-dap-ui',      dependencies = { 'mfussenegger/nvim-dap' } },
+  { 'rcarriga/nvim-dap-ui',      dependencies = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' } },
   'jay-babu/mason-nvim-dap.nvim',
   'theHamsta/nvim-dap-virtual-text',
 
@@ -265,6 +265,14 @@ require('lazy').setup({
   },
 
   'stevearc/dressing.nvim',
+
+  {
+    "gelguy/wilder.nvim",
+    keys = { "/", "?", ":" },
+    build = ":UpdateRemotePlugins"
+  },
+
+  'kyazdani42/nvim-web-devicons',
 })
 
 
@@ -887,5 +895,29 @@ vim.api.nvim_create_autocmd('BufRead', {
     })
   end,
 })
+
+local wilder = require('wilder')
+wilder.setup({
+  modes = {':', '/', '?'}
+})
+
+wilder.set_option('pipeline', {
+  wilder.branch(
+    wilder.cmdline_pipeline({
+      fuzzy = 1,
+      set_pcre2_pattern = 1,
+    }),
+    wilder.python_search_pipeline({
+      pattern = 'fuzzy',
+    })
+  ),
+})
+
+wilder.set_option('renderer', wilder.popupmenu_renderer({
+  highlighter = wilder.basic_highlighter(),
+  left = {' ', wilder.popupmenu_devicons()},
+  right = {' ', wilder.popupmenu_scrollbar()},
+}))
+
 
 -- require 'rainbow-delimiters'.setup{}
