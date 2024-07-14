@@ -47,7 +47,7 @@ return {
           cmp.abort()
           fallback()
         end,
-        ["<C-c>"] = function(fallback)
+        ["<C-k>"] = function(fallback)
           if cmp.visible() then
             cmp.abort()
           else
