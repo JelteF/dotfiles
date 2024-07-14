@@ -31,8 +31,8 @@ map("n", "<CS-s>", ":wa<CR>")
 map("v", "<CS-s>", "<C-S>:wa<CR>")
 map("i", "<CS-s>", "<C-O>:wa<CR>")
 
--- Make leader + h save all files
-map("n", "<leader>h", ":wa<CR>")
+-- Make leader + t save all files
+map("n", "<leader>t", ":wa<CR>", { desc = "Save all files" })
 
 -- Allow copy pasting in WSL
 map({ "v" }, "<F6>", '"+y<CR>')
@@ -50,8 +50,8 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
 -- paste but don't replace paste buffer
-map("x", "<leader>p", [["_dP]])
-map({ "n", "v" }, "<leader>d", [["_d]])
+-- map("x", "<leader>p", [["_dP]])
+-- map({ "n", "v" }, "<leader>d", [["_d]])
 
 -- Don't show this weird menu thing
 map("n", "Q", "<nop>")
