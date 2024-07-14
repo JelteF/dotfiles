@@ -1,5 +1,5 @@
 {
-  "LazyVim": { "branch": "main", "commit": "45af7e1fed5273b027105ecf4026e4c452cc7508" },
+  "LazyVim": { "branch": "main", "commit": "b20be638b3563cce0823b161a909f7702aaa64b5" },
   "SchemaStore.nvim": { "branch": "main", "commit": "37274739232b6a888be7c6ca5f1a2d58510a9a84" },
   "bufferline.nvim": { "branch": "main", "commit": "aa16dafdc642594c7ade7e88d31a6119feb189d6" },
   "catppuccin": { "branch": "main", "commit": "7946d1a195c66fed38b3e34f9fa8e0c5a2da0700" },
@@ -31,6 +31,7 @@
   "mason-nvim-dap.nvim": { "branch": "main", "commit": "4ba55f9755ebe8297d92c419b90a946123292ae6" },
   "mason.nvim": { "branch": "main", "commit": "f96a31855fa8aea55599cea412fe611b85a874ed" },
   "mini.ai": { "branch": "main", "commit": "45587078f323eaf41b9f701bbc04f8d1ab008979" },
+  "mini.files": { "branch": "main", "commit": "acfc4e46f6722a0690ce640632c5b5515ddade70" },
   "mini.icons": { "branch": "main", "commit": "9d9d21868841ce0a26fb2b8ef0eba7021055145c" },
   "mini.pairs": { "branch": "main", "commit": "927d19cbdd0e752ab1c7eed87072e71d2cd6ff51" },
   "mini.surround": { "branch": "main", "commit": "57caca9525cec0ea771a67326b0ee637d056078a" },
@@ -65,6 +66,6 @@
   "trouble.nvim": { "branch": "main", "commit": "03c1fbf518bef683422a3be9643c3da190903488" },
   "ts-comments.nvim": { "branch": "main", "commit": "8504d06d4f02e7ca6e65c635cef881cefba573d5" },
   "venv-selector.nvim": { "branch": "regexp", "commit": "31600764a64bddcfaa7e28f8be0aad3192c887cf" },
-  "which-key.nvim": { "branch": "main", "commit": "4d5b8959fd2a4df065ff76ccb39019aaa70cb0dc" },
+  "which-key.nvim": { "branch": "main", "commit": "d077a3f36d4b4d29eccc7feb1ba8e78a421df920" },
   "yanky.nvim": { "branch": "main", "commit": "73215b77d22ebb179cef98e7e1235825431d10e4" }
 }

@@ -10,10 +10,9 @@ return {
       end
 
       local cmp = require("cmp")
-
-      opts.mapping = vim.tbl_extend("force", opts.mapping, {
+      opts.mapping = {
         ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
+          if cmp.visible() and has_words_before() then
             -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
             cmp.select_next_item()
           elseif vim.snippet.active({ direction = 1 }) then
@@ -37,8 +36,26 @@ return {
             fallback()
           end
         end, { "i", "s" }),
-        ["<C-f>"] = LazyVim.cmp.confirm({ select = true }),
-      })
+        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-d>"] = cmp.mapping.scroll_docs(4),
+        ["<C-f>"] = LazyVim.cmp.confirm(),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<CR>"] = LazyVim.cmp.confirm({ select = true }),
+        ["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
+        ["<S-CR>"] = LazyVim.cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<C-CR>"] = function(fallback)
+          cmp.abort()
+          fallback()
+        end,
+        ["<C-c>"] = function(fallback)
+          if cmp.visible() then
+            cmp.abort()
+          else
+            fallback()
+          end
+        end,
+      }
+      print(opts.mapping["<C-f>"])
     end,
   },
 }
