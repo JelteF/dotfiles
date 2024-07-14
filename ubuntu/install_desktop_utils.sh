@@ -2,7 +2,7 @@
 set -euxo pipefail
 sudo snap remove firefox
 sudo apt-get --yes --force-yes install firefox keepassxc insync wl-clipboard
-sudo snap install telegram-desktop
+sudo snap install telegram-desktop discord
 
 curl_deb() {
     curl --location --output curlpackage.deb "$1"
