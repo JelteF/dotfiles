@@ -33,7 +33,7 @@ if not status --is-interactive
 end
 
 set PATH (for p in $PATH; string match -v '/mnt/c/*' $p; end)
-set PATH /usr/lib/go-1.21/bin/ $PATH
+set PATH $GOBIN /usr/lib/go-1.21/bin/ $PATH
 
 # export PGUSER=postgres
 export PGHOST=localhost
