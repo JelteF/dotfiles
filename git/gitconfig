@@ -28,11 +28,14 @@
 [interactive]
     diffFilter = delta --color-only
 
+[include]
+	path = ~/dotfiles/git/catppuccin/catppuccin.gitconfig
+
 [delta]
-    features = decorations
+    features = catppuccin-mocha decorations
     whitespace-error-style = 22 reverse
-	side-by-side = false
-    syntax-theme = base16
+    side-by-side = false
+    line-numbers = false
 
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul

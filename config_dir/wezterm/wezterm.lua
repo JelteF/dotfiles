@@ -16,6 +16,7 @@ config.font_size = 10.7
 -- config.font_size = 9.0
 -- disable ligatures
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+-- config.color_scheme = "Catppuccin Latte"
 config.color_scheme = "Catppuccin Mocha"
 
 -- config.default_domain = 'WSL:Ubuntu-22.04'

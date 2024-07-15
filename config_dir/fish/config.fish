@@ -2,6 +2,8 @@ if not echo $TERM | grep 256color >/dev/null
     set TERM xterm-256color
 end
 
+fish_config theme choose "Catppuccin Mocha"
+
 # Base16 Shell
 if status --is-interactive
     # eval sh $HOME/.config/base16-shell/scripts/base16-harmonic16-dark.sh
