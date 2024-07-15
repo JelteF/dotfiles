@@ -53,7 +53,7 @@ ln -snf "$PWD/ptpython/"* ~/.ptpython/
 
 # Remove ~/.config directories that should be symlinked
 for dir in "$PWD/config_dir/"*; do
-    rm -rf "$HOME/.config/${dir#$PWD/config_dir/}";
+    rm -rf "$HOME/.config/${dir#$PWD/config_dir/}"
 done
 ln -sf "$PWD/config_dir/"* ~/.config/
 
@@ -62,5 +62,5 @@ chmod 0700 "$HOME/.ssh"
 
 # Install fisherman
 if command -v fish; then
-  fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && fisher update'
+    fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && fisher update'
 fi
