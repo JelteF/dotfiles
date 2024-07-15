@@ -1,4 +1,4 @@
-if not echo $TERM | grep 256color > /dev/null
+if not echo $TERM | grep 256color >/dev/null
     set TERM xterm-256color
 end
 
@@ -58,12 +58,12 @@ set -g theme_color_scheme solarized-dark
 set -x ECHANGELOG_USER "Jelte Fennema (JelteF) <github-tech@jeltef.nl>"
 
 # Disable clipboard polution
-set FISH_CLIPBOARD_CMD "cat"
+set FISH_CLIPBOARD_CMD cat
 
 alias git-root="cd  (git rev-parse --show-toplevel)"
 
 function vim
-    if command -s nvim > /dev/null
+    if command -s nvim >/dev/null
         nvim $argv
     else
         command vim $argv
@@ -75,7 +75,7 @@ function ovim
 end
 
 function git
-    if command -s hub > /dev/null
+    if command -s hub >/dev/null
         hub $argv
     else
         command git $argv
@@ -83,7 +83,7 @@ function git
 end
 
 function redis-cli
-    if command -s rlwrap > /dev/null
+    if command -s rlwrap >/dev/null
         rlwrap -a -- redis-cli $argv
     else
         command redis-cli $argv
@@ -140,27 +140,27 @@ abbr -a dockerb docker build --network=host
 abbr -a explorer /mnt/c/WINDOWS/explorer.exe
 
 function _gen_fzf_default_opts
-  set base03 "234"
-  set base02 "235"
-  set base01 "240"
-  set base00 "241"
-  set base0 "244"
-  set base1 "245"
-  set base2 "254"
-  set base3 "230"
-  set yellow "136"
-  set orange "166"
-  set red "160"
-  set magenta "125"
-  set violet "61"
-  set blue "33"
-  set cyan "37"
-  set green "64"
+    set base03 234
+    set base02 235
+    set base01 240
+    set base00 241
+    set base0 244
+    set base1 245
+    set base2 254
+    set base3 230
+    set yellow 136
+    set orange 166
+    set red 160
+    set magenta 125
+    set violet 61
+    set blue 33
+    set cyan 37
+    set green 64
 
-  # Comment and uncomment below for the light theme.
+    # Comment and uncomment below for the light theme.
 
-  # Solarized Dark color scheme for fzf
-  echo "--color fg:-1,bg:-1,hl:$blue,fg+:$base2,bg+:$base02,hl+:$blue --color info:$yellow,prompt:$yellow,pointer:$base3,marker:$base3,spinner:$yellow"
+    # Solarized Dark color scheme for fzf
+    echo "--color fg:-1,bg:-1,hl:$blue,fg+:$base2,bg+:$base02,hl+:$blue --color info:$yellow,prompt:$yellow,pointer:$base3,marker:$base3,spinner:$yellow"
 end
 
 set -x FZF_DEFAULT_OPTS (_gen_fzf_default_opts)
