@@ -25,6 +25,8 @@ config.scrollback_lines = 30000
 
 config.pane_focus_follows_mouse = true
 
+config.warn_about_missing_glyphs = false
+
 local act = wezterm.action
 
 config.keys = {
