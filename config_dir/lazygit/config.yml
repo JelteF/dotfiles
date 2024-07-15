@@ -6,6 +6,7 @@ quitOnTopLevelReturn: true
 keybinding:
   universal:
     return: <c-q>
+    return-alt1: q
     quit: <c-c>
     rangeSelectDown: J
     rangeSelectUp: K
@@ -16,6 +17,8 @@ keybinding:
     moveUpCommit: <s-down>
 
 gui:
+  scrollPastBottom: false
+  scrollHeight: 15
   # catppuccin theme
   theme:
     activeBorderColor:
