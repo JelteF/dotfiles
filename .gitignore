@@ -4,3 +4,4 @@ backup
 /config_dir/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
 /config_dir/xfce4/terminal/accels.scm
 /config_dir/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+/tmux/catppuccin

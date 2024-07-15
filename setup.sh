@@ -64,3 +64,7 @@ chmod 0700 "$HOME/.ssh"
 if command -v fish; then
     fish -c 'curl -sL https://git.io/fisher | source && fisher install (cat config_dir/fish/fish_plugins) && fisher update'
 fi
+
+if ! [ -d tmux/catppuccin ]; then
+    git clone https://github.com/catppuccin/tmux tmux/catppuccin
+fi
