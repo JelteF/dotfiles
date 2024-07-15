@@ -58,3 +58,6 @@ map("n", "Q", "<nop>")
 
 -- make current file executable
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+-- shift + backspace to delete
+map("i", "<S-BS>", "<del>")

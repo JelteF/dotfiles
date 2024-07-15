@@ -55,7 +55,6 @@ return {
           end
         end,
       }
-      print(opts.mapping["<C-f>"])
     end,
   },
 }

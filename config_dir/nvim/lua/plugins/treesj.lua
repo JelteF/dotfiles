@@ -2,6 +2,7 @@ return {
   {
     "Wansmer/treesj",
     keys = {
+      { "<leader>j", "", desc = "+treesj", mode = { "n" } },
       {
         "<leader>jm",
         function()
