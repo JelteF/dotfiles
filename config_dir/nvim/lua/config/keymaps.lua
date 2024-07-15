@@ -27,12 +27,12 @@ map({ "i", "v" }, "<C-c>", "<esc>")
 -- map({ "n", "v" }, ",,", "<C-^>")
 
 -- Make Ctrl+Shift+S save all
-map("n", "<CS-s>", ":wa<CR>")
-map("v", "<CS-s>", "<C-S>:wa<CR>")
-map("i", "<CS-s>", "<C-O>:wa<CR>")
+map("n", "<CS-s>", ":wa<CR>", { silent = true, desc = "Save all files" })
+map("v", "<CS-s>", "<C-S>:wa<CR>", { silent = true, desc = "Save all files" })
+map("i", "<CS-s>", "<C-O>:wa<CR>", { silent = true, desc = "Save all files" })
 
 -- Make leader + t save all files
-map("n", "<leader>t", ":wa<CR>", { desc = "Save all files" })
+map("n", "<leader>n", ":wa<CR>", { silent = true, desc = "Save all files" })
 
 -- Allow copy pasting in WSL
 map({ "v" }, "<F6>", '"+y<CR>')
