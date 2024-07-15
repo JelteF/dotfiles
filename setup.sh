@@ -62,5 +62,5 @@ chmod 0700 "$HOME/.ssh"
 
 # Install fisherman
 if command -v fish; then
-    fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && fisher update'
+    fish -c 'curl -sL https://git.io/fisher | source && fisher install (cat config_dir/fish/fish_plugins) && fisher update'
 fi

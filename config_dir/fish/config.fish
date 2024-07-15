@@ -168,6 +168,7 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 
 zoxide init fish | source
 starship init fish | source
+command -v kubectl && kubectl completion fish | source
 
 functions --copy fish_prompt fish_prompt_starship
 
