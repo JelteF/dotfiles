@@ -1,8 +1,11 @@
 #!/bin/bash
 set -euxo pipefail
+
+gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'
+
 sudo snap remove firefox
 sudo apt-get --yes --force-yes install firefox keepassxc insync wl-clipboard
-sudo snap install telegram-desktop discord
+sudo snap install telegram-desktop discord slack
 
 curl_deb() {
     curl --location --output curlpackage.deb "$1"
