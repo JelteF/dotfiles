@@ -60,4 +60,4 @@ map("n", "Q", "<nop>")
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- shift + backspace to delete
-map("i", "<S-BS>", "<del>")
+map("i", "<A-BS>", "<del>")
