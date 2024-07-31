@@ -3,8 +3,9 @@ set -euxo pipefail
 
 gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'
 
+sudo snap disable firefox
 sudo snap remove firefox
-sudo apt-get --yes --force-yes install firefox keepassxc insync wl-clipboard
+sudo apt-get --yes --force-yes install firefox keepassxc insync wl-clipboard code
 sudo snap install telegram-desktop discord slack
 
 curl_deb() {
