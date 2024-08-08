@@ -174,6 +174,12 @@ command -v kubectl && kubectl completion fish | source
 
 functions --copy fish_prompt fish_prompt_starship
 
+function gh-fork
+    gh repo fork --remote-name JelteF --default-branch-only $argv
+    git config remote.origin.gh-resolved base
+    git config remote.pushdefault JelteF
+end
+
 function fish_prompt
     fish_prompt_starship
     printf "\e]9;9;%s\e\\" $PWD
