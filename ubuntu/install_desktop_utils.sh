@@ -8,6 +8,20 @@ sudo snap remove firefox
 sudo apt-get --yes --force-yes install firefox keepassxc insync wl-clipboard code
 sudo snap install telegram-desktop discord slack
 
+sudo tee /etc/apt/preferences.d/firefox-no-snap >/dev/null <<EOF
+Package: firefox*
+Pin: release o=Ubuntu*
+Pin-Priority: -1
+EOF
+
+sudo tee /etc/apt/preferences.d/mozillafirefoxppa >/dev/null <<EOF
+Package: firefox*
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 501
+EOF
+
+echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox >/dev/null
+
 curl_deb() {
     curl --location --output curlpackage.deb "$1"
     sudo dpkg --install curlpackage.deb

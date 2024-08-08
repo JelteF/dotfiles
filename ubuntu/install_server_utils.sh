@@ -15,6 +15,8 @@ sudo apt-get --yes install vim git python3-pip htop python3-dev tig curl fish \
     xsltproc libxml2-utils docbook-xsl gettext bear pipx ninja-build podman \
     docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+sudo usermod -aG docker $USER
+
 pipx install meson
 
 curl_deb() {
