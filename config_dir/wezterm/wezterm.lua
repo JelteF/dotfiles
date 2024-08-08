@@ -10,6 +10,8 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+config.audible_bell = "Disabled"
+
 config.font = wezterm.font("UbuntuMono")
 config.font_size = 10.7
 -- config.font = wezterm.font 'JetBrains Mono'
