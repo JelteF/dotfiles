@@ -18,6 +18,8 @@ opt.scrolloff = 7 -- lines of context at top and bottom of screen
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.shiftwidth = 4 -- Size of an indent
 
+opt.mousemoveevent = true -- Enable mouse support in all modes
+
 -- Unmap default Ctrl+C usage in sql files...
 -- https://stackoverflow.com/questions/24931088/disable-omnicomplete-or-ftplugin-or-something-in-vim
 vim.g.omni_sql_no_default_maps = 1
