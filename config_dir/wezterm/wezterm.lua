@@ -63,6 +63,11 @@ config.keys = {
 		mods = "ALT|SHIFT",
 		action = act.AdjustPaneSize({ "Down", 3 }),
 	},
+	{
+		key = "Backspace",
+		mods = "CTRL",
+		action = act.SendKey({ key = "Backspace" }),
+	},
 }
 
 -- and finally, return the configuration to wezterm
