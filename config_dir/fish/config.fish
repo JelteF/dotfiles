@@ -136,7 +136,7 @@ abbr -a gps git push
 abbr -a gpf git push --force-with-lease
 abbr -a ggpr git pull-request
 abbr -a gnpr git pull-request
-abbr -a diffs vim src/test/regress/regression.diffs
+abbr -a diffs vim test/regression/regression.diffs
 abbr -a dockerb docker build --network=host
 
 abbr -a explorer /mnt/c/WINDOWS/explorer.exe
