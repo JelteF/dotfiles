@@ -24,10 +24,10 @@ echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codenam
 
 curl_deb() {
     curl --location --output curlpackage.deb "$1"
-    sudo dpkg --install curlpackage.deb
+    sudo apt install -y ./curlpackage.deb
     rm curlpackage.deb
 }
 
-wezterm_version=20240203-110809-5046fc22
+wezterm_version=nightly
 
-curl_deb https://github.com/wez/wezterm/releases/download/$wezterm_version/wezterm-$wezterm_version.Ubuntu22.04.deb
+curl_deb https://github.com/wez/wezterm/releases/download/$wezterm_version/wezterm-$wezterm_version.Ubuntu24.04.deb

@@ -21,7 +21,7 @@ pipx install meson
 
 curl_deb() {
     curl --location --output curlpackage.deb "$1"
-    sudo dpkg --install curlpackage.deb
+    sudo apt-get install -y ./curlpackage.deb
     rm curlpackage.deb
 }
 
