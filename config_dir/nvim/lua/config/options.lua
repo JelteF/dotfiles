@@ -26,3 +26,6 @@ vim.g.omni_sql_no_default_maps = 1
 
 -- Don't detect lua as root
 vim.g.root_spec = { "lsp", ".git", "cwd" }
+
+-- No animations
+vim.g.snacks_animate = false

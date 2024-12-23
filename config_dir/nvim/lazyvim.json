@@ -11,6 +11,7 @@
     "lazyvim.plugins.extras.editor.inc-rename",
     "lazyvim.plugins.extras.editor.mini-files",
     "lazyvim.plugins.extras.editor.refactoring",
+    "lazyvim.plugins.extras.editor.telescope",
     "lazyvim.plugins.extras.lang.clangd",
     "lazyvim.plugins.extras.lang.cmake",
     "lazyvim.plugins.extras.lang.docker",
@@ -29,7 +30,7 @@
     "lazyvim.plugins.extras.util.project"
   ],
   "news": {
-    "NEWS.md": "7107"
+    "NEWS.md": "10960"
   },
   "version": 7
 }
