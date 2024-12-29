@@ -1,0 +1,14 @@
+[Unit]
+Description=start goimapnotify for various mailboxes
+After=local-fs.target
+After=network.target
+
+
+[Service]
+Restart=always
+RestartSec=30
+ExecStart=%h/go/bin/goimapnotify -conf %h/dotfiles/mail/goimapnotify.yaml
+
+[Install]
+WantedBy=default.target
+# Based on: https://usher.dev/posts/my-email-setup/

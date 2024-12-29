@@ -1,0 +1,16 @@
+configurations:
+- host: imap.gmail.com
+  port: 993
+  tls: true
+  tlsOptions:
+    rejectUnauthorized: false
+    starttls: false
+  username: me@jeltef.nl
+  passwordCmd: "oama access me@jeltef.nl"
+  onNewMail: "mbsync -a"
+  onNewMailPost: "notmuch new"
+  xoAuth2: true
+  boxes: 
+  - mailbox: Postgres
+  - mailbox: 'Postgres/Interesting'
+  - mailbox: '[Gmail]/Drafts'
