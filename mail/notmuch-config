@@ -1,0 +1,18 @@
+[database]
+path=/home/jelte/mail
+
+[user]
+name=Jelte Fennema-Nio
+primary_email=me@jeltef.nl
+
+[new]
+tags=unread;inbox;sent;Postgres
+ignore=
+
+[search]
+exclude_tags=deleted;spam;
+[maildir]
+synchronize_flags=true
+
+[crypto]
+gpg_path=gpg

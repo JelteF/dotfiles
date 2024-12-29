@@ -13,7 +13,8 @@ sudo apt-get --yes install vim git python3-pip htop python3-dev tig curl fish \
     libkrb5-dev libpam0g-dev libreadline-dev libselinux1-dev \
     libssl-dev libxslt1-dev libzstd-dev libipc-run-perl valgrind \
     xsltproc libxml2-utils docbook-xsl gettext bear pipx ninja-build podman \
-    docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin \
+    isync libsasl2-modules-kdexoauth2
 
 sudo usermod -aG docker $USER
 

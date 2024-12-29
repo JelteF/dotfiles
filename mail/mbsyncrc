@@ -1,0 +1,26 @@
+IMAPStore gmail-remote
+Host imap.gmail.com
+SSLType IMAPS
+AuthMechs XOAUTH2
+User me@jeltef.nl
+PassCmd "oama access me@jeltef.nl"
+
+MaildirStore gmail-local
+Path ~/mail/
+Inbox ~/mail/INBOX/
+Subfolders Verbatim
+
+Channel gmail
+Far :gmail-remote:
+Near :gmail-local:
+Create Both
+Expunge Both
+Patterns "Postgres/Interesting" "Postgres"
+SyncState *
+
+Channel gmail-drafts
+Far :gmail-remote:[Gmail]/Drafts
+Near :gmail-local:Drafts
+Create Both
+Expunge Both
+SyncState *

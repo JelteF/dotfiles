@@ -17,6 +17,8 @@ ORIGINAL_XINITRC=$HOME/.xinitrc
 ORIGINAL_XPROFILE=$HOME/.xprofile
 ORIGINAL_XSESSION=$HOME/.xsession
 ORIGINAL_SSHRC=$HOME/.sshrc
+ORIGINAL_MBSYNCRC=$HOME/.mbsyncrc
+ORIGINAL_NOTMUCH=$HOME/.notmuch-config
 
 # Create vim folders
 mkdir -p ~/.vim/{autoload,colors}
@@ -48,6 +50,8 @@ ln -snf "$PWD/x/xinitrc" "$ORIGINAL_XINITRC"
 ln -snf "$PWD/x/xsession" "$ORIGINAL_XSESSION"
 ln -snf "$PWD/x/xprofile" "$ORIGINAL_XPROFILE"
 ln -snf "$PWD/ssh/sshrc" "$ORIGINAL_SSHRC"
+ln -snf "$PWD/mail/mbsyncrc" "$ORIGINAL_MBSYNCRC"
+ln -snf "$PWD/mail/notmuch-config" "$ORIGINAL_NOTMUCH"
 
 ln -snf "$PWD/ptpython/"* ~/.ptpython/
 
