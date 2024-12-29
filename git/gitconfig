@@ -36,6 +36,7 @@
     whitespace-error-style = 22 reverse
     side-by-side = false
     line-numbers = false
+	navigate = true
 
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
@@ -98,3 +99,5 @@ title-blur = black blue
 	repo = /home/jelte/opensource/pgbouncer
 	repo = /home/jelte/opensource/postgres
 	repo = /home/jelte/work/citus
+[merge]
+	conflictStyle = zdiff3
