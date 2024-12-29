@@ -7,5 +7,6 @@ foo.*
 *.log
 data
 *.spl
+*.sug
 
 /lazy-lock.json
