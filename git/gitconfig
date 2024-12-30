@@ -101,3 +101,6 @@ title-blur = black blue
 	repo = /home/jelte/work/citus
 [merge]
 	conflictStyle = zdiff3
+
+[sendemail]
+    smtpServer = /bin/msmtp
