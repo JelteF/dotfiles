@@ -10,12 +10,18 @@ Path ~/mail/
 Inbox ~/mail/INBOX/
 Subfolders Verbatim
 
-Channel gmail
-Far :gmail-remote:
-Near :gmail-local:
+Channel gmail-pg
+Far :gmail-remote:"! Postgres"
+Near :gmail-local:Postgres
 Create Both
 Expunge Both
-Patterns "Postgres/Interesting" "Postgres"
+SyncState *
+
+Channel gmail-pg-interesting
+Far :gmail-remote:"! Postgres/Interesting"
+Near :gmail-local:Interesting
+Create Both
+Expunge Both
 SyncState *
 
 Channel gmail-drafts
