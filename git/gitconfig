@@ -104,3 +104,6 @@ title-blur = black blue
 
 [sendemail]
     smtpServer = /bin/msmtp
+
+[url "https://github.com/"]
+    insteadOf = git@github.com:
