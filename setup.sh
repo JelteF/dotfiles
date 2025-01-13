@@ -11,7 +11,7 @@ ORIGINAL_TIGRC=$HOME/.tigrc
 ORIGINAL_GDBINIT=$HOME/.gdbinit
 ORIGINAL_TMUXCONF=$HOME/.tmux.conf
 ORIGINAL_VIMRC=$HOME/.vimrc
-ORIGINAL_XCOMPOSE=$HOME/.XCompose
+# ORIGINAL_XCOMPOSE=$HOME/.XCompose
 ORIGINAL_XRESOURCES=$HOME/.Xresources
 ORIGINAL_XINITRC=$HOME/.xinitrc
 ORIGINAL_XPROFILE=$HOME/.xprofile
@@ -44,7 +44,7 @@ ln -snf "$PWD/tmux/tmux.conf" "$ORIGINAL_TMUXCONF"
 ln -snf "$PWD/vim/vimrc" "$ORIGINAL_VIMRC"
 ln -snf "$PWD/vim/vimrc" "$HOME/.vim/init.vim"
 ln -snf "$PWD/vim/fzf_ignore" "$HOME/.vim/fzf_ignore"
-ln -snf "$PWD/x/XCompose" "$ORIGINAL_XCOMPOSE"
+# ln -snf "$PWD/x/XCompose" "$ORIGINAL_XCOMPOSE"
 ln -snf "$PWD/x/Xresources" "$ORIGINAL_XRESOURCES"
 ln -snf "$PWD/x/xinitrc" "$ORIGINAL_XINITRC"
 ln -snf "$PWD/x/xsession" "$ORIGINAL_XSESSION"
