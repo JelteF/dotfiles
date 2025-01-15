@@ -5,7 +5,7 @@ gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'
 
 sudo snap disable firefox
 sudo snap remove firefox
-sudo apt-get --yes --force-yes install firefox keepassxc insync wl-clipboard code
+sudo apt-get --yes --force-yes install firefox keepassxc insync code
 sudo snap install telegram-desktop discord slack
 
 sudo tee /etc/apt/preferences.d/firefox-no-snap >/dev/null <<EOF
