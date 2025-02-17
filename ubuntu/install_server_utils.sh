@@ -54,4 +54,4 @@ rm npiperelay_windows_amd64.zip
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 pipx install virtualfish
-vf install auto_activation
+fish -c "vf install auto_activation"
