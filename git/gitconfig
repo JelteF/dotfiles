@@ -107,3 +107,9 @@ title-blur = black blue
 
 [url "https://github.com/"]
     insteadOf = git@github.com:
+[diff]
+	colorMoved = default
+[submodule]
+	recurse = true
+[fetch]
+	parallel = 20
