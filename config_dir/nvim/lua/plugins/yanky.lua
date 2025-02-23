@@ -4,6 +4,8 @@ return {
     local utils = require("yanky.utils")
     local mapping = require("yanky.telescope.mapping")
     return {
+      -- TODO: Integrate with gpaste-client
+      -- system_clipboard = { sync_with_ring = false },
       picker = {
         telescope = {
           use_default_keymaps = false,

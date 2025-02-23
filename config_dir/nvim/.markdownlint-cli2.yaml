@@ -2,3 +2,7 @@ config:
   MD013: false
   MD041: false
   MD032: false
+  # Allow inline HTML
+  MD033: false
+  MD024:
+    siblings_only: true
