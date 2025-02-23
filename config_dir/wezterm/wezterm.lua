@@ -68,6 +68,11 @@ config.keys = {
 		mods = "CTRL",
 		action = act.SendKey({ key = "Backspace" }),
 	},
+	{
+		key = "k",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.CloseCurrentPane({ confirm = true }),
+	},
 }
 
 -- and finally, return the configuration to wezterm
