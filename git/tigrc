@@ -2,3 +2,4 @@ set tab-size = 4
 set mouse = yes
 set wrap-lines = yes
 set main-view-date-local = true
+set diff-highlight = /home/jelte/dotfiles/git/delta
