@@ -4,7 +4,7 @@ set -euxo pipefail
 # Install everything
 echo 'Installing important stuff'
 sudo apt-get --yes install vim git python3-pip htop python3-dev tig curl fish \
-    build-essential tmux whois wget neovim cmake zlib1g-dev libncurses-dev \
+    build-essential tmux whois wget cmake zlib1g-dev libncurses-dev \
     gdb shellcheck openssl libssl-dev pkg-config socat unzip python-is-python3 \
     libtool nodejs golang-1.21-go libffi-dev libbz2-dev libreadline-dev \
     libyaml-dev mold flex bison libxml2-dev libxslt1-dev \
@@ -15,6 +15,8 @@ sudo apt-get --yes install vim git python3-pip htop python3-dev tig curl fish \
     xsltproc libxml2-utils docbook-xsl gettext bear pipx ninja-build podman \
     docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin \
     isync libsasl2-modules-kdexoauth2 msmtp fzf
+
+sudo snap install neovim
 
 sudo usermod -aG docker $USER
 
