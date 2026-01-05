@@ -27,27 +27,27 @@ set -x GOPATH $HOME/go
 set -x GOBIN $GOPATH/bin
 set -x ANDROID_HOME $HOME/Android/Sdk/
 
-set -x NPM_CONFIG_PREFIX ~/.npm-global
+# set -x NPM_CONFIG_PREFIX ~/.npm-global
 set -x PYENV_ROOT $HOME/.pyenv
+set -x GEN ninja
 
 if not status --is-interactive
     exit
 end
 
 set PATH (for p in $PATH; string match -v '/mnt/c/*' $p; end)
-set PATH $GOBIN /usr/lib/go-1.21/bin/ $PATH
+set PATH $GOBIN /usr/lib/go-1.22/bin/ $PATH
 
 # export PGUSER=postgres
 export PGHOST=localhost
 export PGDATABASE=postgres
 
-# export SSH_AUTH_SOCK=$HOME/.ssh/agent-npiperelay.sock
+export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
 
-# ss -a | grep -q $SSH_AUTH_SOCK
-# if [ $status -ne 0 ]
-#     rm -f $SSH_AUTH_SOCK
-#     bash -c '(setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"$HOME/npiperelay/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1'
-# end
+ss -a | grep -q $SSH_AUTH_SOCK
+if [ $status -ne 0 ]
+    ssh-agent -a $SSH_AUTH_SOCK >/dev/null
+end
 
 command -v rbenv >/dev/null && rbenv rehash 2>/dev/null
 
@@ -170,7 +170,7 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 
 zoxide init fish | source
 starship init fish | source
-command -v kubectl && kubectl completion fish | source
+command -v kubectl >/dev/null && kubectl completion fish | source
 
 functions --copy fish_prompt fish_prompt_starship
 
@@ -202,5 +202,16 @@ function curl_deb
     sudo dpkg --install curlpackage.deb
     rm curlpackage.deb
 end
+
+# pnpm
+set -gx PNPM_HOME "/home/jelte/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+command -v sccache >/dev/null && export RUSTC_WRAPPER=$(command -v sccache)
+
+export PG_TEST_TIMEOUT_DEFAULT=10
 
 ulimit -c unlimited

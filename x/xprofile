@@ -12,7 +12,8 @@ input_id() {
 model01id=$(input_id "Keyboardio Model 01 Keyboard")
 [ "$model01id" = "" ] || setxkbmap -layout 'us' -variant '' -device "$model01id"
 
-[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
-export QT_QPA_PLATFORMTHEME="qt5ct"
+# [ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
+# export QT_QPA_PLATFORMTHEME="qt5ct"
 
-eval $(ssh-agent -s)
+# eval $(ssh-agent -s)
+SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"

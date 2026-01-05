@@ -1,4 +1,5 @@
 config:
+  MD010: false
   MD013: false
   MD041: false
   MD032: false

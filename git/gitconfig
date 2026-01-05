@@ -16,6 +16,7 @@
 	editor = nvim
     pager = delta
     whitespace = tabwidth=4
+	fsmonitor = true
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [push]
@@ -112,5 +113,12 @@ title-blur = black blue
 	colorMoved = default
 [submodule]
 	recurse = true
+    fetchJobs = 0
 [fetch]
-	parallel = 20
+	parallel = 0
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
