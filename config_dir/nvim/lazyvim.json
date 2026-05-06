@@ -13,7 +13,7 @@
     "lazyvim.plugins.extras.editor.mini-files",
     "lazyvim.plugins.extras.editor.refactoring",
     "lazyvim.plugins.extras.editor.telescope",
-    "lazyvim.plugins.extras.formatting.biome",
+    "lazyvim.plugins.extras.lang.typescript.biome",
     "lazyvim.plugins.extras.lang.clangd",
     "lazyvim.plugins.extras.lang.cmake",
     "lazyvim.plugins.extras.lang.docker",

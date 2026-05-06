@@ -7,6 +7,8 @@ return {
         -- "yacc",
         "jinja",
         "helm",
+        "make",
+        "perl",
       })
     end,
   },

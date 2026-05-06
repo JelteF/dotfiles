@@ -58,3 +58,6 @@ compile_commands.json
 /uncrustify.cfg
 /uncrustify
 .venv
+.claude/
+CLAUDE.md
+build-*/

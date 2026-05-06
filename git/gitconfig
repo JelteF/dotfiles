@@ -99,8 +99,9 @@ title-focus = black blue
 title-blur = black blue
 [maintenance]
 	repo = /home/jelte/opensource/pgbouncer
-	repo = /home/jelte/opensource/postgres
-	repo = /home/jelte/work/citus
+	repo = /home/jelte/work/postgres
+	repo = /home/jelte/work/duckdb
+	repo = /home/jelte/work/pg_duckdb
 [merge]
 	conflictStyle = zdiff3
 
