@@ -215,3 +215,18 @@ command -v sccache >/dev/null && export RUSTC_WRAPPER=$(command -v sccache)
 export PG_TEST_TIMEOUT_DEFAULT=10
 
 ulimit -c unlimited
+
+set -x PATH $HOME/.local/bin $PATH
+duckman completion fish | source
+
+export VCPKG_TOOLCHAIN_PATH="/home/jelte/work/vcpkg/scripts/buildsystems/vcpkg.cmake"
+
+export CC=clang
+export CXX=clang++
+
+export DISABLE_DELTA_EXTENSION=1
+export DISABLE_ENCODINGS_EXTENSION=1
+export DISABLE_FTS_EXTENSION=1
+# export DISABLE_H3_EXTENSION=1
+export DISABLE_SPATIAL_EXTENSION=1
+export SKIP_SUBMODULES_CHECK=1
