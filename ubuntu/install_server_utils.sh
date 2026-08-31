@@ -6,15 +6,15 @@ echo 'Installing important stuff'
 sudo apt-get --yes install vim git python3-pip htop python3-dev tig curl fish \
     build-essential tmux whois wget cmake zlib1g-dev libncurses-dev \
     gdb shellcheck openssl libssl-dev pkg-config socat unzip python-is-python3 \
-    libtool nodejs golang-1.21-go libffi-dev libbz2-dev libreadline-dev \
+    libtool nodejs golang libffi-dev libbz2-dev libreadline-dev \
     libyaml-dev mold flex bison libxml2-dev libxslt1-dev \
-    libzstd-dev liblz4-dev llvm-15-dev clang-15 libevent-dev libc-ares-dev \
+    libzstd-dev liblz4-dev llvm-dev clang libevent-dev libc-ares-dev \
     libsystemd-dev pandoc libcurl4-gnutls-dev libicu-dev uuid-dev \
     libkrb5-dev libpam0g-dev libreadline-dev libselinux1-dev \
     libssl-dev libxslt1-dev libzstd-dev libipc-run-perl valgrind \
     xsltproc libxml2-utils docbook-xsl gettext bear pipx ninja-build podman \
     docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin \
-    isync libsasl2-modules-kdexoauth2 msmtp fzf
+    isync libsasl2-modules-kdexoauth2 msmtp fzf jq
 
 # sudo snap install neovim
 
