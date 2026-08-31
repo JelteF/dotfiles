@@ -42,11 +42,22 @@ set PATH $GOBIN /usr/lib/go-1.23/bin/ $PATH
 export PGHOST=localhost
 export PGDATABASE=postgres
 
-export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+if set -q WSL_DISTRO_NAME
+    set -gx BROWSER "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Start-Process"
+    export SSH_AUTH_SOCK=$HOME/.ssh/agent-npiperelay.sock
 
-ss -a | grep -q $SSH_AUTH_SOCK
-if [ $status -ne 0 ]
-    ssh-agent -a $SSH_AUTH_SOCK >/dev/null
+    ss -a | grep -q $SSH_AUTH_SOCK
+    if [ $status -ne 0 ]
+        rm -f $SSH_AUTH_SOCK
+        bash -c '(setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"$HOME/npiperelay/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1'
+    end
+else
+    export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+
+    ss -a | grep -q $SSH_AUTH_SOCK
+    if [ $status -ne 0 ]
+        ssh-agent -a $SSH_AUTH_SOCK >/dev/null
+    end
 end
 
 command -v rbenv >/dev/null && rbenv rehash 2>/dev/null
