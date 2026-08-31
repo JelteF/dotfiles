@@ -16,7 +16,7 @@ sudo apt-get --yes install vim git python3-pip htop python3-dev tig curl fish \
     docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin \
     isync libsasl2-modules-kdexoauth2 msmtp fzf jq
 
-# sudo snap install neovim
+sudo snap install nvim --classic
 
 sudo usermod -aG docker $USER
 
