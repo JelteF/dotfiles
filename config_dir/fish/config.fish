@@ -2,7 +2,7 @@ if not echo $TERM | grep 256color >/dev/null
     set TERM xterm-256color
 end
 
-fish_config theme choose "Catppuccin Mocha"
+fish_config theme choose catppuccin-mocha
 
 # Base16 Shell
 if status --is-interactive
