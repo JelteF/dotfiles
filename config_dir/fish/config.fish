@@ -54,8 +54,12 @@ if set -q WSL_DISTRO_NAME
 else
     export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
 
-    ss -a | grep -q $SSH_AUTH_SOCK
-    if [ $status -ne 0 ]
+    # ssh-add exits with 2 when it cannot connect to the agent. A stale socket
+    # file (e.g. left behind after a reboot) makes `ssh-agent -a` fail with
+    # "Address already in use", so remove it before starting a new agent.
+    ssh-add -l >/dev/null 2>&1
+    if [ $status -eq 2 ]
+        rm -f $SSH_AUTH_SOCK
         ssh-agent -a $SSH_AUTH_SOCK >/dev/null
     end
 end
