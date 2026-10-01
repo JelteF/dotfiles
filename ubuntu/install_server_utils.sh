@@ -28,25 +28,37 @@ curl_deb() {
     rm curlpackage.deb
 }
 
-RIPGREP_VERSION=$(curl -s "https://api.github.com/repos/BurntSushi/ripgrep/releases/latest" | grep -Po '"tag_name": "\K[^"]*')
+# Prints the tag of a GitHub repo's latest release. This follows the redirect
+# of the releases/latest page instead of using api.github.com, whose
+# unauthenticated rate limit of 60 requests per hour per IP is easily hit when
+# rerunning this script, after which the versions silently come back empty.
+latest_tag() {
+    local url
+    url=$(curl -fsSLI -o /dev/null -w '%{url_effective}' "https://github.com/$1/releases/latest")
+    echo "${url##*/tag/}"
+}
+
+RIPGREP_VERSION=$(latest_tag BurntSushi/ripgrep)
 curl_deb "https://github.com/BurntSushi/ripgrep/releases/latest/download/ripgrep_${RIPGREP_VERSION}-1_amd64.deb"
-FD_VERSION=$(curl -s "https://api.github.com/repos/sharkdp/fd/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-curl_deb "https://github.com/sharkdp/fd/releases/latest/download/fd_${FD_VERSION}_amd64.deb"
-DELTA_VERSION=$(curl -s "https://api.github.com/repos/dandavison/delta/releases/latest" | grep -Po '"tag_name": "\K[^"]*')
+FD_VERSION=$(latest_tag sharkdp/fd)
+curl_deb "https://github.com/sharkdp/fd/releases/latest/download/fd_${FD_VERSION#v}_amd64.deb"
+DELTA_VERSION=$(latest_tag dandavison/delta)
 curl_deb "https://github.com/dandavison/delta/releases/latest/download/git-delta-musl_${DELTA_VERSION}_amd64.deb"
-BAT_VERSION=$(curl -s "https://api.github.com/repos/sharkdp/bat/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-curl_deb "https://github.com/sharkdp/bat/releases/latest/download/bat_${BAT_VERSION}_amd64.deb"
-GH_VERSION=$(curl -s "https://api.github.com/repos/cli/cli/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-curl_deb "https://github.com/cli/cli/releases/latest/download/gh_${GH_VERSION}_linux_amd64.deb"
+BAT_VERSION=$(latest_tag sharkdp/bat)
+curl_deb "https://github.com/sharkdp/bat/releases/latest/download/bat_${BAT_VERSION#v}_amd64.deb"
+GH_VERSION=$(latest_tag cli/cli)
+curl_deb "https://github.com/cli/cli/releases/latest/download/gh_${GH_VERSION#v}_linux_amd64.deb"
 
 mkdir -p ~/.bin
 curl --location https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-musl.tar.gz | tar xz --directory ~/.bin starship
-SCCACHE_VERSION=$(curl -s "https://api.github.com/repos/mozilla/sccache/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+SCCACHE_VERSION=$(latest_tag mozilla/sccache)
+SCCACHE_VERSION=${SCCACHE_VERSION#v}
 curl --location https://github.com/mozilla/sccache/releases/latest/download/sccache-v${SCCACHE_VERSION}-x86_64-unknown-linux-musl.tar.gz | tar xz --directory ~/.bin "sccache-v${SCCACHE_VERSION}-x86_64-unknown-linux-musl/sccache" --strip-components 1
 
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
-LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+LAZYGIT_VERSION=$(latest_tag jesseduffield/lazygit)
+LAZYGIT_VERSION=${LAZYGIT_VERSION#v}
 curl --location "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" | tar xz --directory ~/.bin lazygit
 
 wget https://github.com/jstarks/npiperelay/releases/latest/download/npiperelay_windows_amd64.zip
