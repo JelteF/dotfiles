@@ -10,7 +10,7 @@ sudo apt-get --yes install vim git python3-pip htop python3-dev tig curl fish \
     libyaml-dev mold flex bison libxml2-dev libxslt1-dev \
     libzstd-dev liblz4-dev llvm-dev clang libevent-dev libc-ares-dev \
     libsystemd-dev pandoc libcurl4-gnutls-dev libicu-dev uuid-dev \
-    libkrb5-dev libpam0g-dev libreadline-dev libselinux1-dev \
+    libkrb5-dev libpam0g-dev libreadline-dev libselinux-dev \
     libssl-dev libxslt1-dev libzstd-dev libipc-run-perl valgrind \
     xsltproc libxml2-utils docbook-xsl gettext bear pipx ninja-build podman \
     docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin \
