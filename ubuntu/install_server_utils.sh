@@ -67,5 +67,6 @@ rm npiperelay_windows_amd64.zip
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
-pipx install virtualfish
-fish -c "vf install auto_activation"
+# The shell configs in this repo already put ~/.local/bin on the PATH, so
+# don't let the installer append to them.
+curl -LsSf https://astral.sh/uv/install.sh | env UV_NO_MODIFY_PATH=1 sh
