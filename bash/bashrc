@@ -79,4 +79,4 @@ if [ $? -eq 2 ]; then
     ssh-agent -a $SSH_AUTH_SOCK >/dev/null
 fi
 export PATH="$HOME/.local/bin:$PATH"
-eval "$(duckman completion bash)"
+command -v duckman >/dev/null && eval "$(duckman completion bash)"
