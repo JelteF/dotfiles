@@ -30,6 +30,7 @@ set -x ANDROID_HOME $HOME/Android/Sdk/
 # set -x NPM_CONFIG_PREFIX ~/.npm-global
 set -x PYENV_ROOT $HOME/.pyenv
 set -x GEN ninja
+set -x DUCKDB_LINKER lld
 
 if not status --is-interactive
     exit
