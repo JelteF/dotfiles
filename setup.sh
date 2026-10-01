@@ -64,6 +64,9 @@ ln -sf "$PWD/config_dir/"* ~/.config/
 mkdir -p "$HOME/.ssh"
 chmod 0700 "$HOME/.ssh"
 
+mkdir -p "$HOME/.claude"
+ln -snf "$PWD/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+
 # Install fisherman
 if command -v fish; then
     fish -c 'curl -sL https://git.io/fisher | source && fisher install (cat config_dir/fish/fish_plugins) && fisher update'
