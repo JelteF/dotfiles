@@ -32,6 +32,7 @@ fi
 
 ./install_ubuntu_server.sh
 ./setup.sh
+nvim --headless -c 'luafile install_nvim_plugins.lua'
 
 fish_path=$(command -v fish)
 if [ "$(getent passwd "$USER" | cut -d: -f7)" != "$fish_path" ]; then
