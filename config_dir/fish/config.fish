@@ -246,3 +246,9 @@ export DISABLE_FTS_EXTENSION=1
 # export DISABLE_H3_EXTENSION=1
 export DISABLE_SPATIAL_EXTENSION=1
 export SKIP_SUBMODULES_CHECK=1
+
+# Machine-local secrets (API tokens etc.) that must never be committed. Since
+# ~/.config/fish is this repo, the file lives inside it and is gitignored.
+# Sourced last so it can also override anything above.
+set -l secrets_file (status dirname)/secrets.fish
+test -f $secrets_file; and source $secrets_file
