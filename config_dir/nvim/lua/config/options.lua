@@ -50,4 +50,21 @@ if vim.fn.executable("gpaste-client") == 1 then
     },
     cache_enabled = true,
   }
+elseif vim.env.HERDR_ENV == "1" and vim.env.SSH_CONNECTION then
+  -- herdr forwards OSC 52 writes but never answers OSC 52 read queries, so
+  -- any read of the + register (yanky's focus sync, which-key's register
+  -- preview, "+p) would block on "Waiting for OSC 52 response". Reads return
+  -- nvim's own unnamed register instead; text from other apps can still be
+  -- pasted with the terminal's own paste.
+  local function paste()
+    return { vim.fn.split(vim.fn.getreg(""), "\n"), vim.fn.getregtype("") }
+  end
+  vim.g.clipboard = {
+    name = "OSC 52 (herdr)",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = { ["+"] = paste, ["*"] = paste },
+  }
 end
