@@ -14,7 +14,8 @@ sudo apt-get --yes install vim git python3-pip htop python3-dev tig curl fish \
     libssl-dev libxslt1-dev libzstd-dev libipc-run-perl valgrind \
     xsltproc libxml2-utils docbook-xsl gettext bear pipx ninja-build podman \
     docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin \
-    isync libsasl2-modules-kdexoauth2 msmtp fzf jq
+    isync libsasl2-modules-kdexoauth2 msmtp fzf jq zip libpq-dev lld \
+    libjitterentropy3-dev libfuse3-dev libfmt-dev libgoogle-perftools-dev libboost-all-dev
 
 sudo snap install nvim --classic
 
