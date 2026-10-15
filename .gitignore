@@ -5,3 +5,7 @@ backup
 /config_dir/xfce4/terminal/accels.scm
 /config_dir/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
 /tmux/catppuccin
+# herdr keeps its logs, sockets and sessions next to its config, so only the
+# config itself is tracked.
+/config_dir/herdr/*
+!/config_dir/herdr/config.toml

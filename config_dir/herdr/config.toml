@@ -1,0 +1,45 @@
+onboarding = false
+
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+# Bindings that mirror ~/dotfiles/tmux/tmux.conf (and tmux's own defaults
+# where that config doesn't override them), so the same muscle memory works
+# in both. The prefix is ctrl+b in both already. Setting a field replaces
+# herdr's default for it, so herdr's own key is listed too where it doesn't
+# clash with anything.
+[keys]
+# tmux: | and % split side by side, _ and " split top/bottom
+split_vertical = ["prefix+|", "prefix+percent", "prefix+v"]
+split_horizontal = ["prefix+_", "prefix+double_quote", "prefix+minus"]
+
+# tmux: ctrl+h/j/k/l moves between panes. herdr's prefix+h/j/k are kept as
+# well; in tmux prefix+h was select-layout, which herdr doesn't have.
+focus_pane_left = ["prefix+ctrl+h", "prefix+h"]
+focus_pane_down = ["prefix+ctrl+j", "prefix+j"]
+focus_pane_up = ["prefix+ctrl+k", "prefix+k"]
+focus_pane_right = "prefix+ctrl+l"
+# tmux: ctrl+a is bound to last-pane, and ; is tmux's default for it.
+# herdr has no last-window action, but last_pane goes back to the previously
+# focused pane in any tab. Right after switching tabs that's the pane in the
+# tab you came from, so it stands in for tmux's prefix+l.
+last_pane = ["prefix+ctrl+a", "prefix+semicolon", "prefix+l"]
+
+# tmux: H/J/K/L resizes. Unlike tmux these don't repeat without pressing
+# the prefix again; prefix+r enters herdr's resize mode for that.
+resize_pane_left = "prefix+H"
+resize_pane_down = "prefix+J"
+resize_pane_up = "prefix+K"
+resize_pane_right = "prefix+L"
+
+# tmux windows are herdr tabs. c, n, p and 1..9 are the same in both by
+# default; these are tmux's defaults for renaming, closing and detaching.
+rename_tab = ["prefix+comma", "prefix+shift+t"]
+close_tab = ["prefix+ampersand", "prefix+shift+x"]
+detach = ["prefix+d", "prefix+q"]
+
+[ui]
+# WezTerm recognizes herdr by this prefix, to send its pane and tab
+# shortcuts to herdr instead (see wezterm.lua in the dotfiles).
+window_title = "herdr {hostname}: {workspace}"
