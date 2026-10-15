@@ -235,7 +235,7 @@ ulimit -c unlimited
 set -x PATH $HOME/.local/bin $PATH
 command -q duckman; and duckman completion fish | source
 
-export VCPKG_TOOLCHAIN_PATH="/home/jelte/work/vcpkg/scripts/buildsystems/vcpkg.cmake"
+# export VCPKG_TOOLCHAIN_PATH="/home/jelte/work/vcpkg/scripts/buildsystems/vcpkg.cmake"
 
 export CC=clang
 export CXX=clang++
