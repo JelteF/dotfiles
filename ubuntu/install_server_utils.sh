@@ -19,6 +19,12 @@ sudo apt-get --yes install vim git python3-pip htop python3-dev tig curl fish \
 
 sudo snap install nvim --classic
 
+# clang 23 from apt.llvm.org, next to Ubuntu's default clang. It's the first
+# release where -relocatable-pch actually writes paths relative to -isysroot
+# (llvm/llvm-project#180023), which is needed to share precompiled headers
+# between git worktrees through ccache.
+curl -fsSL https://apt.llvm.org/llvm.sh | sudo bash -s 23
+
 sudo usermod -aG docker $USER
 
 pipx install meson

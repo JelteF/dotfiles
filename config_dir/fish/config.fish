@@ -237,8 +237,10 @@ command -q duckman; and duckman completion fish | source
 
 # export VCPKG_TOOLCHAIN_PATH="/home/jelte/work/vcpkg/scripts/buildsystems/vcpkg.cmake"
 
-export CC=clang
-export CXX=clang++
+# clang 23 from apt.llvm.org (see ubuntu/install_server_utils.sh), because it's
+# the first version whose relocatable PCHs can be shared between git worktrees.
+export CC=clang-23
+export CXX=clang++-23
 
 export DISABLE_DELTA_EXTENSION=1
 export DISABLE_ENCODINGS_EXTENSION=1
