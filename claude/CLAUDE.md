@@ -14,6 +14,14 @@ When creating PRs always create them as draft PRs first. I will convert them mys
 
 When compiling DuckDB or mono always use make release (NOT reldebug)
 
+In mono use scripts/git_worktree.py to create a new worktree (NOT git worktree add)
+
+PR descriptions should use paragraphs (double newline) instead of single newlines.
+
+When opening a PR to upstream repos (like duckdb/duckdb), ALWAYS open the PR against the default branch of the repo.
+
+Commit messages should be hard-wrapped at 72 chars, but PR descriptions should not be hard wrapped.
+
 ALWAYS compile code in the background NOT the foreground
 
 DO NOT respond to github review comments for me

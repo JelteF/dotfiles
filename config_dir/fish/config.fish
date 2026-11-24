@@ -25,7 +25,6 @@ set VIRTUALGO_DISABLE_PROMPT yes
 
 set -x GOPATH $HOME/go
 set -x GOBIN $GOPATH/bin
-set -x ANDROID_HOME $HOME/Android/Sdk/
 
 # set -x NPM_CONFIG_PREFIX ~/.npm-global
 set -x PYENV_ROOT $HOME/.pyenv

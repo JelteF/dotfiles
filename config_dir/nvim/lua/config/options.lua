@@ -56,15 +56,28 @@ elseif vim.env.HERDR_ENV == "1" and vim.env.SSH_CONNECTION then
   -- preview, "+p) would block on "Waiting for OSC 52 response". Reads return
   -- nvim's own unnamed register instead; text from other apps can still be
   -- pasted with the terminal's own paste.
+  --
+  -- LazyVim leaves 'clipboard' empty over SSH, which means a plain y never
+  -- reaches the OSC 52 provider. We enable unnamedplus explicitly. That makes
+  -- the unnamed register an alias for +, so paste can't read it back with
+  -- getreg("") (that would recurse into this provider). Instead we cache
+  -- whatever was last copied.
+  local osc52 = require("vim.ui.clipboard.osc52")
+  local last = { {}, "v" }
+  local function copy(reg)
+    local send = osc52.copy(reg)
+    return function(lines, regtype)
+      last = { lines, regtype }
+      send(lines, regtype)
+    end
+  end
   local function paste()
-    return { vim.fn.split(vim.fn.getreg(""), "\n"), vim.fn.getregtype("") }
+    return last
   end
   vim.g.clipboard = {
     name = "OSC 52 (herdr)",
-    copy = {
-      ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-    },
+    copy = { ["+"] = copy("+"), ["*"] = copy("*") },
     paste = { ["+"] = paste, ["*"] = paste },
   }
+  opt.clipboard = "unnamedplus"
 end
